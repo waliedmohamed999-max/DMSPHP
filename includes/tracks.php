@@ -13,6 +13,7 @@ $marketingCurriculum = require __DIR__ . '/../digital-marketing/includes/curricu
 $dataCurriculum = require __DIR__ . '/../data-analysis/includes/curriculum.php';
 $uxCurriculum = require __DIR__ . '/../ui-ux-design/includes/curriculum.php';
 $graphicCurriculum = require __DIR__ . '/../graphic-design/includes/curriculum.php';
+$englishCurriculum = require __DIR__ . '/../english/includes/curriculum.php';
 
 return [
     // --- قسم البرمجة / Programming ---
@@ -147,5 +148,20 @@ return [
         'stage_count' => count($graphicCurriculum),
         'status'      => 'available',
         'url'         => 'graphic-design/index.php',
+    ],
+
+    // --- قسم اللغات / Languages ---
+    [
+        'key'         => 'english',
+        'section'     => 'languages',
+        'icon'        => '🇬🇧',
+        'title_ar'    => 'مسار اللغة الإنجليزية',
+        'title_en'    => 'English Language',
+        'tagline_ar'  => 'من الصفر إلى الاحتراف',
+        'tagline_en'  => 'From zero to fluent',
+        'desc_ar'     => 'القواعد، المفردات، الكتابة، والتحدث — وصولاً لإنجليزية بيئة العمل والإنجليزية التقنية للمبرمجين.',
+        'stage_count' => count($englishCurriculum),
+        'status'      => 'available',
+        'url'         => 'english/index.php',
     ],
 ];

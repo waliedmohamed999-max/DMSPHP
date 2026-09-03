@@ -16,6 +16,12 @@ $sections = [
         'title_en' => 'Digital Skills',
         'desc_ar'  => 'تسويق، تحليل بيانات، وتصميم — مهارات رقمية مطلوبة برة عالم البرمجة البحت.',
     ],
+    'languages' => [
+        'icon'     => '🌍',
+        'title_ar' => 'قسم اللغات',
+        'title_en' => 'Languages',
+        'desc_ar'  => 'إتقان اللغة اللي بتفتحلك كل مصادر البرمجة والفرص العالمية.',
+    ],
 ];
 
 $tracksBySection = [];
