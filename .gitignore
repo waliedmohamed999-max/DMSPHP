@@ -1,0 +1,9 @@
+# Claude Code session-local files
+.claude/
+
+# Runtime logs
+*.log
+
+# Sandbox execution scratch directories (recreated automatically at runtime)
+**/sandbox/*
+!**/sandbox/.gitkeep

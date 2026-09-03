@@ -1,0 +1,55 @@
+<?php
+require __DIR__ . '/includes/progress.php';
+$curriculum = require __DIR__ . '/includes/curriculum.php';
+$progress = load_progress();
+
+$total = count($curriculum);
+$done = count(array_filter($progress));
+$percent = $total > 0 ? round(($done / $total) * 100) : 0;
+
+$page_title = 'Python Web Developer — لوحة الدروس';
+$base = '.';
+include __DIR__ . '/includes/header.php';
+?>
+
+<h1>مسار Python Web Developer</h1>
+<p class="subtitle">المسار الكامل لإتقان تطوير المواقع بلغة Python مع أشهر أطر العمل زي Django وFlask، بالتنفيذ الفعلي مش بالحفظ.</p>
+
+<div class="progress-bar-wrap"><div class="progress-bar" style="width: <?= $percent ?>%"></div></div>
+<div class="progress-label"><?= $done ?> / <?= $total ?> مراحل خلصت (<?= $percent ?>%)</div>
+
+<div class="stage-list">
+<?php foreach ($curriculum as $key => $stage):
+    $isDone = !empty($progress[$key]);
+    $external = $stage['external'] ?? null;
+    $lessonFile = __DIR__ . "/lessons/{$key}.php";
+    $hasContent = $external !== null || file_exists($lessonFile);
+    $href = $external ?? "lessons/{$key}.php";
+?>
+    <div class="stage-card <?= $isDone ? 'done' : '' ?>">
+        <button class="stage-check <?= $isDone ? 'checked' : '' ?>" data-stage="<?= $key ?>" title="علّم كمخلّص / Mark done">✓</button>
+        <a href="<?= $hasContent ? htmlspecialchars($href) : '#' ?>" class="stage-body" style="text-decoration:none;color:inherit;<?= $hasContent ? '' : 'opacity:.5;pointer-events:none;' ?>">
+            <div class="stage-title"><?= htmlspecialchars($stage['title_ar']) ?> <span class="ltr"><?= htmlspecialchars($stage['title_en']) ?></span></div>
+            <div class="stage-desc"><?= htmlspecialchars($stage['desc_ar']) ?></div>
+        </a>
+        <?php if (!$hasContent): ?><span class="badge">قريبًا / soon</span><?php endif; ?>
+    </div>
+<?php endforeach; ?>
+</div>
+
+<script>
+document.querySelectorAll('.stage-check').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const stage = btn.dataset.stage;
+        const res = await fetch('toggle_progress.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'stage=' + encodeURIComponent(stage),
+        });
+        const data = await res.json();
+        if (data.progress) location.reload();
+    });
+});
+</script>
+
+<?php include __DIR__ . '/includes/footer.php'; ?>
