@@ -96,6 +96,55 @@
 
 ---
 
+## 🔒 ملاحظات أمان مهمة / Security Notes
+
+الأداة دي بتنفّذ كود المستخدم فعليًا على السيرفر — ده أساس فكرتها، لكنه معناه إنها **تنفيذ كود عن بُعد (RCE) بتصميم**. لو ناوي تنشرها للعامة، لازم تفهم بالظبط إيه اللي بيحميك وإيه اللي لأ:
+
+**محركات PHP** (`php-backend`, `fundamentals`, `fullstack`) محمية بـ 3 طبقات حقيقية:
+- `disable_functions` بتتبعت لمحرك PHP نفسه وقت التشغيل (`exec`, `shell_exec`, `system`, `proc_open`, `putenv`, `symlink`... إلخ) — دي حماية على مستوى المفسّر نفسه، مش regex سهل تتلف عليه.
+- `open_basedir` بيمنع أي قراءة/كتابة لملفات برة مجلد الـ `sandbox` بتاع المسار.
+- Rate limiting بسيط (20 تشغيلة/دقيقة لكل IP) + حد أقصى لحجم الناتج (200KB) لمنع إغراق الذاكرة/القرص.
+
+**محركات Python** (`python-web`, `data-analysis`) أضعف بطبيعتها — Python مفيهاش حاجة زي `disable_functions`/`open_basedir` على مستوى المفسّر. الحماية الموجودة:
+- قايمة حظر نصية (regex) على `os`, `subprocess`, `socket`, `eval`, `exec`, `open`... إلخ — **ده رادع مش ضمان**، ممكن يتلف عليه بتقنيات تشفير/تركيب نصوص.
+- نفس الـ Rate limiting وحد الناتج.
+- **ملحوظ:** كتابة ملف بمسار مطلق (زي `matplotlib.savefig("/etc/x")`) مش ممنوعة تقنيًا، ومكتبات تالتة زي matplotlib بتكتب ملفات من غير ما تستخدم `open()` في كود المستخدم نفسه، فمينفعش تعتمد على الـ blocklist وحدها.
+
+**لو عايز تنشر فعليًا للعامة وتفضّل حاسس بالأمان:** أضمن حل هو تشغيل كل تنفيذ كود جوه Container منفصل (Docker) بموارد محدودة ومن غير أي صلاحية شبكة — ده محتاج VPS بصلاحية root، مش هيشتغل من كود PHP لوحده.
+
+---
+
+## 🚀 النشر للعامة / Deploying Publicly
+
+### ❌ Vercel ومنصات الـ Serverless مش هيشتغلوا
+
+Vercel، Netlify، وأي منصة Serverless مبنية لـ Next.js/Node/Static من الأساس — **مفيهاش PHP runtime خالص**، وحتى لو كان فيه، فكرة `proc_open` بتشغّل ملف تنفيذي (php-cli/python) دي بالظبط اللي منصات الـ Serverless بتمنعها أمنيًا. المشروع ده محتاج سيرفر تقليدي (Apache/Nginx + PHP-FPM أو mod_php) شغال باستمرار.
+
+### ⚠️ استضافة مشتركة (Shared Hosting) — محتاج تتأكد الأول
+
+معظم الاستضافات المشتركة الرخيصة (Hostinger, Namecheap, Bluehost العادية...) **بتقفل `proc_open`/`exec` افتراضيًا** على كل حساباتها كإجراء أمني عام — مش حاجة تقدر تفعّلها بنفسك من غير دعم فني، لأنها مضبوطة في `php.ini` بتاع السيرفر كله. لو اشتريت استضافة وطلع `proc_open` مقفول، الـ Playgrounds كلها (PHP وPython) هتفشل بصمت.
+
+**قبل ما تشتري أي استضافة، اتأكد من:**
+1. إنها بتسمح بـ `proc_open` (اسأل الدعم الفني صراحة، أو دور في وثائقهم عن "shell access" أو "exec functions")
+2. إن عندها Python CLI متاح ومعاه إمكانية تثبيت pip packages (لمسار Python وتحليل البيانات)
+
+استضافات زي **A2 Hosting** أو **InterServer** بتسمح غالبًا بـ SSH وexec على الباقات الأعلى، لكن ده بيختلف حسب الخطة والوقت.
+
+### ✅ الخيار الأضمن: VPS رخيص
+
+لو عايز تضمن إن الـ Playgrounds تشتغل 100%، أرخص طريق مضمون هو **VPS بسعر قريب من الاستضافة المشتركة** (Hetzner ~€4، Contabo ~€5، DigitalOcean/Linode من $5) — بتديك root access كامل، تقدر تركّب PHP وPython وتتحكم في كل حاجة بنفسك، وده أضمن بكتير من "أتمنى إن الاستضافة المشتركة تسمح".
+
+خطوات النشر على VPS (باختصار):
+```bash
+sudo apt update && sudo apt install apache2 php php-cli php-sqlite3 python3 python3-pip
+pip3 install pandas matplotlib flask django
+git clone https://github.com/waliedmohamed999-max/DMSPHP.git /var/www/html/dmsphp
+sudo chown -R www-data:www-data /var/www/html/dmsphp
+# فعّل mod_rewrite واضبط VirtualHost على مجلد المشروع
+```
+
+---
+
 ## 🚀 التشغيل محليًا / Running Locally
 
 المشروع مبني عشان يشتغل على **XAMPP** (Apache + PHP)، واختياريًا Python لو عايز تجرب مسارات Python/تحليل البيانات.

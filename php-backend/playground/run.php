@@ -1,10 +1,18 @@
 <?php
 // Executes student PHP code in an isolated temp file and returns the real output.
-// Local-only learning tool (XAMPP/localhost) — not exposed to the internet.
+//
+// This engine is exposed to the public internet, so it is hardened at three layers:
+//   1. Rate limiting per IP (a simple file-based counter) to blunt abuse/DoS.
+//   2. Hard resource caps (time, memory, output size) on the spawned process.
+//   3. `-d disable_functions=...` + `-d open_basedir=...` passed directly to the
+//      PHP CLI binary, so dangerous functions are refused by the interpreter
+//      itself (not a regex blocklist that variable functions could dodge), and
+//      the process can only touch files inside its own sandbox directory.
+// This is defense-in-depth, not a full container sandbox — see README's
+// "Security Notes" section before relying on it for a high-traffic public site.
 
 header('Content-Type: application/json');
 
-// Refuse anything not coming from this same local app (basic guard, not real auth).
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'POST only']);
@@ -26,28 +34,67 @@ if (!is_dir($sandboxDir)) {
     mkdir($sandboxDir, 0777, true);
 }
 
+// --- Rate limiting: max 20 runs per minute per IP ---
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateFile = $sandboxDir . '/.rate_' . md5($ip);
+$now = time();
+$hits = [];
+if (is_file($rateFile)) {
+    $hits = json_decode(file_get_contents($rateFile), true) ?: [];
+}
+$hits = array_values(array_filter($hits, fn($t) => $now - $t < 60));
+if (count($hits) >= 20) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Too many runs — wait a moment and try again.']);
+    exit;
+}
+$hits[] = $now;
+file_put_contents($rateFile, json_encode($hits));
+
 $id = bin2hex(random_bytes(8));
 $file = $sandboxDir . "/run_$id.php";
 
-// Cap runaway loops from inside the executed script itself.
-$wrapped = "<?php\ndeclare(strict_types=0);\nset_time_limit(5);\nini_set('memory_limit', '64M');\n?>\n" . $code;
+// Cap runaway loops/memory from inside the executed script itself.
+$wrapped = "<?php\ndeclare(strict_types=0);\nset_time_limit(5);\nini_set('memory_limit', '32M');\n?>\n" . $code;
 file_put_contents($file, $wrapped);
 
 // Under mod_php (running inside Apache), PHP_BINARY points to httpd.exe itself —
 // spawning that would launch a nested Apache process, not run our script.
-// Locate the real php-cli binary instead, using the XAMPP layout (htdocs and php
-// are sibling folders under the XAMPP root).
+// Locate the real php-cli binary instead. Try the XAMPP layout first (htdocs
+// and php are sibling folders under the XAMPP root); fall back to whatever
+// `php` resolves to on PATH for non-XAMPP/Linux hosting.
 $phpBinary = PHP_BINARY;
-if (stripos(basename($phpBinary), 'httpd') !== false) {
+if (stripos(basename($phpBinary), 'httpd') !== false || stripos(basename($phpBinary), 'apache') !== false) {
     $xamppRoot = dirname($_SERVER['DOCUMENT_ROOT']);
     $candidate = $xamppRoot . '/php/php.exe';
-    if (!is_file($candidate)) {
-        @unlink($file);
-        echo json_encode(['error' => "Could not locate the PHP CLI binary (expected at $candidate)."]);
-        exit;
+    if (is_file($candidate)) {
+        $phpBinary = $candidate;
+    } else {
+        $phpBinary = 'php'; // rely on PATH (typical on Linux hosting)
     }
-    $phpBinary = $candidate;
 }
+
+// Functions a learner never legitimately needs in a one-shot teaching snippet,
+// and which are the classic building blocks of a remote-code-execution exploit.
+$disabledFunctions = implode(',', [
+    'exec', 'shell_exec', 'system', 'passthru', 'popen', 'proc_open', 'proc_close',
+    'proc_get_status', 'proc_terminate', 'proc_nice',
+    'pcntl_exec', 'pcntl_fork',
+    'putenv', 'ini_alter', 'dl',
+    'symlink', 'link', 'chgrp', 'chown', 'chmod',
+    'mail', 'syslog',
+    'fsockopen', 'pfsockopen', 'curl_init',
+]);
+
+$cliArgs = [
+    $phpBinary,
+    '-d', "disable_functions=$disabledFunctions",
+    '-d', "open_basedir=$sandboxDir",
+    '-d', 'allow_url_fopen=0',
+    '-d', 'allow_url_include=0',
+    '-d', 'expose_php=0',
+    $file,
+];
 
 $descriptors = [
     0 => ['pipe', 'r'],
@@ -55,11 +102,12 @@ $descriptors = [
     2 => ['pipe', 'w'],
 ];
 
-$process = proc_open([$phpBinary, $file], $descriptors, $pipes, $sandboxDir);
+$process = proc_open($cliArgs, $descriptors, $pipes, $sandboxDir);
 
 $output = '';
 $errorOutput = '';
 $timedOut = false;
+$maxOutputBytes = 200 * 1024; // 200 KB cap so a print-flood can't exhaust memory/disk
 
 if (is_resource($process)) {
     fclose($pipes[0]);
@@ -71,9 +119,18 @@ if (is_resource($process)) {
 
     while (true) {
         $status = proc_get_status($process);
-        $output .= stream_get_contents($pipes[1]);
-        $errorOutput .= stream_get_contents($pipes[2]);
+        if (strlen($output) < $maxOutputBytes) {
+            $output .= stream_get_contents($pipes[1]);
+        }
+        if (strlen($errorOutput) < $maxOutputBytes) {
+            $errorOutput .= stream_get_contents($pipes[2]);
+        }
 
+        if (strlen($output) > $maxOutputBytes || strlen($errorOutput) > $maxOutputBytes) {
+            proc_terminate($process, 9);
+            $output = substr($output, 0, $maxOutputBytes) . "\n... (output truncated)";
+            break;
+        }
         if (!$status['running']) {
             break;
         }
@@ -85,8 +142,12 @@ if (is_resource($process)) {
         usleep(50000);
     }
 
-    $output .= stream_get_contents($pipes[1]);
-    $errorOutput .= stream_get_contents($pipes[2]);
+    if (strlen($output) < $maxOutputBytes) {
+        $output .= stream_get_contents($pipes[1]);
+    }
+    if (strlen($errorOutput) < $maxOutputBytes) {
+        $errorOutput .= stream_get_contents($pipes[2]);
+    }
 
     fclose($pipes[1]);
     fclose($pipes[2]);
