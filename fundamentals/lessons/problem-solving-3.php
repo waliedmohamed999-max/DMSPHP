@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/header.php';
 
 <span class="badge">المرحلة 7 / Stage 7</span>
 <h1>حل المشكلات — مستوى متوسط <span class="ltr">Problem Solving — Intermediate</span></h1>
-<p class="subtitle">دلوقتي وانت عارف خوارزميات وهياكل بيانات، جاهز لمشاكل أعقد شوية بتحتاج توظيف أكتر من فكرة مع بعض — مقارنة بين نصوص، تتبّع قيم شفتها قبل كده، والتعامل مع مصفوفات ثنائية الأبعاد.</p>
+<p class="subtitle">دلوقتي وانت عارف خوارزميات وهياكل بيانات، جاهز لمشاكل أعقد شوية بتحتاج توظيف أكتر من فكرة مع بعض — مقارنة بين نصوص، تتبّع قيم شفتها قبل كده، التعامل مع مصفوفات ثنائية الأبعاد، وإيجاد أول عنصر "فريد" في تسلسل.</p>
 
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
@@ -23,8 +23,8 @@ include __DIR__ . '/../includes/header.php';
 
 <h2 id="read">الهدف / Goal</h2>
 <div class="bi-block">
-    <div class="ar">🇪🇬 تحل 6 مشاكل متوسطة الصعوبة بتظهر كتير في مقابلات الشغل، وتتمرن على دمج أدوات اتعلمتها في مراحل مختلفة (فرز، بحث، هياكل بيانات بسيطة) في حل واحد.</div>
-    <div class="en">🇬🇧 Solve 6 intermediate problems that show up often in job interviews, practicing how to combine tools from different stages (sorting, searching, simple data structures) into one solution.</div>
+    <div class="ar">🇪🇬 تحل 7 مشاكل متوسطة الصعوبة بتظهر كتير في مقابلات الشغل، وتتمرن على دمج أدوات اتعلمتها في مراحل مختلفة (فرز، بحث، هياكل بيانات بسيطة) في حل واحد.</div>
+    <div class="en">🇬🇧 Solve 7 intermediate problems that show up often in job interviews, practicing how to combine tools from different stages (sorting, searching, simple data structures) into one solution.</div>
 </div>
 
 <h2 id="understand">مشكلة 1: هل كلمتين متناظرتان لفظيًا (Anagram)؟</h2>
@@ -197,6 +197,38 @@ l</div>
     <div class="en">🇬🇧 The expression <code>$counts[$ch] ?? 0</code> uses the "Null Coalescing" operator — meaning "if this key doesn't exist, use zero instead of raising a warning." It's a very clean way to count elements in PHP.</div>
 </div>
 
+<h2>مشكلة 7: أول حرف غير مكرر في نص</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>المطلوب:</b> لاقي أول حرف في نص بيظهر مرة واحدة بس (من غير تكرار)، بنفس ترتيب ظهوره. <b>التفكير:</b> نفس نمط "العدّ بمصفوفة جمعية" من المسألة اللي فاتت، بس المرة دي بمرورين على النص: مرور أول يبني جدول عدد ظهور كل حرف، ومرور تاني يدور على أول حرف عدده بالظبط 1.</div>
+    <div class="en">🇬🇧 <b>Task:</b> find the first character in a string that appears exactly once, in order of appearance. <b>Thinking:</b> the same "counting with an associative array" pattern from the previous problem, but now with two passes: the first pass builds a count table for every character, the second pass looks for the first character whose count is exactly 1.</div>
+</div>
+<pre><code>&lt;?php
+function firstNonRepeatingChar(string $s): ?string {
+    $counts = [];
+    foreach (str_split(strtolower($s)) as $ch) {
+        $counts[$ch] = ($counts[$ch] ?? 0) + 1;
+    }
+    foreach (str_split(strtolower($s)) as $ch) {
+        if ($counts[$ch] === 1) {
+            return $ch;
+        }
+    }
+    return null;
+}
+
+foreach (["swiss", "teeth", "aabbcc"] as $w) {
+    $result = firstNonRepeatingChar($w) ?? 'none';
+    echo "$w: $result" . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">swiss: w
+teeth: h
+aabbcc: none</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 ليه محتاجين مرورين ومش مرور واحد؟ لأن وانت في نص المرور الأول، لسه معندكش عدد كل الحروف كامل — ممكن حرف يبان مرة واحدة لحد اللحظة دي، لكن يتكرر تاني بعدين. لازم تخلّص العدّ الكامل الأول (المرور الأول)، وبعدين تدوّر على أول حرف "حقيقي" غير مكرر (المرور الثاني).</div>
+    <div class="en">🇬🇧 Why two passes instead of one? Because midway through a single pass, you don't yet know a character's final count — it might look unique so far but repeat later. You must finish the full count first (pass one), then search for the first genuinely non-repeating character (pass two).</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه حل Two Sum اللي شفته فوق. جرّب مصفوفات وأرقام مستهدفة مختلفة، وشوف الحالة اللي مفيش فيها حل خالص (بترجع <code>null</code>).</div>
@@ -246,6 +278,30 @@ var_dump(findPairWithSum([1, 2, 3], 100));</textarea>
         <label><input type="radio" name="q2" value="sort"> عشان الكلمتين المتناظرتين لفظيًا هيبقوا متطابقين تمامًا بعد الترتيب / true anagrams become identical once sorted</label>
         <label><input type="radio" name="q2" value="speed2"> عشان الكود يشتغل أسرع / to make the code faster</label>
         <label><input type="radio" name="q2" value="required2"> <code>strtolower</code> محتاجة مصفوفة مرتبة / <code>strtolower</code> requires a sorted array</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="c">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه ناتج <code>firstNonRepeatingChar("aabbc")</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What does <code>firstNonRepeatingChar("aabbc")</code> return?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="a"> a</label>
+        <label><input type="radio" name="q3" value="c"> c</label>
+        <label><input type="radio" name="q3" value="none"> none</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="wrong">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو حاولنا نحل المسألة بمرور واحد بس — نرجع أول حرف "لسه معندوش تكرار لحد اللحظة دي" أثناء المرور — هل الحل هيفضل صحيح دايمًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If we tried solving this with a single pass — returning the first character that "hasn't repeated yet" as we go — would it always stay correct?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="ok"> آه، هيدي نفس النتيجة دايمًا / yes, it always gives the same result</label>
+        <label><input type="radio" name="q4" value="wrong"> لأ، ممكن يرجع حرف هيتكرر بعدين في النص، لأننا لسه ماعرفناش عدده النهائي / no, it might return a character that repeats later, since we don't yet know its final count</label>
+        <label><input type="radio" name="q4" value="faster"> آه، وكمان هيبقى أسرع من غير أي فرق / yes, and it would also be faster with no downside</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

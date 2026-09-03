@@ -115,6 +115,66 @@ for ($i = 1; $i &lt;= 5; $i++) {
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>Circuit Breaker — وقف المحاولة على خدمة معطوبة</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو خدمة تانية (زي بوابة دفع خارجية) وقعت، وكل طلب بيستنى Timeout كامل (ثواني) قبل ما يفشل، آلاف الطلبات المتراكمة ممكن تطيّح السيرفر بتاعك نفسه وهو مجرد بيستنى. الحل: <b>Circuit Breaker</b> — بعد عدد معيّن من الفشل المتتالي، "الدايرة بتفتح" ومحدش يحاول يتصل بالخدمة المعطوبة لفترة، الطلبات بترجع فورًا برد واضح بدل ما تستنى وتفشل كل مرة.</div>
+    <div class="en">🇬🇧 If another service (like an external payment gateway) goes down, and every request waits a full Timeout (seconds) before failing, thousands of piled-up requests can take down your own server just from waiting. Fix: a <b>Circuit Breaker</b> — after enough consecutive failures, the "circuit opens" and nothing attempts the broken service for a while; requests return immediately with a clear response instead of waiting and failing every time.</div>
+</div>
+<pre><code>&lt;?php
+class CircuitBreaker
+{
+    private int $failureCount = 0;
+    private bool $isOpen = false;
+
+    public function __construct(private int $failureThreshold = 3) {}
+
+    public function call(callable $action): string
+    {
+        if ($this->isOpen) {
+            return "Circuit OPEN — call skipped instantly, no timeout wasted.";
+        }
+
+        try {
+            $result = $action();
+            $this->failureCount = 0; // نجاح: صفّر العداد
+            return "Success: $result";
+        } catch (Exception $e) {
+            $this->failureCount++;
+            if ($this->failureCount >= $this->failureThreshold) {
+                $this->isOpen = true;
+            }
+            return "Failed ({$this->failureCount}/{$this->failureThreshold}): " . $e->getMessage();
+        }
+    }
+}
+
+function unreliableService(bool $shouldFail): string
+{
+    if ($shouldFail) {
+        throw new Exception('Service timeout');
+    }
+    return 'data received';
+}
+
+$breaker = new CircuitBreaker(failureThreshold: 3);
+
+echo $breaker->call(fn() => unreliableService(true)) . PHP_EOL;
+echo $breaker->call(fn() => unreliableService(true)) . PHP_EOL;
+echo $breaker->call(fn() => unreliableService(true)) . PHP_EOL;
+// الدايرة مفتوحة دلوقتي — حتى لو الخدمة رجعت شغالة، الطلب هيتوقف فورًا
+echo $breaker->call(fn() => unreliableService(false)) . PHP_EOL;
+echo $breaker->call(fn() => unreliableService(false)) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">Failed (1/3): Service timeout
+Failed (2/3): Service timeout
+Failed (3/3): Service timeout
+Circuit OPEN — call skipped instantly, no timeout wasted.
+Circuit OPEN — call skipped instantly, no timeout wasted.</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ آخر سطرين: مع إن <code>unreliableService(false)</code> معناها "الخدمة شغالة دلوقتي" (مفروض تنجح)، الدايرة فتحت خلاص من الفشل اللي قبلها، فالطلب بيترفض فورًا من غير حتى ما يحاول ينفّذ الـ callable. في نظام حقيقي، بعد فترة معينة (زي 30 ثانية)، الدايرة بترجع تجرب تاني (Half-Open state) عشان تشوف لو الخدمة رجعت شغالة فعلًا.</div>
+    <div class="en">🇬🇧 Notice the last two lines: even though <code>unreliableService(false)</code> means "the service is up now" (should succeed), the circuit already opened from the earlier failures, so the request is rejected instantly without even attempting the callable. In a real system, after a cooldown (e.g. 30 seconds), the circuit re-tries (a Half-Open state) to check if the service actually recovered.</div>
+</div>
+
 <h2>Monolith مقابل Microservices</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 كل مشاريعنا لحد دلوقتي كانت <b>Monolith</b> — تطبيق واحد فيه كل المنطق. ده مناسب لمعظم المشاريع فعلًا. <b>Microservices</b> (تقسيم لخدمات صغيرة مستقلة) بيفيد لما فريق كبير بيشتغل على أجزاء مختلفة، أو لما جزء معين محتاج يتوسع لوحده — لكنه بيجيب تعقيد إضافي (شبكة، مراقبة، نشر) مش لازم تدفعه غير لو محتاجه فعلًا.</div>
@@ -141,6 +201,30 @@ for ($i = 1; $i &lt;= 5; $i++) {
         <label><input type="radio" name="q2" value="decouple"> لو خدمة وقعت، التانية لسه شغالة — الأنظمة مستقلة</label>
         <label><input type="radio" name="q2" value="faster"> بتخلي قاعدة البيانات أسرع أوتوماتيك</label>
         <label><input type="radio" name="q2" value="required"> PHP مبيشتغلش من غيرها</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="skip">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال <code>CircuitBreaker</code> فوق، لما الدايرة بتبقى مفتوحة (<code>isOpen</code>)، إيه اللي بيحصل بالظبط لأي محاولة جديدة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Once the circuit is open (<code>isOpen</code>), what exactly happens to any new call?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="retry"> بتحاول تاني وتستنى Timeout كامل زي العادي</label>
+        <label><input type="radio" name="q3" value="skip"> بترفض فورًا من غير ما تحاول تنفّذ الـ action أصلًا</label>
+        <label><input type="radio" name="q3" value="crash"> السكريبت كله بينهار</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="stillopen">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">في المثال، آخر استدعائين استخدموا <code>unreliableService(false)</code> (يعني الخدمة رجعت شغالة). ليه لسه النتيجة "Circuit OPEN" مش "Success"؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The last two calls used <code>unreliableService(false)</code> (service is back up). Why is the result still "Circuit OPEN" not "Success"?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="stillopen"> الدايرة اتفتحت خلاص من الفشل اللي قبل كده ومحتاجة وقت/إعادة تعيين قبل ما تجرب تاني</label>
+        <label><input type="radio" name="q4" value="bug"> ده باگ، المفروض ترجع Success فورًا</label>
+        <label><input type="radio" name="q4" value="param"> لإن unreliableService(false) دايمًا بترمي Exception</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

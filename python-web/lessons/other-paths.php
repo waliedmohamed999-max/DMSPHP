@@ -39,6 +39,29 @@ data = {"product": ["Laptop", "Phone", "Tablet"], "sales": [120, 340, 90]}
 df = pd.DataFrame(data)
 print(df.sort_values("sales", ascending=False))</code></pre>
 
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال تاني حقيقي جدًا لو كنت شغّال Full Stack على مشروع Online Store بتاعك: عندك بيانات مبيعات كل الطلبات مقسّمة حسب المحافظة، وعايز تعرف كل محافظة جابت مبيعات كام. <code>groupby()</code> بتعمل بالظبط اللي <code>GROUP BY</code> بتعمله في SQL — بس بمرونة أكبر لإنك جوه Python كامل مش لغة استعلام محدودة.</div>
+    <div class="en">🇬🇧 Another very realistic example if you were running Full Stack on your Online Store project: you have order data broken down by region, and want total sales per region. <code>groupby()</code> does exactly what SQL's <code>GROUP BY</code> does — but with more flexibility since you're inside full Python, not a limited query language.</div>
+</div>
+
+<pre><code># مثال منفَّذ فعليًا — pip install pandas
+import pandas as pd
+
+data = {
+    "region": ["Cairo", "Giza", "Cairo", "Alex", "Giza", "Cairo"],
+    "sales": [1200, 800, 950, 600, 700, 1100],
+}
+df = pd.DataFrame(data)
+
+totals = df.groupby("region")["sales"].sum().sort_values(ascending=False)
+print(totals)</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">region
+Cairo    3250
+Giza     1500
+Alex      600
+Name: sales, dtype: int64</div>
+
 <h2>2) الأتمتة والسكريبتات / Automation &amp; Scripting</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 Python ممتازة في كتابة سكريبتات صغيرة توفّر وقتك: إعادة تسمية مئات الملفات دفعة واحدة، سحب بيانات من موقع (Web Scraping)، أو جدولة مهمة تتكرر كل يوم. المكتبات القياسية اللي بتيجي مع Python نفسها (زي <code>os</code> و<code>shutil</code>) كفاية لمعظم المهام دي من غير ما تثبت أي حاجة إضافية.</div>
@@ -96,6 +119,30 @@ print(y)  # tensor([2., 4., 6.])</code></pre>
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="groupby">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عايز تجمع إجمالي المبيعات لكل محافظة من جدول فيه آلاف الطلبات. أي دالة pandas أنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want total sales per region from a table with thousands of orders. Which pandas function fits best?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="sort"> <code>sort_values()</code> بس</label>
+        <label><input type="radio" name="q3" value="groupby"> <code>groupby()</code> — نفس فكرة <code>GROUP BY</code> في SQL</label>
+        <label><input type="radio" name="q3" value="rename"> <code>rename()</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="automation">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عندك 500 صورة لازم تتعاد تسميتها بنمط موحّد. أنسب مجال من التلاتة تستخدمه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You have 500 images that need renaming to a consistent pattern. Which of the three areas fits best?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="ai"> الذكاء الاصطناعي (TensorFlow/PyTorch)</label>
+        <label><input type="radio" name="q4" value="automation"> الأتمتة والسكريبتات (زي <code>os</code>)</label>
+        <label><input type="radio" name="q4" value="data"> تحليل البيانات (pandas)</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ اختار مسارك الجاي / Pick Your Next Direction</h3>
@@ -112,7 +159,7 @@ print(y)  # tensor([2., 4., 6.])</code></pre>
 <div class="recap-box">
     <h3>✅ ملخص سريع / Recap</h3>
     <ul>
-        <li><code>pandas</code> و<code>numpy</code> = أدوات Python المعتمدة لتحليل البيانات.</li>
+        <li><code>pandas</code> و<code>numpy</code> = أدوات Python المعتمدة لتحليل البيانات، و<code>groupby()</code> فيها بيعمل نفس فكرة <code>GROUP BY</code> في SQL.</li>
         <li>مكتبة Python القياسية كفاية لمعظم مهام الأتمتة والسكريبتات اليومية.</li>
         <li>Python هي اللغة الأساسية لأدوات الذكاء الاصطناعي الكبرى زي TensorFlow وPyTorch.</li>
         <li>الأساسيات اللي اتعلمتها في المسار ده (متغيرات، قوائم، دوال) هي نفسها المستخدمة في كل هذه المجالات.</li>

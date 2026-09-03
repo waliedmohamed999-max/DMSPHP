@@ -133,6 +133,47 @@ echo greet("Sara") . PHP_EOL;</code></pre>
 <div class="output-box">Hello, Waleed!
 Hello, Sara!</div>
 
+<h2>5) مثال متكامل: حاسبة الدرجات <span class="ltr">Putting It All Together: A Grade Calculator</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 اللبنات الأربع اللي اتعلمتهم فوق نادرًا ما بتشتغل لوحدها — في أي برنامج حقيقي بتشتغل مع بعض. المثال ده صغير، لكنه بيوظّف الأربعة سوا: <b>متغيرات</b> (<code>$scores</code>, <code>$total</code>)، <b>نوع</b> (مصفوفة من أرقام)، <b>هياكل تحكم</b> (<code>for</code> للجمع، <code>if/elseif/else</code> لتحديد التقدير)، و<b>دالة</b> (<code>letterGrade</code>) بترجع نتيجة نستخدمها بعدين.</div>
+    <div class="en">🇬🇧 The four building blocks above rarely work alone — in any real program they work together. This small example uses all four at once: <b>variables</b> (<code>$scores</code>, <code>$total</code>), a <b>type</b> (an array of numbers), <b>control structures</b> (<code>for</code> to sum, <code>if/elseif/else</code> to decide the grade), and a <b>function</b> (<code>letterGrade</code>) returning a result we use afterward.</div>
+</div>
+<pre><code>&lt;?php
+function letterGrade(float $score): string {
+    if ($score >= 90) {
+        return "A";
+    } elseif ($score >= 80) {
+        return "B";
+    } elseif ($score >= 70) {
+        return "C";
+    } else {
+        return "F";
+    }
+}
+
+$studentName = "Nour";
+$scores = [95, 82, 67];
+$total = 0;
+
+for ($i = 0; $i < count($scores); $i++) {
+    $total += $scores[$i];
+}
+
+$average = round($total / count($scores), 1);
+$grade = letterGrade($average);
+
+echo "Student: $studentName" . PHP_EOL;
+echo "Average: $average" . PHP_EOL;
+echo "Grade: $grade" . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">Student: Nour
+Average: 81.3
+Grade: B</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ ترتيب التنفيذ: الحلقة <code>for</code> بتجمع الدرجات الأول، بعدين بنحسب المتوسط، وبعدين وبس بعدين بننادي <code>letterGrade($average)</code> — الدالة معتمدة على نتيجة الحلقة، مش العكس. ده بالظبط شكل أي برنامج حقيقي: خطوات بتتنفذ بترتيب منطقي، مش عشوائي.</div>
+    <div class="en">🇬🇧 Notice the execution order: the <code>for</code> loop sums the scores first, then we compute the average, and only then do we call <code>letterGrade($average)</code> — the function depends on the loop's result, not the other way around. This is exactly the shape of any real program: steps executing in a logical order, not a random one.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه نفس مثال المتغيرات والأنواع اللي شفته فوق — لكن دلوقتي تقدر تعدّل عليه فعليًا وتشغّله وتشوف الناتج الحقيقي. جرب تغيّر القيم أو تضيف متغير جديد بنوع مختلف.</div>
@@ -177,6 +218,30 @@ echo "Learning: " . var_export($isLearning, true) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="4"> 4</label>
         <label><input type="radio" name="q2" value="5"> 5</label>
         <label><input type="radio" name="q2" value="6"> 6</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="c">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في حاسبة الدرجات، لو كانت <code>$scores = [95, 82, 60]</code> بدل <code>[95, 82, 67]</code>، إيه المتوسط والتقدير اللي هيرجعوا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the grade calculator, if <code>$scores = [95, 82, 60]</code> instead of <code>[95, 82, 67]</code>, what average and grade result?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="a"> 92.3 وتقدير A / 92.3 and grade A</label>
+        <label><input type="radio" name="q3" value="b"> 79.0 وتقدير B / 79.0 and grade B</label>
+        <label><input type="radio" name="q3" value="c"> 79.0 وتقدير C (لأن 79 &gt;= 70 بس مش &gt;= 80) / 79.0 and grade C (since 79 &gt;= 70 but not &gt;= 80)</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="foreach">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">في حاسبة الدرجات، استخدمنا <code>for ($i = 0; $i &lt; count($scores); $i++) { $total += $scores[$i]; }</code> عشان نجمع الدرجات. أي طريقة تانية كانت تدّي بالظبط نفس الناتج بشكل أبسط؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">We used an indexed <code>for</code> loop to sum the scores. Which alternative gives exactly the same result more simply?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="foreach"> <code>foreach ($scores as $score) { $total += $score; }</code> — مش محتاجين فهرس أصلًا / we don't actually need an index</label>
+        <label><input type="radio" name="q4" value="while1"> <code>while (true) { $total += $scores[0]; }</code></label>
+        <label><input type="radio" name="q4" value="echo1"> <code>echo $scores;</code> مباشرة من غير حلقة / directly, with no loop at all</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

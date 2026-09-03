@@ -98,6 +98,50 @@ echo "After (JOIN): $queryCount query";</textarea>
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>قياس الفرق بوقت حقيقي / Measuring the Difference with Real Time</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الأرقام اللي شفتها فوق (51 استعلام مقابل 1) بتوضح المبدأ، لكن الأهم إنك تقدر <b>تقيس</b> الفرق فعليًا بنفسك بـ <code>microtime(true)</code> — بتاخد الوقت قبل وبعد أي عملية، والفرق بينهم هو الوقت الفعلي المستغرق. المثال ده بيحاكي "تكلفة" كل استعلام بتأخير بسيط (<code>usleep</code>) ويقيس الفرق الحقيقي بين الأسلوبين.</div>
+    <div class="en">🇬🇧 The numbers above (51 queries vs. 1) illustrate the principle, but the real skill is <b>measuring</b> the difference yourself with <code>microtime(true)</code> — capture the time before and after an operation, and the difference is the actual elapsed time. This example simulates each query's "cost" with a small delay (<code>usleep</code>) and measures the real difference between both approaches.</div>
+</div>
+<pre><code>&lt;?php
+function fakeQuery(): void
+{
+    usleep(500); // 0.5ms — تكلفة وهمية لكل رحلة لقاعدة بيانات
+}
+
+$customers = [1 => 'Ali', 2 => 'Sara', 3 => 'Omar'];
+$orders = [];
+for ($i = 1; $i &lt;= 100; $i++) {
+    $orders[] = ['id' => $i, 'customer_id' => ($i % 3) + 1];
+}
+
+// N+1: استعلام منفصل لكل order
+$start = microtime(true);
+$namesA = [];
+foreach ($orders as $order) {
+    fakeQuery();
+    $namesA[] = $customers[$order['customer_id']];
+}
+$n1Time = (microtime(true) - $start) * 1000;
+
+// Batched: استعلام واحد بس، ثم جمع النتائج في الذاكرة
+$start = microtime(true);
+fakeQuery();
+$namesB = array_map(fn($o) => $customers[$o['customer_id']], $orders);
+$batchTime = (microtime(true) - $start) * 1000;
+
+printf("N+1 style (100 queries): %.2f ms\n", $n1Time);
+printf("Batched style (1 query): %.2f ms\n", $batchTime);
+printf("Speedup: %.1fx faster\n", $n1Time / $batchTime);</code></pre>
+<h3>الناتج الفعلي (تشغيلة حقيقية واحدة — الأرقام بتتغيّر شوية كل تشغيلة) / Actual output (one real run — numbers shift slightly run to run)</h3>
+<div class="output-box">N+1 style (100 queries): 1526.51 ms
+Batched style (1 query): 15.98 ms
+Speedup: 95.5x faster</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو شغّلت نفس الكود في المحرر تحت أكتر من مرة، هتلاحظ إن الأرقام مش ثابتة بالظبط — جربناه إحنا كذا مرة وطلعت النتائج تتراوح بين 58x و 1374x "أسرع". السبب: <code>usleep()</code> بتخضع لجدولة نظام التشغيل نفسه، فأي حمل إضافي على الجهاز وقتها بيأثر على القياس. المهم مش الرقم بالظبط، المهم الاتجاه الثابت في كل تشغيلة: الأسلوب المجمّع (Batched) دايمًا بيبقى أسرع بعشرات لأضعاف المرات، مش بنسبة بسيطة. في قاعدة بيانات حقيقية عبر الشبكة، الفرق غالبًا هيكون أوضح من كده كمان، مش أقل.</div>
+    <div class="en">🇬🇧 Run this same code in the editor below more than once and you'll notice the numbers aren't perfectly stable — we ran it several times ourselves and got speedups ranging from 58x to 1374x. Reason: <code>usleep()</code> is subject to the operating system's own scheduling, so any load on the machine at that moment skews the measurement. What matters isn't the exact number — it's the consistent direction every single run: the Batched approach is always tens-to-thousands of times faster, never just a marginal improvement. Over a real networked database, the gap is usually even more pronounced, not less.</div>
+</div>
+
 <h2>Caching بـ Redis</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 لو نفس البيانات بتتقرا كتير ومش بتتغيّر كل ثانية (زي قايمة المنتجات)، بدل ما تروح لقاعدة البيانات كل مرة، تحطها في <b>Redis</b> (قاعدة بيانات في الـ RAM، سريعة جدًا) لمدة معينة، وترجعلها من هناك.</div>
@@ -179,6 +223,30 @@ while (true) {
         <label><input type="radio" name="q2" value="expire"> خليها تعيش سنة كاملة عشان الأداء</label>
         <label><input type="radio" name="q2" value="invalidate"> امسح/حدّث الكاش لما البيانات الأصلية تتغيّر</label>
         <label><input type="radio" name="q2" value="always"> استخدمها لكل حاجة من غير استثناء</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="microtime">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إزاي تقيس الوقت الفعلي المستغرق في تنفيذ جزء من الكود بنفسك؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">How do you measure the actual elapsed time of a piece of code yourself?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="guess"> تخمين تقريبي بالعين</label>
+        <label><input type="radio" name="q3" value="microtime"> <code>microtime(true)</code> قبل وبعد، والفرق بينهم</label>
+        <label><input type="radio" name="q3" value="count"> عدّ عدد الأسطر في الكود</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="worse">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">في القياس الفعلي فوق، الفرق كان أكبر من <code>100 × 0.5ms</code> المتوقعة نظريًا. لو استبدلنا <code>usleep()</code> باستعلام MySQL حقيقي عبر الشبكة، الفرق المتوقع بين N+1 والـ JOIN هيبقى إيه غالبًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The real gap exceeded the theoretical <code>100 × 0.5ms</code>. If <code>usleep()</code> were replaced with a real networked MySQL query, the gap between N+1 and JOIN would likely be:</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="worse"> أكبر بكتير — تكلفة الشبكة وفتح الاتصال أعلى من usleep المحلي</label>
+        <label><input type="radio" name="q4" value="same"> نفس الفرق بالظبط</label>
+        <label><input type="radio" name="q4" value="none"> مفيش فرق أصلًا مع MySQL</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

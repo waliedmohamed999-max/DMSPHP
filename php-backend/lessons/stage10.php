@@ -92,6 +92,35 @@ jobs:
 ✔ PHPStan: [OK] No errors
 All checks passed — ready to deploy.</div>
 
+<h2>من CI لـ CD فعليًا: خطوة النشر / From CI to Actual CD: the Deploy Step</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الـ YAML اللي شفته فوق بيغطي الـ <b>CI</b> بس (اختبارات + Static Analysis). لسه ناقص الجزء التاني: <b>CD</b> نفسها — Job منفصلة بتنشر الكود فعليًا، وبتشتغل بس لو أول Job (<code>test</code>) نجحت، وبس لما الـ push يكون على <code>main</code> (مش على أي فرع تجريبي).</div>
+    <div class="en">🇬🇧 The YAML above covers only <b>CI</b> (tests + Static Analysis). Still missing the other half: <b>CD</b> itself — a separate Job that actually deploys the code, running only if the first Job (<code>test</code>) succeeded, and only when the push is to <code>main</code> (not some experimental branch).</div>
+</div>
+<pre><code># .github/workflows/ci.yml (تكملة — بعد Job الـ test)
+  deploy:
+    needs: test                        # ما يشتغلش غير لو test نجحت
+    if: github.ref == 'refs/heads/main' # وبس على main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to production server
+        run: |
+          rsync -avz ./ user@server:/var/www/task-manager
+          ssh user@server "cd /var/www/task-manager && composer install --no-dev"</code></pre>
+<h3>الناتج الفعلي (على GitHub Actions، push لـ main) / Actual output (push to main)</h3>
+<div class="output-box">test
+✔ PHPUnit: OK (24 tests, 61 assertions)
+✔ PHPStan: [OK] No errors
+
+deploy (needs: test — started only after test succeeded)
+✔ Deploy to production server
+Deployment successful.</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>needs: test</code> — دي اللي بتربط الـ Jobs ببعض: لو أي اختبار في <code>test</code> فشل، الـ <code>deploy</code> Job مش هيشتغل خالص، مهما كان الكود جاهز للنشر. ولاحظ <code>if: github.ref == 'refs/heads/main'</code> — بيمنع إن push على فرع <code>feature-xyz</code> ينشر على السيرفر الحقيقي بالغلط.</div>
+    <div class="en">🇬🇧 Notice <code>needs: test</code> — this is what links the Jobs together: if any test in <code>test</code> fails, the <code>deploy</code> Job never runs at all, no matter how ready the code looks. And <code>if: github.ref == 'refs/heads/main'</code> prevents a push on a <code>feature-xyz</code> branch from accidentally deploying to the real server.</div>
+</div>
+
 <h2 id="practice">💻 مراقبة المشروع بعد النشر / Monitoring in Production</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 لما مشروعك يبقى شغال فعليًا وناس بتستخدمه، محتاج تعرف لو حصلت مشكلة قبل ما المستخدمين يشتكوا: <b>Health Check</b> endpoint بيتأكد إن السيرفر وقاعدة البيانات شغالين، و<b>Centralized Logging</b> بيجمع كل الأخطاء من كل السيرفرات في مكان واحد بدل ما تفتش فيهم واحد واحد.</div>
@@ -155,6 +184,30 @@ echo json_encode(checkHealth(false)) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="ci"> CI (Continuous Integration)</label>
         <label><input type="radio" name="q2" value="dockerfile"> Dockerfile</label>
         <label><input type="radio" name="q2" value="cache"> Redis Caching</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="needs">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الـ <code>deploy</code> Job فوق، إيه اللي بيمنعه من الاشتغال لو اختبارات PHPUnit فشلت؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What prevents the <code>deploy</code> Job from running if PHPUnit tests fail?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="needs"> السطر <code>needs: test</code></label>
+        <label><input type="radio" name="q3" value="runson"> السطر <code>runs-on: ubuntu-latest</code></label>
+        <label><input type="radio" name="q3" value="nothing"> مفيش حاجة، الـ deploy بيشتغل دايمًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="branch">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو عملت push على فرع <code>feature-login</code> (مش <code>main</code>) وكل الاختبارات نجحت، هل الـ <code>deploy</code> Job هيشتغل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Pushing to <code>feature-login</code> (not <code>main</code>) with all tests passing — does <code>deploy</code> run?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="branch"> لأ، لإن <code>if: github.ref == 'refs/heads/main'</code> بيمنعه</label>
+        <label><input type="radio" name="q4" value="yes"> أيوة، طالما الاختبارات نجحت</label>
+        <label><input type="radio" name="q4" value="ask"> هيسأل يدويًا الأول</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

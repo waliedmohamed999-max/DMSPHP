@@ -38,6 +38,24 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 If you need "what's the latest PHP version right now" or anything that might have changed recently, that's where Gemini shines thanks to live search. If you hit an error message in the browser or editor, screenshot it and send it directly instead of retyping — it reads and analyzes it. And if you're writing documentation or a project report, try drafting it directly inside Google Docs with its help.</div>
 </div>
 
+<h2>سيناريو عملي: حلّل بيانات طلبات متجرك جوه Google Sheets / Practical Scenario: Analyzing Your Store's Orders in Google Sheets</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 خلّصت مشروع <b>Online Store</b> بتاعك من مسار Full Stack، وعندك جدول Excel/CSV فيه كل الطلبات (تاريخ، منتج، سعر، محافظة العميل). صدّرت البيانات دي لـ Google Sheets — هنا Gemini بيفرق عن أي شات عادي، لإنه شغال جوه نفس الشيت مباشرة (خانة جانبية اسمها "Help me analyze" أو "Ask Gemini")، بيشوف بياناتك الفعلية من غير ما تلزق أي حاجة.</div>
+    <div class="en">🇬🇧 You've finished your <b>Online Store</b> project from the Full Stack track, and have an Excel/CSV sheet of all orders (date, product, price, customer region). You exported it to Google Sheets — here Gemini differs from a plain chat tool, because it works directly inside that same sheet (a side panel called "Help me analyze" or "Ask Gemini"), seeing your actual data without you pasting anything.</div>
+</div>
+
+<div class="security-box">
+    <h3>❌ برومبت ضعيف / Weak Prompt</h3>
+    <div class="ar">🇪🇬 <span class="ltr">"لخّص البيانات دي"</span> — عام جدًا. هترجعلك فقرة سطحية زي "عندك مبيعات متنوعة في محافظات مختلفة" من غير أي رقم فعلي تقدر تستخدمه.</div>
+    <div class="en">🇬🇧 <span class="ltr">"Summarize this data"</span> — far too general. You'll get a shallow paragraph like "you have varied sales across different regions" with no actual numbers you can use.</div>
+</div>
+
+<div class="bi-block" style="border-inline-start-color:var(--accent-2);">
+    <h3 style="margin-top:0;">✅ برومبت قوي / Strong Prompt</h3>
+    <div class="ar">🇪🇬 <span class="ltr">"احسبلي إجمالي المبيعات لكل محافظة في عمود C، ورتبهم تنازليًا، واقترح صيغة (Formula) أحطها في عمود جديد تحسب متوسط قيمة الطلب لكل محافظة."</span> — لاحظ إنه بيطلب نتيجة محددة (إجمالي مرتب) <b>وكمان</b> صيغة جاهزة يقدر يستخدمها مباشرة، مش وصف نصي بس. ده بالظبط نفس فكرة <code>groupby()</code> اللي شفتها في مسار Python Web، بس هنا Gemini بيبنيلك المعادلة بدل ما تكتب كود.</div>
+    <div class="en">🇬🇧 <span class="ltr">"Calculate total sales per region in column C, sort them descending, and suggest a Formula I can put in a new column to compute average order value per region."</span> — notice it asks for a specific result (a sorted total) <b>and</b> a ready-to-use formula, not just a text description. This is exactly the same idea as the <code>groupby()</code> you saw in the Python Web track, except here Gemini builds you the formula instead of writing code.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="search">
     <h3>سؤال 1 / Question 1</h3>
@@ -63,6 +81,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="specific">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">ليه "احسبلي إجمالي المبيعات لكل محافظة ورتبهم" أفضل من "لخّص البيانات دي" في Google Sheets؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is "total sales per region, sorted" better than "summarize this data" in Google Sheets?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="specific"> لإنه بيطلب نتيجة محددة وقابلة للاستخدام، مش وصف عام</label>
+        <label><input type="radio" name="q3" value="short"> لإنه أقصر في عدد الكلمات</label>
+        <label><input type="radio" name="q3" value="norule"> مفيش فرق، هيرجّع نفس الرد</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="noneed">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز تحلل جدول بيانات موجود فعلاً جوه Google Sheets. إيه اللي بيميّز استخدام Gemini هنا عن نسخه في نافذة شات منفصلة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want to analyze data already inside Google Sheets. What's different about using Gemini here vs. a separate chat window?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="noneed"> بيشوف بيانات الشيت فعليًا من غير ما تلزقها يدويًا</label>
+        <label><input type="radio" name="q4" value="samepaste"> برضه لازم تلزق كل الجدول يدويًا زي أي شات تاني</label>
+        <label><input type="radio" name="q4" value="worse"> بيدّي نتائج أسوأ لإنه جوه الشيت</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ ابحث عن معلومة حديثة فعليًا / Actually Look Up Something Current</h3>
@@ -82,6 +124,7 @@ include __DIR__ . '/../includes/header.php';
         <li>الأقوى في: معلومات محدّثة عن طريق البحث الحي، وتحليل الصور والفيديو.</li>
         <li>مفيد جدًا لو بتشتغل أصلًا جوه Google Docs/Sheets/Gmail.</li>
         <li>ابعتله سكرين شوت للخطأ بدل ما تكتبه — بيوفر وقت وبيقرأ التفاصيل صح.</li>
+        <li>جوه Google Sheets، Gemini بيشوف بياناتك فعليًا ويقترح صيغ (Formulas) جاهزة، مش بس وصف نصي.</li>
     </ul>
 </div>
 

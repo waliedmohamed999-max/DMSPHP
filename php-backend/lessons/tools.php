@@ -159,6 +159,36 @@ Branch 'main' set up to track 'origin/main'.</div>
     <div class="en">🇬🇧 When working with a team, you typically don't push directly to <code>main</code> — you push a branch and open a <b>Pull Request</b> on GitHub, and teammates review the code before it's merged. This is the foundation of any professional team workflow.</div>
 </div>
 
+<h2>6) لما الدمج يفشل: حل Merge Conflict / When Merging Fails: Resolving a Conflict</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال الـ <code>merge</code> اللي شفته فوق كان "Fast-forward" — سهل لإن <code>main</code> ماتغيّرش من وقت ما عملت الفرع. لكن الأكتر واقعية: زميلك عدّل نفس السطر بالظبط في <code>main</code> وانت عدّلته في فرعك. Git مش هيعرف يقرر مين الصح، فهيوقّف الدمج ويسيبلك تحل التعارض يدويًا.</div>
+    <div class="en">🇬🇧 The <code>merge</code> example above was a "Fast-forward" — easy because <code>main</code> hadn't changed since you branched. More realistic: a teammate edited the exact same line on <code>main</code> while you edited it on your branch. Git can't decide who's right, so it halts the merge and leaves you to resolve the conflict manually.</div>
+</div>
+<pre><code>git checkout main
+git merge feature-pricing</code></pre>
+<h3>مثال جلسة فعلية (تعارض حقيقي) / Example session (real conflict)</h3>
+<div class="output-box">$ git merge feature-pricing
+Auto-merging config.php
+CONFLICT (content): Merge conflict in config.php
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat config.php
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+$taxRate = 0.15; // main: ضريبة جديدة اتحطت هنا
+=======
+$taxRate = 0.10; // feature-pricing: نسخة الفرع
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-pricing
+
+$ nano config.php   # (أو أي محرر) امسح العلامات واختر/ادمج القيمة الصح يدويًا
+
+$ git add config.php
+$ git commit -m "Merge feature-pricing, resolve tax rate conflict"
+[main 9f1a2c3] Merge feature-pricing, resolve tax rate conflict</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ العلامات <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-pricing</code> — دي مش جزء من الكود، Git بيحطها يدويًا في الملف عشان يوريك بالظبط فين التعارض، وإيه القيمة من <code>main</code> وإيه القيمة من فرعك. شغلك إنك تفتح الملف، تمسح العلامات دي كلها، وتسيب القيمة الصح بس (أو دمج الاتنين لو منطقي)، وبعدين <code>git add</code> + <code>git commit</code> عادي عشان تقفل الدمج.</div>
+    <div class="en">🇬🇧 Notice the markers <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-pricing</code> — not real code, Git inserts them into the file to show exactly where the conflict is, and which value came from <code>main</code> vs. your branch. Your job: open the file, remove all the markers, keep only the correct value (or merge both if it makes sense), then <code>git add</code> + <code>git commit</code> normally to finish the merge.</div>
+</div>
+
 <h2 id="practice">💻 جرّب فكرة الـ Commits بنفسك / Try the Commit Idea Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 مينفعش نشغّل أوامر Terminal حقيقية جوه المتصفح، لكن نقدر نحاكي بالظبط نفس فكرة الـ Commits والـ History بكلاس PHP بسيط — عدّل الرسايل أو ضيف commit جديد وشغّله شوف الـ log بيتغيّر إزاي.</div>
@@ -230,6 +260,30 @@ $repo->log();</textarea>
         <label><input type="radio" name="q2" value="isolate"> عشان تطوّر ميزة/تصلّح باگ بمعزل عن النسخة الشغالة فعليًا</label>
         <label><input type="radio" name="q2" value="speed"> عشان الأوامر تشتغل أسرع</label>
         <label><input type="radio" name="q2" value="required"> Git مبيشتغلش أصلًا من غير branches</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="markers">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لما تفتح ملف فيه Merge Conflict وتلاقي <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> و<code>=======</code> و<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-pricing</code>، إيه الصح تعمله؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Opening a conflicted file and seeing <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-pricing</code> — what's the right move?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="commit"> تعمل <code>git commit</code> على طول من غير ما تلمس الملف</label>
+        <label><input type="radio" name="q3" value="markers"> تمسح العلامات، تختار/تدمج القيمة الصح، بعدين <code>git add</code> ثم <code>git commit</code></label>
+        <label><input type="radio" name="q3" value="delete"> تمسح الملف كله وتبدأ من الصفر</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="samechange">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه حصل Merge Conflict في مثال <code>config.php</code> فوق ولم يحصل في مثال <code>login.php</code> اللي قبله (Fast-forward)؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why did a Merge Conflict happen in the <code>config.php</code> example but not the earlier <code>login.php</code> one (Fast-forward)?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="samechange"> لإن main والفرع عدّلوا نفس السطر بالظبط، وGit مايعرفش يختار مين الصح</label>
+        <label><input type="radio" name="q4" value="filesize"> لإن config.php حجمه أكبر</label>
+        <label><input type="radio" name="q4" value="random"> صدفة، الحاجتين ليهم نفس الاحتمال دايمًا</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

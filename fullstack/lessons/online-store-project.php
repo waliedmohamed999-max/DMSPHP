@@ -35,6 +35,7 @@ include __DIR__ . '/../includes/header.php';
         <li><b>سلة مشتريات بـ JavaScript</b> — زرار "أضف للسلة" على كل منتج، وعداد وإجمالي بيتحدثوا فورًا من غير Reload، مخزّنين في <code>localStorage</code> عشان يفضلوا موجودين لو المستخدم قفل الصفحة. <span class="ltr">(JavaScript stage)</span></li>
         <li><b>تسجيل حساب ودخول حقيقي</b> — باسورد مخزّن بـ <code>password_hash()</code>، وجلسة (<code>$_SESSION</code>) بعد الدخول. <span class="ltr">(PHP stage)</span></li>
         <li><b>إتمام الطلب (Checkout)</b> — المستخدم المسجل دخول بس يقدر "يأكد الطلب"، والطلب بمحتوياته يتخزن في جدول <code>orders</code> مربوط بـ <code>user_id</code>. <span class="ltr">(MySQL + PHP)</span></li>
+        <li><b>حالة اختبار قبول: مخزون غير كافٍ</b> — لو المستخدم طلب كمية أكبر من المتاح في المخزون (حتى لو كان متاح وقت ما فتح الصفحة وبعدين حد تاني اشترى الكمية دي)، الـ Checkout لازم يرفض السطر ده تحديدًا برسالة واضحة (زي "متاح بس 2 قطعة") من غير ما يفشل الطلب كله لو فيه منتجات تانية سليمة في نفس السلة.</li>
         <li><b>تصميم متجاوب</b> — الموقع يشتغل ويبان كويس على الموبايل والديسكتوب. <span class="ltr">(Responsive stage)</span></li>
         <li><b>أمان أساسي</b> — <code>htmlspecialchars()</code> لأي بيانات مستخدم بتتعرض، وPrepared Statements لكل استعلام قاعدة بيانات.</li>
     </ul>
@@ -143,6 +144,70 @@ print_r(checkout($catalog, $cart));</textarea>
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>حالة اختبار قبول إضافية: مخزون غير كافٍ / Extra Acceptance Test: Insufficient Stock</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 سيناريو واقعي جدًا: مستخدم فتح صفحة المنتج ولقى "5 متاحة"، بس قبل ما يعمل Checkout بلحظات، مستخدم تاني اشترى 4 منهم. الطلب اللي وصل للسيرفر بيطلب كمية أكبر من المتاح <b>فعليًا دلوقتي</b> في قاعدة البيانات. لازم الـ <code>checkout()</code> يتحقق من المخزون الحقيقي وقت التنفيذ (مش وقت ما الصفحة اتحمّلت)، ويرفض بس السطر ده تحديدًا برسالة واضحة — من غير ما يفشل باقي عناصر السلة السليمة.</div>
+    <div class="en">🇬🇧 A very realistic scenario: a user opens a product page and sees "5 available," but moments before they check out, another user buys 4 of them. The request reaching the server now asks for more than what's <b>actually available right now</b> in the database. <code>checkout()</code> must verify real stock at execution time (not page-load time), and reject only that specific line with a clear message — without failing the rest of the valid cart items.</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">&lt;?php
+class ProductCatalog {
+    private array $products = [
+        1 => ['name' => 'Keyboard', 'price' => 45.99, 'stock' => 3],
+        2 => ['name' => 'Mouse', 'price' => 19.99, 'stock' => 0],
+        3 => ['name' => 'Monitor', 'price' => 129.99, 'stock' => 5],
+    ];
+    public function price(int $id): ?float {
+        return $this->products[$id]['price'] ?? null;
+    }
+    public function name(int $id): ?string {
+        return $this->products[$id]['name'] ?? null;
+    }
+    public function stock(int $id): ?int {
+        return $this->products[$id]['stock'] ?? null;
+    }
+}
+
+function checkout(ProductCatalog $catalog, array $cartItems): array {
+    $total = 0;
+    $lines = [];
+    $errors = [];
+    foreach ($cartItems as $item) {
+        $realPrice = $catalog->price($item['product_id']);
+        $available = $catalog->stock($item['product_id']);
+        if ($realPrice === null) {
+            continue;
+        }
+        // حالة اختبار القبول: المخزون الفعلي أقل من الكمية المطلوبة
+        if ($available < $item['qty']) {
+            $errors[] = $catalog->name($item['product_id']) . ": المتاح بس $available قطعة، مش {$item['qty']}.";
+            continue;
+        }
+        $lineTotal = $realPrice * $item['qty'];
+        $total += $lineTotal;
+        $lines[] = $catalog->name($item['product_id']) . " x{$item['qty']} = " . number_format($lineTotal, 2);
+    }
+    return ['lines' => $lines, 'total' => number_format($total, 2), 'errors' => $errors];
+}
+
+$catalog = new ProductCatalog();
+
+// المستخدم طلب 2 كيبورد (متاح)، وماوس واحد (المخزون نفد)، و10 شاشات (المتاح 5 بس)
+$cart = [
+    ['product_id' => 1, 'qty' => 2],
+    ['product_id' => 2, 'qty' => 1],
+    ['product_id' => 3, 'qty' => 10],
+];
+
+print_r(checkout($catalog, $cart));</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="catalog">
     <h3>سؤال 1 / Question 1</h3>
@@ -163,6 +228,30 @@ print_r(checkout($catalog, $cart));</textarea>
         <label><input type="radio" name="q2" value="equal"> مقارنة نص عادي بـ <code>==</code></label>
         <label><input type="radio" name="q2" value="hash"> <code>password_verify()</code> ضد الـ Hash المخزّن</label>
         <label><input type="radio" name="q2" value="md5"> مقارنة بـ <code>md5()</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="onlythat">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">سلة فيها 3 منتجات، واحد منهم بس نفد مخزونه. إيه أصح تصرف للـ Checkout؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">A cart has 3 products, only one of which is out of stock. What's the correct Checkout behavior?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="failall"> يرفض الطلب كله حتى لو المنتجين التانيين متاحين</label>
+        <label><input type="radio" name="q3" value="onlythat"> يرفض بس المنتج اللي نفد ويكمل الباقي، مع رسالة واضحة</label>
+        <label><input type="radio" name="q3" value="ignore"> يتجاهل المشكلة ويأكد الطلب بكل حاجة فيه</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="realtime">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه المخزون لازم يتفحص وقت تنفيذ الـ Checkout مش وقت ما المستخدم فتح صفحة المنتج؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why must stock be checked at checkout execution time, not when the user opened the product page?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="realtime"> لإن مستخدم تاني ممكن يكون اشترى نفس المنتج في الفترة بين الاتنين</label>
+        <label><input type="radio" name="q4" value="speed"> عشان الصفحة تحمل أسرع بس</label>
+        <label><input type="radio" name="q4" value="norule"> مفيش فرق حقيقي بين الاتنين</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

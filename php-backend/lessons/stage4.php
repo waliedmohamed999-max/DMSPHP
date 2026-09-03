@@ -175,6 +175,41 @@ try {
 <h3>الناتج الفعلي (لو الحسابين موجودين ورصيدهم كافي) / Actual output</h3>
 <div class="output-box">Transfer completed.</div>
 
+<h2>JOIN — بيانات من جدولين في استعلام واحد / JOIN — Data from Two Tables in One Query</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لحد دلوقتي كل استعلام كان على جدول واحد. لكن في أي مشروع حقيقي، البيانات موزّعة على جداول مرتبطة (زي <code>orders</code> و<code>customers</code>). <code>JOIN</code> بيخليك تجيب البيانات من الجدولين مع بعض في رحلة واحدة لقاعدة البيانات، بدل ما تعمل استعلام منفصل لكل عميل (وده بالظبط مشكلة N+1 اللي هتشوفها بالتفصيل في مرحلة الأداء).</div>
+    <div class="en">🇬🇧 So far every query hit a single table. In any real project, data spans related tables (like <code>orders</code> and <code>customers</code>). <code>JOIN</code> lets you fetch data from both tables together in one database round-trip, instead of a separate query per customer (exactly the N+1 problem you'll see in detail in the Performance stage).</div>
+</div>
+<pre><code>&lt;?php
+$pdo->exec('CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT)');
+$pdo->exec('CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, total REAL)');
+
+$pdo->exec("INSERT INTO customers (id, name) VALUES (1, 'Ali'), (2, 'Sara')");
+$stmt = $pdo->prepare('INSERT INTO orders (customer_id, total) VALUES (?, ?)');
+$stmt->execute([1, 120.50]);
+$stmt->execute([2, 45.00]);
+$stmt->execute([1, 30.00]);
+
+// JOIN بيرجع بيانات من الجدولين في استعلام واحد بدل ما تعمل query منفصل لكل عميل
+$rows = $pdo->query('
+    SELECT orders.id AS order_id, customers.name AS customer_name, orders.total
+    FROM orders
+    JOIN customers ON customers.id = orders.customer_id
+    ORDER BY orders.id
+')->fetchAll();
+
+foreach ($rows as $row) {
+    echo "Order #{$row['order_id']} - {$row['customer_name']} - \${$row['total']}" . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">Order #1 - Ali - $120.5
+Order #2 - Sara - $45
+Order #3 - Ali - $30</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن <code>ON customers.id = orders.customer_id</code> هو اللي بيحدد إزاي الجدولين "بيتوصلوا" ببعض — كل صف في <code>orders</code> بيتربط بصف واحد بالظبط في <code>customers</code> حسب <code>customer_id</code>. من غير <code>JOIN</code>، كنت هتحتاج تلف على الـ <code>orders</code> وتعمل query منفصلة لكل واحد عشان تجيب اسم العميل — استعلام واحد هنا بدل 3.</div>
+    <div class="en">🇬🇧 Notice <code>ON customers.id = orders.customer_id</code> defines exactly how the two tables "connect" — each row in <code>orders</code> matches exactly one row in <code>customers</code> via <code>customer_id</code>. Without <code>JOIN</code>, you'd loop over <code>orders</code> and run a separate query per row to fetch the customer's name — one query here instead of 3.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="prepared">
     <h3>سؤال 1 / Question 1</h3>
@@ -195,6 +230,30 @@ try {
         <label><input type="radio" name="q2" value="transaction"> Transaction (<code>beginTransaction</code>/<code>commit</code>/<code>rollBack</code>)</label>
         <label><input type="radio" name="q2" value="lastinsertid"> <code>lastInsertId()</code></label>
         <label><input type="radio" name="q2" value="fetchall"> <code>fetchAll()</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="on">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في استعلام الـ JOIN فوق، إيه اللي بيحدد إزاي صفوف <code>orders</code> بتترابط مع صفوف <code>customers</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the JOIN query above, what determines how <code>orders</code> rows connect to <code>customers</code> rows?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="orderby"> جملة <code>ORDER BY orders.id</code></label>
+        <label><input type="radio" name="q3" value="on"> شرط <code>ON customers.id = orders.customer_id</code></label>
+        <label><input type="radio" name="q3" value="select"> ترتيب الأعمدة في <code>SELECT</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="one">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">في المثال فوق (3 orders، عميلين)، كام رحلة (query) لقاعدة البيانات احتجنا عشان نجيب كل الـ orders مع اسم عميل كل واحد؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the example (3 orders, 2 customers), how many database round-trips did we need to fetch all orders with each one's customer name?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="three"> 3 — استعلام لكل order</label>
+        <label><input type="radio" name="q4" value="one"> 1 — استعلام واحد بـ JOIN</label>
+        <label><input type="radio" name="q4" value="two"> 2 — واحد للـ orders وواحد للـ customers</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

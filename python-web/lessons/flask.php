@@ -122,7 +122,46 @@ with app.test_request_context():
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
-<h2>4) Django مقابل Flask / Django vs. Flask</h2>
+<h2>4) استقبال POST من غير سيرفر فعلي / Handling POST Without a Real Server</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 كل الأمثلة اللي فاتت كانت طلبات <code>GET</code> (بتجيب بيانات بس). أي فورم بيبعت بيانات (زي فورم اشتراك في نشرة بريدية) بيستخدم <code>POST</code> بدل كده، والقيم بتوصل عن طريق <code>request.form</code> مش الـ URL. <code>test_request_context()</code> بتقدر "تحاكي" طلب POST كامل بمرور <code>method="POST"</code> و<code>data={...}</code> ليها، من غير ما تحتاج فورم حقيقي ولا سيرفر شغال.</div>
+    <div class="en">🇬🇧 All the examples so far were <code>GET</code> requests (just fetching data). Any form that submits data (like a newsletter signup form) uses <code>POST</code> instead, and values arrive via <code>request.form</code> rather than the URL. <code>test_request_context()</code> can simulate a full POST request by passing it <code>method="POST"</code> and <code>data={...}</code>, without needing a real form or a running server.</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+@app.route("/subscribe", methods=["POST"])
+def subscribe():
+    email = request.form.get("email", "")
+    if "@" not in email:
+        return jsonify({"error": "invalid email"}), 400
+    return jsonify({"message": f"Subscribed {email}"})
+
+# محاكاة POST حقيقي فيه بيانات فورم صحيحة، من غير ما نشغّل سيرفر فعلي
+with app.test_request_context("/subscribe", method="POST", data={"email": "waleed@example.com"}):
+    response = subscribe()
+    print(response.get_data(as_text=True))
+
+# محاكاة POST فيه إيميل غلط — نفس دالة الـ route بترجع Tuple (response, status code)
+with app.test_request_context("/subscribe", method="POST", data={"email": "not-an-email"}):
+    response, status = subscribe()
+    print(status, response.get_data(as_text=True))</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن الـ Route لما ترفض البيانات بترجع <code>Tuple</code> فيه الرد <b>ومعاه</b> كود حالة HTTP (<code>400</code> هنا = "Bad Request")، مش بس رسالة نجاح دايمًا زي الأمثلة السابقة — ده مهم جدًا عشان أي كود Front-End (زي <code>fetch</code> اللي شفته في مشروع Contact Form) يقدر يفرّق بين نجاح وفشل.</div>
+    <div class="en">🇬🇧 Notice that when the route rejects the data, it returns a <code>Tuple</code> containing the response <b>and</b> an HTTP status code (<code>400</code> here = "Bad Request"), not just a success message like earlier examples — this matters so any Front-End code (like the <code>fetch</code> you saw in the Contact Form project) can tell success from failure.</div>
+</div>
+
+<h2>5) Django مقابل Flask / Django vs. Flask</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 مفيش "أفضل" مطلق — الاختيار بيعتمد على المشروع: Django مناسب لمشاريع كبيرة محتاجة قاعدة بيانات ولوحة إدارة وأمان جاهز من أول يوم. Flask مناسب لمشاريع صغيرة، APIs بسيطة، أو لما تحب تتحكم في كل تفصيلة بنفسك.</div>
     <div class="en">🇬🇧 There's no absolute "better" — it depends on the project: Django suits large projects needing a database, admin panel, and security ready from day one. Flask suits small projects, simple APIs, or when you want full control over every detail yourself.</div>
@@ -153,6 +192,30 @@ with app.test_request_context():
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="requestform">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">فورم بعت إيميل بـ <code>POST</code> لـ Route اسمها <code>/subscribe</code>. منين الـ Route هتقرأ قيمة الإيميل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">A form POSTs an email to a <code>/subscribe</code> route. Where does the route read the email value from?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="url"> من الـ URL زي <code>&lt;name&gt;</code></label>
+        <label><input type="radio" name="q3" value="requestform"> من <code>request.form.get(...)</code></label>
+        <label><input type="radio" name="q3" value="jsonify"> من <code>jsonify()</code> مباشرة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="tuple">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لما Route ترجع <code>(jsonify(...), 400)</code>، إيه الفايدة من الرقم <code>400</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">When a route returns <code>(jsonify(...), 400)</code>, what's the point of the number <code>400</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="ignore"> مفيش فايدة حقيقية، بس تنسيق</label>
+        <label><input type="radio" name="q4" value="tuple"> كود حالة HTTP بيخلي أي كود Front-End يعرف إن الطلب فشل، مش بس يقرأ نص الرسالة</label>
+        <label><input type="radio" name="q4" value="speed"> بيحدد سرعة الرد بالميلي ثانية</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ Route جديد بمنطق فعلي / A New Route With Real Logic</h3>
@@ -173,6 +236,7 @@ with app.test_request_context():
         <li><code>@app.route(...)</code> بيربط مسار (URL) بدالة بترجع الرد.</li>
         <li><code>&lt;name&gt;</code> في المسار بيتحول لـ Parameter تستقبله الدالة.</li>
         <li><code>jsonify()</code> بيرجع رد JSON جاهز — مفيد لبناء APIs.</li>
+        <li>فورم بيبعت بيانات (<code>POST</code>) بتوصل عن طريق <code>request.form</code>، مش الـ URL زي الـ <code>GET</code>.</li>
         <li>Django لمشاريع كبيرة جاهزة من أول يوم، Flask لمرونة وتحكم أكبر في مشاريع أصغر.</li>
     </ul>
 </div>

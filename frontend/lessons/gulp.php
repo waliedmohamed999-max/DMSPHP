@@ -80,6 +80,40 @@ src/css/style.css   →   dist/css/style.min.css
     <div class="en">🇬🇧 The mini HTML/CSS/JS editor used in other lessons doesn't fit here — Gulp is a Node.js tool that needs real packages installed on your machine, not something that runs inside a browser. If you want to try live HTML/CSS/JS, use the <a href="../playground/index.php">full Playground</a> instead. The real practice here is tracing the pipeline with your own eyes and understanding it.</div>
 </div>
 
+<h2>3) مهمة تانية — دمج ملفات JS / A Second Task: Concatenating JS Files</h2>
+<div class="bi-block">
+    <div class="ar">
+        🇪🇬 مهمة شائعة تانية: عندك كذا ملف JS صغير (كل واحد لمكوّن)، وعايز تدمجهم في ملف واحد <code>bundle.js</code> بدل ما تحط 5 وسوم <code>&lt;script&gt;</code> في الـ HTML — كل وسم <code>&lt;script&gt;</code> إضافي معناه طلب شبكة إضافي بيبطّئ تحميل الصفحة. نفس نمط <code>src().pipe().dest()</code>، لكن هنا <code>gulp-concat</code> هو خطوة المعالجة بدل <code>gulp-clean-css</code>.
+    </div>
+    <div class="en">
+        🇬🇧 Another common task: you have several small JS files (one per component), and want to merge them into a single <code>bundle.js</code> instead of five <code>&lt;script&gt;</code> tags in the HTML — each extra <code>&lt;script&gt;</code> tag means an extra network request that slows the page down. Same <code>src().pipe().dest()</code> pattern, but here <code>gulp-concat</code> is the processing step instead of <code>gulp-clean-css</code>.
+    </div>
+</div>
+<pre><code>// gulpfile.js (إضافة لنفس الملف فوق)
+const concat = require('gulp-concat');
+
+function concatJS() {
+    return src(['src/js/utils.js', 'src/js/app.js'])
+        .pipe(concat('bundle.js'))
+        .pipe(dest('dist/js'));
+}
+
+exports.concatJS = concatJS;</code></pre>
+<h3>مثال توضيحي (Terminal Transcript) — تشغيل الأمر / Illustrative example — running the command</h3>
+<div class="output-box">$ npx gulp concatJS
+
+[12:11:07] Using gulpfile ~/project/gulpfile.js
+[12:11:07] Starting 'concatJS'...
+[12:11:07] Finished 'concatJS' after 21 ms
+
+src/js/utils.js  ─┐
+src/js/app.js    ─┴─►   dist/js/bundle.js
+                        2 files combined into 1</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ الفرق عن مهمة <code>minifyCSS</code>: <code>src()</code> هنا بياخد <b>مصفوفة</b> من ملفين (مش ملف واحد) لأن الهدف دمجهم مع بعض، و<code>concat('bundle.js')</code> بيحدد اسم الملف الناتج. بالتفكير في المهمتين مع بعض هتلاحظ إن نمط Gulp ثابت دايمًا: اقرأ، عالج بخطوة أو أكتر، احفظ — بس خطوة المعالجة نفسها (<code>cleanCSS</code>, <code>concat</code>, أو أي حزمة تانية) هي اللي بتتغيّر حسب المطلوب.</div>
+    <div class="en">🇬🇧 Notice the difference from <code>minifyCSS</code>: <code>src()</code> here takes an <b>array</b> of two files (not one) because the goal is merging them, and <code>concat('bundle.js')</code> names the output file. Looking at both tasks together, Gulp's pattern is always the same: read, process through one or more steps, save — only the processing step itself (<code>cleanCSS</code>, <code>concat</code>, or any other package) changes based on what you need.</div>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 لو حابب تجرب فعليًا: اعمل مجلد مشروع جديد، شغّل <code>npm init -y</code> ثم <code>npm install --save-dev gulp gulp-clean-css gulp-rename</code>، انسخ الـ <code>gulpfile.js</code> اللي فوق، وحط أي ملف CSS في <code>src/css/</code>، وشغّل <code>npx gulp minifyCSS</code> وشوف الملف المضغوط بنفسك في <code>dist/css/</code>.</div>
@@ -111,11 +145,35 @@ src/css/style.css   →   dist/css/style.min.css
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="array">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مهمة <code>concatJS</code>، ليه <code>src()</code> أخد مصفوفة <code>['src/js/utils.js', 'src/js/app.js']</code> بدل ملف واحد؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the <code>concatJS</code> task, why does <code>src()</code> take an array of two files instead of one?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="merge"> لأن الهدف دمج الملفين مع بعض في ملف واحد ناتج</label>
+        <label><input type="radio" name="q3" value="mistake"> ده غلط، src() لازم ملف واحد بس دايمًا</label>
+        <label><input type="radio" name="q3" value="random"> عشان يشغّل الملفين بالتوازي بدون علاقة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="step">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">بمقارنة <code>minifyCSS</code> و<code>concatJS</code>، إيه اللي فعليًا بيتغيّر بين المهمتين؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Comparing <code>minifyCSS</code> and <code>concatJS</code>, what actually differs between the two tasks?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="step"> خطوة المعالجة جوه .pipe() بس (cleanCSS مقابل concat) — النمط العام ثابت</label>
+        <label><input type="radio" name="q4" value="all"> كل حاجة مختلفة تمامًا بين المهمتين</label>
+        <label><input type="radio" name="q4" value="dest"> بس اسم دالة dest() بيتغيّر</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
-    <h3>🛠️ اكتب Task تاني بنفسك / Write a Second Task Yourself</h3>
-    <div class="ar">🇪🇬 من غير ما تشغّلها لو مفيش عندك Node.js، اكتب (على ورقة أو في أي محرر نصوص) دالة <code>concatJS</code> جديدة في نفس الـ <code>gulpfile.js</code> بتاخد ملفين JS من <code>src/js/</code>، تدمجهم بمكتبة <code>gulp-concat</code>، وتحطهم في <code>dist/js/bundle.js</code> — إيه شكل الـ <code>.pipe()</code> اللي هتحتاجه؟</div>
-    <div class="en">🇬🇧 Even without running it if you don't have Node.js, write (on paper or in any text editor) a new <code>concatJS</code> function in the same <code>gulpfile.js</code> that takes two JS files from <code>src/js/</code>, merges them with the <code>gulp-concat</code> package, and outputs to <code>dist/js/bundle.js</code> — what would the <code>.pipe()</code> chain look like?</div>
+    <h3>🛠️ اكتب Task ثالثة بنفسك / Write a Third Task Yourself</h3>
+    <div class="ar">🇪🇬 خد نمط <code>minifyCSS</code> و<code>concatJS</code> فوق كمرجع، واكتب (على ورقة أو في أي محرر نصوص) دالة <code>minifyImages</code> جديدة في نفس الـ <code>gulpfile.js</code> بتاخد كل الصور من <code>src/images/*</code>، تضغطهم بمكتبة <code>gulp-imagemin</code>، وتحطهم في <code>dist/images/</code> — إيه شكل الـ <code>src()</code>/<code>.pipe()</code>/<code>dest()</code> اللي هتحتاجه؟ لو عندك Node.js فعليًا، جرّب تشغّلها بعد <code>npm install --save-dev gulp-imagemin</code>.</div>
+    <div class="en">🇬🇧 Take the <code>minifyCSS</code> and <code>concatJS</code> pattern above as a reference, and write (on paper or in any text editor) a new <code>minifyImages</code> function in the same <code>gulpfile.js</code> that takes every image from <code>src/images/*</code>, compresses them with the <code>gulp-imagemin</code> package, and outputs to <code>dist/images/</code> — what would the <code>src()</code>/<code>.pipe()</code>/<code>dest()</code> chain look like? If you actually have Node.js, try running it after <code>npm install --save-dev gulp-imagemin</code>.</div>
 </div>
 
 <h2 id="project">🚀 المشروع / Project</h2>
@@ -136,6 +194,7 @@ src/css/style.css   →   dist/css/style.min.css
         <li>Gulp = Task Runner بيؤتمت الخطوات المتكررة (ضغط، دمج، تصغير) بدل تنفيذها يدويًا.</li>
         <li><code>src()</code> → <code>.pipe()</code> → <code>dest()</code> = القراءة، المعالجة، ثم الحفظ.</li>
         <li>الفصل بين <code>src/</code> (ملفاتك الأصلية) و<code>dist/</code> (الناتج النهائي المضغوط) = ممارسة أساسية في أي مشروع احترافي.</li>
+        <li><code>src()</code> ممكن تاخد مصفوفة ملفات (زي <code>concatJS</code>) مش بس ملف واحد — خطوة المعالجة (<code>cleanCSS</code>, <code>concat</code>, ...) هي اللي بتتغيّر حسب المهمة.</li>
     </ul>
 </div>
 

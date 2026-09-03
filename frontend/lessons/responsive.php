@@ -82,11 +82,14 @@ include __DIR__ . '/../includes/header.php';
 <h3>المعاينة على عرض موبايل — 375px / Mobile width preview</h3>
 <iframe class="render-box" style="width:375px;height:340px" sandbox srcdoc='<html><head><style>body{font-family:sans-serif;margin:0;padding:16px;box-sizing:border-box}.cards{display:flex;gap:12px}.card{flex:1;background:#6c8bff;color:white;padding:20px;text-align:center;border-radius:8px}.hero-text{font-size:6vw;text-align:center}@media (max-width:600px){.cards{flex-direction:column}}</style></head><body dir="rtl"><div class="cards"><div class="card">1</div><div class="card">2</div><div class="card">3</div></div><h2 class="hero-text">عنوان متجاوب</h2></body></html>'></iframe>
 
+<h3>المعاينة على عرض تابلت — 768px / Tablet width preview</h3>
+<iframe class="render-box" style="width:768px;height:210px" sandbox srcdoc='<html><head><style>body{font-family:sans-serif;margin:0;padding:16px;box-sizing:border-box}.cards{display:flex;gap:12px}.card{flex:1;background:#6c8bff;color:white;padding:20px;text-align:center;border-radius:8px}.hero-text{font-size:6vw;text-align:center}@media (max-width:600px){.cards{flex-direction:column}}</style></head><body dir="rtl"><div class="cards"><div class="card">1</div><div class="card">2</div><div class="card">3</div></div><h2 class="hero-text">عنوان متجاوب</h2></body></html>'></iframe>
+
 <h3>المعاينة على عرض ديسكتوب — 800px / Desktop width preview</h3>
 <iframe class="render-box" style="width:800px;height:230px" sandbox srcdoc='<html><head><style>body{font-family:sans-serif;margin:0;padding:16px;box-sizing:border-box}.cards{display:flex;gap:12px}.card{flex:1;background:#6c8bff;color:white;padding:20px;text-align:center;border-radius:8px}.hero-text{font-size:6vw;text-align:center}@media (max-width:600px){.cards{flex-direction:column}}</style></head><body dir="rtl"><div class="cards"><div class="card">1</div><div class="card">2</div><div class="card">3</div></div><h2 class="hero-text">عنوان متجاوب</h2></body></html>'></iframe>
 <div class="bi-block">
-    <div class="ar">🇪🇬 لاحظ: نفس ملف الـ HTML/CSS بالظبط في الاثنين. عند 375px الكروت بقت عمود واحد (بسبب الـ Media Query) والعنوان أصغر (بسبب <code>vw</code>). عند 800px الكروت رجعت صف واحد والعنوان كبر — كل ده أوتوماتيك من غير JavaScript.</div>
-    <div class="en">🇬🇧 Notice: it is the exact same HTML/CSS file in both. At 375px the cards stack into one column (thanks to the Media Query) and the heading is smaller (thanks to <code>vw</code>). At 800px the cards return to a single row and the heading grows — all automatic, with no JavaScript.</div>
+    <div class="ar">🇪🇬 لاحظ الثلاثة مع بعض: نفس ملف الـ HTML/CSS بالظبط في الثلاثة. عند 375px الكروت بقت عمود واحد (بسبب الـ Media Query) والعنوان أصغر (بسبب <code>vw</code>). عند 768px (تابلت) — العرض بقى أعلى من نقطة الـ <code>600px</code> اللي حددناها في الـ <code>@media</code>، فالكروت رجعت صف واحد بالفعل رغم إن الشاشة لسه مش ديسكتوب كامل. عند 800px الصف بقى أوسع والعنوان أكبر شوية بفضل <code>vw</code>. الدرس المهم هنا: نقطة التوقف (Breakpoint) اللي اخترتها (<code>600px</code>) هي اللي بتحدد فعليًا وقت التبديل، مش حجم الشاشة الفعلي (موبايل/تابلت/ديسكتوب) — ولو التابلت كان بعرض أصغر من 600px كان هياخد تخطيط الموبايل بدل كده.</div>
+    <div class="en">🇬🇧 Compare all three: it is the exact same HTML/CSS file. At 375px the cards stack into one column (the Media Query) and the heading is smaller (<code>vw</code>). At 768px (tablet) the width is already above our <code>600px</code> breakpoint, so the cards are already back to a single row even though this isn't a full desktop screen. At 800px the row is a bit wider and the heading slightly bigger thanks to <code>vw</code>. The key lesson: the breakpoint you choose (<code>600px</code>) is what actually decides when the layout switches, not the device category (mobile/tablet/desktop) — if the tablet were narrower than 600px, it would get the mobile layout instead.</div>
 </div>
 
 <div class="bi-block">
@@ -141,6 +144,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="parent"> العنصر الأب</label>
         <label><input type="radio" name="q2" value="viewport"> عرض الشاشة (viewport) كله</label>
         <label><input type="radio" name="q2" value="root"> حجم خط عنصر html</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="breakpoint">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">تابلت عرضه 768px مع <code>@media (max-width: 600px)</code>. هل هيتطبق تخطيط العمود الواحد عليه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">A 768px-wide tablet with <code>@media (max-width: 600px)</code> — does the single-column layout apply to it?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="yes"> أيوه، لأنه تابلت مش ديسكتوب</label>
+        <label><input type="radio" name="q3" value="breakpoint"> لأ، لأن 768px أكبر من نقطة التوقف 600px</label>
+        <label><input type="radio" name="q3" value="always"> أيوه دايمًا بغض النظر عن العرض</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="device">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه اللي بيحدد فعليًا وقت تبديل التخطيط في Responsive Design؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What actually decides when a layout switches in Responsive Design?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="device"> نوع الجهاز نفسه (موبايل/تابلت/ديسكتوب)</label>
+        <label><input type="radio" name="q4" value="breakpoint"> نقطة التوقف (Breakpoint) المحددة في الـ @media، بغض النظر عن نوع الجهاز</label>
+        <label><input type="radio" name="q4" value="browser"> اسم المتصفح المستخدَم</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

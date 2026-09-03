@@ -131,6 +131,33 @@ FizzBuzz</div>
     <div class="en">🇬🇧 <b>What changed:</b> comment style, how variables are declared, whether braces exist, how output works. <b>What stayed exactly the same:</b> the idea of looping (repeat N times), the idea of chained conditions (check the most specific case first), and the modulo operator <code>%</code> and its meaning.</div>
 </div>
 
+<h2>مثال تاني: فلترة الأرقام الزوجية <span class="ltr">A Second Comparison: Filtering Even Numbers</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 FizzBuzz وضّح إن نفس منطق الحلقات والشروط بيتكرر في كل لغة. المثال ده هيوضّح حاجة مختلفة: أحيانًا اللغات مش بس بتختلف في الشكل، لكن كمان في "الأسلوب" المفضّل عندها لحل نفس المشكلة بالظبط — هنا فلترة الأرقام الزوجية من قائمة.</div>
+    <div class="en">🇬🇧 FizzBuzz showed that the same loop-and-condition logic repeats across languages. This example shows something different: sometimes languages don't just differ in shape, but in their preferred "style" for solving the exact same problem — here, filtering even numbers from a list.</div>
+</div>
+<pre><code>&lt;?php
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$evens = array_filter($numbers, fn($n) => $n % 2 === 0);
+echo implode(', ', $evens) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output (PHP — verified)</h3>
+<div class="output-box">2, 4, 6, 8, 10</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 PHP هنا استخدمت <code>array_filter</code> — دالة جاهزة بتاخد دالة "شرط" (Arrow Function <code>fn($n) => ...</code>) كمدخل، بالظبط زي ما اتعلمنا في مرحلة تنفيذ الدوال المتقدمة.</div>
+    <div class="en">🇬🇧 PHP here uses <code>array_filter</code> — a built-in taking a predicate function (an arrow function <code>fn($n) => ...</code>) as input, exactly as we learned in the Advanced Function Implementation stage.</div>
+</div>
+
+<pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = [n for n in numbers if n % 2 == 0]
+print(', '.join(str(n) for n in evens))</code></pre>
+<h3>الناتج الفعلي / Actual output (Python — verified)</h3>
+<div class="output-box">2, 4, 6, 8, 10</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 Python استخدمت "List Comprehension" (<code>[n for n in numbers if n % 2 == 0]</code>) — أسلوب مختصر جدًا ومحبوب في بايثون لبناء قائمة جديدة من قائمة موجودة بشرط، في سطر واحد. المنطق مطابق تمامًا لـ <code>array_filter</code>، لكن الشكل مختلف جذريًا — PHP فضّلت "دالة بتاخد دالة"، وPython فضّلت "بناء جملة مخصص" للمهمة الشائعة دي.</div>
+    <div class="en">🇬🇧 Python uses a "List Comprehension" (<code>[n for n in numbers if n % 2 == 0]</code>) — a very concise, beloved Python style for building a new filtered list from an existing one in a single line. The logic is identical to <code>array_filter</code>, but the shape is radically different — PHP prefers "a function taking a function," while Python prefers dedicated syntax for this common task.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه نسخة PHP من FizzBuzz — الوحيدة من التلاتة اللي نقدر نشغّلها فعليًا هنا. جرّب تغيّر حدود الحلقة أو تضيف قاعدة جديدة (زي مضاعفات 7 تطبع "Bazz").</div>
@@ -177,6 +204,30 @@ for ($i = 1; $i <= 15; $i++) {
         <label><input type="radio" name="q2" value="syntax"> الـ Syntax بيتغيّر، لكن منطق الحل (loops, conditions) بيفضل زي ما هو / syntax changes, but the solving logic stays the same</label>
         <label><input type="radio" name="q2" value="logic"> منطق الحل بيتغيّر بالكامل من لغة للتانية / the solving logic changes completely between languages</label>
         <label><input type="radio" name="q2" value="nothing"> كل حاجة بتتغيّر، ولازم تتعلم من الصفر / everything changes, and you must learn from scratch</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="odds">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو غيّرنا الشرط في مثال PHP لـ <code>fn($n) => $n % 2 !== 0</code> (بدل <code>=== 0</code>)، إيه الناتج؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If we changed the PHP condition to <code>fn($n) => $n % 2 !== 0</code> (instead of <code>=== 0</code>), what's the output?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="odds"> 1, 3, 5, 7, 9 — الأرقام الفردية / 1, 3, 5, 7, 9 — the odd numbers</label>
+        <label><input type="radio" name="q3" value="same5"> 2, 4, 6, 8, 10 — نفس الناتج القديم / 2, 4, 6, 8, 10 — same as before</label>
+        <label><input type="radio" name="q3" value="empty5"> مصفوفة فاضية / an empty array</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="style">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question"><code>array_filter</code> في PHP و List Comprehension في Python بيحلوا نفس المسألة بشكل مختلف — إيه اللي بيوضحه الفرق ده فعليًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">PHP's <code>array_filter</code> and Python's List Comprehension solve the same problem differently — what does this difference actually show?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="style"> نفس المنطق تمامًا، لكن كل لغة عندها أسلوب/Syntax مفضّل مختلف لنفس المهمة الشائعة / the exact same logic, but each language has a different preferred style/syntax for the same common task</label>
+        <label><input type="radio" name="q4" value="pyfaster"> Python دايمًا أسرع من PHP في فلترة المصفوفات / Python is always faster than PHP at filtering arrays</label>
+        <label><input type="radio" name="q4" value="phpcant"> PHP مش قادرة تعمل فلترة بشكل مختصر زي Python خالص / PHP simply can't filter concisely like Python at all</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

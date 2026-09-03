@@ -139,6 +139,46 @@ include __DIR__ . '/../includes/header.php';
 <h3>المعاينة الفعلية / Actual Rendered Output</h3>
 <iframe class="render-box" style="height:190px" sandbox srcdoc='<html><body style="font-family:sans-serif;direction:rtl;margin:0"><header style="background:#eee;padding:10px"><h1 style="margin:0;font-size:18px">موقعي</h1></header><nav style="padding:8px 10px;background:#f7f7f7"><a href="#">الرئيسية</a> | <a href="#">تواصل</a></nav><main style="padding:10px"><section><p style="margin:0">محتوى الصفحة الرئيسي هنا.</p></section></main><footer style="background:#eee;padding:8px 10px;font-size:13px">كل الحقوق محفوظة © 2026</footer></body></html>'></iframe>
 
+<h2>6) فورم متقدم جوه بنية دلالية / An Advanced Form Inside Semantic Structure</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الفورم اللي شفناه فوق كان بيستخدم بس <code>text</code>/<code>email</code>/<code>checkbox</code>. في الواقع، هتحتاج أنواع تانية كتير: <code>&lt;select&gt;</code> لقايمة اختيارات، <code>radio</code> لاختيار واحد من عدة خيارات (متبادلة الاستبعاد)، <code>date</code> لتاريخ، و<code>number</code> لرقم بحدود (<code>min</code>/<code>max</code>). المثال ده كمان بيوضح إزاي فورم كامل بيتحط جوه بنية دلالية صحيحة (<code>header</code>/<code>main</code>/<code>footer</code>) بدل ما يتسيب لوحده في الصفحة.</div>
+    <div class="en">🇬🇧 The form above only used <code>text</code>/<code>email</code>/<code>checkbox</code>. Real forms need more: <code>&lt;select&gt;</code> for a dropdown, <code>radio</code> for one choice among several mutually-exclusive options, <code>date</code> for a date, and <code>number</code> with <code>min</code>/<code>max</code> bounds. This example also shows a full form placed inside correct semantic structure (<code>header</code>/<code>main</code>/<code>footer</code>) instead of floating alone on the page.</div>
+</div>
+
+<pre><code>&lt;header&gt;&lt;h1&gt;التقديم على وظيفة&lt;/h1&gt;&lt;/header&gt;
+&lt;main&gt;
+    &lt;form method="post" action="apply.php"&gt;
+        &lt;label for="role"&gt;الوظيفة:&lt;/label&gt;
+        &lt;select id="role" name="role"&gt;
+            &lt;option value="backend"&gt;Backend Developer&lt;/option&gt;
+            &lt;option value="frontend"&gt;Frontend Developer&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;fieldset&gt;
+            &lt;legend&gt;مستوى الخبرة:&lt;/legend&gt;
+            &lt;label&gt;&lt;input type="radio" name="level" value="junior" checked&gt; Junior&lt;/label&gt;
+            &lt;label&gt;&lt;input type="radio" name="level" value="mid"&gt; Mid-level&lt;/label&gt;
+            &lt;label&gt;&lt;input type="radio" name="level" value="senior"&gt; Senior&lt;/label&gt;
+        &lt;/fieldset&gt;
+
+        &lt;label for="years"&gt;سنين الخبرة:&lt;/label&gt;
+        &lt;input type="number" id="years" name="years" min="0" max="40" value="2"&gt;
+
+        &lt;label for="available"&gt;تقدر تبدأ إمتى؟&lt;/label&gt;
+        &lt;input type="date" id="available" name="available"&gt;
+
+        &lt;button type="submit"&gt;تقديم الطلب&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;p&gt;كل الحقوق محفوظة © 2026&lt;/p&gt;&lt;/footer&gt;</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:380px" sandbox srcdoc='<html><body style="font-family:sans-serif;direction:rtl;margin:0"><header style="background:#eee;padding:10px"><h1 style="margin:0;font-size:18px">التقديم على وظيفة</h1></header><main style="padding:12px"><form><div style="margin-bottom:8px"><label for="role">الوظيفة:</label><br><select id="role" name="role"><option value="backend">Backend Developer</option><option value="frontend">Frontend Developer</option></select></div><fieldset style="margin-bottom:8px"><legend>مستوى الخبرة:</legend><label><input type="radio" name="level" value="junior" checked> Junior</label><br><label><input type="radio" name="level" value="mid"> Mid-level</label><br><label><input type="radio" name="level" value="senior"> Senior</label></fieldset><div style="margin-bottom:8px"><label for="years">سنين الخبرة:</label><br><input type="number" id="years" name="years" min="0" max="40" value="2"></div><div style="margin-bottom:8px"><label for="available">تقدر تبدأ إمتى؟</label><br><input type="date" id="available" name="available"></div><button type="submit">تقديم الطلب</button></form></main><footer style="background:#eee;padding:8px 10px;font-size:13px">كل الحقوق محفوظة © 2026</footer></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>&lt;fieldset&gt;</code> و<code>&lt;legend&gt;</code> حوالين مجموعة الـ radio buttons — دي مش زخرفة، هي عنصر دلالي كمان بيقول "الحقول دي كلها متعلقة ببعض" لقارئ الشاشة. ولاحظ إن كل الـ <code>radio</code> بتاعت نفس المجموعة لازم يكون ليها نفس قيمة <code>name</code> (هنا <code>level</code>) عشان المتصفح يعرف إن اختيار واحد بيلغي التاني.</div>
+    <div class="en">🇬🇧 Notice <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> wrapping the radio group — not decoration, it's a semantic element telling screen readers "these fields belong together." Also note every <code>radio</code> in the same group must share the same <code>name</code> (here <code>level</code>) so the browser knows selecting one deselects the others.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="img">
     <h3>سؤال 1 / Question 1</h3>
@@ -159,6 +199,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="div"> <code>&lt;div&gt;</code></label>
         <label><input type="radio" name="q2" value="table"> <code>&lt;table&gt;</code></label>
         <label><input type="radio" name="q2" value="nav"> <code>&lt;nav&gt;</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="fieldset">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال فورم التقديم على وظيفة، إيه العنصر اللي بيجمع مجموعة الـ radio buttons ويوضح لقارئ الشاشة إنهم مرتبطين ببعض؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the job-application form example, which element groups the radio buttons and tells screen readers they belong together?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="select"> <code>&lt;select&gt;</code></label>
+        <label><input type="radio" name="q3" value="fieldset"> <code>&lt;fieldset&gt;</code> مع <code>&lt;legend&gt;</code></label>
+        <label><input type="radio" name="q3" value="table"> <code>&lt;table&gt;</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="broken">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو غيّرت الـ <code>name</code> بتاع الـ radio التاني في مجموعة "مستوى الخبرة" من <code>level</code> لـ <code>level2</code> بالغلط، إيه اللي هيحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If you accidentally changed the second radio's <code>name</code> in the "experience level" group from <code>level</code> to <code>level2</code>, what happens?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="samegroup"> يفضل جزء من نفس المجموعة عادي</label>
+        <label><input type="radio" name="q4" value="broken"> يبقى مجموعة منفصلة، فتقدر تختار Junior و Mid-level مع بعض في نفس الوقت</label>
+        <label><input type="radio" name="q4" value="error"> المتصفح هيرفض يعرض الفورم كله</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

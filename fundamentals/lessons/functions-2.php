@@ -142,6 +142,38 @@ array_reduce:  15</div>
     <div class="en">🇬🇧 <code>$carry</code> is the value accumulated so far, and <code>$item</code> is the current element. <code>array_reduce</code> is remarkably powerful — you could even build <code>array_map</code> or <code>array_filter</code> on top of it, since it's fundamentally the "parent function" that collapses an array into one value.</div>
 </div>
 
+<h2>4) تعديل كل عنصر في مكانه — <span class="ltr">myArrayWalk() vs array_walk()</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 التلاتة اللي فوق (map/filter/reduce) كلها بترجع مصفوفة أو قيمة <b>جديدة</b>، من غير ما تلمس الأصلية. <code>array_walk</code> مختلفة تمامًا: مالهاش قيمة راجعة مفيدة — هي بتعدّل المصفوفة الأصلية "في مكانها" (In-Place) عن طريق تمرير كل عنصر بمرجع (<code>&amp;$value</code>) للدالة اللي بتستدعيها.</div>
+    <div class="en">🇬🇧 The three above (map/filter/reduce) all return a <b>new</b> array or value, leaving the original untouched. <code>array_walk</code> is fundamentally different: it has no useful return value — it modifies the original array "in place" by passing each element by reference (<code>&amp;$value</code>) to the function it calls.</div>
+</div>
+<pre><code>&lt;?php
+function myArrayWalk(array &$items, callable $fn): void {
+    foreach ($items as $key => &$value) {
+        $fn($value, $key);
+    }
+    unset($value);
+}
+
+$prices = [100, 200, 300];
+myArrayWalk($prices, function (&$price, $key) {
+    $price = $price * 1.1;
+});
+echo "myArrayWalk result:  " . implode(', ', $prices) . PHP_EOL;
+
+$prices2 = [100, 200, 300];
+array_walk($prices2, function (&$price, $key) {
+    $price = $price * 1.1;
+});
+echo "array_walk result:   " . implode(', ', $prices2) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">myArrayWalk result:  110, 220, 330
+array_walk result:   110, 220, 330</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ التفاصيل المهمة: أولًا، الدالة اللي بنمررها لازم تاخد <code>&amp;$price</code> بمرجع، وإلا التعديل مش هيوصل للمصفوفة الأصلية. ثانيًا، <code>myArrayWalk</code> نفسها بتاخد <code>&amp;$value</code> جوه الـ <code>foreach</code> وبعدها <code>unset($value)</code> — بالظبط نفس نمط المراجع اللي هتشوفه بالتفصيل في مرحلة "التعمق في اللغة" (Deep Dive). ده يوضح إزاي <code>array_map</code> و<code>array_walk</code> بيحلّوا مشاكل متشابهة (تعديل كل عنصر) لكن بفلسفة مختلفة تمامًا: نسخة جديدة مقابل تعديل مباشر.</div>
+    <div class="en">🇬🇧 Two details matter here: first, the callback must accept <code>&amp;$price</code> by reference, or the change never reaches the original array. Second, <code>myArrayWalk</code> itself takes <code>&amp;$value</code> inside the <code>foreach</code> and follows with <code>unset($value)</code> — exactly the reference pattern you'll see in detail in the Language Deep Dive stage. This shows how <code>array_map</code> and <code>array_walk</code> solve similar-looking problems (touch every element) with completely different philosophies: a new copy versus direct mutation.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه <code>myArrayReduce</code> اللي شفتها فوق بتجمع مصفوفة أرقام. جرّب تغيّر دالة الدمج <code>$sum</code> لحاجة تانية (زي ضرب بدل جمع) وشوف الناتج بيتغيّر إزاي.</div>
@@ -195,6 +227,30 @@ echo "array_reduce:  " . array_reduce($numbers, $sum, 0) . PHP_EOL;</textarea>
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="unchanged">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو غيّرنا الـ Callback في مثال <code>myArrayWalk</code> من <code>function (&amp;$price, $key)</code> لـ <code>function ($price, $key)</code> (من غير <code>&amp;</code>)، إيه اللي هيحصل لـ <code>$prices</code> بعد الاستدعاء؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If the callback changed from <code>function (&amp;$price, $key)</code> to <code>function ($price, $key)</code> (no <code>&amp;</code>), what happens to <code>$prices</code> after the call?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="unchanged"> تفضل زي ما هي (100, 200, 300) — التعديل بقى على نسخة محلية بس / it stays unchanged (100, 200, 300) — the edit now happens on a local copy only</label>
+        <label><input type="radio" name="q3" value="same3"> تتضاعف بنفس الشكل (110, 220, 330)</label>
+        <label><input type="radio" name="q3" value="error4"> PHP بترمي خطأ Fatal Error / PHP throws a Fatal Error</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="map4">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز تبني مصفوفة أسعار جديدة بعد الضريبة، من غير ما تعدّل المصفوفة الأصلية خالص — أنهي دالة أنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want to build a new taxed-prices array without touching the original at all — which function fits better?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="map4"> <code>array_map</code> — بترجع مصفوفة جديدة، الأصلية تفضل زي ما هي / <code>array_map</code> — returns a new array, the original stays untouched</label>
+        <label><input type="radio" name="q4" value="walk4"> <code>array_walk</code> — مبنية أصلًا عشان تعدّل في مكانها / <code>array_walk</code> — built specifically to mutate in place</label>
+        <label><input type="radio" name="q4" value="either4"> الاتنين بالظبط نفس التأثير على المصفوفة الأصلية / both have exactly the same effect on the original array</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ استخدم reduce تلاقي أكبر رقم / Use Reduce to Find the Maximum</h3>
@@ -215,7 +271,8 @@ echo "array_reduce:  " . array_reduce($numbers, $sum, 0) . PHP_EOL;</textarea>
         <li><code>array_map</code>: يحوّل كل عنصر، نفس العدد يفضل.</li>
         <li><code>array_filter</code>: يبقي بس العناصر اللي حققت شرط معين، العدد بيقل.</li>
         <li><code>array_reduce</code>: يلخّص المصفوفة كلها لقيمة واحدة نهائية.</li>
-        <li>التلاتة دوال دول بيعتمدوا على نفس الأساس: حلقة + دالة بتتنفذ على كل عنصر.</li>
+        <li><code>array_walk</code>: بيعدّل كل عنصر "في مكانه" بمرجع، من غير ما يرجّع مصفوفة جديدة.</li>
+        <li>الدوال دول بيعتمدوا على نفس الأساس: حلقة + دالة بتتنفذ على كل عنصر.</li>
     </ul>
 </div>
 

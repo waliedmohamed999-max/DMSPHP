@@ -100,6 +100,52 @@ html(lang="ar" dir="rtl")
     <iframe class="render-box mini-fe-preview" style="height:170px" sandbox></iframe>
 </div>
 
+<h2>4) مثال أعمق — else if وشروط متعددة / A Deeper Example: else if &amp; Multiple Conditions</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 المثال السابق استخدم <code>if</code> بسيط بشرط ثابت (<code>true</code>). في الواقع، غالبًا محتاج تقارن بين أكتر من احتمال — هنا هنلف على مصفوفة طلاب بدرجاتهم، ولكل طالب نقرر النص المناسب بسلسلة <code>if</code> / <code>else if</code> / <code>else</code>، بالظبط زي أي لغة برمجة.</div>
+    <div class="en">🇬🇧 The previous example used a simple <code>if</code> with a fixed condition (<code>true</code>). In practice you usually need to compare between several possibilities — here we loop over an array of students with scores, and for each one decide the right label using an <code>if</code> / <code>else if</code> / <code>else</code> chain, exactly like any programming language.</div>
+</div>
+<h3>مدخل Pug / Pug Input (grades.pug)</h3>
+<pre><code>- var students = [{name: 'Ali', score: 95}, {name: 'Sara', score: 72}, {name: 'Omar', score: 40}]
+ul
+    each student in students
+        li
+            span= student.name + ': '
+            if student.score &gt;= 85
+                strong ممتاز
+            else if student.score &gt;= 60
+                span جيد
+            else
+                span راسب</code></pre>
+<h3>الناتج الفعلي (تم تنفيذه فعليًا بأمر <span class="ltr">pug grades.pug --pretty</span>) / Actual compiled HTML output</h3>
+<div class="output-box">&lt;ul&gt;
+  &lt;li&gt;&lt;span&gt;Ali: &lt;/span&gt;&lt;strong&gt;ممتاز&lt;/strong&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Sara: &lt;/span&gt;&lt;span&gt;جيد&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Omar: &lt;/span&gt;&lt;span&gt;راسب&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن كل طالب اتقيّم بمعيار مختلف من نفس الكود بالظبط: علي (95) دخل شرط <code>&gt;= 85</code> الأول، سارة (72) فشلت في الأول ونجحت في <code>&gt;= 60</code>، وعمر (40) فشل في الاتنين فوقع في الـ <code>else</code>. ده بالظبط نفس منطق <code>if</code>/<code>else if</code>/<code>else</code> في JavaScript، بس هنا بيتحول مباشرة لـ HTML.</div>
+    <div class="en">🇬🇧 Notice each student was evaluated against the same code differently: Ali (95) matched the first <code>&gt;= 85</code> condition, Sara (72) failed the first but matched <code>&gt;= 60</code>, and Omar (40) failed both and fell into <code>else</code>. This is the exact same <code>if</code>/<code>else if</code>/<code>else</code> logic as JavaScript, just compiling directly to HTML here.</div>
+</div>
+<h3>المعاينة الفعلية للـ HTML المُترجَم / Actual Rendered Output of the Compiled HTML</h3>
+<iframe class="render-box" style="height:110px" sandbox srcdoc='<html><body style="font-family:sans-serif;padding:14px"><ul><li><span>Ali: </span><strong style="color:#2e7d32">ممتاز</strong></li><li><span>Sara: </span><span style="color:#f9a825">جيد</span></li><li><span>Omar: </span><span style="color:#c62828">راسب</span></li></ul></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 عدّل الـ HTML الناتج تحت مباشرة: غيّر النص أو الألوان، أو زوّد <code>&lt;li&gt;</code> جديد لطالب رابع بنفس النمط (زي ما <code>each</code> + <code>if</code> كانوا هيعملوا لو أضفت طالب في المصفوفة الأصلية).</div>
+    <div class="en">🇬🇧 Edit the resulting HTML directly below: change the text or colors, or add a new <code>&lt;li&gt;</code> for a fourth student in the same pattern (exactly what <code>each</code> + <code>if</code> would generate if you added a student to the original array).</div>
+</div>
+<div class="mini-fe-editor">
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Ali: &lt;/span&gt;&lt;strong style="color:#2e7d32"&gt;ممتاز&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Sara: &lt;/span&gt;&lt;span style="color:#f9a825"&gt;جيد&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Omar: &lt;/span&gt;&lt;span style="color:#c62828"&gt;راسب&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:110px" sandbox></iframe>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 لو عندك Node.js، جرّب <code>npm install -g pug-cli</code>، اكتب ملف <code>card.pug</code> بيستخدم <code>each</code> عشان يطلع 3 بطاقات من مصفوفة أسماء، وشغّله بـ <code>pug card.pug</code> وشوف ملف الـ HTML الناتج.</div>
@@ -131,6 +177,30 @@ html(lang="ar" dir="rtl")
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="jaid">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الدرجات، طالب درجته 72 هيدخل أنهي شرط؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the grades example, a student scoring 72 matches which condition?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="momtaz"> if student.score &gt;= 85 (ممتاز)</label>
+        <label><input type="radio" name="q3" value="jaid"> else if student.score &gt;= 60 (جيد)</label>
+        <label><input type="radio" name="q3" value="rasib"> else (راسب)</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="both">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">في مثال الدرجات، إيه اللي بيتكرر لكل طالب في المصفوفة من كود Pug واحد؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the grades example, what repeats for every student in the array from one piece of Pug code?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="li"> عنصر li بس</label>
+        <label><input type="radio" name="q4" value="both"> عنصر li وسلسلة الشرط if/else if/else كلها مع بعض</label>
+        <label><input type="radio" name="q4" value="nothing"> مفيش تكرار خالص</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ ترجم بمخّك / Compile It With Your Own Head</h3>
@@ -156,6 +226,7 @@ html(lang="ar" dir="rtl")
         <li>Pug = Template Engine بيتحوّل (Compile) لـ HTML عادي.</li>
         <li>الإزاحة (Indentation) بتحل محل الأقواس المدببة ووسوم الإغلاق.</li>
         <li><code>each ... in [...]</code> للتكرار، <code>if</code> للشرط — مزايا برمجية حقيقية جوه كتابة HTML.</li>
+        <li><code>if</code> / <code>else if</code> / <code>else</code> بتشتغل مع بعض جوه <code>each</code> عشان تولّد محتوى مختلف لكل عنصر حسب شرطه.</li>
     </ul>
 </div>
 

@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/header.php';
 
 <span class="badge">المرحلة 10 / Stage 10</span>
 <h1>حل المشكلات — فوق المتوسط <span class="ltr">Problem Solving — Upper-Intermediate</span></h1>
-<p class="subtitle">بعد كل اللي اتعلمناه، جاي وقت مفهوم قوي جدًا اسمه "التكرارية" (Recursion) — دالة بتنادي نفسها عشان تحل مشكلة عن طريق تقسيمها لنسخ أصغر منها. المشاكل الخمسة دي كلها هتتحل بالتكرارية.</p>
+<p class="subtitle">بعد كل اللي اتعلمناه، جاي وقت مفهوم قوي جدًا اسمه "التكرارية" (Recursion) — دالة بتنادي نفسها عشان تحل مشكلة عن طريق تقسيمها لنسخ أصغر منها. المشاكل الستة دي كلها هتتحل بالتكرارية.</p>
 
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
@@ -176,6 +176,42 @@ echo binarySearchRec($sorted, 3) . PHP_EOL;</code></pre>
     <div class="en">🇬🇧 Notice the base case <code>if ($low > $high) return -1;</code> — when the bounds "cross" like this, it means we've searched the whole array and the element isn't there. Every recursive solution needs a clear base case like this to terminate correctly.</div>
 </div>
 
+<h2>مشكلة 6: تسطيح مصفوفة متداخلة بالتكرارية</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>المطلوب:</b> عندك مصفوفة فيها مصفوفات جوه مصفوفات بعمق غير معروف مسبقًا، زي <code>[1, [2, 3, [4, 5]], [[6], 7], 8]</code>، والمطلوب "تسطيحها" لمصفوفة أحادية فيها كل الأرقام. <b>التفكير:</b> هنا بالظبط بيبان سبب قوة التكرارية — مع حلقة عادية مش هتعرف مقدمًا كام "طبقة" هتحتاج تنزل فيها. الحالة الأساسية: لو العنصر رقم عادي، ضيفه للنتيجة. غير كده (العنصر نفسه مصفوفة)، نادِ نفس الدالة عليه ودمج نتيجتها.</div>
+    <div class="en">🇬🇧 <b>Task:</b> given an array containing arrays nested inside arrays to an unknown depth, like <code>[1, [2, 3, [4, 5]], [[6], 7], 8]</code>, "flatten" it into a single-level array of every number. <b>Thinking:</b> this is exactly where recursion's power shows — with a plain loop you wouldn't know in advance how many "layers" deep you'll need to go. Base case: if the element is a plain number, add it to the result. Otherwise (the element is itself an array), call the same function on it and merge its result in.</div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">is_array($item) ?</div>
+    <div class="flow-arrow">↓ yes</div>
+    <div class="flow-box">flattenDeep($item) → merge result</div>
+    <div class="flow-arrow">↓ no</div>
+    <div class="flow-box">append $item directly (base case)</div>
+</div>
+
+<pre><code>&lt;?php
+function flattenDeep(array $items): array {
+    $result = [];
+    foreach ($items as $item) {
+        if (is_array($item)) {
+            $result = array_merge($result, flattenDeep($item));
+        } else {
+            $result[] = $item;
+        }
+    }
+    return $result;
+}
+
+$nested = [1, [2, 3, [4, 5]], [[6], 7], 8];
+echo implode(', ', flattenDeep($nested)) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">1, 2, 3, 4, 5, 6, 7, 8</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن <code>[[6], 7]</code> فيها عمقين مختلفين في نفس المصفوفة — <code>[6]</code> جوه مصفوفة جوه مصفوفة، و<code>7</code> رقم عادي على طول. الدالة اتعاملت مع الاتنين بنفس المنطق البسيط من غير ما نكتب حالة خاصة لكل عمق — وده بالظبط الفرق بين حل تكراري وحل بحلقات متداخلة بعدد ثابت.</div>
+    <div class="en">🇬🇧 Notice <code>[[6], 7]</code> mixes two different depths in the same sub-array — <code>[6]</code> is an array inside an array, while <code>7</code> is a plain number directly. The function handled both with the same simple logic, without writing a special case per depth level — exactly the difference between a recursive solution and one built from a fixed number of nested loops.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه دالة <code>factorial</code> اللي شفتها فوق. جرّب أرقام مختلفة، أو ضيف <code>echo "calling factorial($n)" . PHP_EOL;</code> جوه الدالة عشان تشوف كل نداء تكراري بيحصل امتى بالظبط.</div>
@@ -221,6 +257,30 @@ echo factorial(7) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="twice"> بتنادي نفسها مرتين في كل استدعاء، فبتعيد حساب نفس القيم كتير / it calls itself twice per call, recomputing the same values repeatedly</label>
         <label><input type="radio" name="q2" value="php"> PHP بطيئة في التكرارية بشكل عام / PHP is generally slow at recursion</label>
         <label><input type="radio" name="q2" value="array"> لأنها بترجع مصفوفة كبيرة / because it returns a large array</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="deep">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه ناتج <code>flattenDeep([[1, [2, [3]]], 4])</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What does <code>flattenDeep([[1, [2, [3]]], 4])</code> output?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="deep"> 1, 2, 3, 4</label>
+        <label><input type="radio" name="q3" value="shallow"> 1, [2, [3]], 4</label>
+        <label><input type="radio" name="q3" value="error3"> Error، العمق كبير جدًا / Error, too deeply nested</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="unknown">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه التكرارية أنسب من حلقات <code>foreach</code> متداخلة بعدد ثابت (زي حلقة جوه حلقة جوه حلقة) لحل مسألة التسطيح دي؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is recursion better suited than a fixed number of nested <code>foreach</code> loops for this flattening problem?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="unknown"> لأن عمق التداخل مش معروف مقدمًا، وممكن يختلف من مصفوفة لتانية / because the nesting depth isn't known in advance and can vary between arrays</label>
+        <label><input type="radio" name="q4" value="speed4"> عشان التكرارية دايمًا أسرع من الحلقات / because recursion is always faster than loops</label>
+        <label><input type="radio" name="q4" value="syntax4"> عشان <code>foreach</code> مش بتشتغل مع مصفوفات فيها مصفوفات / because <code>foreach</code> doesn't work on arrays containing arrays</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

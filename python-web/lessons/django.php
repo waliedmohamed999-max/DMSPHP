@@ -191,6 +191,63 @@ from .models import Post
 
 admin.site.register(Post)</code></pre>
 
+<h2>5) Django Forms — تحقق من البيانات جاهز / Ready-Made Data Validation</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لسه فاكر <code>validateContact()</code> اللي كتبناها يدويًا بـ PHP في مشروع Contact Form؟ Django بيدّيك نفس الفكرة جاهزة في وحدة اسمها <code>django.forms</code> — بتعرّف الحقول وقواعدها مرة واحدة (زي <code>min_length</code>)، وهو اللي بيتولى فحصها وتجميع رسائل الخطأ، من غير ما تكتب <code>if</code> واحد بنفسك.</div>
+    <div class="en">🇬🇧 Remember the <code>validateContact()</code> you wrote by hand in PHP for the Contact Form project? Django gives you the same idea ready-made in a module called <code>django.forms</code> — you define fields and their rules once (like <code>min_length</code>), and it handles checking them and collecting error messages, without writing a single <code>if</code> yourself.</div>
+</div>
+
+<pre><code>from django import forms
+
+class PostForm(forms.Form):
+    title = forms.CharField(max_length=200, min_length=3)
+    body = forms.CharField(widget=forms.Textarea, min_length=10)</code></pre>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 المحرر تحت بيستخدم نفس فكرة <code>settings.configure()</code> اللي شفتها فوق عشان يشغّل <code>django.forms</code> من غير مشروع كامل. جرّب الفورم ببيانات ناقصة وبعدين صحيحة، وشوف <code>is_valid()</code> و<code>errors</code> بيتصرفوا إزاي — نفس المنطق بالظبط اللي شفته في PHP، بس جاهز من غير ما تكتب قواعده يدويًا.</div>
+    <div class="en">🇬🇧 The editor below uses the same <code>settings.configure()</code> trick you saw above to run <code>django.forms</code> without a full project. Try the form with incomplete data, then valid data, and see how <code>is_valid()</code> and <code>errors</code> behave — the exact same logic you saw in PHP, but ready-made without writing its rules by hand.</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">import django
+from django.conf import settings
+
+settings.configure(
+    INSTALLED_APPS=["__main__"],
+    DATABASES={"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}},
+    USE_TZ=True,
+)
+django.setup()
+
+from django import forms
+
+class PostForm(forms.Form):
+    title = forms.CharField(max_length=200, min_length=3)
+    body = forms.CharField(widget=forms.Textarea, min_length=10)
+
+# حالة 1: بيانات ناقصة (عنوان قصير جدًا، ومحتوى فاضي)
+bad_data = {"title": "Hi", "body": ""}
+form1 = PostForm(bad_data)
+print("Valid?", form1.is_valid())
+print("Errors:", dict(form1.errors))
+
+# حالة 2: بيانات صحيحة
+good_data = {"title": "  Hello Django Forms  ", "body": "This is a long enough body for the post."}
+form2 = PostForm(good_data)
+print("Valid?", form2.is_valid())
+print("Cleaned data:", form2.cleaned_data)</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>form2.cleaned_data</code> — دي مش نفس البيانات الخام اللي بعتها، لأن Django بيعمل تنضيف (Cleaning) للبيانات كجزء من التحقق (زي إزالة مسافات زيادة)، وده بالظبط زي فكرة <code>trim()</code> اللي استخدمناها في PHP.</div>
+    <div class="en">🇬🇧 Notice <code>form2.cleaned_data</code> — it's not identical to the raw data you sent, because Django cleans the data as part of validation (like stripping extra whitespace), the exact same idea as the <code>trim()</code> we used in PHP.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="view">
     <h3>سؤال 1 / Question 1</h3>
@@ -211,6 +268,30 @@ admin.site.register(Post)</code></pre>
         <label><input type="radio" name="q2" value="makemigrations"> makemigrations</label>
         <label><input type="radio" name="q2" value="migrate"> migrate</label>
         <label><input type="radio" name="q2" value="runserver"> runserver</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="collect">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال <code>PostForm</code>، لو بعتّ <code>title</code> بحرفين بس و<code>body</code> فاضي، إيه اللي هيحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the <code>PostForm</code> example, if you send a 2-character <code>title</code> and empty <code>body</code>, what happens?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="stoponfirst"> بيوقف عند أول خطأ في title بس ومايفحصش body</label>
+        <label><input type="radio" name="q3" value="collect"> <code>is_valid()</code> بترجع False و<code>errors</code> بتجمع أخطاء الحقلين الاتنين مع بعض</label>
+        <label><input type="radio" name="q3" value="passanyway"> الفورم بيعتبر البيانات صحيحة برضه</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="samegoal">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه العلاقة بين <code>validateContact()</code> اللي كتبتها في PHP و<code>django.forms</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What's the relationship between the PHP <code>validateContact()</code> and <code>django.forms</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="unrelated"> مفيش علاقة، دول مفهومين مختلفين تمامًا</label>
+        <label><input type="radio" name="q4" value="samegoal"> نفس الهدف (تحقق من بيانات ورسائل خطأ)، بس Django بيديه جاهز من غير ما تكتبه يدوي</label>
+        <label><input type="radio" name="q4" value="onlyphp"> التحقق ده حاجة موجودة في PHP بس، Django معندهوش حاجة زيها</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>
@@ -237,6 +318,7 @@ admin.site.register(Post)</code></pre>
         <li><code>makemigrations</code> يولّد أوامر SQL من الـ Model، و<code>migrate</code> بينفذها فعليًا على قاعدة البيانات.</li>
         <li><code>urls.py</code> بيربط كل رابط بدالة View مسؤولة عنه.</li>
         <li>لوحة <code>/admin</code> بتتولد أوتوماتيك من الـ Models — من غير ما تكتب HTML.</li>
+        <li><code>django.forms</code> بيدّيك تحقق بيانات جاهز (زي <code>validateContact()</code> بتاعتك في PHP، بس بدون ما تكتب قواعده يدويًا).</li>
     </ul>
 </div>
 

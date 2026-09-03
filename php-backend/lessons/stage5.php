@@ -148,6 +148,42 @@ if (!$handler) {
 <h3>الناتج الفعلي (GET /products) / Actual output</h3>
 <div class="output-box">[{"id":1,"name":"Keyboard","price":45.99},{"id":2,"name":"Mouse","price":19.99}]</div>
 
+<h2>لما الـ Route مايتطابقش / When No Route Matches</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الـ Router اللي شفته فوق بيدور على <code>$routes[$method][$uri]</code> — لو مفيش تطابق (سواء المسار مش موجود أصلًا، أو موجود بس بـ HTTP Method مختلف)، لازم يرجع رد واضح بدل ما ينهار بـ Fatal Error. المعيار في REST APIs: <code>404 Not Found</code> مع JSON بسيط يوضح المشكلة.</div>
+    <div class="en">🇬🇧 The Router above looks up <code>$routes[$method][$uri]</code> — if nothing matches (the path doesn't exist at all, or exists under a different HTTP Method), it must return a clear response instead of crashing with a Fatal Error. The REST API convention: <code>404 Not Found</code> with a small JSON body explaining the problem.</div>
+</div>
+<pre><code>&lt;?php
+function dispatch(string $method, string $uri, array $routes): void
+{
+    $handler = $routes[$method][$uri] ?? null;
+
+    if (!$handler) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Route not found']);
+        return;
+    }
+
+    [$class, $action] = $handler;
+    (new $class(new ProductModel()))->$action();
+}
+
+$routes = ['GET' => ['/products' => [ProductController::class, 'index']]];
+
+dispatch('GET', '/products', $routes); // مطابق فعليًا
+dispatch('GET', '/users', $routes);    // مسار مش موجود أصلًا
+dispatch('POST', '/products', $routes); // موجود لكن بـ method غلط</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">[{"id":1,"name":"Keyboard","price":45.99},{"id":2,"name":"Mouse","price":19.99}]
+HTTP 404
+{"error":"Route not found"}
+HTTP 404
+{"error":"Route not found"}</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن <code>POST /products</code> رجّع <code>404</code> بالظبط زي <code>GET /users</code> — من وجهة نظر الـ Router، الاتنين معندهمش مفتاح في <code>$routes</code>. لو عايز ترجّع <code>405 Method Not Allowed</code> بدل <code>404</code> لما المسار موجود بس الـ Method غلط، محتاج تتحقق الأول لو <code>$uri</code> نفسه موجود تحت أي Method قبل ما تحكم إنه مش موجود أصلًا.</div>
+    <div class="en">🇬🇧 Notice <code>POST /products</code> returned <code>404</code> exactly like <code>GET /users</code> — from the Router's perspective, neither has a matching key in <code>$routes</code>. If you want <code>405 Method Not Allowed</code> instead of <code>404</code> when the path exists but the Method is wrong, you'd first check whether <code>$uri</code> exists under any Method before concluding it doesn't exist at all.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="controller">
     <h3>سؤال 1 / Question 1</h3>
@@ -168,6 +204,30 @@ if (!$handler) {
         <label><input type="radio" name="q2" value="plain"> كنص عادي / As plain text</label>
         <label><input type="radio" name="q2" value="md5"> بـ md5()</label>
         <label><input type="radio" name="q2" value="hash"> بـ password_hash()</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="404">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الـ Router فوق، <code>POST /products</code> رجّع 404 مع إن <code>/products</code> نفسها معرّفة تحت GET — ليه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Router example, <code>POST /products</code> returned 404 even though <code>/products</code> is defined under GET — why?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="404"> لإن المفتاح <code>$routes['POST']['/products']</code> مش موجود، حتى لو <code>$routes['GET']['/products']</code> موجود</label>
+        <label><input type="radio" name="q3" value="bug"> ده Bug في الكود لازم يتصلح</label>
+        <label><input type="radio" name="q3" value="always200"> Router المفروض يرجع 200 لأي method دايمًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="crash">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو الـ Router ماعملش تحقق <code>if (!$handler)</code> أصلًا ومسار مش موجود اتطلب، إيه اللي هيحصل غالبًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If the Router skipped the <code>if (!$handler)</code> check entirely and a nonexistent path was requested, what would likely happen?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="fine"> هيشتغل عادي زي أي مسار تاني</label>
+        <label><input type="radio" name="q4" value="crash"> Fatal Error لإن الكود هيحاول يستخدم <code>null</code> كـ [class, action]</label>
+        <label><input type="radio" name="q4" value="404auto"> PHP هيرجع 404 أوتوماتيك من غير أي كود إضافي</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

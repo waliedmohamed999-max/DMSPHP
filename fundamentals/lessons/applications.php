@@ -38,20 +38,26 @@ include __DIR__ . '/../includes/header.php';
     <div class="flow-box">render()</div>
 </div>
 <div class="bi-block">
-    <div class="ar">🇪🇬 كلاس بسيط بيدير مصفوفة من المهام، كل مهمة عندها عنوان وحالة (خلصت ولا لأ). فيه دوال لإضافة مهمة، تحديدها كمُنجزة، حذفها، وعرض القائمة كلها.</div>
-    <div class="en">🇬🇧 A simple class managing an array of tasks, each with a title and a done/not-done status. It has methods to add a task, mark it complete, remove it, and render the whole list.</div>
+    <div class="ar">🇪🇬 كلاس بسيط بيدير مصفوفة من المهام، كل مهمة عندها عنوان، حالة (خلصت ولا لأ)، وعلم أولوية (Priority). فيه دوال لإضافة مهمة، تحديدها كمُنجزة، تحديد أولويتها، حذفها، وعرض القائمة كلها.</div>
+    <div class="en">🇬🇧 A simple class managing an array of tasks, each with a title, a done/not-done status, and a priority flag. It has methods to add a task, mark it complete, set its priority, remove it, and render the whole list.</div>
 </div>
 <pre><code>&lt;?php
 class TodoList {
     private array $tasks = [];
 
-    public function add(string $title): void {
-        $this->tasks[] = ['title' => $title, 'done' => false];
+    public function add(string $title, bool $highPriority = false): void {
+        $this->tasks[] = ['title' => $title, 'done' => false, 'priority' => $highPriority];
     }
 
     public function complete(int $index): void {
         if (isset($this->tasks[$index])) {
             $this->tasks[$index]['done'] = true;
+        }
+    }
+
+    public function setPriority(int $index, bool $highPriority): void {
+        if (isset($this->tasks[$index])) {
+            $this->tasks[$index]['priority'] = $highPriority;
         }
     }
 
@@ -63,7 +69,8 @@ class TodoList {
     public function render(): void {
         foreach ($this->tasks as $i => $task) {
             $mark = $task['done'] ? '[x]' : '[ ]';
-            echo "$i. $mark {$task['title']}" . PHP_EOL;
+            $flag = $task['priority'] ? ' [!] HIGH PRIORITY' : '';
+            echo "$i. $mark {$task['title']}$flag" . PHP_EOL;
         }
     }
 }
@@ -73,25 +80,32 @@ $todo->add("Learn PHP arrays");
 $todo->add("Learn recursion");
 $todo->add("Build a mini project");
 
-echo "-- Initial list --" . PHP_EOL;
+$todo->setPriority(1, true);
+
+echo "-- List with priority flag --" . PHP_EOL;
 $todo->render();
 
 $todo->complete(0);
-$todo->remove(1);
+$todo->setPriority(2, true);
 
-echo "-- After completing task 0 and removing task 1 --" . PHP_EOL;
+echo "-- After completing task 0 and flagging task 2 --" . PHP_EOL;
 $todo->render();</code></pre>
 <h3>الناتج الفعلي / Actual output</h3>
-<div class="output-box">-- Initial list --
+<div class="output-box">-- List with priority flag --
 0. [ ] Learn PHP arrays
-1. [ ] Learn recursion
+1. [ ] Learn recursion [!] HIGH PRIORITY
 2. [ ] Build a mini project
--- After completing task 0 and removing task 1 --
+-- After completing task 0 and flagging task 2 --
 0. [x] Learn PHP arrays
-1. [ ] Build a mini project</div>
+1. [ ] Learn recursion [!] HIGH PRIORITY
+2. [ ] Build a mini project [!] HIGH PRIORITY</div>
 <div class="bi-block">
-    <div class="ar">🇪🇬 لاحظ إن <code>remove</code> بتستخدم <code>array_values</code> بعد <code>unset</code> عشان "تعيد ترقيم" المصفوفة من صفر تاني — من غيرها كانت هتفضل فجوة في الفهرس (Index) بتاع العنصر المحذوف. وده سبب رجوع "Build a mini project" بفهرس 1 بدل 2.</div>
-    <div class="en">🇬🇧 Notice <code>remove</code> uses <code>array_values</code> after <code>unset</code> to "re-index" the array from zero again — without it, there would be a gap at the removed element's index. That's why "Build a mini project" now shows at index 1 instead of 2.</div>
+    <div class="ar">🇪🇬 لاحظ إن <code>add</code> اتغيّرت لتاخد باراميتر اختياري تاني <code>$highPriority = false</code> — القيمة الافتراضية دي مهمة عشان الكود القديم اللي بينادي <code>add($title)</code> من غير الباراميتر الجديد يفضل شغال من غير أي تعديل. ده مبدأ اسمه "توافقية للخلف" (Backward Compatibility)، وهتقابله كتير وانت بتوسّع كلاسات موجودة بالفعل.</div>
+    <div class="en">🇬🇧 Notice <code>add</code> changed to take a second, optional parameter <code>$highPriority = false</code> — that default value matters, so existing code calling <code>add($title)</code> without the new parameter keeps working unchanged. This principle is called "backward compatibility," and you'll run into it constantly when extending classes that already exist.</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 وبالمناسبة، دالة <code>remove</code> لسه بتستخدم <code>array_values</code> بعد <code>unset</code> عشان "تعيد ترقيم" المصفوفة من صفر تاني — من غيرها كانت هتفضل فجوة في الفهرس (Index) بتاع العنصر المحذوف.</div>
+    <div class="en">🇬🇧 By the way, <code>remove</code> still uses <code>array_values</code> after <code>unset</code> to "re-index" the array from zero again — without it, there would be a gap at the removed element's index.</div>
 </div>
 
 <h2>2) آلة حاسبة بسيطة <span class="ltr">Simple Calculator</span></h2>
@@ -221,6 +235,30 @@ try {
         <label><input type="radio" name="q2" value="zero"> بترجع 0 / it returns 0</label>
         <label><input type="radio" name="q2" value="throw"> البرنامج بيتوقف بخطأ غير ممسوك (Uncaught Exception) / the program crashes with an uncaught exception</label>
         <label><input type="radio" name="q2" value="infinity"> بترجع INF / it returns INF</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="silent">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو نادينا <code>$todo->setPriority(99, true)</code> على قائمة فيها مهمتين بس (فهرس 0 و1)، إيه اللي هيحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If we call <code>$todo->setPriority(99, true)</code> on a list with only two tasks (index 0 and 1), what happens?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="silent"> مفيش حاجة بتتغيّر ولا Error — الشرط <code>isset</code> بيحمي من الفهرس غير الموجود بهدوء / nothing changes and no error — the <code>isset</code> check silently guards against the missing index</label>
+        <label><input type="radio" name="q3" value="crash"> البرنامج بيتوقف بـ Fatal Error فورًا / the program crashes with a Fatal Error immediately</label>
+        <label><input type="radio" name="q3" value="autocreate"> بتتضاف مهمة جديدة فارغة عند الفهرس 99 / a new empty task gets created at index 99</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="backward">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه لازم <code>$highPriority = false</code> تحديدًا تكون قيمة افتراضية في <code>add(string $title, bool $highPriority = false)</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why must <code>$highPriority = false</code> specifically be a default value in <code>add(string $title, bool $highPriority = false)</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="backward"> عشان أي كود قديم بينادي <code>add($title)</code> من غير الباراميتر الجديد يفضل شغال من غير تعديل / so any old code calling <code>add($title)</code> without the new parameter keeps working unmodified</label>
+        <label><input type="radio" name="q4" value="required4"> PHP بترفض الدوال اللي مفيهاش قيمة افتراضية للباراميتر التاني / PHP rejects functions without a default for the second parameter</label>
+        <label><input type="radio" name="q4" value="performance"> بتخلي الكود أسرع في التنفيذ / it makes the code execute faster</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

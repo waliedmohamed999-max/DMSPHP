@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/header.php';
 
 <span class="badge">المرحلة 3 / Stage 3</span>
 <h1>حل المشكلات — المستوى الثاني <span class="ltr">Problem Solving — Level 2</span></h1>
-<p class="subtitle">هنكمل نفس الأسلوب من المرحلة اللي فاتت: تفكير قبل كود. المشاكل دلوقتي هتلمس زوايا جديدة — تلاعب بالأرقام من غير متغيرات مساعدة، تعامل مع النصوص، وتتبّع أكتر من قيمة في نفس الوقت جوه حلقة واحدة.</p>
+<p class="subtitle">هنكمل نفس الأسلوب من المرحلة اللي فاتت: تفكير قبل كود. المشاكل دلوقتي هتلمس زوايا جديدة — تلاعب بالأرقام من غير متغيرات مساعدة، تعامل مع النصوص، وتتبّع أكتر من قيمة في نفس الوقت جوه حلقة واحدة، ودمج مصفوفتين مرتبتين في مصفوفة واحدة.</p>
 
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
@@ -23,8 +23,8 @@ include __DIR__ . '/../includes/header.php';
 
 <h2 id="read">الهدف / Goal</h2>
 <div class="bi-block">
-    <div class="ar">🇪🇬 تحل 7 مشاكل جديدة تبني عضلة "التفكير المنطقي" بتاعتك أكتر، وتتعرف على حيل صغيرة (زي التبديل من غير متغير مؤقت) بتفرق كتير في فهمك للغة.</div>
-    <div class="en">🇬🇧 Solve 7 new problems that further build your "logical thinking" muscle, and learn small tricks (like swapping without a temp variable) that deepen your understanding of the language.</div>
+    <div class="ar">🇪🇬 تحل 8 مشاكل جديدة تبني عضلة "التفكير المنطقي" بتاعتك أكتر، وتتعرف على حيل صغيرة (زي التبديل من غير متغير مؤقت) بتفرق كتير في فهمك للغة.</div>
+    <div class="en">🇬🇧 Solve 8 new problems that further build your "logical thinking" muscle, and learn small tricks (like swapping without a temp variable) that deepen your understanding of the language.</div>
 </div>
 
 <h2 id="understand">مشكلة 1: تبديل قيمتين من غير متغير مؤقت</h2>
@@ -209,6 +209,55 @@ echo sumOfDigits(90210) . PHP_EOL;</code></pre>
 <div class="output-box">10
 12</div>
 
+<h2>مشكلة 8: دمج مصفوفتين مرتبتين</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>المطلوب:</b> عندك مصفوفتين، كل واحدة مرتبة تصاعديًا لوحدها، ومطلوب تدمجهم في مصفوفة واحدة مرتبة، من غير ما تعمل <code>sort</code> على الناتج النهائي. <b>التفكير:</b> استخدم مؤشرين (<code>$i</code>, <code>$j</code>) يبدأوا من أول كل مصفوفة، وفي كل خطوة قارن العنصرين اللي المؤشرين واقفين عليهم، وحط الأصغر في النتيجة وحرّك مؤشره. لما توصل لآخر مصفوفة، انسخ الباقي من التانية زي ما هو.</div>
+    <div class="en">🇬🇧 <b>Task:</b> given two arrays, each already sorted ascending on its own, merge them into a single sorted array without re-sorting the final result. <b>Thinking:</b> use two pointers (<code>$i</code>, <code>$j</code>) starting at each array's beginning, and at each step compare the two elements they point at, appending the smaller and advancing its pointer. Once one array runs out, copy the rest of the other as-is.</div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">a[i] vs b[j]</div>
+    <div class="flow-arrow">↓ smaller wins</div>
+    <div class="flow-box">append + advance that pointer</div>
+    <div class="flow-arrow">↓ repeat until one array is empty</div>
+    <div class="flow-box">append the remaining tail as-is</div>
+</div>
+
+<pre><code>&lt;?php
+function mergeSorted(array $a, array $b): array {
+    $result = [];
+    $i = 0;
+    $j = 0;
+    while ($i < count($a) && $j < count($b)) {
+        if ($a[$i] <= $b[$j]) {
+            $result[] = $a[$i];
+            $i++;
+        } else {
+            $result[] = $b[$j];
+            $j++;
+        }
+    }
+    while ($i < count($a)) {
+        $result[] = $a[$i];
+        $i++;
+    }
+    while ($j < count($b)) {
+        $result[] = $b[$j];
+        $j++;
+    }
+    return $result;
+}
+
+echo implode(', ', mergeSorted([1, 3, 5], [2, 4, 6])) . PHP_EOL;
+echo implode(', ', mergeSorted([1, 2, 3], [10, 20])) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">1, 2, 3, 4, 5, 6
+1, 2, 3, 10, 20</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 دي بالظبط الخطوة الأساسية جوه خوارزمية ترتيب أشهر بكتير اسمها Merge Sort — بدل ما ترتب المصفوفة كلها مرة واحدة، بتقسمها لنص لحد ما تبقى مصفوفات صغيرة جدًا، وبعدين "تدمجهم" بالطريقة اللي شفناها هنا. كفاءتها <code>O(n)</code> للدمج نفسه — أسرع بكتير من إعادة ترتيب الناتج من الصفر.</div>
+    <div class="en">🇬🇧 This is exactly the core step inside a much more famous sorting algorithm called Merge Sort — instead of sorting the whole array at once, it splits it in half repeatedly down to tiny arrays, then "merges" them back using exactly this technique. The merge step itself runs in <code>O(n)</code> — far faster than re-sorting the combined result from scratch.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه دالة <code>secondLargest</code> اللي شفتها فوق، بما فيها التعامل مع الحالة الحدّية. جرّب تغيّر المصفوفة المُدخلة وشوف إزاي النتيجة بتتغير.</div>
@@ -259,6 +308,30 @@ echo (secondLargest([4, 4, 4]) ?? 'null') . PHP_EOL;</textarea>
     <div class="quiz-options">
         <label><input type="radio" name="q2" value="numeric1"> false، لأن فيها حرف / false, because it contains a letter</label>
         <label><input type="radio" name="q2" value="numeric2"> true، لأنها تدوين علمي صحيح (300) / true, because it's valid scientific notation (300)</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="merged">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه ناتج <code>mergeSorted([5, 10], [1, 2, 3])</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What does <code>mergeSorted([5, 10], [1, 2, 3])</code> output?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="wrong1"> 5, 10, 1, 2, 3</label>
+        <label><input type="radio" name="q3" value="merged"> 1, 2, 3, 5, 10</label>
+        <label><input type="radio" name="q3" value="wrong2"> 1, 5, 2, 10, 3</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="on">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه <code>mergeSorted</code> بمؤشرين أفضل من إنك تعمل <code>array_merge($a, $b)</code> وبعدين <code>sort()</code> على الناتج؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is the two-pointer <code>mergeSorted</code> better than <code>array_merge($a, $b)</code> followed by <code>sort()</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="on"> لأنها بتستغل إن المصفوفتين مرتبتين بالفعل وتدمجهم في <code>O(n)</code>، بينما <code>sort()</code> عمومًا أبطأ (<code>O(n log n)</code>) / it exploits that both arrays are already sorted and merges in <code>O(n)</code>, while a general <code>sort()</code> is slower (<code>O(n log n)</code>)</label>
+        <label><input type="radio" name="q4" value="samespeed"> مفيش فرق في السرعة، بس شكل الكود مختلف / no speed difference, just different code style</label>
+        <label><input type="radio" name="q4" value="wrongresult"> <code>array_merge</code> + <code>sort()</code> بترجع نتيجة غلط / <code>array_merge</code> + <code>sort()</code> gives a wrong result</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

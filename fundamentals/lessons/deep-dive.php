@@ -56,6 +56,60 @@ a = 99</div>
     <div class="en">🇬🇧 Two things to notice: first, the function modified the original array directly with no return, thanks to <code>&amp;$scores</code>. Second, <code>unset($score)</code> after the <code>foreach</code> is important — without it, <code>$score</code> stays a "reference" to the last element and can cause weird bugs if reused later.</div>
 </div>
 
+<h3>⚠️ Gotcha: البق اللي بيحصل فعلًا لو نسيت unset</h3>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الكلام اللي فات مش نظري — ده بق حقيقي جدًا وشائع. المثال ده بيوريك البق بيحصل بالظبط إزاي: حلقة أولى بمرجع (<code>&amp;$item</code>) من غير <code>unset</code>، وبعدها حلقة تانية "بريئة الشكل" بتقرا بس (من غير <code>&amp;</code>) — لكنها فعليًا بتكتب فوق آخر عنصر في المصفوفة من غير ما تقصد.</div>
+    <div class="en">🇬🇧 This isn't theoretical — it's a very real and common bug. This example shows exactly how it happens: a first loop with a reference (<code>&amp;$item</code>) with no <code>unset</code>, followed by a second, innocent-looking read-only loop (no <code>&amp;</code>) — which ends up unintentionally overwriting the array's last element.</div>
+</div>
+<pre><code>&lt;?php
+echo "=== Buggy version (no unset) ===" . PHP_EOL;
+$numbers = [1, 2, 3];
+
+foreach ($numbers as &$item) {
+    $item *= 2;
+}
+// BUG: forgot unset($item) here — $item is still a reference to $numbers[2]
+
+echo "After doubling: " . implode(', ', $numbers) . PHP_EOL;
+
+foreach ($numbers as $item) {
+    // looks completely harmless — just reading values
+}
+
+echo "After an innocent read-only foreach: " . implode(', ', $numbers) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">=== Buggy version (no unset) ===
+After doubling: 2, 4, 6
+After an innocent read-only foreach: 2, 4, 4</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 شفت المشكلة؟ العنصر الأخير اتحوّل لـ 4 بدل ما يفضل 6! السبب: بعد الحلقة الأولى، <code>$item</code> فضلت "مرجع" (Reference) لآخر عنصر في <code>$numbers</code>. في الحلقة التانية، PHP بتحط كل قيمة من المصفوفة جوه <code>$item</code> في كل تكرار — وبما إن <code>$item</code> دلوقتي هي فعليًا نفس خانة آخر عنصر، فكل تكرار كان بيكتب فوقها. آخر قيمة اتكتبت كانت قيمة العنصر اللي قبل الأخير (4)، فده اللي فضل.</div>
+    <div class="en">🇬🇧 See the problem? The last element became 4 instead of staying 6! Why: after the first loop, <code>$item</code> remained a reference to the array's last element. In the second loop, PHP assigns each value into <code>$item</code> on every iteration — and since <code>$item</code> now literally is that last slot, every iteration wrote over it. The last value written was the second-to-last element's value (4), so that's what stuck.</div>
+</div>
+<pre><code>&lt;?php
+echo "=== Fixed version (with unset) ===" . PHP_EOL;
+$numbers2 = [1, 2, 3];
+
+foreach ($numbers2 as &$item) {
+    $item *= 2;
+}
+unset($item);
+
+echo "After doubling: " . implode(', ', $numbers2) . PHP_EOL;
+
+foreach ($numbers2 as $item) {
+    // safe now
+}
+
+echo "After an innocent read-only foreach: " . implode(', ', $numbers2) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">=== Fixed version (with unset) ===
+After doubling: 2, 4, 6
+After an innocent read-only foreach: 2, 4, 6</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 سطر واحد (<code>unset($item);</code>) هو كل الفرق — بيقطع الرابط بين <code>$item</code> والعنصر الأخير فورًا بعد الحلقة، فالحلقة التانية بترجع تتصرف بشكل طبيعي (مجرد متغير عادي في كل تكرار). القاعدة الذهبية: أي <code>foreach</code> بمرجع (<code>&amp;</code>) لازم <code>unset()</code> على متغيرها فور ما تخلص.</div>
+    <div class="en">🇬🇧 One line (<code>unset($item);</code>) is the entire fix — it breaks the link between <code>$item</code> and the last element right after the loop, so the second loop behaves normally again (just an ordinary variable each iteration). The golden rule: any <code>foreach</code> using a reference (<code>&amp;</code>) must <code>unset()</code> its variable the moment it's done.</div>
+</div>
+
 <h2>2) الدوال متغيرة عدد المدخلات <span class="ltr">Variadic Functions (...$args)</span></h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 أحيانًا مش عارف مقدمًا هتمرر كام قيمة لدالة. <code>...$args</code> بتخلي الدالة تقبل أي عدد من المدخلات وتجمعهم في مصفوفة واحدة اسمها <code>$args</code> جواها.</div>
@@ -186,6 +240,30 @@ echo $triple(5) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="111"> 1, 1, 1</label>
         <label><input type="radio" name="q2" value="123"> 1, 2, 3</label>
         <label><input type="radio" name="q2" value="000"> 0, 0, 0</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="four">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الـ Gotcha، ليه آخر عنصر في <code>$numbers</code> طلع 4 بدل 6 بعد الحلقة التانية؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Gotcha example, why did the last element of <code>$numbers</code> end up 4 instead of 6 after the second loop?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="four"> لأن <code>$item</code> فضلت مرجع لآخر عنصر، فالحلقة التانية كتبت فوقه بقيمة العنصر اللي قبله / because <code>$item</code> remained a reference to the last element, so the second loop overwrote it with the previous element's value</label>
+        <label><input type="radio" name="q3" value="bug2"> ده Bug في PHP نفسها ومفيش تفسير منطقي / it's a bug in PHP itself with no logical explanation</label>
+        <label><input type="radio" name="q3" value="random4"> <code>implode</code> بترتب المصفوفة عشوائيًا / <code>implode</code> randomly reorders the array</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="unsetfix">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">أنهي إصلاح كان هيمنع البق ده في المثال المُصلَّح؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Which fix prevented this bug in the fixed version?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="unsetfix"> إضافة <code>unset($item);</code> فورًا بعد الحلقة اللي فيها المرجع / adding <code>unset($item);</code> immediately after the loop with the reference</label>
+        <label><input type="radio" name="q4" value="renamefix"> تسمية المتغير في الحلقة التانية باسم مختلف بس / just renaming the variable in the second loop differently</label>
+        <label><input type="radio" name="q4" value="sortfix"> ترتيب المصفوفة قبل الحلقة الثانية / sorting the array before the second loop</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

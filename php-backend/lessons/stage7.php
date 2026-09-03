@@ -195,6 +195,46 @@ echo (new Checkout(new PaypalPayment()))->complete(50.00) . PHP_EOL;</textarea>
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>Factory Pattern — مكان واحد لبناء الـ Objects</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال <code>Checkout</code> فوق كان بيستقبل الـ Strategy جاهزة من برة (<code>new Checkout(new CreditCardPayment())</code>). لكن مين بيقرر أنهي Strategy يبني أصلًا حسب اختيار المستخدم؟ ده دور الـ <b>Factory</b>: كلاس واحد مسؤول بس عن "إيه الكلاس المناسب لبناءه" حسب مدخل (زي نص جاي من الفورم)، بعيدًا عن باقي الكود اللي مش المفروض يعرف أسماء الكلاسات كلها.</div>
+    <div class="en">🇬🇧 The <code>Checkout</code> example above received a ready-made Strategy from outside (<code>new Checkout(new CreditCardPayment())</code>). But who decides which Strategy to build based on the user's choice? That's the <b>Factory</b>'s job: one class solely responsible for "which class is right to build" given an input (like a string from a form), keeping that decision out of code that shouldn't know every class name.</div>
+</div>
+<pre><code>&lt;?php
+class PaymentFactory
+{
+    public static function make(string $type): PaymentStrategy
+    {
+        return match ($type) {
+            'credit_card' => new CreditCardPayment(),
+            'paypal' => new PaypalPayment(),
+            'bank_transfer' => new BankTransferPayment(),
+            default => throw new InvalidArgumentException("Unknown payment type: $type"),
+        };
+    }
+}
+
+// الكود المستخدم مش عارف ولا محتاج يعرف اسم الكلاس، بس يطلب النوع من الـ Factory
+foreach (['credit_card', 'paypal', 'bank_transfer'] as $type) {
+    $strategy = PaymentFactory::make($type);
+    echo "$type: " . $strategy->pay(75.00) . PHP_EOL;
+}
+
+try {
+    PaymentFactory::make('crypto');
+} catch (InvalidArgumentException $e) {
+    echo "Error: " . $e->getMessage() . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">credit_card: Charged 75 to credit card.
+paypal: Sent 75 via PayPal.
+bank_transfer: Transferred 75 via bank.
+Error: Unknown payment type: crypto</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن الكود اللي بيستخدم <code>PaymentFactory::make($type)</code> معندوش <code>new CreditCardPayment()</code> ولا أي اسم كلاس تاني مكتوب فيه — لو ضفت طريقة دفع رابعة بكرة، هتضيف سطر واحد بس جوه <code>match</code> في الـ Factory، ومحدش تاني في المشروع هيحتاج يتغيّر. ولاحظ إن <code>make('crypto')</code> رمى Exception واضح بدل ما يرجع <code>null</code> بصمت — غلطة برمجية بترمي فورًا أوضح بكتير من قيمة غريبة تكتشفها بعد كده.</div>
+    <div class="en">🇬🇧 Notice the code using <code>PaymentFactory::make($type)</code> contains no <code>new CreditCardPayment()</code> or any other class name written directly — if you add a fourth payment method tomorrow, you add one line inside the Factory's <code>match</code>, and nothing else in the project needs to change. Also notice <code>make('crypto')</code> threw a clear Exception instead of silently returning <code>null</code> — a mistake that fails loudly immediately is far clearer than a strange value you discover later.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="di">
     <h3>سؤال 1 / Question 1</h3>
@@ -215,6 +255,30 @@ echo (new Checkout(new PaypalPayment()))->complete(50.00) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="repository"> Repository Pattern (خلف Interface)</label>
         <label><input type="radio" name="q2" value="strategy"> Strategy Pattern دايمًا</label>
         <label><input type="radio" name="q2" value="none"> مفيش نمط بيساعد في كده</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="oneline">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو ضفت طريقة دفع خامسة اسمها <code>ApplePayPayment</code>، إيه أقل تعديل تحتاجه في مثال <code>PaymentFactory</code> فوق؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Adding a fifth payment method, <code>ApplePayPayment</code> — what's the minimal change needed in the <code>PaymentFactory</code> example?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="oneline"> سطر واحد جديد جوه الـ match في الـ Factory بس</label>
+        <label><input type="radio" name="q3" value="everywhere"> تعديل كل مكان في المشروع بيستخدم PaymentStrategy</label>
+        <label><input type="radio" name="q3" value="checkout"> تعديل كلاس Checkout نفسه</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="exception">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه <code>PaymentFactory::make('crypto')</code> بترمي <code>InvalidArgumentException</code> بدل ما ترجع <code>null</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why does <code>PaymentFactory::make('crypto')</code> throw <code>InvalidArgumentException</code> instead of returning <code>null</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="exception"> عشان الخطأ يظهر فورًا وواضح بدل ما يتكشف بعدين كقيمة غريبة</label>
+        <label><input type="radio" name="q4" value="faster"> عشان الكود يشتغل أسرع</label>
+        <label><input type="radio" name="q4" value="required"> match() مبيرجعش null أبدًا في PHP</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

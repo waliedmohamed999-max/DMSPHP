@@ -38,6 +38,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 When learning a new concept (like OOP or Recursion), don't just ask "what is X" — ask "explain X with a very simple example, then a slightly harder one." If you're lost on a study plan, ask for "a two-week plan to master this topic, in order." Keep following up in the same conversation instead of starting fresh each time — accumulated context improves answers.</div>
 </div>
 
+<h2>الأوامر المخصصة (Custom Instructions) — إعداد مرة واحدة يفرق في كل محادثة</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 فيه فرق مهم بين <b>Custom GPTs</b> (بوتات منفصلة لمهمة معينة، زي ما شفت فوق) و<b>Custom Instructions</b> — إعداد موجود في صفحة الإعدادات (Settings) بتاعتك بيسألك سؤالين: "عايزني أعرف إيه عنك؟" و"عايزني أرد إزاي؟". أي حاجة تكتبها هنا بتتطبق أوتوماتيك على <b>كل محادثة جديدة</b> تفتحها، من غير ما تكررها.</div>
+    <div class="en">🇬🇧 There's an important difference between <b>Custom GPTs</b> (separate bots for a specific task, as seen above) and <b>Custom Instructions</b> — a Settings-page feature that asks two questions: "what should I know about you?" and "how should I respond?" Anything you write there applies automatically to <b>every new conversation</b> you start, without repeating it.</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال لسيلا: تقدر تكتب في "عايزني أعرف إيه عنك؟" حاجة زي <span class="ltr">"بتعلّم برمجة على منصة Sila، مستواي مبتدئ في PHP وPython، وعربيّتي المصرية"</span>، وفي "عايزني أرد إزاي؟" حاجة زي <span class="ltr">"اشرح بأمثلة كود قصيرة، ومتديش الحل كامل على طول — وجّهني للتفكير الأول"</span>. من ساعتها، كل رد جديد هيراعي ده تلقائيًا من غير ما تكتبه في كل سؤال.</div>
+    <div class="en">🇬🇧 A Sila-relevant example: under "what should I know about you?" you could write <span class="ltr">"I'm learning programming on the Sila platform, beginner level in PHP and Python"</span>, and under "how should I respond?" something like <span class="ltr">"explain with short code examples, and don't give the full solution right away — nudge me to think first."</span> From then on, every new reply respects that automatically without retyping it each time.</div>
+</div>
+
+<h2>قبل وبعد: طلب خطة مذاكرة / Before &amp; After: Requesting a Study Plan</h2>
+<div class="security-box">
+    <h3>❌ برومبت ضعيف / Weak Prompt</h3>
+    <div class="ar">🇪🇬 <span class="ltr">"علمني PHP"</span> — سؤال عام جدًا. ChatGPT هيرجّعلك مقدمة عامة ممكن تكون مش مناسبة لمستواك أو للترتيب اللي بتتعلم بيه أصلًا في مسارك.</div>
+    <div class="en">🇬🇧 <span class="ltr">"Teach me PHP"</span> — far too general. ChatGPT will return a generic overview that may not match your level or the order you're actually learning in your track.</div>
+</div>
+
+<div class="bi-block" style="border-inline-start-color:var(--accent-2);">
+    <h3 style="margin-top:0;">✅ برومبت قوي / Strong Prompt</h3>
+    <div class="ar">🇪🇬 <span class="ltr">"خلّصت مرحلة Front-End في مسار Full Stack على Sila وهدخل PHP دلوقتي. اعملّي خطة أسبوعين يوم بيوم، تبدأ بالمتغيرات والحلقات، وتوصل لحد فورم بيتحقق من بياناته — بافتراض إني بخصص ساعة يوميًا بس."</span> — لاحظ إنه محدد: نقطة البداية، الهدف النهائي، والوقت المتاح.</div>
+    <div class="en">🇬🇧 <span class="ltr">"I finished the Front-End stage of the Full Stack track on Sila and am starting PHP now. Build me a day-by-day two-week plan, starting with variables and loops, ending at a form that validates its data — assuming I have one hour daily."</span> — notice it's specific: starting point, end goal, and available time.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="gpts">
     <h3>سؤال 1 / Question 1</h3>
@@ -63,6 +87,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="everychat">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه الفرق الجوهري بين Custom GPT وCustom Instructions؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What's the core difference between a Custom GPT and Custom Instructions?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="same"> مفيش فرق، الاتنين نفس الحاجة بالظبط</label>
+        <label><input type="radio" name="q3" value="everychat"> Custom GPT بوت منفصل لمهمة واحدة، وCustom Instructions إعداد بيتطبق على كل محادثة جديدة عادية</label>
+        <label><input type="radio" name="q3" value="paidonly"> Custom Instructions بس للحسابات المدفوعة، وCustom GPTs مجانية للكل</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="specific">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه "اعملّي خطة أسبوعين تبدأ من كذا لحد كذا بساعة يوميًا" أفضل من "علمني PHP"؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is "build me a two-week plan from X to Y with an hour daily" better than "teach me PHP"?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="specific"> لإنه بيحدد نقطة البداية والهدف والوقت المتاح، فالخطة بتتصمم على مقاسك</label>
+        <label><input type="radio" name="q4" value="shorter"> لإنه أقصر في عدد الحروف</label>
+        <label><input type="radio" name="q4" value="samejob"> بيرجع نفس النتيجة بالظبط، مفيش فرق</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ خطة أسبوعين فعلية / Build a Real Two-Week Plan</h3>
@@ -82,6 +130,8 @@ include __DIR__ . '/../includes/header.php';
         <li>الأقوى في: التعلم العام، الشرح متعدد المستويات، وتنظيم خطط المذاكرة.</li>
         <li>Custom GPTs بتديك نسخة مخصصة لمهمة معينة بدل الإعداد المتكرر.</li>
         <li>كمّل في نفس المحادثة بدل ما تبدأ من الصفر كل مرة — السياق مهم.</li>
+        <li>Custom Instructions (في الإعدادات) بتتطبق أوتوماتيك على كل محادثة جديدة، من غير ما تكررها كل مرة.</li>
+        <li>برومبت فيه نقطة بداية + هدف + وقت متاح بيرجّعلك خطة مصممة على مقاسك، مش عامة.</li>
     </ul>
 </div>
 

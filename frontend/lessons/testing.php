@@ -82,7 +82,49 @@ Snapshots:   0 total
 Time:        2.333 s
 Ran all test suites matching sum.test.js.</div>
 
-<h2>5) لو اختبار فشل، شكله إيه؟</h2>
+<h2>5) اختبار تاني — دالة multiply / A Second Test: multiply()</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 اختبار واحد نادرًا ما يكفي — دالة حقيقية غالبًا محتاجة كذا حالة اختبار مختلفة عشان تغطي سلوكها كويس (مش بس "الحالة السعيدة"). هنا دالة <code>multiply</code> جديدة، ومعاها اختبارين: واحد للضرب العادي، وواحد لحالة حدّية (Edge Case) مهمة — الضرب في صفر.</div>
+    <div class="en">🇬🇧 One test is rarely enough — a real function usually needs several test cases to cover its behavior well (not just the "happy path"). Here's a new <code>multiply</code> function with two tests: one for normal multiplication, and one for an important edge case — multiplying by zero.</div>
+</div>
+<h3>الكود المراد اختباره / The Code Under Test</h3>
+<pre><code>// multiply.js
+function multiply(a, b) {
+    return a * b;
+}
+module.exports = { multiply };</code></pre>
+<h3>ملف الاختبار / The Test File</h3>
+<pre><code>// multiply.test.js
+const { multiply } = require('./multiply');
+
+describe('multiply()', () => {
+    it('multiplies two positive numbers', () => {
+        expect(multiply(3, 4)).toBe(12);
+    });
+
+    it('returns zero when multiplying by zero', () => {
+        expect(multiply(5, 0)).toBe(0);
+    });
+});</code></pre>
+<h3>الناتج الفعلي (تم تنفيذه فعليًا بأمر <span class="ltr">npx jest multiply.test.js</span>) / Actual output</h3>
+<div class="output-box">$ npx jest multiply.test.js
+
+ PASS  ./multiply.test.js
+  multiply()
+    ✓ multiplies two positive numbers (2 ms)
+    ✓ returns zero when multiplying by zero (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        3.48 s
+Ran all test suites matching /multiply.test.js/i.</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن "الضرب في صفر" اختبار منفصل تمامًا عن "ضرب عاديين" — ده أسلوب مهم في كتابة الاختبارات: بدل اختبار واحد كبير، بتكتب اختبارات صغيرة، كل واحد بيغطي حالة محددة (عادية، حدّية، أو خاطئة). كده لو حصل خطأ، هتعرف بالظبط أنهي حالة اتكسرت من اسم الاختبار نفسه.</div>
+    <div class="en">🇬🇧 Notice "multiplying by zero" is a completely separate test from "two normal numbers" — this is an important testing habit: instead of one big test, you write small ones, each covering a specific case (normal, edge, or invalid). That way, if something breaks, the test's own name tells you exactly which case failed.</div>
+</div>
+
+<h2>6) لو اختبار فشل، شكله إيه؟</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 لو غيّرنا التوقع بشكل غلط عمدًا (<code>expect(sum(2, 3)).toBe(999)</code>)، Jest بيوريك بالظبط القيمة اللي كانت متوقعة مقابل اللي طلعت فعليًا — ده اللي بيخليك تلاقي الأخطاء بسرعة.</div>
     <div class="en">🇬🇧 If we deliberately broke the expectation (<code>expect(sum(2, 3)).toBe(999)</code>), Jest shows you exactly what was expected versus what was actually received — this is what lets you find bugs fast.</div>
@@ -100,7 +142,7 @@ Tests:       1 failed, 1 passed, 2 total</div>
 
 <div class="bi-block">
     <div class="ar">🇪🇬 Jest نفسه محتاج Node.js ومش بيشتغل جوه المتصفح، فمش هنقدر نشغّله حي هنا زي مثال السابق. لكن تقدر تشوف <b>نفس فكرة</b> <code>expect().toBe()</code> شغالة فعليًا جوه المتصفح بمحاكاة مبسّطة تحت — عدّل دالة <code>sum</code> أو القيم المتوقعة وشوف النتيجة بتتغيّر فورًا (ده مش Jest حقيقي، بس نفس منطق المقارنة بالظبط).</div>
-    <div class="en">🇬🇧 Jest itself needs Node.js and doesn't run inside the browser, so we can't run it live here like the earlier example. But you can see the <b>same idea</b> behind <code>expect().toBe()</code> actually working in the browser with a simplified simulation below — edit the <code>sum</code> function or the expected values and watch the result change instantly (this is not real Jest, just the exact same comparison logic).</div>
+    <div class="en">🇬🇧 Jest itself needs Node.js and doesn't run inside the browser, so we can't run it live here like the earlier example. But you can see the <b>same idea</b> behind <code>expect().toBe()</code> actually working in the browser with a simplified simulation below — edit the <code>sum</code>/<code>multiply</code> functions or the expected values and watch the result change instantly (this is not real Jest, just the exact same comparison logic).</div>
 </div>
 <div class="mini-fe-editor">
     <div class="fe-tabs">
@@ -112,6 +154,10 @@ Tests:       1 failed, 1 passed, 2 total</div>
     return a + b;
 }
 
+function multiply(a, b) {
+    return a * b;
+}
+
 function expectToBe(actual, expected, label) {
     const pass = actual === expected;
     return (pass ? "PASS " : "FAIL ") + label +
@@ -120,14 +166,16 @@ function expectToBe(actual, expected, label) {
 
 document.getElementById("out").textContent =
     expectToBe(sum(2, 3), 5, "sum(2, 3) toBe 5") + "\n" +
-    expectToBe(sum(-1, 5), 4, "sum(-1, 5) toBe 4");</textarea>
-    <iframe class="render-box mini-fe-preview" style="height:110px" sandbox="allow-scripts"></iframe>
+    expectToBe(sum(-1, 5), 4, "sum(-1, 5) toBe 4") + "\n" +
+    expectToBe(multiply(3, 4), 12, "multiply(3, 4) toBe 12") + "\n" +
+    expectToBe(multiply(5, 0), 0, "multiply(5, 0) toBe 0");</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:140px" sandbox="allow-scripts"></iframe>
 </div>
 
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
-    <div class="ar">🇪🇬 لو عندك Node.js، اعمل مجلد جديد، شغّل <code>npm init -y</code> ثم <code>npm install --save-dev jest</code>، انسخ ملفي <code>sum.js</code> و<code>sum.test.js</code> اللي فوق، وشغّل <code>npx jest</code> بنفسك. بعد كده ضيف دالة جديدة (زي <code>multiply</code>) واكتبلها اختبار من عندك.</div>
-    <div class="en">🇬🇧 If you have Node.js, create a new folder, run <code>npm init -y</code> then <code>npm install --save-dev jest</code>, copy the <code>sum.js</code> and <code>sum.test.js</code> files above, and run <code>npx jest</code> yourself. Then add a new function (like <code>multiply</code>) and write your own test for it.</div>
+    <div class="ar">🇪🇬 لو عندك Node.js، اعمل مجلد جديد، شغّل <code>npm init -y</code> ثم <code>npm install --save-dev jest</code>، انسخ ملفات <code>sum</code> و<code>multiply</code> اللي فوق، وشغّل <code>npx jest</code> بنفسك. بعد كده ضيف دالة <code>divide(a, b)</code> جديدة واكتبلها اختبارين على الأقل: قسمة عادية، وحالة حدّية (زي القسمة على صفر — هل المفروض ترجع <code>Infinity</code> ولا تطلع خطأ؟).</div>
+    <div class="en">🇬🇧 If you have Node.js, create a new folder, run <code>npm init -y</code> then <code>npm install --save-dev jest</code>, copy the <code>sum</code> and <code>multiply</code> files above, and run <code>npx jest</code> yourself. Then add a new <code>divide(a, b)</code> function and write at least two tests for it: a normal division, and an edge case (like dividing by zero — should it return <code>Infinity</code>, or throw an error?).</div>
 </div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
@@ -155,11 +203,35 @@ document.getElementById("out").textContent =
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="separate">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">ليه كتبنا "الضرب في صفر" كاختبار (<code>it</code>) منفصل تمامًا عن "ضرب عاديين"، بدل ما نحطهم في اختبار واحد؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why write "multiplying by zero" as a completely separate <code>it</code> test instead of combining it with "two normal numbers"?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="separate"> عشان لو فشل واحد، اسمه يقولك بالظبط أنهي حالة اتكسرت</label>
+        <label><input type="radio" name="q3" value="speed"> عشان يشتغل أسرع بس</label>
+        <label><input type="radio" name="q3" value="required"> Jest بيرفض أكتر من expect في نفس it</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="six">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو شغّلت <code>npx jest</code> على مشروع فيه ملفي <code>sum.test.js</code> (فيه اختبارين) و<code>multiply.test.js</code> (فيه اختبارين تانيين)، كام Test Suite وكام Test هيظهروا في التقرير؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Running <code>npx jest</code> on a project with <code>sum.test.js</code> (2 tests) and <code>multiply.test.js</code> (2 tests) — how many Test Suites and Tests appear in the report?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="one"> 1 Test Suite، 2 Tests</label>
+        <label><input type="radio" name="q4" value="six"> 2 Test Suites، 4 Tests</label>
+        <label><input type="radio" name="q4" value="four"> 4 Test Suites، 4 Tests</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
-    <h3>🛠️ زوّد اختبار multiply / Add a multiply Test</h3>
-    <div class="ar">🇪🇬 في المحرر المصغّر فوق، زوّد دالة <code>multiply(a, b)</code> جديدة جنب <code>sum</code>، واستخدم نفس دالة <code>expectToBe</code> عشان تكتب اختبار ليها (زي <code>expectToBe(multiply(3, 4), 12, "multiply(3,4) toBe 12")</code>) وشوف هل بتعدي ولا لأ. لو عندك Node.js فعليًا، اكتبها كمان بصيغة Jest الحقيقية بـ <code>describe</code>/<code>it</code>/<code>expect</code>.</div>
-    <div class="en">🇬🇧 In the mini editor above, add a new <code>multiply(a, b)</code> function next to <code>sum</code>, and use the same <code>expectToBe</code> helper to write a test for it (like <code>expectToBe(multiply(3, 4), 12, "multiply(3,4) toBe 12")</code>) and see if it passes. If you actually have Node.js, also write it in real Jest syntax with <code>describe</code>/<code>it</code>/<code>expect</code>.</div>
+    <h3>🛠️ زوّد اختبار للحالة الفاشلة / Add a Test for a Failing Case</h3>
+    <div class="ar">🇪🇬 في المحرر المصغّر فوق، زوّد سطر <code>expectToBe</code> ثالث بتوقّع خاطئ عمدًا (زي <code>expectToBe(multiply(3, 4), 999, "multiply(3,4) toBe 999")</code>) وشوف شكل رسالة الـ <code>FAIL</code> اللي بتطلع بالضبط. بعد كده لو عندك Node.js فعليًا، اكتب نفس الاختبار الفاشل ده بصيغة Jest الحقيقية بـ <code>describe</code>/<code>it</code>/<code>expect</code> وشغّله بـ <code>npx jest</code> عشان تقارن شكل الفشل الحقيقي بالمحاكاة المبسّطة هنا.</div>
+    <div class="en">🇬🇧 In the mini editor above, add a third <code>expectToBe</code> line with a deliberately wrong expectation (like <code>expectToBe(multiply(3, 4), 999, "multiply(3,4) toBe 999")</code>) and see exactly what the <code>FAIL</code> message looks like. Then, if you actually have Node.js, write that same failing test in real Jest syntax with <code>describe</code>/<code>it</code>/<code>expect</code> and run it with <code>npx jest</code> to compare the real failure output to this simplified simulation.</div>
 </div>
 
 <h2 id="project">🚀 المشروع / Project</h2>
@@ -181,6 +253,7 @@ document.getElementById("out").textContent =
         <li><code>describe</code> يجمع اختبارات، <code>it</code>/<code>test</code> حالة واحدة، <code>expect().toBe()</code> يقارن.</li>
         <li>تشغيل <code>npx jest</code> بيديك تقرير واضح: كام اختبار عدّى وكام فشل، وليه بالظبط.</li>
         <li>الاختبارات بتديك ثقة إنك عدّلت الكود من غير ما تكسر حاجة شغالة قبل كده.</li>
+        <li>دالة واحدة غالبًا محتاجة كذا اختبار منفصل يغطي حالات مختلفة (عادية وحدّية)، مش اختبار واحد بس.</li>
     </ul>
 </div>
 

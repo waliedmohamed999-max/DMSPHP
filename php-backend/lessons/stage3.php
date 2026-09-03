@@ -155,6 +155,75 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
     die('طلب غير موثوق (CSRF check failed).');
 }</code></pre>
 
+<h2>عدّاد محاولات دخول بـ $_SESSION / A Login-Attempt Counter with $_SESSION</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 استخدام كلاسيكي لـ <code>$_SESSION</code> غير "المستخدم مسجل دخول": منع هجمات تخمين الباسورد (Brute-force) بعدّاد محاولات فاشلة لكل جلسة. لو المستخدم غلط كتير، تقفل الدخول مؤقتًا حتى لو كتب الباسورد الصح بعد كده — العداد نفسه بيبقى محفوظ في <code>$_SESSION</code> بين الطلبات المتتالية.</div>
+    <div class="en">🇬🇧 A classic <code>$_SESSION</code> use beyond "user is logged in": blocking password-guessing (Brute-force) attacks with a per-session failed-attempt counter. If the user fails enough times, block further attempts even with the correct password afterward — the counter itself persists in <code>$_SESSION</code> across successive requests.</div>
+</div>
+<pre><code>&lt;?php
+session_start();
+
+function attemptLogin(bool $correctPassword): string
+{
+    $max = 3;
+    $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
+
+    if ($_SESSION['login_attempts'] > $max) {
+        return "Blocked: too many failed attempts, try again later.";
+    }
+
+    if ($correctPassword) {
+        $_SESSION['login_attempts'] = 0; // نجاح: نصفّر العداد
+        return "Login successful.";
+    }
+
+    $remaining = $max - $_SESSION['login_attempts'];
+    return "Wrong password. Attempts left: $remaining";
+}</code></pre>
+<h3>الناتج الفعلي (4 محاولات غلط ثم محاولة صح) / Actual output</h3>
+<div class="output-box">Wrong password. Attempts left: 2
+Wrong password. Attempts left: 1
+Wrong password. Attempts left: 0
+Blocked: too many failed attempts, try again later.
+Blocked: too many failed attempts, try again later.</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ آخر سطرين: حتى لما بعتنا <code>true</code> (باسورد صح) في المحاولة الخامسة، النتيجة لسه "Blocked" — لإن العداد بقى أكبر من <code>$max</code> خلاص، والفانكشن بترفض أي محاولة تانية قبل ما توصل حتى لتتحقق من الباسورد. ده الفرق بين "التحقق من الباسورد" و"سياسة أمان بتحمي منه قبل ما تحاول أصلًا".</div>
+    <div class="en">🇬🇧 Notice the last two lines: even when we passed <code>true</code> (correct password) on the fifth attempt, the result is still "Blocked" — because the counter already exceeded <code>$max</code>, and the function rejects any further attempt before it even checks the password. That's the difference between "verifying a password" and "a security policy protecting it before even trying."</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">&lt;?php
+// عشان نجرب المفهوم من غير session_start() حقيقي (مش متاح هنا)، بنستخدم $_SESSION كمصفوفة عادية بين "الطلبات" الوهمية
+function attemptLogin(bool $correctPassword): string
+{
+    $max = 3;
+    $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
+
+    if ($_SESSION['login_attempts'] > $max) {
+        return "Blocked: too many failed attempts, try again later.";
+    }
+
+    if ($correctPassword) {
+        $_SESSION['login_attempts'] = 0;
+        return "Login successful.";
+    }
+
+    $remaining = $max - $_SESSION['login_attempts'];
+    return "Wrong password. Attempts left: $remaining";
+}
+
+echo attemptLogin(false) . PHP_EOL;
+echo attemptLogin(false) . PHP_EOL;
+echo attemptLogin(false) . PHP_EOL;
+echo attemptLogin(false) . PHP_EOL;
+echo attemptLogin(true) . PHP_EOL;</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="nullcoalesce">
     <h3>سؤال 1 / Question 1</h3>
@@ -175,6 +244,30 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
         <label><input type="radio" name="q2" value="trim"> <code>trim()</code></label>
         <label><input type="radio" name="q2" value="htmlspecialchars"> <code>htmlspecialchars()</code></label>
         <label><input type="radio" name="q2" value="strlen"> <code>strlen()</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="blocked">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال عدّاد محاولات الدخول، لو استدعيت <code>attemptLogin(true)</code> بعد 4 محاولات غلط (والحد الأقصى 3)، إيه اللي هيرجع؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the login-attempt counter, calling <code>attemptLogin(true)</code> after 4 wrong attempts (max is 3) — what's returned?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="success"> "Login successful." لإن الباسورد صح</label>
+        <label><input type="radio" name="q3" value="blocked"> "Blocked..." لإن العداد اتخطى الحد قبل ما يتحقق من الباسورد أصلًا</label>
+        <label><input type="radio" name="q3" value="reset"> العداد بيتصفّر أوتوماتيك ويرجع "Login successful."</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="persists">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه <code>$_SESSION['login_attempts']</code> بيفضل يتراكم عبر استدعاءات متتالية، بعكس متغير عادي زي <code>$attempts = 0;</code> جوه الدالة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why does <code>$_SESSION['login_attempts']</code> keep accumulating across successive calls, unlike a local variable like <code>$attempts = 0;</code> inside the function?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="persists"> لإن $_SESSION بيفضل موجود بين طلبات مختلفة لنفس المستخدم، عكس متغير محلي بيتصفّر كل استدعاء</label>
+        <label><input type="radio" name="q4" value="global"> لإنه اسمه فيه SESSION بالحروف الكبيرة بس</label>
+        <label><input type="radio" name="q4" value="samething"> مفيش فرق فعلي، الاتنين بيتصرفوا بنفس الطريقة</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

@@ -170,6 +170,36 @@ include __DIR__ . '/../includes/header.php';
 <h3>المعاينة الفعلية / Actual Rendered Output</h3>
 <iframe class="render-box" style="height:180px" sandbox srcdoc='<html><body style="font-family:sans-serif;padding:14px;margin:0"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">1</div><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">2</div><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">3</div><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">4</div><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">5</div><div style="background:#35d0ba;color:white;padding:20px;text-align:center;border-radius:8px">6</div></div></body></html>'></iframe>
 
+<h2>7) Flexbox مقابل Grid — أنهي تستخدم إمتى؟ / Flexbox vs Grid — When to Use Which</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 نفس هدف التخطيط ممكن يتحل بالاتنين أحيانًا، لكن الفرق الجوهري: Flexbox بيفكر في <b>بُعد واحد</b> (صف أو عمود) وبيوزّع المساحة حسب محتوى كل عنصر، أما Grid بيفكر في <b>بُعدين مع بعض</b> (صفوف وأعمدة) وبيدّيك تحكم دقيق في المكان بالظبط. تحت نفس التخطيط (بطاقة صورة + عنوان + وصف) اتعمل مرتين — مرة Flexbox ومرة Grid — عشان تشوف الفرق في الكود بعينك.</div>
+    <div class="en">🇬🇧 The same layout goal can sometimes be solved with either, but the core difference: Flexbox thinks in <b>one dimension</b> (a row or a column) and sizes items based on their content, while Grid thinks in <b>two dimensions at once</b> (rows and columns together) and gives you precise placement control. Below, the exact same layout (image + title + description card) is built twice — once with Flexbox, once with Grid — so you can see the code difference yourself.</div>
+</div>
+<div style="display:flex;gap:14px;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+        <h3 style="font-size:15px">Flexbox — عمود واحد (column)</h3>
+        <pre><code>.card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}</code></pre>
+        <iframe class="render-box" style="height:150px" sandbox srcdoc='<html><body style="font-family:sans-serif;padding:10px;margin:0"><div style="display:flex;flex-direction:column;gap:8px;max-width:180px;border:1px solid #ddd;border-radius:8px;padding:12px"><div style="background:#6c8bff;height:60px;border-radius:6px"></div><b>عنوان البطاقة</b><p style="margin:0;font-size:13px;color:#555">وصف قصير للبطاقة هنا.</p></div></body></html>'></iframe>
+    </div>
+    <div style="flex:1;min-width:260px">
+        <h3 style="font-size:15px">Grid — صفوف محددة (rows)</h3>
+        <pre><code>.card {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 8px;
+}</code></pre>
+        <iframe class="render-box" style="height:150px" sandbox srcdoc='<html><body style="font-family:sans-serif;padding:10px;margin:0"><div style="display:grid;grid-template-rows:auto auto 1fr;gap:8px;max-width:180px;border:1px solid #ddd;border-radius:8px;padding:12px"><div style="background:#35d0ba;height:60px;border-radius:6px"></div><b>عنوان البطاقة</b><p style="margin:0;font-size:13px;color:#555">وصف قصير للبطاقة هنا.</p></div></body></html>'></iframe>
+    </div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 النتيجة البصرية هنا متطابقة تقريبًا — وده بالظبط المغزى: لعمود بسيط زي ده، Flexbox أبسط وأقل كود. لكن لو عايز تتحكم في عرض عمود بعينه (زي Sidebar ثابت العرض جنب محتوى مرن)، أو محتاج عناصر تتصاطف في صفوف وأعمدة مع بعض بدقة (زي شبكة صور معرض)، Grid هو الأنسب. القاعدة العملية: <b>صف/عمود واحد بسيط ← Flexbox</b>، <b>شبكة ثنائية الأبعاد أو تخطيط صفحة كامل ← Grid</b>.</div>
+    <div class="en">🇬🇧 The visual result here is nearly identical — that's exactly the point: for a simple column like this, Flexbox is simpler and needs less code. But when you need precise control over a specific column's width (like a fixed-width sidebar next to flexible content), or elements that align in rows and columns together with precision (like an image gallery grid), Grid is the better fit. Practical rule: <b>a single simple row/column → Flexbox</b>, <b>a two-dimensional grid or a whole-page layout → Grid</b>.</div>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 افتح <a href="../playground/index.php">محرر الكود</a> وارجع لهيكل البورتفوليو اللي عملته في مرحلة HTML: حط عليه ألوان وخطوط، اعمل الـ <code>nav</code> بتاعك صف أفقي بـ Flexbox و<code>gap</code>، واعمل قسم "مهاراتي" شبكة (Grid) من 2 أو 3 أعمدة بدل قائمة عادية.</div>
@@ -196,6 +226,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="margin"> Margin</label>
         <label><input type="radio" name="q2" value="padding"> Padding</label>
         <label><input type="radio" name="q2" value="border"> Border نفسه</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="grid">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عايز تعمل شبكة معرض صور: 4 أعمدة و3 صفوف بالظبط، وكل صورة تاخد مكانها بدقة. أنهي أداة أنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You need a photo gallery: exactly 4 columns and 3 rows, each photo precisely placed. Which tool fits best?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="flex"> Flexbox، لأنه أبسط دايمًا</label>
+        <label><input type="radio" name="q3" value="grid"> Grid، لأنه بيتحكم في صفوف وأعمدة مع بعض</label>
+        <label><input type="radio" name="q3" value="margin"> Margins يدوية بس</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="flex">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز صف واحد بسيط من الأزرار يتوسط أفقيًا، من غير أي تعقيد. أنهي الأنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You need one simple horizontal row of buttons, centered, nothing fancy. Which is the better fit?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="flex"> Flexbox — بُعد واحد، كود أقل</label>
+        <label><input type="radio" name="q4" value="grid"> Grid دايمًا أفضل حتى لصف واحد</label>
+        <label><input type="radio" name="q4" value="none"> مفيش فرق أبدًا بينهم</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

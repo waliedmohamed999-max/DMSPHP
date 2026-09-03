@@ -163,6 +163,64 @@ include __DIR__ . '/../includes/header.php';
     <iframe class="render-box mini-fe-preview" style="height:90px" sandbox></iframe>
 </div>
 
+<h2>مشروع 3 — بطاقة اقتباس عميل / Testimonial Quote Card</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مكوّن ثالث بتشوفه في أي صفحة هبوط (Landing Page): بطاقة اقتباس من عميل راضٍ. الفكرة نفسها من مشروع 1: <code>div</code> يجمع كل حاجة، لكن هنا نستخدم <code>border-inline-start</code> (حد جانبي واحد بس) بدل الحدود الأربعة، وهي طريقة شائعة جدًا لتمييز الاقتباسات.</div>
+    <div class="en">🇬🇧 A third component you'll see on almost every landing page: a happy-customer testimonial card. Same idea as Project 1: one <code>div</code> wraps everything, but here we use <code>border-inline-start</code> (a single side border) instead of all four — a very common way to visually mark a quote.</div>
+</div>
+<pre><code>&lt;div class="testimonial"&gt;
+    &lt;p class="quote"&gt;"المنصة دي غيّرت طريقة تعلّمي تمامًا — كل درس فيه تطبيق فعلي."&lt;/p&gt;
+    &lt;div class="author"&gt;
+        &lt;span class="author-name"&gt;منى سعيد&lt;/span&gt;
+        &lt;span class="author-role"&gt;طالبة Front-End&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre><code>.testimonial {
+    max-width: 320px;
+    padding: 20px 24px;
+    background: #f7f8fc;
+    border-inline-start: 4px solid #6c8bff;
+    border-radius: 6px;
+    font-family: sans-serif;
+}
+.quote { font-style: italic; color: #333; margin: 0 0 12px; line-height: 1.7; }
+.author { display: flex; flex-direction: column; }
+.author-name { font-weight: 700; color: #222; }
+.author-role { font-size: 13px; color: #888; }</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:170px" sandbox srcdoc='<html><head><style>body{background:#eef0f5;margin:0;padding:20px;display:flex;justify-content:center}.testimonial{max-width:320px;padding:20px 24px;background:#f7f8fc;border-inline-start:4px solid #6c8bff;border-radius:6px;font-family:sans-serif}.quote{font-style:italic;color:#333;margin:0 0 12px;line-height:1.7}.author{display:flex;flex-direction:column}.author-name{font-weight:700;color:#222}.author-role{font-size:13px;color:#888}</style></head><body dir="rtl"><div class="testimonial"><p class="quote">"المنصة دي غيّرت طريقة تعلّمي تمامًا — كل درس فيه تطبيق فعلي."</p><div class="author"><span class="author-name">منى سعيد</span><span class="author-role">طالبة Front-End</span></div></div></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 جرّب بنفسك: غيّر <code>border-inline-start</code> للون تاني، أو حوّله لـ <code>border: 1px solid #ddd;</code> عادي وشوف الفرق في الإحساس البصري، أو زوّد <code>&lt;img&gt;</code> دائرية صغيرة جنب اسم الكاتب.</div>
+    <div class="en">🇬🇧 Try it yourself: change the <code>border-inline-start</code> color, or swap it for a regular <code>border: 1px solid #ddd;</code> and notice the different visual feel, or add a small circular <code>&lt;img&gt;</code> next to the author's name.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="css">CSS</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;div class="testimonial"&gt;
+    &lt;p class="quote"&gt;"المنصة دي غيّرت طريقة تعلّمي تمامًا."&lt;/p&gt;
+    &lt;div class="author"&gt;
+        &lt;span class="author-name"&gt;منى سعيد&lt;/span&gt;
+        &lt;span class="author-role"&gt;طالبة Front-End&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</textarea>
+    <textarea class="fe-code" data-tab="css" style="display:none" spellcheck="false">body { background: #eef0f5; margin: 0; padding: 20px; font-family: sans-serif; }
+.testimonial {
+    max-width: 320px;
+    padding: 20px 24px;
+    background: #f7f8fc;
+    border-inline-start: 4px solid #6c8bff;
+    border-radius: 6px;
+}
+.quote { font-style: italic; color: #333; margin: 0 0 12px; line-height: 1.7; }
+.author { display: flex; flex-direction: column; }
+.author-name { font-weight: 700; color: #222; }
+.author-role { font-size: 13px; color: #888; }</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:170px" sandbox></iframe>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 خد الكودين دول في <a href="../playground/index.php">محرر الكود</a> وادمجهم في صفحة واحدة (الـ Navbar فوق، وبطاقة السعر في النص)، وبعدين جرّب تعمل نسخة تانية من بطاقة السعر بألوان وأسعار مختلفة جنب بعض بـ Flexbox.</div>
@@ -189,6 +247,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="center"> align-items: center</label>
         <label><input type="radio" name="q2" value="between"> justify-content: space-between</label>
         <label><input type="radio" name="q2" value="gap"> gap</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="side">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في بطاقة الاقتباس، إيه اللي استخدمناه بدل ما نحط حد على الأربع جهات؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Testimonial card, what did we use instead of a border on all four sides?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="none"> مفيش حدود خالص</label>
+        <label><input type="radio" name="q3" value="side"> border-inline-start لحد جانبي واحد بس</label>
+        <label><input type="radio" name="q3" value="shadow"> box-shadow بديل عن الحدود</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="reuse">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">بطاقة السعر، الـ Navbar، وبطاقة الاقتباس التلاتة مبنيين بنفس الفكرة الأساسية. إيه هي؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The Pricing Card, Navbar, and Testimonial card all share the same core idea. What is it?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="reuse"> عنصر يجمع كل حاجة + Flexbox للترتيب + لمسات جمالية أخيرة</label>
+        <label><input type="radio" name="q4" value="grid"> لازم Grid دايمًا في أي مكوّن</label>
+        <label><input type="radio" name="q4" value="js"> لازم JavaScript عشان يظهروا صح</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

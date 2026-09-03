@@ -274,6 +274,38 @@ try {
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>6) Polymorphism الحقيقي: نفس الـ Interface جوه Loop / Real Polymorphism: Same Interface in a Loop</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال <code>Notifiable</code> فوق كان بينادي كل Notifier في سطر منفصل. الفايدة الحقيقية من الـ Interface بتظهر أوضح لما يكون عندك <b>مصفوفة</b> فيها أنواع مختلفة تمامًا من الكلاسات، وبتلف عليها بـ <code>foreach</code> واحدة، من غير ما تحتاج <code>if/else</code> ولا واحدة تتأكد من نوع كل عنصر — ده بالظبط اسمه <b>Polymorphism</b>: نفس الاستدعاء (<code>send()</code>)، سلوك مختلف حسب الكلاس الفعلي.</div>
+    <div class="en">🇬🇧 The <code>Notifiable</code> example above called each Notifier on a separate line. The real payoff of an Interface shows more clearly when you have an <b>array</b> of completely different class types and loop over it once with <code>foreach</code>, needing zero <code>if/else</code> checks on each item's type — this is exactly <b>Polymorphism</b>: the same call (<code>send()</code>), different behavior depending on the actual class.</div>
+</div>
+
+<pre><code>&lt;?php
+class PushNotifier implements Notifiable
+{
+    public function send(string $message): string
+    {
+        return "Push sent: $message";
+    }
+}
+
+// مصفوفة فيها أنواع Notifier مختلفة تمامًا، لكن كلها بتنفذ نفس الـ Interface
+$channels = [new EmailNotifier(), new SmsNotifier(), new PushNotifier()];
+
+foreach ($channels as $channel) {
+    // الحلقة مش عارفة ولا محتاجة تعرف نوع الكلاس بالظبط — بس إنه Notifiable
+    echo get_class($channel) . ': ' . $channel->send('Order #501 shipped!') . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">EmailNotifier: Email sent: Order #501 shipped!
+SmsNotifier: SMS sent: Order #501 shipped!
+PushNotifier: Push sent: Order #501 shipped!</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو ضفت نوع Notifier رابع بكرة (زي <code>SlackNotifier</code>)، الـ <code>foreach</code> ده مش هيحتاج يتعدّل ولا سطر — تضيفه للمصفوفة بس وهو هيشتغل، لإن كل حاجة بتتعامل من خلال العقد (<code>Notifiable</code>) مش من خلال اسم الكلاس.</div>
+    <div class="en">🇬🇧 If you add a fourth Notifier type tomorrow (like <code>SlackNotifier</code>), this <code>foreach</code> needs zero changes — just add it to the array and it works, because everything interacts through the contract (<code>Notifiable</code>), never through the class name.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="private">
     <h3>سؤال 1 / Question 1</h3>
@@ -294,6 +326,30 @@ try {
         <label><input type="radio" name="q2" value="interface"> Interface</label>
         <label><input type="radio" name="q2" value="trait"> Trait</label>
         <label><input type="radio" name="q2" value="exception"> Exception</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="noedit">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الـ <code>$channels</code> array فوق، لو ضفت <code>SlackNotifier implements Notifiable</code> جديدة، إيه اللي محتاج يتغيّر في كود الـ <code>foreach</code> نفسه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the <code>$channels</code> array example, if you add a new <code>SlackNotifier implements Notifiable</code>, what needs to change in the <code>foreach</code> code itself?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="noedit"> ولا سطر — بس تضيفه للمصفوفة</label>
+        <label><input type="radio" name="q3" value="ifelse"> لازم تضيف <code>if</code> جديد يتأكد من نوعه</label>
+        <label><input type="radio" name="q3" value="rewrite"> لازم تعيد كتابة الـ foreach من الصفر</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="polymorphism">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">نفس استدعاء <code>$channel->send()</code> بيرجع نص مختلف حسب نوع الكلاس الفعلي (Email/Sms/Push) — الاسم التقني للسلوك ده إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The same call <code>$channel->send()</code> returns different text depending on the actual class (Email/Sms/Push) — what's this behavior called?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="encapsulation"> Encapsulation</label>
+        <label><input type="radio" name="q4" value="polymorphism"> Polymorphism</label>
+        <label><input type="radio" name="q4" value="inheritance"> Inheritance فقط</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

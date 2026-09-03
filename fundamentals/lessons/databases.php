@@ -72,6 +72,49 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Notice the resemblance to operations we did on PHP arrays throughout the course: <code>SELECT</code> is like filtering (<code>array_filter</code>), <code>INSERT</code> is like adding an element, <code>UPDATE</code> is like changing an existing value, and <code>DELETE</code> is like removing an element. The difference is these persist permanently on disk, not just in temporary memory.</div>
 </div>
 
+<h2>الربط بين جداول: فكرة المفتاح الأجنبي <span class="ltr">Linking Tables: The Foreign Key Idea</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 في الواقع، البيانات نادرًا ما بتتخزن في جدول واحد بس. لو عندك مستخدمين وطلبات (Orders)، مش منطقي تكرر بيانات المستخدم الكاملة (اسمه، إيميله) جوه كل طلب — بدل كده، جدول الطلبات بيخزن بس "إشارة" لصف المستخدم في جدوله، اسمها <b>مفتاح أجنبي</b> (Foreign Key). ده اللي بيخلي قواعد البيانات "علائقية" (Relational) فعليًا — الجداول بترتبط ببعض من غير ما تكرر البيانات.</div>
+    <div class="en">🇬🇧 In reality, data is rarely stored in just one table. If you have users and orders, it doesn't make sense to repeat a user's full details (name, email) inside every order — instead, the orders table stores just a "pointer" to the user's row in its own table, called a <b>foreign key</b>. This is what makes databases actually "relational" — tables link to each other without duplicating data.</div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">users table (id, name, email)</div>
+    <div class="flow-arrow">↑ referenced by</div>
+    <div class="flow-box">orders table (id, user_id, total)</div>
+    <div class="flow-arrow">↓ user_id points to</div>
+    <div class="flow-box">a specific row in users</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 المثال ده توضيحي بس (زي أمثلة SQL فوق) — مش بنشغّله فعليًا، بس بيوريك الشكل العام لتعريف جدولين مرتبطين وسؤال بيجيب بيانات من الاتنين مع بعض بـ <code>JOIN</code>.</div>
+    <div class="en">🇬🇧 This example is illustrative only (like the SQL examples above) — not something we execute here, but it shows the general shape of defining two linked tables and a query pulling data from both with a <code>JOIN</code>.</div>
+</div>
+
+<h3>تعريف الجدولين (توضيحي / Illustrative — not executed)</h3>
+<pre><code>CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    user_id INT,
+    total DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);</code></pre>
+
+<h3>سؤال بيجمع بيانات من الجدولين (توضيحي / Illustrative — not executed)</h3>
+<pre><code>SELECT orders.id, users.name, orders.total
+FROM orders
+JOIN users ON orders.user_id = users.id
+WHERE orders.total > 100;</code></pre>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <code>FOREIGN KEY (user_id) REFERENCES users(id)</code> بتقول لقاعدة البيانات: "أي قيمة جوه <code>user_id</code> هنا لازم تكون فعلًا موجودة كـ <code>id</code> حقيقي في جدول <code>users</code>" — ده بيمنع بيانات "يتيمة" زي طلب مرتبط بمستخدم مش موجود أصلًا. و<code>JOIN</code> هي اللي بتخليك تجيب اسم المستخدم وقيمة طلبه في نفس النتيجة، رغم إنهم في جدولين منفصلين.</div>
+    <div class="en">🇬🇧 <code>FOREIGN KEY (user_id) REFERENCES users(id)</code> tells the database: "any value in <code>user_id</code> here must actually exist as a real <code>id</code> in the <code>users</code> table" — this prevents "orphaned" data, like an order linked to a user that doesn't exist. And <code>JOIN</code> is what lets you fetch a user's name alongside their order's total in one result, even though they live in separate tables.</div>
+</div>
+
 <div class="security-box">
     <h3>⚠️ ملحوظة مهمة / Important Note</h3>
     <div class="ar">🇪🇬 الدرس ده مقدمة مفاهيمية خفيفة بس. التطبيق العملي الكامل — الاتصال الفعلي بقاعدة بيانات من كود PHP باستخدام PDO، تنفيذ الاستعلامات بأمان، وحماية من هجمات زي SQL Injection — هتلاقيه بالتفصيل في المرحلة الرابعة من مسار "PHP Back-End" على سيلا.</div>
@@ -97,6 +140,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-options">
         <label><input type="radio" name="q2" value="sql"> SQL (Relational)</label>
         <label><input type="radio" name="q2" value="nosql"> NoSQL</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="prevent">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه اللي بيمنعه <code>FOREIGN KEY (user_id) REFERENCES users(id)</code> فعليًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What does <code>FOREIGN KEY (user_id) REFERENCES users(id)</code> actually prevent?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="prevent"> إضافة طلب بـ <code>user_id</code> مش موجود أصلًا كـ <code>id</code> حقيقي في جدول users / adding an order with a <code>user_id</code> that doesn't exist as a real <code>id</code> in the users table</label>
+        <label><input type="radio" name="q3" value="prevent2"> تكرار نفس الإيميل مرتين في جدول users / duplicate emails in the users table</label>
+        <label><input type="radio" name="q3" value="prevent3"> حذف جدول orders بالكامل / deleting the entire orders table</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="duplication">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه الأفضل نخزن <code>user_id</code> بس في جدول orders، بدل ما نكرر اسم وإيميل المستخدم كامل في كل صف طلب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is it better to store just <code>user_id</code> in the orders table, instead of repeating the user's full name and email in every order row?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="duplication"> عشان نتجنب تكرار نفس البيانات في أماكن كتير — لو الإيميل اتغيّر، بتعدّله مكان واحد بس في جدول users / to avoid duplicating the same data everywhere — if the email changes, you update it in one place only, in the users table</label>
+        <label><input type="radio" name="q4" value="faster5"> عشان JOIN دايمًا أسرع من أي بديل / because JOIN is always faster than any alternative</label>
+        <label><input type="radio" name="q4" value="required5"> SQL بترفض تكرار نفس القيمة في جدولين مختلفين / SQL rejects repeating the same value across two different tables</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

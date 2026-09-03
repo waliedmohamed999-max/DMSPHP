@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/header.php';
 
 <span class="badge">المرحلة 2 / Stage 2</span>
 <h1>حل المشكلات — المستوى الأول <span class="ltr">Problem Solving — Level 1</span></h1>
-<p class="subtitle">تعلّم المتغيرات والشروط والحلقات مش كفاية — لازم توظّفهم في حل مشاكل حقيقية عشان يترسّخ "المنطق البرمجي" بدل ما يفضل معلومة نظرية. هنحل 8 مشاكل كلاسيكية، كل واحدة بالتفكير خطوة بخطوة قبل الكود.</p>
+<p class="subtitle">تعلّم المتغيرات والشروط والحلقات مش كفاية — لازم توظّفهم في حل مشاكل حقيقية عشان يترسّخ "المنطق البرمجي" بدل ما يفضل معلومة نظرية. هنحل 9 مشاكل كلاسيكية، كل واحدة بالتفكير خطوة بخطوة قبل الكود.</p>
 
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
@@ -223,6 +223,42 @@ echo findMax([3, 55, 12, 8, 91, 4]) . PHP_EOL;</code></pre>
 <h3>الناتج الفعلي / Actual output</h3>
 <div class="output-box">91</div>
 
+<h2>مشكلة 9: أكبر قاسم مشترك (GCD)</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>المطلوب:</b> دالة ترجع أكبر رقم بيقسم رقمين معًا من غير باقي — زي GCD(48, 18) = 6. <b>التفكير:</b> نستخدم خوارزمية إقليدس (Euclidean Algorithm)، وهي واحدة من أقدم الخوارزميات في التاريخ: طول ما <code>$b</code> مش صفر، خد باقي قسمة <code>$a</code> على <code>$b</code>، وحوّل <code>$a</code> لقيمة <code>$b</code> و<code>$b</code> للباقي، وكرر. لما <code>$b</code> يوصل صفر، <code>$a</code> هو الجواب.</div>
+    <div class="en">🇬🇧 <b>Task:</b> a function returning the largest number dividing two numbers with no remainder — e.g. GCD(48, 18) = 6. <b>Thinking:</b> use the Euclidean Algorithm, one of the oldest algorithms in history: while <code>$b</code> isn't zero, take the remainder of <code>$a</code> divided by <code>$b</code>, then shift <code>$a</code> to <code>$b</code>'s value and <code>$b</code> to that remainder, repeat. When <code>$b</code> hits zero, <code>$a</code> is the answer.</div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">gcd(48, 18)</div>
+    <div class="flow-arrow">↓ 48 % 18 = 12</div>
+    <div class="flow-box">gcd(18, 12)</div>
+    <div class="flow-arrow">↓ 18 % 12 = 6</div>
+    <div class="flow-box">gcd(12, 6)</div>
+    <div class="flow-arrow">↓ 12 % 6 = 0</div>
+    <div class="flow-box">b = 0 → return a = 6</div>
+</div>
+
+<pre><code>&lt;?php
+function gcd(int $a, int $b): int {
+    while ($b !== 0) {
+        $remainder = $a % $b;
+        $a = $b;
+        $b = $remainder;
+    }
+    return $a;
+}
+
+echo gcd(48, 18) . PHP_EOL;
+echo gcd(17, 5) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">6
+1</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>gcd(17, 5)</code> رجّعت 1 — معناه إن 17 و5 "أوّليان نسبيًا" (Coprime)، مفيش بينهم قاسم مشترك غير الواحد. خوارزمية إقليدس دي بتتحل بحلقة (زي هنا) أو بالتكرارية، وهتشوفها تاني كمرجع في مسائل تانية زي تبسيط الكسور.</div>
+    <div class="en">🇬🇧 Notice <code>gcd(17, 5)</code> returned 1 — meaning 17 and 5 are "coprime," sharing no common divisor but 1. The Euclidean algorithm can be solved with a loop (as here) or recursively, and you'll see it referenced again in problems like simplifying fractions.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه دالة <code>isPrime</code> اللي شفتها فوق، جاهزة تعدّل وتشغّل. جرّب تضيف أرقام تانية للمصفوفة، أو تتحقق يدويًا هل النتيجة منطقية.</div>
@@ -273,6 +309,30 @@ foreach ([1, 2, 9, 17, 20] as $n) {
         <label><input type="radio" name="q2" value="sqrt"> لو مفيش قاسم أقل من الجذر التربيعي، مفيش قاسم أكبر منه برضو / if no divisor exists below the square root, none exists above it either</label>
         <label><input type="radio" name="q2" value="syntax"> لازم كده في PHP / PHP requires it syntactically</label>
         <label><input type="radio" name="q2" value="random2"> مفيش سبب حقيقي، بس أسهل في الكتابة / no real reason, just easier to write</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="five">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">إيه ناتج <code>gcd(0, 5)</code> على منطق دالة <code>gcd</code> اللي فوق؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What does <code>gcd(0, 5)</code> return, given the <code>gcd</code> function above?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="zero"> 0</label>
+        <label><input type="radio" name="q3" value="five"> 5 (لأن 0 % 5 = 0 فتوقف الحلقة على الفور و<code>$a</code> بقى 5) / 5 (since 0 % 5 = 0, the loop stops immediately and <code>$a</code> becomes 5)</label>
+        <label><input type="radio" name="q3" value="error"> Error، لأن مينفعش تقسم على صفر / Error, because you can't divide by zero</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="order">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو بدّلنا ترتيب السطرين جوه الحلقة كده: <code>$b = $remainder; $a = $b;</code> بدل <code>$a = $b; $b = $remainder;</code>، هل <code>gcd(48, 18)</code> هترجع 6 برضو؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If we swap the two lines to <code>$b = $remainder; $a = $b;</code> instead of <code>$a = $b; $b = $remainder;</code>, will <code>gcd(48, 18)</code> still return 6?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="same"> آه، الترتيب مش مهم / Yes, order doesn't matter</label>
+        <label><input type="radio" name="q4" value="order"> لأ، هترجع 0 غلط — لأن <code>$a</code> هياخد القيمة الجديدة لـ <code>$b</code> بدل القيمة القديمة / No, it wrongly returns 0 — because <code>$a</code> ends up taking <code>$b</code>'s new value instead of its old one</label>
+        <label><input type="radio" name="q4" value="samevalue"> آه هترجع 6 برضو بس أبطأ شوية / Yes, still 6, just slightly slower</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

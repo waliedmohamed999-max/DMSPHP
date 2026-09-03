@@ -39,6 +39,56 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Your first contribution doesn't need to be a big feature — it could be fixing a typo in documentation, or a small bug labeled "Good first issue" on GitHub. The real value isn't the code itself — it's going through a real Code Review from experienced engineers, which teaches you faster than almost anything else.</div>
 </div>
 
+<h2>شكل مساهمة أولى قوية / What a Strong First Contribution Looks Like</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 "مساهمة صغيرة" مش معناها كود ضعيف — معناها نطاق محدود وواضح، مع سبب مكتوب. المثال ده Pull Request حقيقي الشكل: بيصلّح Bug واحد بسيط في مكتبة وهمية (دالة بترجع نتيجة غلط لقايمة فاضية)، بأقل تغيير ممكن، ومعاه تفسير وTest.</div>
+    <div class="en">🇬🇧 A "small contribution" doesn't mean weak code — it means a narrow, clear scope with a written reason. This example is shaped like a real Pull Request: it fixes one small Bug in a fictional library (a function returning the wrong result for an empty list), with the smallest possible change, an explanation, and a test.</div>
+</div>
+<pre><code>Bug report: "average([]) returns 0, but should signal 'no data' — 0 looks like a real average."
+
+--- a/src/Statistics.php
++++ b/src/Statistics.php
+@@ -4,7 +4,10 @@ class Statistics
+     public static function average(array $numbers): ?float
+     {
+-        if (empty($numbers)) {
+-            return 0;
+-        }
++        if (empty($numbers)) {
++            // Returning 0 was indistinguishable from a real average of 0.
++            // null clearly signals "no data" to the caller.
++            return null;
++        }
+         return array_sum($numbers) / count($numbers);
+     }
+ }
+
+--- a/tests/StatisticsTest.php
++++ b/tests/StatisticsTest.php
+@@ -10,4 +10,9 @@ class StatisticsTest extends TestCase
+     public function testAverageOfNumbers(): void
+     {
+         $this->assertEquals(3.0, Statistics::average([1, 2, 3, 4, 5]));
+     }
++
++    public function testAverageOfEmptyArrayReturnsNull(): void
++    {
++        $this->assertNull(Statistics::average([]));
++    }
+ }</code></pre>
+<h3>وصف الـ Pull Request (مثال واقعي الشكل) / PR description (realistic shape)</h3>
+<div class="output-box">Title: Fix: average() of an empty array should return null, not 0
+
+average([]) currently returns 0, which is indistinguishable from a real
+average of exactly 0. This can silently corrupt reports that check
+"if average > 0". Changed to return null and added a regression test.
+
+Fixes #142</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ 3 حاجات في المساهمة دي بتفرّقها عن كود عشوائي: (1) التغيير الفعلي في الكود صغير جدًا — سطر واحد اتغيّر بس، (2) اتضاف Test جديد يثبت إن المشكلة القديمة رجعت لو حد رجّع الكود زي ما كان، و(3) وصف الـ PR بيشرح "ليه" مش بس "إيه" — بيوضح المشكلة الحقيقية (تضارب 0 الحقيقي مع "مفيش بيانات"). ده بالظبط اللي بيخلّي Reviewer يوافق بسرعة.</div>
+    <div class="en">🇬🇧 Notice 3 things that separate this from random code: (1) the actual code change is tiny — one line changed, (2) a new Test proves the old bug would resurface if someone reverted the fix, and (3) the PR description explains "why," not just "what" — it names the real problem (a genuine 0 colliding with "no data"). This is exactly what gets a Reviewer to approve quickly.</div>
+</div>
+
 <h2>ابنِ Portfolio حقيقي / Build a Real Portfolio</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 مشروع Task Manager اللي بنيته في الـ Capstone هو بداية كويسة، بس Portfolio قوي محتاج 2-3 مشاريع مختلفة بتوضح مهارات مختلفة (واحد فيه Real-time features، واحد فيه Payment integration، واحد Open source ساهمت فيه). حط كل مشروع على GitHub بـ README واضح يشرح إيه اللي بناه وليه.</div>
@@ -118,6 +168,30 @@ echo PHP_EOL . "التقدم: $percent%" . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="syntax"> حفظ syntax لغة معيّنة</label>
         <label><input type="radio" name="q2" value="why"> السبب وراء كل قرار تصميم ("ليه اخترت ده؟")</label>
         <label><input type="radio" name="q2" value="speed"> سرعة الكتابة بس</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="test">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الـ Pull Request فوق، ليه اتضاف <code>testAverageOfEmptyArrayReturnsNull</code> مع التغيير؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Pull Request example, why was <code>testAverageOfEmptyArrayReturnsNull</code> added alongside the change?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="test"> عشان يثبت إصلاح المشكلة، ويمنع رجوعها بصمت لو حد عدّل الكود بعدين</label>
+        <label><input type="radio" name="q3" value="required"> PHPUnit بيرفض أي Pull Request من غير test جديد</label>
+        <label><input type="radio" name="q3" value="decoration"> مجرد شكليات، مالوش قيمة فعلية</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="narrow">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه اللي بيخلي Reviewer يوافق على PR بسرعة أكتر، حسب المرحلة دي؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What makes a Reviewer approve a PR faster, per this stage?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="narrow"> نطاق ضيّق وواضح + سبب مكتوب + test، بدل تغييرات كبيرة متفرقة</label>
+        <label><input type="radio" name="q4" value="big"> كل ما التغيير أكبر كل ما كان أفضل</label>
+        <label><input type="radio" name="q4" value="fast"> السرعة في الكتابة بس من غير شرح</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

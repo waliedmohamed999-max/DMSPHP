@@ -66,6 +66,18 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Both together is best. Finish each stage, but after each major part (like finishing Front-End) try applying a simple idea on your own without waiting for the final project — this solidifies understanding differently than guided exercises alone.</div>
 </div>
 
+<h2>أتعلم Framework (زي Laravel) الأول ولا Vanilla PHP؟</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>Vanilla PHP الأول، وبفارق كبير.</b> الـ Framework (زي Laravel) في الأساس مجموعة اختصارات وأدوات جاهزة مبنية فوق نفس مفاهيم PHP العادية اللي هتتعلمها هنا (Routing، التعامل مع الـ Requests، الاتصال بقاعدة البيانات). لو قفزت لـ Laravel من غير أساس Vanilla قوي، هتقدر "تخلّص شغل" بس مش هتفهم إيه اللي بيحصل فعليًا لما حاجة تتعطل — وده أخطر حاجة في أي مقابلة شغل. المسار هنا بيديك الأساس الأول عن قصد.</div>
+    <div class="en">🇬🇧 <b>Vanilla PHP first, by a wide margin.</b> A framework (like Laravel) is essentially a set of shortcuts and ready-made tools built on top of the same plain-PHP concepts you'll learn here (routing, handling requests, connecting to a database). Jump to Laravel without a solid Vanilla foundation, and you can "get things done" but won't understand what's actually happening when something breaks — the riskiest gap in any job interview. This track deliberately gives you the foundation first.</div>
+</div>
+
+<h2>هل لازم أتعلم Git وGitHub وأنا لسه بادئ؟</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 أيوه، من أول أسبوع لو أمكن — مش لازم تتقنه، بس تعرف 4 أوامر أساسية: <code>git init</code>، <code>git add</code>، <code>git commit</code>، و<code>git push</code>. السبب: مفيش شركة هتوظفك من غير Portfolio على GitHub (زي ما اتكلمنا فوق)، وGit كمان بيحميك من "مسحت الملف الصح بالغلط" لإنك تقدر ترجع لأي نسخة سابقة. ابدأ بمشروعك الأول بتاع Contact Form في آخر المسار — ده الوقت المثالي تتعلم فيه Git بالتوازي.</div>
+    <div class="en">🇬🇧 Yes, from week one if possible — you don't need to master it, just 4 core commands: <code>git init</code>, <code>git add</code>, <code>git commit</code>, and <code>git push</code>. Why: no company hires you without a GitHub Portfolio (as covered above), and Git also protects you from "accidentally deleted the wrong file" since you can revert to any previous version. Start with your Contact Form project at the end of this track — that's the ideal time to learn Git alongside it.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="portfolio">
     <h3>سؤال 1 / Question 1</h3>
@@ -86,6 +98,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="names"> أسماء الدوال بالظبط حرف حرف</label>
         <label><input type="radio" name="q2" value="logic"> المنطق: إمتى تستخدم loop أو function</label>
         <label><input type="radio" name="q2" value="nothing"> مفيش داعي تفهم حاجة، بس نسخ ولزق</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="vanilla">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">صاحبك قرر يبدأ Laravel على طول من غير ما يتعلم PHP العادي. إيه أكبر خطر في القرار ده؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Your friend decides to start Laravel directly without learning plain PHP. What's the biggest risk?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="slower"> هيبقى أبطأ في كتابة الكود بس</label>
+        <label><input type="radio" name="q3" value="vanilla"> هيقدر "يشغّل" حاجات بس مش هيفهم إيه اللي بيحصل لو اتعطلت</label>
+        <label><input type="radio" name="q3" value="norisk"> مفيش خطر، Laravel أسهل من الأساس</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="git">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه أفضل وقت تبدأ تتعلم فيه Git؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What's the best time to start learning Git?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="never"> مش محتاجه أصلًا كمبتدئ</label>
+        <label><input type="radio" name="q4" value="git"> من أول مشروع حقيقي بتبنيه، زي Contact Form</label>
+        <label><input type="radio" name="q4" value="afterjob"> بعد ما تلاقي شغل بس</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

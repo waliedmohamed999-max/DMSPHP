@@ -43,6 +43,12 @@ include __DIR__ . '/../includes/header.php';
     &lt;label for="message"&gt;الرسالة&lt;/label&gt;
     &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;
 
+    &lt;!-- Honeypot: حقل وهمي مخفي بـ CSS، مش هدفه اليوزر الحقيقي --&gt;
+    &lt;div style="position:absolute; left:-9999px;" aria-hidden="true"&gt;
+        &lt;label for="website"&gt;اسيب الحقل ده فاضي / Leave this field empty&lt;/label&gt;
+        &lt;input type="text" id="website" name="website" tabindex="-1" autocomplete="off"&gt;
+    &lt;/div&gt;
+
     &lt;button type="submit"&gt;إرسال&lt;/button&gt;
     &lt;div id="form-status"&gt;&lt;/div&gt;
 &lt;/form&gt;</code></pre>
@@ -227,6 +233,75 @@ echo handleContact($badPost) . "\n";</textarea>
     <div class="en">🇬🇧 <code>e.preventDefault()</code> stops the form from fully reloading the page, and <code>fetch</code> sends the data in the background and receives a JSON reply — the foundation of any modern form that feels "fast" to the user.</div>
 </div>
 
+<h2>5) حماية من الرسائل المزعجة (Honeypot) / Spam Protection</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 أي فورم عام على الإنترنت هيتقصف بردود بوتات أوتوماتيكية عاجلاً أو آجلاً. أبسط دفاع (وأحد أكتر التقنيات فعالية نسبةً لبساطتها) هو <b>Honeypot</b>: حقل زيادة في الفورم اسمه حاجة عادية زي <code>website</code>، مخفي عن اليوزر الحقيقي بـ CSS (<code>position:absolute; left:-9999px</code>) — عين الإنسان متشوفوش خالص. لكن البوتات البسيطة بتملأ كل <code>&lt;input&gt;</code> تلاقيه في الـ HTML من غير ما "تشوف" الصفحة فعليًا زي المتصفح، فبتقع في الفخ وتملأ الحقل ده. أي طلب وصل ومعاه قيمة في <code>website</code> يبقى شبه مؤكد إنه بوت.</div>
+    <div class="en">🇬🇧 Any public form on the internet will eventually get hit by automated bot submissions. The simplest defense — and one of the most effective relative to its simplicity — is a <b>Honeypot</b>: an extra form field with an innocent name like <code>website</code>, hidden from real users via CSS (<code>position:absolute; left:-9999px</code>) so no human eye ever sees it. But simple bots fill in every <code>&lt;input&gt;</code> they find in the HTML without actually "seeing" the page like a browser does, so they fall into the trap and fill this field. Any submission arriving with a value in <code>website</code> is almost certainly a bot.</div>
+</div>
+
+<pre><code>&lt;?php
+function isSpamSubmission(array $data): bool {
+    // لو الحقل الوهمي اتملى، يبقى بوت — يوزر حقيقي عمره ما هيشوفه أصلًا
+    return trim($data['website'] ?? '') !== '';
+}</code></pre>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لازم تتحقق من الـ Honeypot <b>قبل</b> أي تحقق تاني، وترجع رد "نجاح" وهمي للبوت (مش رسالة خطأ) — عشان لو كان بوت متطور شوية بيقرأ الردود، يفتكر إن رسالته "اتبعتت" ومكملش يحاول طرق تانية.</div>
+    <div class="en">🇬🇧 You must check the honeypot <b>before</b> any other validation, and return a fake "success" response to the bot (not an error) — so if it's a slightly smarter bot reading responses, it believes its message "went through" and doesn't try other approaches.</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">&lt;?php
+function isSpamSubmission(array $data): bool {
+    return trim($data['website'] ?? '') !== '';
+}
+
+function validateContact(array $data): array {
+    $errors = [];
+    $name = trim($data['name'] ?? '');
+    $email = trim($data['email'] ?? '');
+    $message = trim($data['message'] ?? '');
+    if ($name === '') {
+        $errors['name'] = 'الاسم مطلوب.';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'الإيميل غير صحيح.';
+    }
+    if (strlen($message) < 10) {
+        $errors['message'] = 'الرسالة قصيرة جدًا (10 أحرف على الأقل).';
+    }
+    return $errors;
+}
+
+function handleContact(array $fakePost): string {
+    // لازم يتفحص الـ honeypot قبل أي حاجة تانية
+    if (isSpamSubmission($fakePost)) {
+        // نرجّع رسالة نجاح مزيفة للبوت (مايعرفش إنه اتكشف)، من غير ما نبعت إيميل فعليًا
+        return json_encode(['message' => 'شكرًا! هنرد عليك قريب.', 'spam' => true], JSON_UNESCAPED_UNICODE);
+    }
+
+    $errors = validateContact($fakePost);
+    if (!empty($errors)) {
+        return json_encode(['errors' => $errors], JSON_UNESCAPED_UNICODE);
+    }
+    $safeName = htmlspecialchars(trim($fakePost['name']));
+    return json_encode(['message' => "شكرًا $safeName! هنرد عليك قريب.", 'spam' => false], JSON_UNESCAPED_UNICODE);
+}
+
+// حالة 1: يوزر حقيقي — الحقل الوهمي فاضي
+$realUser = ['name' => 'Waleed', 'email' => 'waleed@example.com', 'message' => 'Hello, I need help with my order.', 'website' => ''];
+echo handleContact($realUser) . "\n";
+
+// حالة 2: بوت بسيط ملأ كل حقل لقاه، بما فيها الحقل الوهمي
+$bot = ['name' => 'spambot', 'email' => 'x@x.com', 'message' => 'buy cheap stuff now', 'website' => 'http://spam.example'];
+echo handleContact($bot) . "\n";</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="backend">
     <h3>سؤال 1 / Question 1</h3>
@@ -252,6 +327,30 @@ echo handleContact($badPost) . "\n";</textarea>
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="hidden">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">ليه حقل الـ Honeypot لازم يكون مخفي بـ CSS مش بـ <code>type="hidden"</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why should the Honeypot field be hidden with CSS rather than <code>type="hidden"</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="hidden"> بوتات كتير بقت بتتجاهل حقول <code>type="hidden"</code> عمدًا، فإخفاؤه بصريًا فقط بيخليه يبان "عادي" لها</label>
+        <label><input type="radio" name="q3" value="faster"> عشان يخلي الصفحة تحمل أسرع</label>
+        <label><input type="radio" name="q3" value="required"> HTML مبيدعمش <code>type="hidden"</code> جوه فورم</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="fakesuccess">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لما الـ Honeypot يكتشف بوت، ليه بنرجّع رسالة "نجاح" وهمية بدل رسالة خطأ؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">When the Honeypot catches a bot, why return a fake "success" message instead of an error?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="polite"> عشان نبقى مؤدبين مع البوتات</label>
+        <label><input type="radio" name="q4" value="fakesuccess"> عشان البوت يفتكر إن رسالته اتبعتت ومكملش يجرب طرق تانية</label>
+        <label><input type="radio" name="q4" value="required"> رسائل الخطأ مش مسموح بيها في JSON</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ زوّد حقل وقاعدة تحقق جديدة / Add a Field and a New Validation Rule</h3>
@@ -271,6 +370,7 @@ echo handleContact($badPost) . "\n";</textarea>
         <li>التحقق الحقيقي دايمًا في الـ Back-End، مهما كان الـ Front-End بيتحقق.</li>
         <li><code>filter_var(FILTER_VALIDATE_EMAIL)</code> للتحقق من الإيميل، و<code>htmlspecialchars()</code> لحماية أي output.</li>
         <li><code>fetch</code> + <code>e.preventDefault()</code> = فورم بيتواصل مع السيرفر من غير Reload كامل.</li>
+        <li>حقل Honeypot مخفي بـ CSS = دفاع بسيط وفعّال ضد رسائل السبام الأوتوماتيكية.</li>
     </ul>
 </div>
 

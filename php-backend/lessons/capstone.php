@@ -102,6 +102,38 @@ class TaskController {
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>سيناريو قبول محدد: عنوان فاضي / A Concrete Acceptance Scenario: Empty Title</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 "المشروع بيشتغل" مش كفاية — أي حد بيراجع المشروع (أو Reviewer حقيقي) هيجرب مدخلات حدّية عمدًا. سيناريو قبول واضح لازم يكون فيه مدخل محدد ورد متوقع محدد. مثال: <b>مدخل:</b> <code>POST /tasks</code> بـ <code>{"title": ""}</code> (عنوان فاضي بعد <code>trim</code>). <b>الناتج المتوقع:</b> HTTP <code>422</code> مع <code>{"error": "Title is required."}</code> — مش <code>201</code>، ومش مهمة اتضافت بعنوان فاضي في قاعدة البيانات.</div>
+    <div class="en">🇬🇧 "It works" isn't enough — anyone reviewing the project (or a real Reviewer) will deliberately try edge-case input. A clear acceptance scenario needs a specific input and a specific expected response. Example: <b>Input:</b> <code>POST /tasks</code> with <code>{"title": ""}</code> (empty title after <code>trim</code>). <b>Expected output:</b> HTTP <code>422</code> with <code>{"error": "Title is required."}</code> — not <code>201</code>, and no task added to the database with an empty title.</div>
+</div>
+<pre><code>&lt;?php
+class TaskController {
+    public function store(array $input): array
+    {
+        $title = trim($input['title'] ?? '');
+        if ($title === '') {
+            return ['status' => 422, 'body' => ['error' => 'Title is required.']];
+        }
+        return ['status' => 201, 'body' => ['id' => 3, 'title' => $title, 'is_done' => false]];
+    }
+}
+
+$controller = new TaskController();
+
+$result1 = $controller->store(['title' => '']);
+echo "POST /tasks {title: \"\"} -&gt; {$result1['status']} " . json_encode($result1['body']) . PHP_EOL;
+
+$result2 = $controller->store(['title' => 'Write the report']);
+echo "POST /tasks {title: \"Write the report\"} -&gt; {$result2['status']} " . json_encode($result2['body']) . PHP_EOL;</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">POST /tasks {title: ""} -> 422 {"error":"Title is required."}
+POST /tasks {title: "Write the report"} -> 201 {"id":3,"title":"Write the report","is_done":false}</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو مشروعك بيرجّع <code>201</code> (أو حتى <code>200</code>) لأول حالة دي بدل <code>422</code>، يبقى فيه ثغرة تحقق حقيقية — مش تفصيلة صغيرة. أضف نفس فكرة السيناريو ده على باقي المتطلبات (باسورد قصير جدًا، تسجيل دخول ببيانات غلط، تعديل مهمة مستخدم تاني) قبل ما تعتبر المشروع جاهز للتسليم.</div>
+    <div class="en">🇬🇧 If your project returns <code>201</code> (or even <code>200</code>) for the first case instead of <code>422</code>, that's a real validation gap — not a minor detail. Apply this same scenario shape to the rest of the requirements (a too-short password, wrong login credentials, editing another user's task) before considering the project ready to submit.</div>
+</div>
+
 <div class="security-box">
     <h3>⚠️ راجع قبل التسليم / Final security checklist</h3>
     <div class="ar">🇪🇬
@@ -134,6 +166,30 @@ class TaskController {
         <label><input type="radio" name="q2" value="plain"> نص عادي في جدول users</label>
         <label><input type="radio" name="q2" value="hash"> بـ password_hash()</label>
         <label><input type="radio" name="q2" value="session"> في $_SESSION بس، مش في قاعدة البيانات</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="422">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">حسب سيناريو القبول فوق، <code>POST /tasks</code> بـ <code>{"title": ""}</code> المفروض يرجع إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Per the acceptance scenario above, what should <code>POST /tasks</code> with <code>{"title": ""}</code> return?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="201"> 201 مع مهمة جديدة بعنوان فاضي</label>
+        <label><input type="radio" name="q3" value="422"> 422 مع رسالة "Title is required."</label>
+        <label><input type="radio" name="q3" value="200"> 200 من غير أي رسالة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="gap">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو جرّبت المشروع بتاعك ولقيت إنه بيرجّع 201 لعنوان فاضي، إيه ده؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Testing your project and finding it returns 201 for an empty title — what does that indicate?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="fine"> تفصيلة بسيطة، ممكن تتجاهلها</label>
+        <label><input type="radio" name="q4" value="gap"> ثغرة تحقق حقيقية لازم تتصلح قبل التسليم</label>
+        <label><input type="radio" name="q4" value="feature"> سلوك مقصود ومطلوب</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

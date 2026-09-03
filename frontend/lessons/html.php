@@ -110,6 +110,26 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 A Front-End professional uses <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code> instead of random <code>&lt;div&gt;</code>s — it clarifies meaning, and matters a lot for SEO and Accessibility, two things any employer will ask about.</div>
 </div>
 
+<h2>6) مثال أعمق: article وaside / A Deeper Example: article &amp; aside</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <code>&lt;article&gt;</code> بيلف محتوى مستقل بذاته وله معنى كامل حتى لو اتنقل لصفحة تانية لوحده — زي مقال مدونة أو منشور. <code>&lt;aside&gt;</code> بيلف محتوى جانبي مرتبط بس مش أساسي — زي معلومات عن الكاتب أو "مقالات ذات صلة". الفرق عن <code>&lt;section&gt;</code>: section بتقسّم صفحة واحدة لأجزاء مترابطة، بينما article قايم بذاته تمامًا.</div>
+    <div class="en">🇬🇧 <code>&lt;article&gt;</code> wraps self-contained content that would still make sense on its own page — like a blog post. <code>&lt;aside&gt;</code> wraps related but secondary content — like an author bio or "related posts". The difference from <code>&lt;section&gt;</code>: a section divides one page into connected parts, while an article stands completely on its own.</div>
+</div>
+<pre><code>&lt;article&gt;
+    &lt;h2&gt;ليه Semantic HTML مهم؟&lt;/h2&gt;
+    &lt;p&gt;لأنه بيوضح معنى كل جزء لمحركات البحث وقارئات الشاشة.&lt;/p&gt;
+&lt;/article&gt;
+&lt;aside&gt;
+    &lt;h3&gt;عن الكاتب&lt;/h3&gt;
+    &lt;p&gt;وليد محمد — مطوّر Front-End.&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:200px" sandbox srcdoc='<html><body style="font-family:sans-serif;direction:rtl;margin:12px;display:flex;gap:14px"><article style="flex:2;border:1px solid #ccc;border-radius:8px;padding:12px"><h2 style="margin:0 0 6px;font-size:17px">ليه Semantic HTML مهم؟</h2><p style="margin:0">لأنه بيوضح معنى كل جزء لمحركات البحث وقارئات الشاشة.</p></article><aside style="flex:1;background:#f2f2f2;border-radius:8px;padding:12px"><h3 style="margin:0 0 6px;font-size:15px">عن الكاتب</h3><p style="margin:0;font-size:13px">وليد محمد — مطوّر Front-End.</p></aside></body></html>'></iframe>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ في المعاينة: الـ article ياخد المساحة الأكبر لأنه المحتوى الأساسي، والـ aside جنبه بخلفية مختلفة عشان يبان إنه معلومة إضافية مش جزء من المقال نفسه.</div>
+    <div class="en">🇬🇧 Notice in the preview: the article takes the larger space since it's the primary content, and the aside sits beside it with a different background to signal it's supplementary, not part of the article itself.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Practice</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه هيكل HTML بسيط جاهز — عدّل عليه مباشرة (زوّد عنصر <code>&lt;li&gt;</code> جديد، غيّر النصوص، حط <code>&lt;span&gt;</code> جوه فقرة) وشوف النتيجة بتتحدث فورًا من غير أي زرار Run.</div>
@@ -164,6 +184,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="one"> واحد بس / Exactly one</label>
         <label><input type="radio" name="q2" value="many"> أي عدد / Any number</label>
         <label><input type="radio" name="q2" value="two"> اتنين بالظبط / Exactly two</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="article">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عندك منشور مدونة كامل هيكون منطقي لو اتنقل لصفحته الخاصة لوحده. أنهي وسم أنسب يلفّه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You have a full blog post that would still make sense on its own dedicated page. Which tag best wraps it?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="aside"> aside</label>
+        <label><input type="radio" name="q3" value="article"> article</label>
+        <label><input type="radio" name="q3" value="span"> span</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="form">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز تعمل حقل بريد إلكتروني بمتصفح يتحقق من صيغته تلقائيًا (وجود @ مثلًا) من غير JavaScript. إيه الأنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want an email field the browser validates automatically (checks for an @, say) with no JavaScript. What's the right choice?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="text"> &lt;input type="text"&gt;</label>
+        <label><input type="radio" name="q4" value="form"> &lt;input type="email"&gt;</label>
+        <label><input type="radio" name="q4" value="span"> &lt;span&gt;</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

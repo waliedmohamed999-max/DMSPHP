@@ -123,6 +123,30 @@ source venv/bin/activate</code></pre>
     <div class="en">🇬🇧 Open your terminal, make a new project folder, and inside it run <code>python -m venv venv</code> then activate it with the command matching your machine. Confirm <code>(venv)</code> appears at the start of the line. (This platform's <a href="../playground/index.php">Playground</a> is for running Python code directly without needing a venv — venvs matter for your real projects on your own machine.)</div>
 </div>
 
+<h2>أشهر أخطاء pip install وإزاي تقراها / Common pip install Errors &amp; How to Read Them</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <code>pip install</code> بيفشل مع كل مبتدئ في مرحلة ما — الفرق بين اللي بيستسلم واللي بيكمل هو إنك تقرأ الرسالة صح بدل ما تنسخها في جوجل على طول من غير فهم.</div>
+    <div class="en">🇬🇧 <code>pip install</code> fails for every beginner at some point — the difference between giving up and moving forward is reading the message correctly instead of just pasting it into Google without understanding it.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ الخطأ 1: <span class="ltr">'pip' is not recognized</span></h3>
+    <div class="ar">🇪🇬 معناه <code>pip</code> مش مضاف لمتغير <code>PATH</code> بتاع ويندوز — نفس مشكلة <code>python</code> اللي شرحناها فوق بالظبط. <b>الحل الأسرع اللي بيشتغل دايمًا:</b> استخدم <code>python -m pip install اسم_المكتبة</code> بدل <code>pip install</code> مباشرة — لإنك بتطلب من Python نفسه (اللي متأكد إنه شغال) يشغّل وحدة <code>pip</code> الداخلية بتاعته.</div>
+    <div class="en">🇬🇧 Means <code>pip</code> isn't on Windows' <code>PATH</code> — the exact same issue as <code>python</code> explained above. <b>The fastest fix that always works:</b> use <code>python -m pip install library_name</code> instead of <code>pip install</code> directly — you're asking Python itself (which you know works) to run its own internal <code>pip</code> module.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ الخطأ 2: <span class="ltr">Could not find a version that satisfies the requirement</span></h3>
+    <div class="ar">🇪🇬 غالبًا سبب بسيط: <b>غلطة إملائية</b> في اسم المكتبة (زي <code>flsk</code> بدل <code>flask</code>)، أو المكتبة مش بتدعم نسخة Python اللي عندك (نادر مع نسخ Python الحديثة). أول حاجة تتأكد منها: راجع الإملاء حرف حرف، وابحث باسم المكتبة الرسمي على <span class="ltr">pypi.org</span>.</div>
+    <div class="en">🇬🇧 Usually a simple cause: a <b>typo</b> in the library name (like <code>flsk</code> instead of <code>flask</code>), or the library doesn't support your Python version (rare with modern Python). First thing to check: review the spelling letter by letter, and search the official library name on <span class="ltr">pypi.org</span>.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ الخطأ 3: <span class="ltr">PermissionError: [WinError 5] Access is denied</span></h3>
+    <div class="ar">🇪🇬 بتحاول تثبت مكتبة في مجلد Python العام بدون صلاحية إدارية. <b>الحل الصح مش "شغّل كـ Administrator"</b> — الحل الصح إنك تستخدم <b>Virtual Environment</b> بالظبط زي ما اتعلمت فوق، لإنه بيثبت المكتبات جوه مجلد مشروعك بس، مش في مجلدات النظام اللي محتاجة صلاحيات.</div>
+    <div class="en">🇬🇧 You're trying to install into Python's global folder without admin rights. <b>The correct fix isn't "run as Administrator"</b> — it's using a <b>Virtual Environment</b>, exactly as you learned above, since it installs libraries only inside your project folder, not system directories that require elevated permissions.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="pip">
     <h3>سؤال 1 / Question 1</h3>
@@ -143,6 +167,30 @@ source venv/bin/activate</code></pre>
         <label><input type="radio" name="q2" value="faster"> عشان يخلي Python يشتغل أسرع</label>
         <label><input type="radio" name="q2" value="isolate"> عشان يعزل مكتبات كل مشروع عن التاني</label>
         <label><input type="radio" name="q2" value="required"> عشان Python متطلبه إجباري عشان يشتغل أصلًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="module">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">ظهرتلك رسالة <span class="ltr">'pip' is not recognized</span>. إيه أسرع حل بديل تجربه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You see <span class="ltr">'pip' is not recognized</span>. What's the fastest alternative to try?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="reinstall"> تمسح Python كله وتثبته تاني فورًا</label>
+        <label><input type="radio" name="q3" value="module"> تستخدم <code>python -m pip install اسم_المكتبة</code> بدل <code>pip install</code></label>
+        <label><input type="radio" name="q3" value="ignore"> تتجاهل الخطأ وتكمل عادي</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="venvfix">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ظهرلك <span class="ltr">PermissionError: Access is denied</span> وانت بتعمل <code>pip install</code>. إيه أصح حل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You get <span class="ltr">PermissionError: Access is denied</span> during <code>pip install</code>. What's the correct fix?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="admin"> تشغّل الـ Terminal دايمًا كـ Administrator من هنا وطول عمرك</label>
+        <label><input type="radio" name="q4" value="venvfix"> تعمل وتفعّل Virtual Environment وتثبت جواه</label>
+        <label><input type="radio" name="q4" value="delete"> تمسح مجلد Python بالكامل</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

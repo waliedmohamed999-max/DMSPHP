@@ -151,6 +151,37 @@ echo "strrev:   " . strrev($word) . PHP_EOL;</code></pre>
 <div class="output-box">myStrrev: slatnemadnuf
 strrev:   slatnemadnuf</div>
 
+<h2>6) موقع عنصر في مصفوفة — <span class="ltr">myArraySearch() vs array_search()</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>الفكرة:</b> <code>myInArray</code> فوق بترجع <code>true</code>/<code>false</code> بس — تعرف إن العنصر موجود، لكن مش فين بالظبط. <code>array_search</code> مختلفة: بترجع <b>الفهرس (Key)</b> نفسه لو لقت العنصر، أو <code>false</code> لو مش موجود. نفس فكرة المشي والمقارنة، لكن بنرجّع <code>$key</code> بدل <code>true</code>.</div>
+    <div class="en">🇬🇧 <b>Idea:</b> <code>myInArray</code> above only returns <code>true</code>/<code>false</code> — you know an element exists, but not where. <code>array_search</code> is different: it returns the element's <b>index (key)</b> itself if found, or <code>false</code> if not. Same walk-and-compare idea, but returning <code>$key</code> instead of <code>true</code>.</div>
+</div>
+<pre><code>&lt;?php
+function myArraySearch($needle, array $haystack) {
+    foreach ($haystack as $key => $value) {
+        if ($value === $needle) {
+            return $key;
+        }
+    }
+    return false;
+}
+
+$fruits = ["apple", "mango", "banana"];
+foreach (["banana", "grape"] as $search) {
+    $mine = myArraySearch($search, $fruits);
+    $real = array_search($search, $fruits);
+    $mineStr = $mine === false ? 'false' : $mine;
+    $realStr = $real === false ? 'false' : $real;
+    echo "$search -> myArraySearch: $mineStr, array_search: $realStr" . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">banana -> myArraySearch: 2, array_search: 2
+grape -> myArraySearch: false, array_search: false</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ حالة خطرة هنا: لو العنصر موجود عند الفهرس <code>0</code>، الدالة هترجع <code>0</code> — وفي PHP، <code>0 == false</code> صح! عشان كده أي كود بيستخدم <code>array_search</code> أو <code>myArraySearch</code> لازم يقارن بـ <code>=== false</code> (مقارنة صارمة)، مش <code>== false</code> ولا <code>!$result</code>، وإلا هيتعامل مع "لقيته عند الفهرس صفر" على إنه "مش موجود" غلط.</div>
+    <div class="en">🇬🇧 Notice a dangerous edge case here: if the element sits at index <code>0</code>, the function returns <code>0</code> — and in PHP, <code>0 == false</code> is true! That's why any code using <code>array_search</code> or <code>myArraySearch</code> must compare with <code>=== false</code> (strict comparison), never <code>== false</code> or <code>!$result</code>, or it will wrongly treat "found at index zero" as "not found."</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه <code>myInArray</code> اللي شفتها فوق. جرّب تدور على قيم تانية، أو تضيف عناصر تانية للمصفوفة، وشوف إزاي النتيجة بتتطابق مع <code>in_array</code> الحقيقية.</div>
@@ -201,6 +232,29 @@ foreach (["mango", "grape"] as $search) {
         <label><input type="radio" name="q2" value="max"> "أكبر رقم في مصفوفة" من حل المشكلات / "largest number in an array" from Problem Solving</label>
         <label><input type="radio" name="q2" value="prime"> "هل الرقم أوّلي؟" / "is the number prime?"</label>
         <label><input type="radio" name="q2" value="fizz"> FizzBuzz</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="loose">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو <code>$fruits = ["apple", "mango"]</code> واستخدمت <code>if (!myArraySearch("apple", $fruits))</code> عشان تتحقق "لو مش لقيته"، إيه المشكلة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If <code>$fruits = ["apple", "mango"]</code> and you wrote <code>if (!myArraySearch("apple", $fruits))</code> to check "if not found," what's wrong?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="loose"> هتدخل الشرط غلط، لأن "apple" عند الفهرس 0، و<code>!0</code> بتساوي <code>true</code> في PHP / it wrongly enters the branch, because "apple" is at index 0, and <code>!0</code> equals <code>true</code> in PHP</label>
+        <label><input type="radio" name="q3" value="nothingwrong"> مفيش مشكلة، الكود سليم 100% / nothing's wrong, the code is perfectly fine</label>
+        <label><input type="radio" name="q3" value="syntaxerr"> ده Syntax Error في PHP / this is a PHP syntax error</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="strict3"><h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه الطريقة الصح للتحقق من "العنصر مش موجود" بعد <code>myArraySearch</code> أو <code>array_search</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What's the correct way to check "not found" after <code>myArraySearch</code> or <code>array_search</code>?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="strict3"> <code>if ($result === false)</code> — مقارنة صارمة بالنوع والقيمة / <code>if ($result === false)</code> — strict comparison of both type and value</label>
+        <label><input type="radio" name="q4" value="loose4"> <code>if (!$result)</code></label>
+        <label><input type="radio" name="q4" value="loose5"> <code>if ($result == false)</code></label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

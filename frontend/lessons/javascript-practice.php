@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/header.php';
 
 <span class="badge">المرحلة 6 / Stage 6</span>
 <h1>التطبيق على JavaScript <span class="ltr">JavaScript Practice</span></h1>
-<p class="subtitle">مفيش طريقة تتعلم بيها JavaScript غير إنك تتمرن. هنا 6 تحديات بسيطة ومحلولة بالكامل، كل واحدة فيها كود شغال فعليًا تقدر تجربه.</p>
+<p class="subtitle">مفيش طريقة تتعلم بيها JavaScript غير إنك تتمرن. هنا 7 تحديات بسيطة ومحلولة بالكامل، كل واحدة فيها كود شغال فعليًا تقدر تجربه.</p>
 
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
@@ -147,6 +147,62 @@ btn.addEventListener("click", function () {
 <h3>المعاينة الفعلية / Actual Rendered Output</h3>
 <iframe class="render-box" style="height:150px" sandbox="allow-scripts" srcdoc='<html><head><style>body{font-family:sans-serif;padding:16px;text-align:center}button{font-size:15px;padding:10px 18px;border-radius:8px;border:none;background:#6c8bff;color:white;cursor:pointer}#quoteBox{margin-top:14px;min-height:40px;color:#333;font-style:italic}</style></head><body dir="rtl"><button id="btn">اقتباس عشوائي</button><div id="quoteBox">اضغط عشان تشوف اقتباس...</div><script>const quotes=["الكود اللي بتفهمه أهم من الكود اللي بتحفظه.","كل خبير كان مبتدئ يوم من الأيام.","التطبيق العملي أقوى من أي شرح نظري."];document.getElementById("btn").addEventListener("click",function(){const i=Math.floor(Math.random()*quotes.length);document.getElementById("quoteBox").textContent=quotes[i];});<\/script></body></html>'></iframe>
 
+<h2>تحدي 7 — مبدّل تبويبات / Tab Switcher</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 المطلوب: مجموعة أزرار تبويب، وضغط أي واحد فيهم يظهر محتواه ويخفي الباقي، مع تمييز الزرار النشط. الحل: <code>querySelectorAll</code> + <code>forEach</code> على كل الأزرار، وكل زرار بيحمل <code>data-tab</code> بيوصلنا لمحتواه المطابق — نفس نمط "مبدّل الألوان" في تحدي 3، لكن هنا بنشيل/نحط class من مجموعتين من العناصر مع بعض (الأزرار والمحتويات) في نفس الوقت.</div>
+    <div class="en">🇬🇧 Goal: a row of tab buttons where clicking one shows its content and hides the rest, with the active button highlighted. Solution: <code>querySelectorAll</code> + <code>forEach</code> over all buttons, each carrying a <code>data-tab</code> that maps to its matching content — the same pattern as Challenge 3's Color Changer, but here toggling classes across two related groups of elements (buttons and panels) at once.</div>
+</div>
+<pre><code>const tabs = document.querySelectorAll(".tab-btn");
+const panels = document.querySelectorAll(".tab-panel");
+
+tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.classList.remove("active"); });
+        panels.forEach(function (p) { p.classList.remove("active"); });
+
+        tab.classList.add("active");
+        document.querySelector('[data-panel="' + tab.dataset.tab + '"]').classList.add("active");
+    });
+});</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:150px" sandbox="allow-scripts" srcdoc='<html><head><style>body{font-family:sans-serif;padding:16px}.tab-btn{font-size:14px;padding:8px 14px;border:none;background:#eee;color:#444;cursor:pointer;border-radius:6px 6px 0 0}.tab-btn.active{background:#6c8bff;color:white}.tab-panel{display:none;padding:12px;background:#f7f8fc;border-radius:0 8px 8px 8px}.tab-panel.active{display:block}</style></head><body dir="rtl"><button class="tab-btn active" data-tab="html">HTML</button><button class="tab-btn" data-tab="css">CSS</button><button class="tab-btn" data-tab="js">JavaScript</button><div class="tab-panel active" data-panel="html">بنية الصفحة.</div><div class="tab-panel" data-panel="css">شكل الصفحة.</div><div class="tab-panel" data-panel="js">تفاعل الصفحة.</div><script>const tabs=document.querySelectorAll(".tab-btn");const panels=document.querySelectorAll(".tab-panel");tabs.forEach(function(tab){tab.addEventListener("click",function(){tabs.forEach(function(t){t.classList.remove("active");});panels.forEach(function(p){p.classList.remove("active");});tab.classList.add("active");document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add("active");});});<\/script></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 جرّب بنفسك: زوّد تبويب رابع (زرار + panel جديد بنفس قيمة <code>data-tab</code>/<code>data-panel</code>)، ولاحظ إنك مش محتاج تعدّل أي سطر JavaScript — الكود عام وبيتعامل مع أي عدد تبويبات تلقائيًا.</div>
+    <div class="en">🇬🇧 Try it yourself: add a fourth tab (a button plus a panel sharing the same <code>data-tab</code>/<code>data-panel</code> value), and notice you don't need to touch a single line of JavaScript — the code is generic and handles any number of tabs automatically.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="css">CSS</button>
+        <button class="fe-tab" data-tab="js">JavaScript</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;button class="tab-btn active" data-tab="html"&gt;HTML&lt;/button&gt;
+&lt;button class="tab-btn" data-tab="css"&gt;CSS&lt;/button&gt;
+&lt;button class="tab-btn" data-tab="js"&gt;JavaScript&lt;/button&gt;
+&lt;div class="tab-panel active" data-panel="html"&gt;بنية الصفحة.&lt;/div&gt;
+&lt;div class="tab-panel" data-panel="css"&gt;شكل الصفحة.&lt;/div&gt;
+&lt;div class="tab-panel" data-panel="js"&gt;تفاعل الصفحة.&lt;/div&gt;</textarea>
+    <textarea class="fe-code" data-tab="css" style="display:none" spellcheck="false">body { font-family: sans-serif; padding: 16px; }
+.tab-btn { font-size: 14px; padding: 8px 14px; border: none; background: #eee; color: #444; cursor: pointer; border-radius: 6px 6px 0 0; }
+.tab-btn.active { background: #6c8bff; color: white; }
+.tab-panel { display: none; padding: 12px; background: #f7f8fc; border-radius: 0 8px 8px 8px; }
+.tab-panel.active { display: block; }</textarea>
+    <textarea class="fe-code" data-tab="js" style="display:none" spellcheck="false">const tabs = document.querySelectorAll(".tab-btn");
+const panels = document.querySelectorAll(".tab-panel");
+
+tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.classList.remove("active"); });
+        panels.forEach(function (p) { p.classList.remove("active"); });
+
+        tab.classList.add("active");
+        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add("active");
+    });
+});</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:150px" sandbox="allow-scripts"></iframe>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 في <a href="../playground/index.php">محرر الكود</a>، ادمج تحدي "عدّاد الضغطات" مع تحدي "مبدّل الألوان": زرار واحد يزوّد رقم ويغيّر لون الخلفية في نفس الوقت. وبعدين حاول تضيف زرار "إعادة تصفير" (Reset) للعدّاد.</div>
@@ -178,6 +234,30 @@ btn.addEventListener("click", function () {
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="both">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في تحدي مبدّل التبويبات، لما تضغط على تبويب جديد، إيه اللي بيتشال منه class اسمه active قبل ما يتحط على المختار؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Tab Switcher, before adding <code>active</code> to the clicked tab, what gets it removed from?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="buttons"> الأزرار بس</label>
+        <label><input type="radio" name="q3" value="both"> كل الأزرار وكل الـ panels مع بعض</label>
+        <label><input type="radio" name="q3" value="none"> مفيش حاجة بتتشال، بس بتتحط</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="generic">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو زوّدت تبويب رابع في الـ HTML (زرار + panel جديدين بنفس نمط data-tab/data-panel)، هل لازم تعدّل كود الـ JavaScript؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If you add a 4th tab in the HTML (matching data-tab/data-panel), do you need to edit the JavaScript?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="rewrite"> أيوه، لازم تضيف addEventListener جديد يدوي</label>
+        <label><input type="radio" name="q4" value="generic"> لأ، querySelectorAll وforEach بيتعاملوا مع أي عدد أوتوماتيك</label>
+        <label><input type="radio" name="q4" value="impossible"> مستحيل تزوّد تبويب رابع أصلًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ عدّاد كلمات مباشر / Build a Live Word Counter</h3>
@@ -187,8 +267,8 @@ btn.addEventListener("click", function () {
 
 <h2 id="project">🚀 المشروع / Project</h2>
 <div class="bi-block">
-    <div class="ar">🇪🇬 الأنماط الستة اللي تمرنت عليها هنا (State + Event + Update) هي بالحرف نفس الأنماط اللي هتستخدمها كذا مرة في تطبيق قائمة المهام (To-Do List) الكامل — الأنماط الصغيرة دي هي اللبنات اللي بيتبني منها أي تطبيق JavaScript حقيقي.</div>
-    <div class="en">🇬🇧 The six patterns you practiced here (State + Event + Update) are the exact same patterns you'll reuse repeatedly in the full To-Do List app — these small patterns are the building blocks any real JavaScript app is made of.</div>
+    <div class="ar">🇪🇬 الأنماط السبعة اللي تمرنت عليها هنا (State + Event + Update) هي بالحرف نفس الأنماط اللي هتستخدمها كذا مرة في تطبيق قائمة المهام (To-Do List) الكامل — الأنماط الصغيرة دي هي اللبنات اللي بيتبني منها أي تطبيق JavaScript حقيقي.</div>
+    <div class="en">🇬🇧 The seven patterns you practiced here (State + Event + Update) are the exact same patterns you'll reuse repeatedly in the full To-Do List app — these small patterns are the building blocks any real JavaScript app is made of.</div>
 </div>
 
 <div class="complete-lesson">
@@ -206,6 +286,7 @@ btn.addEventListener("click", function () {
         <li>الإظهار/الإخفاء = <code>classList.toggle()</code> + CSS <code>display</code>.</li>
         <li>الآلة الحاسبة = <code>Number()</code> لتحويل نص الـ input لرقم قبل الجمع.</li>
         <li>الاقتباس العشوائي = <code>Math.random()</code> + <code>Math.floor()</code> لاختيار عنصر عشوائي من مصفوفة.</li>
+        <li>مبدّل التبويبات = <code>querySelectorAll</code> + <code>forEach</code> على مجموعتين مرتبطتين من العناصر معًا.</li>
     </ul>
 </div>
 

@@ -110,6 +110,37 @@ createApp({
     <iframe class="render-box mini-fe-preview" style="height:180px" sandbox="allow-scripts"></iframe>
 </div>
 
+<h2>3) عرض قوائم — v-for / Rendering Lists with v-for</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 قارن ده بمشروع الـ To-Do List بـ JavaScript خام: هناك كتبت <code>tasks.forEach()</code> يدويًا جوه <code>render()</code>، وبنيت كل <code>&lt;li&gt;</code> بـ <code>document.createElement()</code> بنفسك. هنا <code>v-for="skill in skills"</code> بيعمل نفس الحاجة بالظبط داخل الـ HTML مباشرة — بتقول لـ Vue "كرر العنصر ده لكل عنصر في المصفوفة"، وهو بيتكفل بالباقي، حتى لو المصفوفة اتغيّرت بعدين.</div>
+    <div class="en">🇬🇧 Compare this to the vanilla JavaScript To-Do List: there, you manually wrote <code>tasks.forEach()</code> inside <code>render()</code> and built each <code>&lt;li&gt;</code> with <code>document.createElement()</code> yourself. Here, <code>v-for="skill in skills"</code> does the exact same thing directly inside the HTML — you tell Vue "repeat this element for every item in the array", and it handles the rest, even when the array changes later.</div>
+</div>
+<pre><code>&lt;div id="app"&gt;
+    &lt;ul&gt;
+        &lt;li v-for="skill in skills"&gt;{{ skill }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;button @click="addSkill"&gt;ضيف مهارة&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+createApp({
+    data() {
+        return { skills: ["HTML", "CSS", "JavaScript"] };
+    },
+    methods: {
+        addSkill() {
+            this.skills.push("مهارة جديدة " + (this.skills.length + 1));
+        }
+    }
+}).mount("#app");
+&lt;/script&gt;</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output — تطبيق Vue حقيقي وشغال</h3>
+<iframe class="render-box" style="height:200px" sandbox="allow-scripts" srcdoc='<html><head><script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"><\/script><style>body{font-family:sans-serif;padding:16px;text-align:center}ul{list-style:none;padding:0}li{background:#f0f4ff;margin:6px auto;padding:8px;border-radius:6px;max-width:200px}button{font-size:14px;padding:8px 16px;border-radius:8px;border:none;background:#42b883;color:white;cursor:pointer;margin-top:8px}</style></head><body dir="rtl"><div id="app"><ul><li v-for="skill in skills">{{ skill }}</li></ul><button @click="addSkill">ضيف مهارة</button></div><script>const{createApp}=Vue;createApp({data(){return{skills:["HTML","CSS","JavaScript"]};},methods:{addSkill(){this.skills.push("مهارة جديدة "+(this.skills.length+1));}}}).mount("#app");<\/script></body></html>'></iframe>
+<div class="bi-block">
+    <div class="ar">🇪🇬 جرّب: اضغط "ضيف مهارة" كذا مرة وشوف عناصر جديدة بتتضاف في القائمة أوتوماتيك — مفيش <code>document.createElement()</code> ولا <code>appendChild()</code> ولا <code>render()</code> يدوي. غيّرت المصفوفة بـ <code>.push()</code> بس، وVue أعاد رسم الـ <code>&lt;ul&gt;</code> لوحده.</div>
+    <div class="en">🇬🇧 Try it: click "ضيف مهارة" (Add Skill) a few times and watch new items appear in the list automatically — no <code>document.createElement()</code>, no <code>appendChild()</code>, no manual <code>render()</code>. You only changed the array with <code>.push()</code>, and Vue redrew the <code>&lt;ul&gt;</code> on its own.</div>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 في <a href="../playground/index.php">محرر الكود</a>، حط سكريبت Vue من الـ CDN، وابني تطبيق بسيط: مربع نص لإضافة مهمة و<code>v-model</code> لقراءته، وزرار بيضيف النص لمصفوفة <code>tasks</code> في الـ <code>data</code> — وبعدها استخدم <code>v-for="task in tasks"</code> عشان تعرض القائمة (بدل الطريقة اليدوية اللي عملناها في مشروع JavaScript الخام).</div>
@@ -141,6 +172,30 @@ createApp({
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="vfor">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عايز تعرض <code>&lt;li&gt;</code> لكل عنصر في مصفوفة <code>skills</code> من غير ما تكتب <code>document.createElement()</code> يدويًا. أنهي الأنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want an <code>&lt;li&gt;</code> for every item in a <code>skills</code> array without manual <code>document.createElement()</code>. What fits?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="vmodel"> v-model="skills"</label>
+        <label><input type="radio" name="q3" value="vfor"> v-for="skill in skills"</label>
+        <label><input type="radio" name="q3" value="click"> @click="skills"</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="auto">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">بعد ما زرار "ضيف مهارة" يعمل <code>this.skills.push(...)</code>، مين اللي بيضيف الـ <code>&lt;li&gt;</code> الجديد فعليًا على الشاشة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">After the "Add Skill" button runs <code>this.skills.push(...)</code>, who actually adds the new <code>&lt;li&gt;</code> to the screen?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="manual"> لازم تستدعي render() أو appendChild() بنفسك زي المشروع اليدوي</label>
+        <label><input type="radio" name="q4" value="auto"> Vue بيلاحظ تغيّر المصفوفة ويعيد رسم v-for أوتوماتيك</label>
+        <label><input type="radio" name="q4" value="refresh"> لازم تعمل Refresh للصفحة يدويًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ أعد بناء الـ To-Do List بـ Vue / Rebuild the To-Do List in Vue</h3>
@@ -166,6 +221,7 @@ createApp({
         <li>Vue قابل للإضافة بسكريبت CDN واحد، من غير أدوات بناء، بالظبط زي Bootstrap/Tailwind.</li>
         <li>Reactivity = تغيّر البيانات بيحدّث الشاشة أوتوماتيك، من غير <code>querySelector</code> يدوي.</li>
         <li><code>{{ }}</code> لعرض قيمة، <code>@click</code> لحدث ضغطة، <code>v-model</code> لربط مربع نص ببيانات.</li>
+        <li><code>v-for="item in array"</code> = يعرض عنصر لكل قيمة في مصفوفة، وبيتحدّث لوحده لما المصفوفة تتغيّر.</li>
         <li>مبروك — وصلت لآخر مرحلة في مسار Front-End Developer! 🎉</li>
     </ul>
 </div>

@@ -219,6 +219,58 @@ Welcome, Sara!
 Square of 5: 25
 Sum: 10</div>
 
+<h2>6) مثال مدمج: هيكل تحكم + مصفوفة + دالة معًا / Combined Example: Control Structure + Array + Function</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 في مشروع حقيقي، المفاهيم دي بالذات (شروط، مصفوفات، دوال) بتظهر مع بعض في نفس السطور، مش كل واحدة لوحدها. المثال ده بيصنّف قايمة طلبات حسب قيمتها (VIP/Regular/Small) بدالة فيها <code>if/elseif/else</code>، وبيحسب إحصائية إجمالية بمصفوفة associative بيتحدّث جواها <code>foreach</code>.</div>
+    <div class="en">🇬🇧 In a real project, exactly these concepts (conditionals, arrays, functions) appear together in the same lines, not each in isolation. This example classifies a list of orders by value (VIP/Regular/Small) using a function with <code>if/elseif/else</code>, and builds a running summary in an associative array updated inside a <code>foreach</code>.</div>
+</div>
+
+<pre><code>&lt;?php
+function classifyOrder(array $order): string
+{
+    $total = $order['total'];
+    if ($total >= 200) {
+        return 'VIP';
+    } elseif ($total >= 50) {
+        return 'Regular';
+    } else {
+        return 'Small';
+    }
+}
+
+$orders = [
+    ['id' => 1, 'customer' => 'Ali',  'total' => 250.00],
+    ['id' => 2, 'customer' => 'Sara', 'total' => 75.50],
+    ['id' => 3, 'customer' => 'Omar', 'total' => 15.00],
+];
+
+$summary = ['VIP' => 0, 'Regular' => 0, 'Small' => 0];
+
+foreach ($orders as $order) {
+    $tier = classifyOrder($order);
+    $summary[$tier]++;
+    echo "Order #{$order['id']} ({$order['customer']}): \${$order['total']} -&gt; $tier" . PHP_EOL;
+}
+
+echo PHP_EOL . "Summary:" . PHP_EOL;
+foreach ($summary as $tier => $count) {
+    echo "- $tier: $count order(s)" . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">Order #1 (Ali): $250 -> VIP
+Order #2 (Sara): $75.5 -> Regular
+Order #3 (Omar): $15 -> Small
+
+Summary:
+- VIP: 1 order(s)
+- Regular: 1 order(s)
+- Small: 1 order(s)</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن <code>$250.00</code> طبعت <code>250</code> مش <code>250.00</code> — لما PHP يحوّل float لـ string، بيشيل الأصفار الزيادة بعد الفاصلة العشرية أوتوماتيك، عكس <code>number_format()</code> اللي بتحافظ على عدد ثابت من الخانات لو محتاج تعرضها كسعر منسّق.</div>
+    <div class="en">🇬🇧 Notice <code>$250.00</code> printed as <code>250</code>, not <code>250.00</code> — when PHP converts a float to a string, it drops trailing decimal zeros automatically, unlike <code>number_format()</code> which keeps a fixed number of digits when you need a formatted price.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="integer">
     <h3>سؤال 1 / Question 1</h3>
@@ -239,6 +291,30 @@ Sum: 10</div>
         <label><input type="radio" name="q2" value="map"> array_map</label>
         <label><input type="radio" name="q2" value="filter"> array_filter</label>
         <label><input type="radio" name="q2" value="sum"> array_sum</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="250">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال <code>classifyOrder</code> فوق، لو غيّرت <code>$total = 250.00</code> لأوردر Ali، إيه اللي هيتطبع بالظبط بعد <code>$</code> في السطر الأول؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the <code>classifyOrder</code> example, with Ali's order at <code>250.00</code>, what exactly prints after the <code>$</code> in the first line?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="25000"> 250.00</label>
+        <label><input type="radio" name="q3" value="250"> 250</label>
+        <label><input type="radio" name="q3" value="error"> خطأ Type Error</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="tier">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو أضفت أوردر رابع بـ <code>total => 200.00</code> بالظبط، أنهي تصنيف هياخد؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If you added a fourth order with <code>total => 200.00</code> exactly, which tier does it get?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="tier"> VIP، لإن الشرط <code>&gt;= 200</code> بيشمل 200 نفسها</label>
+        <label><input type="radio" name="q4" value="regular"> Regular، لإن 200 مش أكبر من 200</label>
+        <label><input type="radio" name="q4" value="small"> Small</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

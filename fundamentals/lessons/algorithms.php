@@ -148,6 +148,47 @@ Binary search worst case: 20 checks</div>
     <div class="en">🇬🇧 This isn't an exaggeration — with a million elements, linear search's worst case is a million tries, but binary search needs at most 20. This gap is exactly why choosing the right algorithm matters, not just "an algorithm that works."</div>
 </div>
 
+<h2>جدول مقارنة حقيقي بأحجام مختلفة <span class="ltr">A Real Comparison Table Across Sizes</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 عشان الفرق يبقى ملموس مش بس نظري، ده جدول محسوب فعليًا بـ PHP لعدد المحاولات في أسوأ حالة، لتلات أحجام مختلفة تمامًا: 10، 1000، ومليون عنصر. لاحظ إزاي البحث الخطي بيكبر "بالتساوي" مع الحجم، لكن البحث الثنائي بالكاد بيتحرك.</div>
+    <div class="en">🇬🇧 To make the gap tangible, not just theoretical, here's a table actually computed with PHP for the worst-case number of comparisons, across three very different sizes: 10, 1,000, and one million elements. Notice how linear search grows "in lockstep" with the size, while binary search barely moves.</div>
+</div>
+<pre><code>&lt;?php
+$sizes = [10, 1000, 1000000];
+foreach ($sizes as $size) {
+    $linear = $size;
+    $binary = (int) ceil(log($size, 2));
+    echo "n = $size -> linear: $linear checks, binary: $binary checks" . PHP_EOL;
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">n = 10 -> linear: 10 checks, binary: 4 checks
+n = 1000 -> linear: 1000 checks, binary: 10 checks
+n = 1000000 -> linear: 1000000 checks, binary: 20 checks</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 على شكل جدول أوضح:</div>
+    <div class="en">🇬🇧 As a clearer table:</div>
+</div>
+<div class="table-wrap" style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;text-align:center">
+<thead>
+<tr style="border-bottom:2px solid var(--border,#444)">
+<th style="padding:8px">حجم المصفوفة / n</th>
+<th style="padding:8px">Linear Search — O(n)</th>
+<th style="padding:8px">Binary Search — O(log n)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border,#333)"><td style="padding:8px">10</td><td style="padding:8px">10 محاولة</td><td style="padding:8px">4 محاولات</td></tr>
+<tr style="border-bottom:1px solid var(--border,#333)"><td style="padding:8px">1,000</td><td style="padding:8px">1,000 محاولة</td><td style="padding:8px">10 محاولات</td></tr>
+<tr><td style="padding:8px">1,000,000</td><td style="padding:8px">1,000,000 محاولة</td><td style="padding:8px">20 محاولة</td></tr>
+</tbody>
+</table>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 من 10 لـ 1000 (يعني ×100)، البحث الخطي كبر ×100 معاها بالظبط، لكن البحث الثنائي زاد بس من 4 لـ 10. ومن 1000 لمليون (×1000 كمان)، البحث الخطي كبر ×1000 تاني، لكن البحث الثنائي زاد من 10 لـ 20 بس — يعني ضاعف مرة واحدة بس رغم إن حجم البيانات كبر آلاف المرات. ده معنى "لوغاريتمي" عمليًا.</div>
+    <div class="en">🇬🇧 From 10 to 1,000 (×100), linear search grew by exactly ×100, but binary search only went from 4 to 10. From 1,000 to a million (another ×1000), linear search grew ×1000 again, but binary search only went from 10 to 20 — it merely doubled, even though the data grew by thousands of times. That's what "logarithmic" means in practice.</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Try It Yourself</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه <code>bubbleSort</code> اللي شفتها فوق. جرّب مصفوفات مختلفة، أو ضيف <code>echo</code> جوه الحلقة الداخلية عشان تشوف كل مرور بيحصل فيه إيه بالظبط.</div>
@@ -199,6 +240,30 @@ echo implode(', ', bubbleSort($unsorted)) . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="n"> O(n)</label>
         <label><input type="radio" name="q2" value="logn"> O(log n)</label>
         <label><input type="radio" name="q2" value="n2"> O(n²)</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="27">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لو المصفوفة كبرت لـ 100 مليون عنصر (100,000,000)، تقريبًا كام محاولة هيحتاجها البحث الثنائي في أسوأ حالة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If the array grows to 100 million elements, roughly how many attempts does binary search need in the worst case?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="27"> حوالي 27 محاولة بس / only around 27 attempts</label>
+        <label><input type="radio" name="q3" value="100mil"> 100 مليون محاولة، زي البحث الخطي / 100 million attempts, same as linear search</label>
+        <label><input type="radio" name="q3" value="2000"> حوالي 2000 محاولة / around 2000 attempts</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="notalways">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عندك مصفوفة بتتغير كل ثانية (عناصر بتتضاف عشوائيًا) ومحتاج تدور فيها مرة واحدة بس، هل الأفضل تستخدم البحث الثنائي؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You have an array that changes every second (elements added randomly) and need to search it just once — is binary search the best choice?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="notalways"> غالبًا لأ — لازم ترتبها الأول (وده مكلف)، فمع بحث واحد بس البحث الخطي المباشر ممكن يكون أعملي / usually not — you'd need to sort it first (which costs time), so for a single search, plain linear search may be more practical</label>
+        <label><input type="radio" name="q4" value="alwaysbetter"> آه، البحث الثنائي أسرع دايمًا في كل الحالات من غير أي شرط / yes, binary search is always faster in every case with no conditions</label>
+        <label><input type="radio" name="q4" value="doesntmatter"> مفيش فرق، الاتنين بنفس الكفاءة بالظبط / it doesn't matter, both have exactly the same efficiency</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

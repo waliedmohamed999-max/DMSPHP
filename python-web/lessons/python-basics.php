@@ -182,6 +182,72 @@ print("Square of 5:", square(5))</code></pre>
 Welcome, Sara!
 Square of 5: 25</div>
 
+<h2>6) القواميس (Dictionaries) — مسألة محلولة / A Solved Problem</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الـ <code>Dictionary</code> في Python هي مقابل الـ Associative Array في PHP (<code>['key' => 'value']</code>) — بتخزن قيم مربوطة بمفاتيح (Keys) بدل ترتيب رقمي زي الـ List. دلوقتي هنحل مسألة حقيقية بيها: <b>احسب عدد تكرار كل كلمة في جملة</b> — مسألة كلاسيكية بتظهر كتير في تمارين البرمجة ومقابلات الشغل.</div>
+    <div class="en">🇬🇧 A <code>Dictionary</code> in Python is the equivalent of PHP's associative array (<code>['key' => 'value']</code>) — it stores values tied to keys instead of numeric order like a List. Let's solve a real problem with it: <b>count how many times each word appears in a sentence</b> — a classic exercise that shows up often in coding practice and job interviews.</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 الفكرة: نقسّم الجملة لكلمات بـ <code>.split()</code>، وبعدين لكل كلمة نستخدم <code>dict.get(key, default)</code> — بترجع قيمة المفتاح لو موجود، أو قيمة افتراضية (هنا <code>0</code>) لو لسه مش موجود، فنقدر نزوّد العداد من غير ما نتحقق يدويًا "هل المفتاح ده موجود ولا لأ".</div>
+    <div class="en">🇬🇧 The idea: split the sentence into words with <code>.split()</code>, then for each word use <code>dict.get(key, default)</code> — it returns the key's value if it exists, or a default (here <code>0</code>) if it doesn't yet, so we can increment the counter without manually checking "does this key exist."</div>
+</div>
+
+<pre><code>def word_frequency(sentence: str) -&gt; dict:
+    words = sentence.lower().split()
+    counts = {}
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
+    return counts
+
+sentence = "the cat sat on the mat the cat ran"
+result = word_frequency(sentence)
+print(result)
+
+for word, count in result.items():
+    print(f"{word}: {count}")
+
+most_common = max(result, key=result.get)
+print(f"Most common word: '{most_common}' ({result[most_common]} times)")</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">{'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1, 'ran': 1}
+the: 3
+cat: 2
+sat: 1
+on: 1
+mat: 1
+ran: 1
+Most common word: 'the' (3 times)</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>max(result, key=result.get)</code> — طريقة قصيرة جدًا تلاقي بيها المفتاح اللي قيمته أكبر واحدة في الـ Dictionary، من غير ما تعمل loop يدوي تقارن فيه بنفسك.</div>
+    <div class="en">🇬🇧 Notice <code>max(result, key=result.get)</code> — a very concise way to find the key with the highest value in a Dictionary, without writing a manual comparison loop yourself.</div>
+</div>
+
+<div class="mini-editor-wrap">
+    <textarea spellcheck="false">def word_frequency(sentence: str) -> dict:
+    words = sentence.lower().split()
+    counts = {}
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
+    return counts
+
+sentence = "the cat sat on the mat the cat ran"
+result = word_frequency(sentence)
+print(result)
+
+for word, count in result.items():
+    print(f"{word}: {count}")
+
+most_common = max(result, key=result.get)
+print(f"Most common word: '{most_common}' ({result[most_common]} times)")</textarea>
+    <div class="mini-toolbar">
+        <button class="mini-run-btn">▶ شغّل / Run</button>
+        <span class="mini-status"></span>
+    </div>
+    <div class="output-box">— لسه متشغلش / not run yet —</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="indent">
     <h3>سؤال 1 / Question 1</h3>
@@ -207,6 +273,30 @@ Square of 5: 25</div>
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="get">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في <code>counts.get(word, 0)</code>، إيه اللي بيرجع لو <code>word</code> مش موجود في الـ Dictionary لسه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In <code>counts.get(word, 0)</code>, what's returned if <code>word</code> isn't in the Dictionary yet?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="error"> بيرمي خطأ (Error) على طول</label>
+        <label><input type="radio" name="q3" value="get"> القيمة الافتراضية اللي حطيتها، وهي <code>0</code> هنا</label>
+        <label><input type="radio" name="q3" value="none"> بيرجع <code>None</code> دايمًا مهما كانت القيمة الافتراضية</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="assoc">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز تخزن بيانات طالب: اسمه ودرجته ومادته، وتوصل لكل قيمة باسمها مش برقم ترتيبها. إيه الأنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want to store a student's name, grade, and subject, accessing each by name not position. What's the right structure?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="list"> List عادية <code>["Ahmed", 90, "Math"]</code></label>
+        <label><input type="radio" name="q4" value="assoc"> Dictionary <code>{"name": "Ahmed", "grade": 90, "subject": "Math"}</code></label>
+        <label><input type="radio" name="q4" value="lambda"> Lambda function</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ دالة فرز طلاب / A Student-Sorting Function</h3>
@@ -227,6 +317,7 @@ Square of 5: 25</div>
         <li>الـ Indentation (المسافة البادئة) جزء من قواعد اللغة نفسها، مش تنسيق اختياري.</li>
         <li>Lists = مقابل Arrays، وList Comprehension بديل مختصر لـ <code>array_map</code>/<code>array_filter</code>.</li>
         <li>الدوال (<code>def</code>) بتدعم Type Hints، و<code>lambda</code> = دالة قصيرة من غير اسم.</li>
+        <li>Dictionary = مفاتيح وقيم (زي Associative Array في PHP)، و<code>.get(key, default)</code> بيتجنب أخطاء "المفتاح مش موجود".</li>
         <li>الأساس ده هو نفسه اللي Django وFlask هيتبنوا عليه في المراحل الجاية.</li>
     </ul>
 </div>

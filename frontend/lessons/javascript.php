@@ -149,6 +149,49 @@ buttons.forEach(function (btn) {
     <iframe class="render-box mini-fe-preview" style="height:170px" sandbox="allow-scripts"></iframe>
 </div>
 
+<h2>6) دوال المصفوفات: map وfilter / Array Methods: map &amp; filter</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <code>array.map(fn)</code> بيرجع مصفوفة جديدة فيها نتيجة تطبيق <code>fn</code> على كل عنصر — مفيد لما عايز "تحوّل" كل عنصر لحاجة تانية (زي حساب السعر بعد الخصم لكل منتج). <code>array.filter(fn)</code> بيرجع مصفوفة جديدة فيها بس العناصر اللي <code>fn</code> بترجعلها <code>true</code> — مفيد لما عايز "تصفّي" حسب شرط. الاتنين مابيغيروش المصفوفة الأصلية، بيرجعوا واحدة جديدة.</div>
+    <div class="en">🇬🇧 <code>array.map(fn)</code> returns a new array with the result of applying <code>fn</code> to every element — useful when you want to "transform" each item (like computing each product's discounted price). <code>array.filter(fn)</code> returns a new array with only the elements where <code>fn</code> returns <code>true</code> — useful for "narrowing down" by a condition. Neither mutates the original array; both return a brand new one.</div>
+</div>
+<pre><code>const prices = [100, 250, 40, 600, 15];
+
+const discounted = prices.map(p => p * 0.9);      // كل الأسعار بعد خصم 10%
+const expensive = prices.filter(p => p > 100);    // بس الأسعار اللي فوق 100</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:210px" sandbox="allow-scripts" srcdoc='<html><head><style>body{font-family:sans-serif;padding:16px}button{font-size:14px;padding:8px 14px;border-radius:8px;border:none;background:#6c8bff;color:white;cursor:pointer;margin-inline-end:8px}#out{margin-top:12px;background:#f2f2f2;border-radius:8px;padding:10px;font-family:Consolas,monospace;font-size:13px;direction:ltr;text-align:left}</style></head><body dir="rtl"><p>الأسعار: [100, 250, 40, 600, 15]</p><button id="mapBtn">طبّق map (خصم 10%)</button><button id="filterBtn">طبّق filter (فوق 100)</button><div id="out">اضغط زرار...</div><script>const prices=[100,250,40,600,15];document.getElementById("mapBtn").addEventListener("click",function(){const discounted=prices.map(function(p){return p*0.9;});document.getElementById("out").textContent="map -> ["+discounted.join(", ")+"]";});document.getElementById("filterBtn").addEventListener("click",function(){const expensive=prices.filter(function(p){return p>100;});document.getElementById("out").textContent="filter -> ["+expensive.join(", ")+"]";});<\/script></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 جرّب بنفسك: غيّر مصفوفة <code>prices</code>، أو عدّل شرط الـ <code>filter</code> من <code>p &gt; 100</code> لـ <code>p &lt; 100</code>، أو اجمع الاتنين مع بعض بـ <code>prices.filter(p =&gt; p &gt; 50).map(p =&gt; p * 0.9)</code>.</div>
+    <div class="en">🇬🇧 Try it yourself: change the <code>prices</code> array, edit the <code>filter</code> condition from <code>p &gt; 100</code> to <code>p &lt; 100</code>, or chain both together with <code>prices.filter(p =&gt; p &gt; 50).map(p =&gt; p * 0.9)</code>.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="css">CSS</button>
+        <button class="fe-tab" data-tab="js">JavaScript</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;p&gt;الأسعار: [100, 250, 40, 600, 15]&lt;/p&gt;
+&lt;button id="mapBtn"&gt;طبّق map (خصم 10%)&lt;/button&gt;
+&lt;button id="filterBtn"&gt;طبّق filter (فوق 100)&lt;/button&gt;
+&lt;div id="out"&gt;اضغط زرار...&lt;/div&gt;</textarea>
+    <textarea class="fe-code" data-tab="css" style="display:none" spellcheck="false">body { font-family: sans-serif; padding: 16px; }
+button { font-size: 14px; padding: 8px 14px; border-radius: 8px; border: none; background: #6c8bff; color: white; cursor: pointer; margin-inline-end: 8px; }
+#out { margin-top: 12px; background: #f2f2f2; border-radius: 8px; padding: 10px; font-family: Consolas, monospace; font-size: 13px; }</textarea>
+    <textarea class="fe-code" data-tab="js" style="display:none" spellcheck="false">const prices = [100, 250, 40, 600, 15];
+
+document.getElementById("mapBtn").addEventListener("click", function () {
+    const discounted = prices.map(function (p) { return p * 0.9; });
+    document.getElementById("out").textContent = "map -> [" + discounted.join(", ") + "]";
+});
+
+document.getElementById("filterBtn").addEventListener("click", function () {
+    const expensive = prices.filter(function (p) { return p > 100; });
+    document.getElementById("out").textContent = "filter -> [" + expensive.join(", ") + "]";
+});</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:210px" sandbox="allow-scripts"></iframe>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 في <a href="../playground/index.php">محرر الكود</a>، اعمل زرار "اطلع رقم عشوائي" (استخدم <code>Math.random()</code>) بيغيّر نص عنصر <code>&lt;h2&gt;</code> برقم جديد كل ضغطة، وزرار تاني بيبدّل لون خلفية الصفحة كلها بـ <code>document.body.style.background</code>.</div>
@@ -175,6 +218,30 @@ buttons.forEach(function (btn) {
         <label><input type="radio" name="q2" value="find"> أول عنصر على الصفحة عليه class اسمه card</label>
         <label><input type="radio" name="q2" value="all"> كل عناصر الصفحة اللي عليها card</label>
         <label><input type="radio" name="q2" value="css"> قاعدة CSS بتنشئ class جديد</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="map">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عندك مصفوفة أسعار وعايز مصفوفة جديدة فيها كل سعر بعد إضافة ضريبة 15%. أنهي method الأنسب؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You have a prices array and want a new array with 15% tax added to every price. Which method fits?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="map"> map()</label>
+        <label><input type="radio" name="q3" value="filter"> filter()</label>
+        <label><input type="radio" name="q3" value="typeof"> typeof</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="new">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">بعد ما تستخدم <code>prices.filter(p =&gt; p &gt; 100)</code>، إيه اللي بيحصل للمصفوفة الأصلية <code>prices</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">After calling <code>prices.filter(p =&gt; p &gt; 100)</code>, what happens to the original <code>prices</code> array?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="mutate"> بتتغيّر ويتشال منها أي عنصر أصغر من 100</label>
+        <label><input type="radio" name="q4" value="new"> تفضل زي ما هي — filter بيرجع مصفوفة جديدة منفصلة</label>
+        <label><input type="radio" name="q4" value="empty"> بتفضى تمامًا</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

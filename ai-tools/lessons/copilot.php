@@ -44,6 +44,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Write a clear comment (like <code>// function that validates an email format</code>) before letting it suggest — the clearer the comment, the more accurate the suggestion. Use Copilot Chat to ask "explain this line" on existing code (yours or its own) — that turns it from "a tool that writes for you" into "a tool that teaches you."</div>
 </div>
 
+<h2>أوامر Copilot Chat الجاهزة (Slash Commands) / Copilot Chat's Ready-Made Slash Commands</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 غير الكتابة الحرة في Copilot Chat، فيه أوامر جاهزة بتبدأ بـ <code>/</code> بتوفر عليك وقت الصياغة: <code>/explain</code> بيشرحلك الكود المحدد (Selected) سطر سطر، <code>/fix</code> بيقترح تصحيح لمشكلة أو خطأ في الكود المحدد، و<code>/tests</code> بيولّد Unit Tests للدالة المحددة تلقائيًا. وفيه كمان "Inline Chat" — تدوس <code>Ctrl+I</code> (أو <code>Cmd+I</code> على Mac) وانت واقف جوه الكود نفسه، تسأل سؤال أو تطلب تعديل من غير ما تفتح تبويب الشات الجانبي أصلًا.</div>
+    <div class="en">🇬🇧 Beyond free-text in Copilot Chat, there are ready-made commands starting with <code>/</code> that save you phrasing time: <code>/explain</code> walks through the selected code line by line, <code>/fix</code> suggests a correction for a problem in the selected code, and <code>/tests</code> auto-generates Unit Tests for the selected function. There's also "Inline Chat" — press <code>Ctrl+I</code> (or <code>Cmd+I</code> on Mac) while your cursor is inside the code itself, and ask a question or request an edit without opening the side chat panel at all.</div>
+</div>
+
+<h2>قبل وبعد: تعليق ضعيف مقابل تعليق دقيق / Before &amp; After: A Vague Comment vs. a Precise One</h2>
+<div class="security-box">
+    <h3>❌ تعليق ضعيف / Weak Comment</h3>
+    <div class="ar">🇪🇬 <code>// دالة تتحقق من الفورم</code> — غامض جدًا. Copilot هيخمّن، وممكن يقترحلك دالة بتتحقق من حاجات مش موجودة في مشروعك أصلًا (زي حقل Password) أو تفوّت حاجات موجودة فعلًا (زي التحقق من طول الرسالة).</div>
+    <div class="en">🇬🇧 <code>// function that validates the form</code> — too vague. Copilot will guess, possibly suggesting checks for fields your project doesn't even have (like a Password field) or missing ones it does have (like a minimum message length).</div>
+</div>
+
+<div class="bi-block" style="border-inline-start-color:var(--accent-2);">
+    <h3 style="margin-top:0;">✅ تعليق دقيق / Precise Comment</h3>
+    <div class="ar">🇪🇬 <code>// دالة validateContact تاخد array فيها name وemail وmessage، وترجع array أخطاء: الاسم مطلوب، الإيميل لازم يعدي filter_var(FILTER_VALIDATE_EMAIL)، الرسالة لازم 10 أحرف على الأقل</code> — ده بالظبط نفس <code>validateContact()</code> اللي شفتها في مشروع Contact Form بمسار Full Stack. لاحظ الفرق: أسماء الحقول بالظبط، القاعدة بالظبط لكل حقل، وشكل القيمة المرجعة. اقتراح Copilot هنا هيكون قريب جدًا من الكود الحقيقي، مش تخمين عام.</div>
+    <div class="en">🇬🇧 <code>// validateContact function takes an array with name, email, message, and returns an errors array: name is required, email must pass filter_var(FILTER_VALIDATE_EMAIL), message must be at least 10 characters</code> — this is exactly the <code>validateContact()</code> you saw in the Contact Form project on the Full Stack track. Notice the difference: exact field names, the exact rule per field, and the return shape. Copilot's suggestion here will closely match real, working code, not a generic guess.</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 القاعدة العملية: كل ما التعليق قرّب من "طلب Ticket واضح" (حقول محددة + قواعد محددة + شكل الناتج)، كل ما الاقتراح بعد كده يحتاج تعديل أقل.</div>
+    <div class="en">🇬🇧 Practical rule: the closer your comment reads to "a clear Ticket request" (specific fields + specific rules + output shape), the less editing the resulting suggestion needs afterward.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="editor">
     <h3>سؤال 1 / Question 1</h3>
@@ -69,6 +93,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="tests">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">عايز Copilot Chat يولّدلك Unit Tests لدالة محددة عندك في الملف. أي أمر تستخدم؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want Copilot Chat to generate Unit Tests for a selected function. Which command do you use?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="explain"> <code>/explain</code></label>
+        <label><input type="radio" name="q3" value="tests"> <code>/tests</code></label>
+        <label><input type="radio" name="q3" value="fix"> <code>/fix</code></label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="precise">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">ليه <code>// validateContact تاخد name وemail وmessage، وترجع array أخطاء...</code> أفضل من <code>// دالة تتحقق من الفورم</code>؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Why is a comment naming exact fields and rules better than "// function that validates the form"?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="precise"> لإنه بيحدد الحقول والقواعد وشكل الناتج بالظبط، فالاقتراح بيبقى قريب من الكود الحقيقي</label>
+        <label><input type="radio" name="q4" value="longer"> لإنه أطول، والتعليقات الأطول دايمًا أحسن</label>
+        <label><input type="radio" name="q4" value="norule"> مفيش فرق، Copilot بيقترح نفس الحاجة في الحالتين</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ اكتب تعليق، قارن، افهم / Write a Comment, Compare, Understand</h3>
@@ -89,6 +137,8 @@ include __DIR__ . '/../includes/header.php';
         <li>تعليق واضح قبل الكود = اقتراح أدق.</li>
         <li>القاعدة الذهبية: ماتقبلش اقتراح انت مش فاهمه بالكامل — خصوصًا في كود حساس أمنيًا.</li>
         <li>استخدم Copilot Chat "اشرحلي" عشان يبقى أداة تعليم مش بس أداة إنتاج.</li>
+        <li>أوامر جاهزة: <code>/explain</code>، <code>/fix</code>، <code>/tests</code>، وInline Chat بـ <code>Ctrl+I</code> من غير فتح تبويب جانبي.</li>
+        <li>تعليق يحدد الحقول والقواعد وشكل الناتج بالظبط = اقتراح أقرب للكود الحقيقي.</li>
     </ul>
 </div>
 

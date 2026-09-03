@@ -137,6 +137,81 @@ $radius: 10px;
     <iframe class="render-box mini-fe-preview" style="height:150px" sandbox></iframe>
 </div>
 
+<h2>5) مثال أعمق — Mixin بمعامل و@each / A Deeper Example: a Parameterized Mixin &amp; @each</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الـ Mixin اللي شفناه فوق ماكانش بياخد أي مدخلات. Mixins حقيقية غالبًا بتاخد <b>معاملات (Parameters)</b> زي أي دالة برمجية — هنا <code>button-size($padding)</code> بياخد قيمة الـ padding وبيحسب منها حجم الخط والحواف الدائرية تلقائيًا. وبدل ما نكرر <code>@include</code> ثلاث مرات يدويًا لثلاث أحجام أزرار، بنستخدم <code>@each</code> عشان نلف على خريطة (Map) من الأحجام ونولّد كلاس لكل واحد أوتوماتيك.</div>
+    <div class="en">🇬🇧 The mixin above took no input at all. Real mixins usually take <b>parameters</b> just like any programming function — here <code>button-size($padding)</code> takes a padding value and automatically derives the font size and rounded corners from it. And instead of manually writing <code>@include</code> three times for three button sizes, we use <code>@each</code> to loop over a Map of sizes and generate a class for each one automatically.</div>
+</div>
+<h3>مدخل SASS / SASS Input (style2.scss)</h3>
+<pre><code>$sizes: (sm: 8px, md: 14px, lg: 22px);
+
+@mixin button-size($padding: 10px) {
+    padding: $padding;
+    font-size: $padding * 0.9;
+    border-radius: calc($padding / 2);
+}
+
+.btn {
+    border: none;
+    color: white;
+    background: #6c8bff;
+    cursor: pointer;
+
+    @each $name, $pad in $sizes {
+        &.btn-#{$name} {
+            @include button-size($pad);
+        }
+    }
+}</code></pre>
+<h3>الناتج الفعلي (تم تنفيذه فعليًا بأمر <span class="ltr">sass style2.scss compiled2.css</span>) / Actual compiled CSS output</h3>
+<div class="output-box">.btn {
+  border: none;
+  color: white;
+  background: #6c8bff;
+  cursor: pointer;
+}
+.btn.btn-sm {
+  padding: 8px;
+  font-size: 7.2px;
+  border-radius: 4px;
+}
+.btn.btn-md {
+  padding: 14px;
+  font-size: 12.6px;
+  border-radius: 7px;
+}
+.btn.btn-lg {
+  padding: 22px;
+  font-size: 19.8px;
+  border-radius: 11px;
+}</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إزاي <code>@each $name, $pad in $sizes</code> ولّد 3 كلاسات (<code>.btn-sm</code>, <code>.btn-md</code>, <code>.btn-lg</code>) من سطر واحد بس، وكل واحد فيهم استدعى نفس الـ <code>@mixin</code> بقيمة مختلفة. لو عايز حجم رابع، تضيف سطر واحد في خريطة <code>$sizes</code> بس — من غير ما تلمس الـ <code>@each</code> أو الـ <code>@mixin</code> خالص.</div>
+    <div class="en">🇬🇧 Notice how <code>@each $name, $pad in $sizes</code> generated 3 classes (<code>.btn-sm</code>, <code>.btn-md</code>, <code>.btn-lg</code>) from a single line, each invoking the same <code>@mixin</code> with a different value. Want a fourth size? Add one line to the <code>$sizes</code> map — no need to touch the <code>@each</code> or the <code>@mixin</code> at all.</div>
+</div>
+<h3>المعاينة الفعلية للـ CSS المُترجَم / Actual Rendered Output of the Compiled CSS</h3>
+<iframe class="render-box" style="height:110px" sandbox srcdoc='<html><head><style>body{font-family:sans-serif;padding:16px;text-align:center}.btn{border:none;color:white;background:#6c8bff;cursor:pointer;margin:4px}.btn-sm{padding:8px;font-size:7.2px;border-radius:4px}.btn-md{padding:14px;font-size:12.6px;border-radius:7px}.btn-lg{padding:22px;font-size:19.8px;border-radius:11px}</style></head><body dir="rtl"><button class="btn btn-sm">صغير</button><button class="btn btn-md">متوسط</button><button class="btn btn-lg">كبير</button></body></html>'></iframe>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 عدّل مباشرة تحت (ده الـ CSS الناتج بعد الترجمة، مش الـ SASS نفسه): غيّر أرقام الـ padding أو الـ border-radius لكل كلاس وشوف تأثيرها على الأزرار الثلاثة فورًا.</div>
+    <div class="en">🇬🇧 Edit directly below (this is the resulting compiled CSS, not the SASS source): change each class's padding or border-radius numbers and watch the effect on all three buttons instantly.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="css">CSS</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;button class="btn btn-sm"&gt;صغير&lt;/button&gt;
+&lt;button class="btn btn-md"&gt;متوسط&lt;/button&gt;
+&lt;button class="btn btn-lg"&gt;كبير&lt;/button&gt;</textarea>
+    <textarea class="fe-code" data-tab="css" style="display:none" spellcheck="false">body { font-family: sans-serif; padding: 16px; text-align: center; }
+.btn { border: none; color: white; background: #6c8bff; cursor: pointer; margin: 4px; }
+.btn-sm { padding: 8px; font-size: 7.2px; border-radius: 4px; }
+.btn-md { padding: 14px; font-size: 12.6px; border-radius: 7px; }
+.btn-lg { padding: 22px; font-size: 19.8px; border-radius: 11px; }</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:110px" sandbox></iframe>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 لو نصّبت Node.js على جهازك، جرّب تنصّب SASS بأمر <code>npm install -g sass</code>، اكتب ملف <code>style.scss</code> فيه متغير لونين ومكسن للحواف الدائرية، وشغّله بـ <code>sass style.scss style.css</code> وشوف الملف الناتج بنفسك.</div>
@@ -168,6 +243,30 @@ $radius: 10px;
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="each">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال الأزرار، أنهي أداة ولّدت 3 كلاسات (<code>.btn-sm</code>, <code>.btn-md</code>, <code>.btn-lg</code>) من سطر واحد بدل ما نكررهم يدويًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the buttons example, which tool generated 3 classes from one line instead of repeating them manually?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="each"> @each بيلف على خريطة $sizes</label>
+        <label><input type="radio" name="q3" value="hover"> &amp;:hover</label>
+        <label><input type="radio" name="q3" value="var"> متغير $primary-color</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="param">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو عايز تضيف حجم زرار رابع (<code>xl</code>) بـ padding مختلف، أقل تعديل ممكن هو إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">To add a 4th button size (<code>xl</code>) with a different padding, what's the smallest change needed?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="rewrite"> إعادة كتابة الـ @mixin كله من الصفر</label>
+        <label><input type="radio" name="q4" value="param"> إضافة سطر واحد جديد لخريطة $sizes بس</label>
+        <label><input type="radio" name="q4" value="css"> تعديل الـ CSS المترجم يدويًا كل مرة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ ترجم بمخّك / Compile It With Your Own Head</h3>
@@ -193,7 +292,8 @@ $radius: 10px;
         <li>SASS محتاج Compile لملف <code>.css</code> عادي قبل ما يشتغل في المتصفح.</li>
         <li>المتغيرات (<code>$var</code>) = قيمة واحدة تتكرر استخدامها في أماكن كتير.</li>
         <li>Nesting = كتابة CSS بشكل أقرب لبنية HTML، و<code>&amp;</code> للحالات زي <code>:hover</code>.</li>
-        <li>Mixins (<code>@mixin</code> / <code>@include</code>) = مجموعة خصائص CSS قابلة لإعادة الاستخدام.</li>
+        <li>Mixins (<code>@mixin</code> / <code>@include</code>) = مجموعة خصائص CSS قابلة لإعادة الاستخدام، وممكن تاخد معاملات (Parameters) زي أي دالة.</li>
+        <li><code>@each $key, $val in $map</code> = يولّد كود متكرر (زي كلاسات أحجام) من خريطة واحدة بدل التكرار اليدوي.</li>
     </ul>
 </div>
 

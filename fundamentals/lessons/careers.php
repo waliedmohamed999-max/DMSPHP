@@ -73,6 +73,37 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Responsible for keeping applications running reliably, deploying them safely, managing servers, and continuously monitoring performance. Bridges programming and infrastructure management — a good fit if you enjoy the technical systems side more than writing application code itself.</div>
 </div>
 
+<h2>مثال ملموس: أول 90 يوم في تخصص Back-End <span class="ltr">A Concrete Example: The First 90 Days in Back-End</span></h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 "اختار Back-End" جملة عامة، لكن إيه اللي المفروض تعمله فعليًا في أول 3 شهور؟ ده مثال واقعي لخريطة طريق (Roadmap) شهر بشهر، مبني على إنك خلّصت مسار الأساسيات بالظبط زي ما انت دلوقتي.</div>
+    <div class="en">🇬🇧 "Pick Back-End" is a general sentence, but what should you actually do in the first 3 months? Here's a realistic month-by-month roadmap, built on the assumption that you just finished Fundamentals exactly as you have now.</div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">Month 1: PHP OOP + HTTP basics</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Month 2: Databases + a small CRUD app</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Month 3: APIs + auth + a portfolio project</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>الشهر الأول (الأسابيع 1–4):</b> اتعلم البرمجة الكائنية بعمق أكبر (Classes, Inheritance, Interfaces) — أساسيات المسار ده لمستها بالفعل في مرحلة "البرامج التطبيقية"، لكن هنا هتوسّعها. بالتوازي، افهم أساسيات HTTP: إيه الفرق بين GET وPOST، إيه هو Request وResponse. اختبر نفسك: ابنِ 2-3 كلاسات بتتعامل مع بعض (زي <code>User</code> و<code>Order</code>) بعلاقة بسيطة بينهم.</div>
+    <div class="en">🇬🇧 <b>Month 1 (weeks 1–4):</b> learn object-oriented programming in more depth (classes, inheritance, interfaces) — you touched this track's basics in Applications, but now you'll expand it. In parallel, understand HTTP fundamentals: the difference between GET and POST, what a request and response are. Test yourself: build 2-3 classes that interact (like <code>User</code> and <code>Order</code>) with a simple relationship between them.</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>الشهر الثاني (الأسابيع 5–8):</b> اتعلم PDO (الطريقة الآمنة تتعامل بيها مع قواعد البيانات من PHP)، وطبّق المفاهيم اللي شفتها في مرحلة "مبادئ قواعد البيانات" فعليًا: SELECT/INSERT/UPDATE/DELETE، لكن دلوقتي من كود حقيقي. المشروع المقترح: تطبيق CRUD بسيط (زي مدير مهام يحفظ في قاعدة بيانات فعليًا بدل مصفوفة في الذاكرة).</div>
+    <div class="en">🇬🇧 <b>Month 2 (weeks 5–8):</b> learn PDO (the safe way to work with databases from PHP), and actually apply the concepts from Database Fundamentals: SELECT/INSERT/UPDATE/DELETE, but now from real code. Suggested project: a simple CRUD app (like a task manager that persists to a real database instead of an in-memory array).</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>الشهر التالت (الأسابيع 9–12):</b> اتعلم إزاي تبني API بسيطة (نقاط نهاية بترجع JSON بدل صفحات HTML)، ومقدمة في التوثيق (Authentication) — إزاي تتأكد مين المستخدم اللي بيتكلم مع السيرفر. اختم الـ90 يوم بمشروع واحد متكامل تحطه في بورتفوليو (CV) بتاعك، يجمع كل حاجة اتعلمتها التلات شهور دول.</div>
+    <div class="en">🇬🇧 <b>Month 3 (weeks 9–12):</b> learn how to build a simple API (endpoints returning JSON instead of HTML pages), and an introduction to authentication — how you confirm who's talking to the server. Close out the 90 days with one complete project for your portfolio, combining everything learned across the three months.</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 نفس شكل الخريطة ده (شهر أساسيات أعمق → شهر تطبيق عملي → شهر مشروع متكامل) ينطبق بنفس المنطق على أي تخصص تاني تختاره — الأسماء بس بتتغيّر (React بدل PDO، مثلاً، في Front-End).</div>
+    <div class="en">🇬🇧 This same roadmap shape (a month of deeper fundamentals → a month of hands-on application → a month of a complete project) applies with the same logic to any other specialization you pick — only the names change (React instead of PDO, for instance, in Front-End).</div>
+</div>
+
 <h2 id="practice">💻 طبّق اللي قرأته / Apply What You Read</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 مفيش محرر كود هنا — مفيش حاجة نشغّلها، الدرس ده اختياري بالكامل. بدل كده، ارجع لوصف كل مسار فوق واعمل ترتيب ذهني بسيط: حط المسارات من الأكتر إثارة لاهتمامك للأقل. أي مسار جه في المركز الأول؟</div>
@@ -99,6 +130,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="devops"> DevOps</label>
         <label><input type="radio" name="q2" value="data"> Data</label>
         <label><input type="radio" name="q2" value="fullstack"> Full Stack</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="pdo">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في خريطة أول 90 يوم لـ Back-End، أنهي مهارة المفروض تتعلمها في الشهر التاني تحديدًا؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the Back-End 90-day roadmap, which skill is specifically slated for month 2?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="pdo"> PDO والتعامل الآمن مع قواعد البيانات / PDO and safely working with databases</label>
+        <label><input type="radio" name="q3" value="oop3"> البرمجة الكائنية من الصفر / object-oriented programming from scratch</label>
+        <label><input type="radio" name="q3" value="api3"> بناء API كاملة / building a complete API</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="shape">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو اخترت Front-End بدل Back-End، هل شكل خريطة الـ90 يوم (أساسيات أعمق → تطبيق → مشروع) هيتغيّر؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If you picked Front-End instead of Back-End, would the 90-day roadmap's shape change?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="shape"> لأ، نفس الشكل (أساسيات → تطبيق → مشروع) بيتكرر، بس الأدوات المحددة بتتغيّر (React بدل PDO مثلًا) / no, the same shape repeats, only the specific tools change (React instead of PDO, for instance)</label>
+        <label><input type="radio" name="q4" value="notneeded"> آه، Front-End أصلًا مش محتاج خطة زمنية منظمة / yes, Front-End doesn't need a structured timeline at all</label>
+        <label><input type="radio" name="q4" value="shorter"> آه، هيبقى أسبوع واحد بس مش 90 يوم / yes, it would be just one week instead of 90 days</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

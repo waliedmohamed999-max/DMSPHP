@@ -87,6 +87,29 @@ echo greet("Waleed") . PHP_EOL;</textarea>
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>أخطاء شائعة للمبتدئين: Windows مقابل Mac/Linux / Common Beginner Mistakes: Windows vs Mac/Linux</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 قبل ما تكمل، فيه شوية اختلافات بسيطة بين الأنظمة بتوقع مبتدئين كتير — اعرفها من الأول بدل ما تستغرب لما الأمر "الصح" مايشتغلش عندك:</div>
+    <div class="en">🇬🇧 Before continuing, a few small cross-platform differences trip up most beginners — know them upfront instead of being confused when the "correct" command doesn't work on your machine:</div>
+</div>
+<div class="flow-diagram">
+    <div class="flow-box">Windows (PowerShell/CMD)<br><span class="ltr" style="font-size:0.8em">paths use \, case-insensitive files, "php" needs adding to PATH manually after install</span></div>
+    <div class="flow-arrow">↔</div>
+    <div class="flow-box">Mac / Linux (bash/zsh)<br><span class="ltr" style="font-size:0.8em">paths use /, case-SENSITIVE files, "php" usually already on PATH via package manager</span></div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>1) فاصل المسارات:</b> Windows بيستخدم <code>\</code> (زي <code>C:\Users\Waleed</code>)، وMac/Linux بيستخدم <code>/</code>. في كود PHP نفسه، متكتبش مسار بـ <code>\</code> يدوي أبدًا — استخدم <code>/</code> أو ثابت PHP زي <code>DIRECTORY_SEPARATOR</code>، وهو شغال صح على النظامين.</div>
+    <div class="en">🇬🇧 <b>1) Path separators:</b> Windows uses <code>\</code> (e.g. <code>C:\Users\Waleed</code>), Mac/Linux use <code>/</code>. In PHP code itself, never hardcode a <code>\</code> path — use <code>/</code> or the <code>DIRECTORY_SEPARATOR</code> constant, which works correctly on both.</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>2) حساسية حالة الأحرف:</b> على Windows/Mac، ملف اسمه <code>Config.php</code> و<code>config.php</code> ممكن يتعاملوا كـ نفس الملف أحيانًا. على Linux (اللي غالبية سيرفرات الإنتاج شغالة عليه)، هما ملفين مختلفين تمامًا — لو مشروعك شغال عندك على Windows بحرف كبير غلط في اسم الملف، ممكن ينهار فجأة أول ما يترفع على سيرفر Linux.</div>
+    <div class="en">🇬🇧 <b>2) Case sensitivity:</b> On Windows/Mac, <code>Config.php</code> and <code>config.php</code> can sometimes be treated as the same file. On Linux (what most production servers run), they're completely different files — a project that works locally on Windows with a wrong-case filename can suddenly break the moment it's deployed to a Linux server.</div>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>3) أمر "php" مش متعرف:</b> على Windows، تثبيت XAMPP لوحده مبيضيفش <code>php</code> لـ PATH أوتوماتيك — لازم تضيفه يدوي عشان تقدر تكتب <code>php file.php</code> من أي مجلد بدل ما تكتب المسار الكامل كل مرة. على Mac/Linux غالبًا بيتحط تلقائي مع أدوات زي Homebrew أو apt.</div>
+    <div class="en">🇬🇧 <b>3) "php" not recognized:</b> On Windows, installing XAMPP alone doesn't automatically add <code>php</code> to PATH — you must add it manually to type <code>php file.php</code> from any folder instead of the full path every time. On Mac/Linux it's usually added automatically by tools like Homebrew or apt.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="cli">
     <h3>سؤال 1 / Question 1</h3>
@@ -107,6 +130,30 @@ echo greet("Waleed") . PHP_EOL;</textarea>
         <label><input type="radio" name="q2" value="random"> صدفة، مفيش سبب / Random, no reason</label>
         <label><input type="radio" name="q2" value="server"> لإنه معلومة عن HTTP request، ومفيش request أصلًا في CLI</label>
         <label><input type="radio" name="q2" value="version"> بيظهر بس في نسخة PHP الحديثة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="linux">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">مشروعك شغال تمام على جهازك (Windows) بس فيه <code>require 'Config.php'</code> بينما اسم الملف فعليًا <code>config.php</code>. رفعته على سيرفر Linux — إيه المتوقع؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Your project works fine on Windows but has <code>require 'Config.php'</code> while the file is actually <code>config.php</code>. You deploy to Linux — what happens?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="fine"> هيشتغل عادي زي Windows بالظبط</label>
+        <label><input type="radio" name="q3" value="linux"> هيديك خطأ "file not found" لإن Linux حساس لحالة الأحرف</label>
+        <label><input type="radio" name="q3" value="auto"> PHP هيصلحه أوتوماتيك</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="separator">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">عايز تكتب مسار ملف جوه كود PHP يشتغل صح على Windows وLinux وMac كلهم من غير تعديل، تستخدم إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">To write a file path in PHP code that works correctly on Windows, Linux, and Mac without changes, what do you use?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="backslash"> <code>\</code> مكتوبة يدويًا دايمًا</label>
+        <label><input type="radio" name="q4" value="separator"> <code>/</code> أو ثابت <code>DIRECTORY_SEPARATOR</code></label>
+        <label><input type="radio" name="q4" value="none"> محتاج نسخة كود مختلفة لكل نظام</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

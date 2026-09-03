@@ -109,6 +109,50 @@ try {
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>Logging بمستويات خطورة / Structured Logging with Severity Levels</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال الـ Logging اللي شفته فوق كان بيسجل كل حاجة بنفس الشكل. في مشروع حقيقي، مكتبة زي <b>Monolog</b> بتديك مستويات خطورة (Severity Levels) واضحة — <code>info</code> لحاجة عادية حصلت (مستخدم سجّل حساب)، <code>warning</code> لحاجة غريبة بس مش خطيرة (الكاش فاضي فرجعنا لقاعدة البيانات)، و<code>error</code> لحاجة فعلاً فشلت. الفايدة: تقدر تفلتر الـ logs بمستوى الخطورة، وتوصلك تنبيهات فورية بس لما يكون <code>error</code>.</div>
+    <div class="en">🇬🇧 The Logging example above logged everything the same way. In a real project, a library like <b>Monolog</b> gives you clear Severity Levels — <code>info</code> for something normal happening (a user registered), <code>warning</code> for something odd but not dangerous (cache was empty, fell back to the database), and <code>error</code> for something that actually failed. Benefit: you can filter logs by severity, and get instant alerts only on <code>error</code>.</div>
+</div>
+<pre><code>&lt;?php
+class SimpleLogger
+{
+    public function log(string $level, string $message, array $context = []): void
+    {
+        $line = sprintf(
+            '[%s] %s: %s%s',
+            date('Y-m-d H:i:s'),
+            strtoupper($level),
+            $message,
+            $context ? ' ' . json_encode($context) : ''
+        );
+        echo $line . PHP_EOL;
+    }
+
+    public function info(string $message, array $context = []): void { $this->log('info', $message, $context); }
+    public function warning(string $message, array $context = []): void { $this->log('warning', $message, $context); }
+    public function error(string $message, array $context = []): void { $this->log('error', $message, $context); }
+}
+
+$logger = new SimpleLogger();
+
+$logger->info('User registered', ['user_id' => 42]);
+$logger->warning('Cache miss, falling back to database', ['key' => 'products:all']);
+
+try {
+    throw new PDOException('SQLSTATE[23000]: Integrity constraint violation');
+} catch (PDOException $e) {
+    $logger->error('Order insert failed', ['reason' => $e->getMessage()]);
+}</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">[2026-09-04 00:18:31] INFO: User registered {"user_id":42}
+[2026-09-04 00:18:31] WARNING: Cache miss, falling back to database {"key":"products:all"}
+[2026-09-04 00:18:31] ERROR: Order insert failed {"reason":"SQLSTATE[23000]: Integrity constraint violation"}</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن كل مستوى ليه method باسمه (<code>info()</code>, <code>warning()</code>, <code>error()</code>) بدل ما تكتب <code>log('error', ...)</code> في كل حتة — ده بالظبط شكل الـ API في Monolog الحقيقية، وبتقدر تحدد "مستوى الحد الأدنى" (زي: سجّل بس <code>warning</code> فما فوق) عشان متغرقش في تفاصيل الـ <code>info</code> وقت البحث عن مشكلة.</div>
+    <div class="en">🇬🇧 Notice each level has its own named method (<code>info()</code>, <code>warning()</code>, <code>error()</code>) instead of writing <code>log('error', ...)</code> everywhere — this is exactly the shape of the real Monolog API, and you can set a "minimum level" (e.g. log only <code>warning</code> and above) so you're not drowning in <code>info</code> noise while hunting a bug.</div>
+</div>
+
 <h2>PHPUnit — اختبار تلقائي</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 بدل ما تجرب كل حاجة يدوي كل مرة تعدّل فيها كود، بتكتب <b>Test</b> بيتأكد إن الدالة بترجع النتيجة الصح — وبتشغّله في ثانية عشان تتأكد إنك مكسرتش حاجة.</div>
@@ -168,6 +212,30 @@ OK (1 test, 1 assertion)</div>
         <label><input type="radio" name="q2" value="display"> تطبع تفاصيل الخطأ الكاملة للمستخدم</label>
         <label><input type="radio" name="q2" value="ignore"> تتجاهله وتكمل عادي</label>
         <label><input type="radio" name="q2" value="log"> تسجّله في log وتوري المستخدم رسالة عامة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="warning">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">الكاش رجع فاضي فرجعت لقاعدة البيانات بدله (مش خطأ، بس مش الوضع المثالي) — أنهي مستوى تستخدمه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The cache came back empty so you fell back to the database (not an error, but not ideal) — which level fits?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="info"> info</label>
+        <label><input type="radio" name="q3" value="warning"> warning</label>
+        <label><input type="radio" name="q3" value="error"> error</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="filter">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه فايدة إن كل مستوى (info/warning/error) ليه method منفصلة بدل استدعاء <code>log('error', ...)</code> يدويًا في كل حتة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What's the benefit of each level having its own method instead of manually calling <code>log('error', ...)</code> everywhere?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="faster"> بتخلي الكود يشتغل أسرع فعليًا</label>
+        <label><input type="radio" name="q4" value="filter"> كود أوضح، وتقدر تفلتر/تنبّه بمستوى معيّن (زي error بس) بسهولة</label>
+        <label><input type="radio" name="q4" value="required"> PHP بيرفض استدعاء log() مباشرة</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

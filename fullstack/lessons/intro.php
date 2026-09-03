@@ -50,6 +50,73 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Most Full Stack roles don't expect you to match a pure specialist's depth in every Front-End or Back-End detail — but they do expect you to take a ticket and implement it completely, from the interface down to the database, without waiting on someone else. That's exactly what this track prepares you for.</div>
 </div>
 
+<h2>يوم في حياة Full Stack Developer / A Day in the Life</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 عشان الكلام النظري فوق يتحول لصورة واقعية، تعالى نتابع تذكرة (Ticket) واحدة من الصفر للنشر، بالظبط زي ما بتحصل في أي شركة: <b>"العميل عايز يقدر يفلتر المنتجات في المتجر حسب السعر (من كذا لحد كذا)."</b></div>
+    <div class="en">🇬🇧 To turn the theory above into a real picture, let's follow one Ticket from start to deployment, exactly as it happens at any company: <b>"The client wants to filter store products by price (from X to Y)."</b></div>
+</div>
+
+<div class="flow-diagram">
+    <div class="flow-box">1) اقرأ التذكرة واسأل</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">2) Front-End: فورم الفلتر</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">3) Back-End: تحقق + استعلام</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">4) اختبار الحالات الشاذة</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">5) نشر وإبلاغ الفريق</div>
+</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>1) اقرأ التذكرة واسأل:</b> أول حاجة، مش هتفتح محرر الكود على طول. هتسأل: "هل الفلتر بيرجع فورًا وانت بتكتب ولا بعد ما تدوس زرار؟" و"هل ممكن المستخدم يسيب الحد الأدنى أو الأقصى فاضي؟" — الأسئلة دي بتوفر عليك ساعات إعادة كتابة بعدين.<br><b>2) Front-End:</b> بتبني فورم بسيط فيه حقلين (الحد الأدنى والأقصى) وزرار "طبّق"، وبتبعت القيم دي للسيرفر كـ Query String زي <code>?min=100&amp;max=500</code>.<br><b>3) Back-End:</b> هنا أهم خطوة أمنية — <b>مينفعش تثق في القيم الجايه من المتصفح</b> (المستخدم ممكن يعدّل الرابط يدويًا ويحط أي حاجة). لازم تتحقق إن القيم أرقام فعلًا وإن الحد الأدنى أقل من أو يساوي الأقصى، قبل ما تستخدمها في استعلام SQL.</div>
+    <div class="en">🇬🇧 <b>1) Read the ticket and ask:</b> the first thing isn't opening your editor — you ask: "does the filter apply live while typing, or after clicking a button?" and "can the user leave min or max empty?" These questions save hours of rework later.<br><b>2) Front-End:</b> you build a simple form with two fields (min and max) and an "Apply" button, sending those values to the server as a query string like <code>?min=100&amp;max=500</code>.<br><b>3) Back-End:</b> the most important security step — <b>never trust values coming from the browser</b> (a user can edit the URL by hand and put anything there). You must verify the values are actually numbers and that min is less than or equal to max, before using them in an SQL query.</div>
+</div>
+
+<pre><code>&lt;?php
+// جزء الـ Back-End من التذكرة — يتحقق من المدخلات قبل أي استعلام SQL
+function validatePriceFilter(?string $min, ?string $max): array {
+    $errors = [];
+    $minVal = is_numeric($min) ? (float) $min : null;
+    $maxVal = is_numeric($max) ? (float) $max : null;
+
+    if ($min !== null && $min !== '' && $minVal === null) {
+        $errors[] = 'الحد الأدنى لازم يكون رقم.';
+    }
+    if ($max !== null && $max !== '' && $maxVal === null) {
+        $errors[] = 'الحد الأقصى لازم يكون رقم.';
+    }
+    if ($minVal !== null && $maxVal !== null && $minVal > $maxVal) {
+        $errors[] = 'الحد الأدنى لازم يكون أقل من أو يساوي الحد الأقصى.';
+    }
+
+    return $errors;
+}
+
+// حالة 1: المستخدم كتب min أكبر من max غلط
+print_r(validatePriceFilter('500', '100'));
+
+// حالة 2: حد بيلعب بالـ URL يدويًا وحط نص مش رقم
+print_r(validatePriceFilter('abc', '100'));
+
+// حالة 3: مدخلات صحيحة
+var_dump(empty(validatePriceFilter('100', '500')));</code></pre>
+<h3>الناتج الفعلي / Actual output</h3>
+<div class="output-box">Array
+(
+    [0] =&gt; الحد الأدنى لازم يكون أقل من أو يساوي الحد الأقصى.
+)
+Array
+(
+    [0] =&gt; الحد الأدنى لازم يكون رقم.
+)
+bool(true)</div>
+
+<div class="bi-block">
+    <div class="ar">🇪🇬 <b>4) اختبار الحالات الشاذة:</b> إيه لو الاتنين فاضيين؟ إيه لو المستخدم غيّر الرابط يدويًا؟ الكود فوق بيغطي بالظبط الحالات دي.<br><b>5) النشر والإبلاغ:</b> بعد ما تتأكد كل الحالات شغالة، بترفع الكود، وتقفل التذكرة، وتقول للفريق "خلصانة" — بالظبط زي ما هتعمل في مشروع Online Store في آخر المسار ده.</div>
+    <div class="en">🇬🇧 <b>4) Testing edge cases:</b> what if both are empty? What if the user edits the URL by hand? The code above covers exactly these cases.<br><b>5) Deploy &amp; report:</b> once every case works, you push the code, close the ticket, and tell the team "done" — exactly what you'll do on the Online Store project at the end of this track.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="backend">
     <h3>سؤال 1 / Question 1</h3>
@@ -70,6 +137,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="frontend-only"> متخصص Front-End بس بعمق أكبر</label>
         <label><input type="radio" name="q2" value="both"> يقدر يبني الواجهة والسيرفر وقاعدة البيانات مع بعض</label>
         <label><input type="radio" name="q2" value="none"> مش بيكتب كود أصلًا، بيدير الفريق بس</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="reject">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في تذكرة فلترة الأسعار، لو مستخدم عدّل الرابط يدويًا وحط <code>min=abc</code>، إيه اللي المفروض يحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">In the price-filter ticket, if a user manually edits the URL to set <code>min=abc</code>, what should happen?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="crash"> الموقع يتعطل بالكامل</label>
+        <label><input type="radio" name="q3" value="reject"> الباك إند يرفض القيمة ويرجّع رسالة خطأ واضحة</label>
+        <label><input type="radio" name="q3" value="trust"> الباك إند يثق في القيمة ويكمل الاستعلام عادي</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="verify">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">زميلك قال "الفرونت إند خلّص شغله، مفيش داعي الباك إند يتحقق من القيم تاني". رأيك في الكلام ده إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">A colleague says "Front-End already validated it, Back-End doesn't need to check again." What's your take?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="agree"> صح، مفيش داعي نكرر نفس الشغل مرتين</label>
+        <label><input type="radio" name="q4" value="verify"> غلط، الباك إند لازم يتحقق دايمًا لإن أي حد يقدر يتخطى الفرونت إند</label>
+        <label><input type="radio" name="q4" value="depends"> يعتمد بس على حجم الموقع</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

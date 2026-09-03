@@ -69,6 +69,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Open DevTools (<code>F12</code>) on any site you're currently visiting, go to the Elements tab, click any element, and edit its text or background color in the Styles panel next to it — watch the change apply instantly (it resets on refresh, this is just a local experiment).</div>
 </div>
 
+<h2>مشاكل شائعة عند الإعداد وحلولها / Common Setup Errors &amp; Fixes</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 كل مبتدئ تقريبًا بيقابل واحدة من المشاكل التلاتة دي أول ما يثبّت XAMPP — اعرفها الأول عشان متضيّعش وقت وانت لسه بادئ.</div>
+    <div class="en">🇬🇧 Almost every beginner hits one of these three problems right after installing XAMPP — know them upfront so you don't waste time before you've even started.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ المشكلة 1: Apache مش عايز يشتغل ("Port 80 in use")</h3>
+    <div class="ar">🇪🇬 لوحة تحكم XAMPP بتوريك Apache باللون الأحمر ورسالة فيها <code>Port 80 in use</code>. السبب: برنامج تاني (غالبًا Skype القديم، أو Windows IIS، أو حتى VMware) حاجز نفس الـ Port. <b>الحل الأسرع:</b> افتح <code>httpd.conf</code> من زرار "Config" جنب Apache في XAMPP، وغيّر <code>Listen 80</code> و<code>ServerName localhost:80</code> إلى Port تاني زي <code>8080</code>. بعدها هتفتح مشاريعك على <span class="ltr">http://localhost:8080/</span> بدل 80.</div>
+    <div class="en">🇬🇧 The XAMPP control panel shows Apache in red with <code>Port 80 in use</code>. Cause: another program (often old Skype, Windows IIS, or even VMware) is holding the same port. <b>Fastest fix:</b> open <code>httpd.conf</code> via the "Config" button next to Apache, change <code>Listen 80</code> and <code>ServerName localhost:80</code> to a different port like <code>8080</code>. You'll then open projects at <span class="ltr">http://localhost:8080/</span> instead of 80.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ المشكلة 2: MySQL مش عايز يشتغل ("Port 3306 in use")</h3>
+    <div class="ar">🇪🇬 نفس فكرة المشكلة الأولى، بس لـ MySQL على Port <code>3306</code> — غالبًا السبب نسخة MySQL تانية متثبتة على الجهاز من قبل (زي WAMP أو MySQL Workbench بيثبت نسخته الخاصة). <b>الحل:</b> إما توقف الخدمة التانية من "Services" في ويندوز، أو تغيّر Port MySQL في XAMPP من "Config" → <code>my.ini</code> → غيّر <code>port=3306</code> لـ <code>3307</code> مثلًا.</div>
+    <div class="en">🇬🇧 Same idea as the first problem, but for MySQL on port <code>3306</code> — usually caused by another MySQL install already on the machine (like WAMP, or MySQL Workbench's own instance). <b>Fix:</b> either stop the other service via Windows "Services", or change MySQL's port in XAMPP via "Config" → <code>my.ini</code> → change <code>port=3306</code> to e.g. <code>3307</code>.</div>
+</div>
+
+<div class="security-box">
+    <h3>⚠️ المشكلة 3: "403 Forbidden" أو صفحة فاضية على localhost</h3>
+    <div class="ar">🇪🇬 فتحت <span class="ltr">http://localhost/my-project/</span> ولقيت "Forbidden" أو صفحة بيضاء. الأسباب الشائعة: (1) المجلد فيه ملفات بس مفيش <code>index.php</code> أو <code>index.html</code> — Apache مش عارف أي ملف يعرض. (2) غلطت في اسم المجلد أو المسار. (3) لسه محتفظ بملف قديم اسمه <code>index.html</code> جنب <code>index.php</code> بتاعك — Apache بيفضّل <code>index.html</code> افتراضيًا فبيعرضه هو بدل ملفك. تأكد إن ملفك اسمه بالظبط <code>index.php</code> ومفيش نسخة <code>.html</code> منافسة له في نفس المجلد.</div>
+    <div class="en">🇬🇧 You open <span class="ltr">http://localhost/my-project/</span> and get "Forbidden" or a blank page. Common causes: (1) the folder has files but no <code>index.php</code> or <code>index.html</code> — Apache doesn't know which file to serve. (2) a typo in the folder name or path. (3) a leftover <code>index.html</code> sitting next to your <code>index.php</code> — Apache defaults to serving <code>index.html</code> first, so it shows that instead of your file. Make sure your file is named exactly <code>index.php</code> and there's no competing <code>.html</code> version in the same folder.</div>
+</div>
+
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="apache">
     <h3>سؤال 1 / Question 1</h3>
@@ -89,6 +113,30 @@ include __DIR__ . '/../includes/header.php';
         <label><input type="radio" name="q2" value="elements"> Elements</label>
         <label><input type="radio" name="q2" value="console"> Console</label>
         <label><input type="radio" name="q2" value="network"> Network</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="port">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">لوحة تحكم XAMPP بتوريك Apache باللون الأحمر ورسالة <code>Port 80 in use</code>. إيه أقرب تفسير؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">The XAMPP panel shows Apache in red with <code>Port 80 in use</code>. What's the most likely explanation?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="corrupt"> ملفات XAMPP اتلفت ولازم تتثبت من جديد</label>
+        <label><input type="radio" name="q3" value="port"> برنامج تاني على جهازك حاجز نفس الـ Port</label>
+        <label><input type="radio" name="q3" value="internet"> مفيش اتصال إنترنت</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="indexhtml">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">فتحت مشروعك ولقيت صفحة فاضية بدل صفحتك، ولقيت جوه المجلد <code>index.html</code> قديم جنب <code>index.php</code> بتاعك. إيه الأرجح إنه بيحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You find a blank page instead of yours, and an old <code>index.html</code> sitting next to your <code>index.php</code>. What's likely happening?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="indexhtml"> Apache بيعرض الـ index.html الافتراضي بدل ملف PHP بتاعك</label>
+        <label><input type="radio" name="q4" value="mysql"> MySQL واقف وده سبب الصفحة الفاضية</label>
+        <label><input type="radio" name="q4" value="php"> PHP اتشال من الجهاز تمامًا</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

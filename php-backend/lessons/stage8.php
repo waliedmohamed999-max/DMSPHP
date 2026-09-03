@@ -132,6 +132,53 @@ assertEquals(25.0, $cart->total(), 'testTotalSumsAllItems');</textarea>
     <div class="output-box">— لسه متشغلش / not run yet —</div>
 </div>
 
+<h2>Data Providers — اختبار عدة مدخلات في اختبار واحد</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو عايز تتأكد إن دالة زي <code>formatPrice()</code> شغالة صح مع 4 أو 5 قيم مختلفة، مش المفروض تكتب <code>test</code> منفصل لكل قيمة (كود متكرر). PHPUnit بيديك <b>Data Provider</b>: method واحدة بترجع مصفوفة سيناريوهات، وPHPUnit بيشغّل نفس جسم الاختبار مرة لكل سيناريو تلقائيًا.</div>
+    <div class="en">🇬🇧 To confirm a function like <code>formatPrice()</code> works correctly across 4-5 different values, you shouldn't write a separate <code>test</code> per value (repetitive code). PHPUnit gives you a <b>Data Provider</b>: one method returning an array of scenarios, and PHPUnit runs the same test body once per scenario automatically.</div>
+</div>
+<pre><code>&lt;?php
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+
+function formatPrice(float $price): string
+{
+    return '$' . number_format($price, 2);
+}
+
+final class PriceTest extends TestCase
+{
+    #[DataProvider('priceExamples')]
+    public function testFormatPrice(float $input, string $expected): void
+    {
+        $this->assertSame($expected, formatPrice($input));
+    }
+
+    public static function priceExamples(): array
+    {
+        return [
+            'whole number'   => [20.0, '$20.00'],
+            'two decimals'   => [19.99, '$19.99'],
+            'needs rounding' => [9.999, '$10.00'],
+            'zero'           => [0.0, '$0.00'],
+        ];
+    }
+}</code></pre>
+<h3>الناتج الفعلي (vendor/bin/phpunit، تم تنفيذه فعليًا) / Actual output (really executed)</h3>
+<div class="output-box">PHPUnit 10.5.64 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+....                                                                4 / 4 (100%)
+
+Time: 00:00.007, Memory: 8.00 MB
+
+OK (4 tests, 4 assertions)</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ <code>4 / 4 (100%)</code> و<code>OK (4 tests, 4 assertions)</code> — <code>testFormatPrice</code> واحدة بس اتكتبت، لكن PHPUnit عدّها 4 اختبارات لإنها اتشغّلت مرة لكل صف في <code>priceExamples()</code>. لو غيّرت أي قيمة متوقعة في المصفوفة لحاجة غلط (زي <code>'$9.99'</code> بدل <code>'$10.00'</code>)، هتشوف الاختبار المرتبط بيها بس بيفشل، والباقي لسه ناجح.</div>
+    <div class="en">🇬🇧 Notice <code>4 / 4 (100%)</code> and <code>OK (4 tests, 4 assertions)</code> — only one <code>testFormatPrice</code> was written, but PHPUnit counted 4 tests because it ran once per row in <code>priceExamples()</code>. Change any expected value in the array to something wrong (e.g. <code>'$9.99'</code> instead of <code>'$10.00'</code>) and only that one scenario fails, the rest still pass.</div>
+</div>
+
 <h2>Static Analysis — اكتشاف الأخطاء قبل التشغيل</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 أدوات زي <b>PHPStan</b> أو <b>Psalm</b> بتقرأ كودك من غير ما تشغّله، وتكتشف مشاكل زي: دالة ممكن ترجع <code>null</code> وانت مستخدمها كإنها string، أو متغير مستخدم قبل ما يتحدد. ده خط دفاع إضافي غير الاختبارات.</div>
@@ -170,6 +217,30 @@ vendor/bin/phpstan analyse src --level=8</code></pre>
         <label><input type="radio" name="q2" value="mock"> عشان الاختبار يبقى سريع ومستقل، متضمنش نتيجة ثابتة من DB حقيقية</label>
         <label><input type="radio" name="q2" value="cheaper"> عشان MySQL مكلف في الاستخدام</label>
         <label><input type="radio" name="q2" value="required"> PHPUnit بيرفض قواعد بيانات حقيقية أصلًا</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="four">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">في مثال <code>PriceTest</code> فوق، method واحدة بس <code>testFormatPrice</code> اتكتبت، لكن PHPUnit طلع "4 tests" — ليه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">Only one <code>testFormatPrice</code> method was written, yet PHPUnit reported "4 tests" — why?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="bug"> ده خطأ في PHPUnit</label>
+        <label><input type="radio" name="q3" value="four"> اتشغّلت مرة لكل صف في <code>priceExamples()</code> (Data Provider)</label>
+        <label><input type="radio" name="q3" value="assertions"> لإن فيه 4 assertSame داخل نفس الدالة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="oneFail">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">لو غيّرت القيمة المتوقعة لسيناريو "needs rounding" لحاجة غلط بس سيبت الباقي زي ما هو، إيه اللي هيحصل؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">If you changed only the "needs rounding" scenario's expected value to something wrong, what happens?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="allFail"> كل الـ 4 اختبارات هتفشل</label>
+        <label><input type="radio" name="q4" value="oneFail"> السيناريو ده بس هيفشل، الباقي (3) هيفضل ناجح</label>
+        <label><input type="radio" name="q4" value="skip"> PHPUnit هيتجاهل السيناريو ده تلقائيًا</label>
     </div>
     <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
     <div class="quiz-feedback"></div>

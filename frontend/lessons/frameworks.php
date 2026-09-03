@@ -96,6 +96,40 @@ include __DIR__ . '/../includes/header.php';
     <iframe class="render-box mini-fe-preview" style="height:200px" sandbox="allow-scripts"></iframe>
 </div>
 
+<h2>3) مثال أعمق — Navbar متجاوب بـ Bootstrap / A Deeper Example: A Responsive Bootstrap Navbar</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 فاكر الـ Navbar اللي بنيته بإيدك بـ Flexbox في مرحلة المشاريع؟ Bootstrap بيديك نفس الفكرة، لكن مع تجاوب (Responsive) جاهز من غير ما تكتب <code>@media</code> بنفسك: كلاس <code>navbar-expand-sm</code> بيخلي الروابط صف أفقي بداية من عرض 576px، وتحت كده بيتحولوا تلقائيًا لقائمة همبرغر (☰) قابلة للطي — الزرار ده بيشتغل بمكتبة Bootstrap JS اللي بنضيفها من CDN كمان.</div>
+    <div class="en">🇬🇧 Remember the Navbar you built by hand with Flexbox in the Projects stage? Bootstrap gives you the same idea, but with responsiveness built in — no <code>@media</code> needed: the <code>navbar-expand-sm</code> class keeps links in a horizontal row from 576px width upward, and automatically collapses them into a hamburger (☰) menu below that — that toggle button is powered by Bootstrap's JS, also loaded from a CDN.</div>
+</div>
+<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"&gt;
+
+&lt;nav class="navbar navbar-expand-sm navbar-dark bg-dark"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;🎨 سيلا&lt;/a&gt;
+        &lt;button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navMenu"&gt;
+            &lt;ul class="navbar-nav ms-auto"&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#"&gt;الرئيسية&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#"&gt;الدورات&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#"&gt;تواصل معنا&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+<h3>المعاينة على عرض موبايل — 380px (مطوية) / Mobile width — 380px (collapsed)</h3>
+<iframe class="render-box" style="width:380px;height:70px" sandbox="allow-scripts" srcdoc='<html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></head><body><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="container-fluid"><a class="navbar-brand" href="#">🎨 سيلا</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navMenu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="#">الرئيسية</a></li><li class="nav-item"><a class="nav-link" href="#">الدورات</a></li><li class="nav-item"><a class="nav-link" href="#">تواصل معنا</a></li></ul></div></div></nav><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"><\/script></body></html>'></iframe>
+
+<h3>المعاينة على عرض أوسع — 700px (مبسوطة) / Wider — 700px (expanded)</h3>
+<iframe class="render-box" style="width:700px;height:70px" sandbox="allow-scripts" srcdoc='<html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></head><body><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="container-fluid"><a class="navbar-brand" href="#">🎨 سيلا</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navMenu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="#">الرئيسية</a></li><li class="nav-item"><a class="nav-link" href="#">الدورات</a></li><li class="nav-item"><a class="nav-link" href="#">تواصل معنا</a></li></ul></div></div></nav><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"><\/script></body></html>'></iframe>
+<div class="bi-block">
+    <div class="ar">🇪🇬 نفس ملف الـ HTML بالظبط في الاثنين — الفرق الوحيد هو عرض الـ Iframe. عند 380px (أضيق من 576px) Bootstrap طوى الروابط جوه زرار الهمبرغر (☰) لوحده. عند 700px (أوسع من 576px) رجعوا صف أفقي كامل — كل ده من كلاس <code>navbar-expand-sm</code> واحد، من غير ما تكتب سطر <code>@media</code> واحد بنفسك. ده بالظبط الفرق بين إنك تكتب Responsive Design من الصفر (زي المرحلة السابقة) وإنك تاخده جاهز من framework.</div>
+    <div class="en">🇬🇧 It is the exact same HTML file in both — only the iframe's width differs. At 380px (narrower than 576px) Bootstrap collapsed the links behind the hamburger (☰) on its own. At 700px (wider than 576px) they're back to a full horizontal row — all from one <code>navbar-expand-sm</code> class, with zero <code>@media</code> rules written by you. This is exactly the difference between writing Responsive Design from scratch (previous stage) and getting it ready-made from a framework.</div>
+</div>
+
 <div class="exercise-box">
     <h3>✍️ تمرين عملي / Hands-on Exercise</h3>
     <div class="ar">🇪🇬 في <a href="../playground/index.php">محرر الكود</a>، اعمل نفس بطاقة السعر (Pricing Card) اللي بنيتها بنفسك من قبل، مرة بكلاسات Bootstrap الجاهزة (<code>card</code>, <code>btn</code>)، ومرة تانية بكلاسات Tailwind (<code>rounded-xl</code>, <code>shadow-lg</code>, <code>bg-*</code>) — عشان تحس بالفرق بنفسك.</div>
@@ -127,6 +161,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="collapse">
+    <h3>سؤال 3 / Question 3</h3>
+    <p class="quiz-question">Navbar بكلاس <code>navbar-expand-sm</code> بتتفتح على شاشة عرضها 400px بس. هيظهر إزاي؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">A Navbar with <code>navbar-expand-sm</code> opens on a 400px-wide screen. How does it appear?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q3" value="row"> صف أفقي كامل زي الديسكتوب</label>
+        <label><input type="radio" name="q3" value="collapse"> مطوي جوه زرار همبرغر (☰)، لأن العرض أقل من نقطة توقف sm (576px)</label>
+        <label><input type="radio" name="q3" value="hidden"> يختفي تمامًا من الصفحة</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-box" data-correct="nomedia">
+    <h3>سؤال 4 / Question 4</h3>
+    <p class="quiz-question">إيه اللي وفّره عليك Bootstrap في الـ Navbar المتجاوب اللي شفته، مقارنة بمرحلة Responsive Design السابقة؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">What did Bootstrap save you from writing in the responsive Navbar, compared to the previous Responsive Design stage?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q4" value="html"> كتابة أي HTML خالص</label>
+        <label><input type="radio" name="q4" value="nomedia"> كتابة قواعد @media بنفسك — كلاس navbar-expand-sm عملها جاهزة</label>
+        <label><input type="radio" name="q4" value="colors"> اختيار الألوان بس</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ ابني تنبيه (Alert) بكل framework / Build an Alert With Each Framework</h3>
@@ -152,6 +210,7 @@ include __DIR__ . '/../includes/header.php';
         <li>Bootstrap = مكوّنات جاهزة الشكل (<code>.btn</code>, <code>.card</code>) — سريع، لكن أقل مرونة في التخصيص.</li>
         <li>Tailwind = كلاسات صغيرة لكل خاصية CSS تجمعها بنفسك — مرن جدًا، لكن HTML أطول.</li>
         <li>الاتنين بيتضافوا عادة بـ CDN: رابط <code>&lt;link&gt;</code> لـ Bootstrap، وسكريبت <code>&lt;script&gt;</code> لـ Tailwind.</li>
+        <li><code>navbar-expand-sm</code> (أو md/lg) بيدّي Navbar متجاوب جاهز من غير كتابة @media بنفسك.</li>
         <li>معرفة CSS الأساسية (اللي اتعلمتها) هي اللي هتخليك تفهم وتتحكم في أي framework منهم صح.</li>
     </ul>
 </div>
