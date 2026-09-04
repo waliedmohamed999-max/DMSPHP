@@ -16,6 +16,7 @@ $base = $base ?? '.';
     <nav>
         <a href="<?= $base ?>/index.php">الدروس <span class="ltr">Lessons</span></a>
         <a href="<?= $base ?>/playground/index.php">محرر الكود <span class="ltr">Playground</span></a>
+        <a href="<?= $base ?>/db-sandbox/index.php">🗄️ SQL <span class="ltr">Database</span></a>
         <a href="<?= $base ?>/about.php">المميزات <span class="ltr">Features</span></a>
         <a href="<?= $base ?>/../index.php">مسارات سيلا <span class="ltr">Sila Tracks</span></a>
     </nav>

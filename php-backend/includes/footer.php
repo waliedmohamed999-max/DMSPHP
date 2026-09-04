@@ -65,6 +65,50 @@ document.addEventListener('click', (e) => {
         }).catch(err => {
             output.textContent = 'Request failed: ' + err.message;
         }).finally(() => { runBtn.disabled = false; });
+        return;
+    }
+
+    const sqlBtn = e.target.closest('.sql-run-btn');
+    if (sqlBtn) {
+        const wrap = sqlBtn.closest('.sql-playground');
+        const textarea = wrap.querySelector('textarea');
+        const resultWrap = wrap.querySelector('.sql-result-wrap');
+        const status = wrap.querySelector('.sql-status');
+        sqlBtn.disabled = true;
+        status.textContent = 'بينفذ... / running...';
+        resultWrap.innerHTML = '';
+        fetch('../db-sandbox/run.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'sql=' + encodeURIComponent(textarea.value),
+        }).then(r => r.json()).then(data => {
+            if (data.error) {
+                resultWrap.innerHTML = '<div class="output-box" style="border-inline-start-color:var(--danger)">' +
+                    data.error.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])) + '</div>';
+                status.textContent = 'خطأ / error';
+                return;
+            }
+            if (data.type === 'rows') {
+                if (data.columns.length === 0) {
+                    resultWrap.innerHTML = '<div class="sql-meta">0 rows returned</div>';
+                } else {
+                    const esc = (v) => String(v ?? 'NULL').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+                    let html = '<table class="sql-result-table"><thead><tr>' +
+                        data.columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr></thead><tbody>';
+                    data.rows.forEach(row => {
+                        html += '<tr>' + data.columns.map(c => `<td>${esc(row[c])}</td>`).join('') + '</tr>';
+                    });
+                    html += '</tbody></table>';
+                    resultWrap.innerHTML = html;
+                }
+                status.textContent = data.row_count + ' row(s)' + (data.truncated ? ' (truncated to 500)' : '');
+            } else if (data.type === 'exec') {
+                resultWrap.innerHTML = '<div class="sql-meta">✅ Query executed — ' + data.affected_rows + ' row(s) affected</div>';
+                status.textContent = 'تم / done';
+            }
+        }).catch(err => {
+            resultWrap.innerHTML = '<div class="output-box">Request failed: ' + err.message + '</div>';
+        }).finally(() => { sqlBtn.disabled = false; });
     }
 });
 </script>

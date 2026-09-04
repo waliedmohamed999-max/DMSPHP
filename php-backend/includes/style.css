@@ -173,6 +173,89 @@ code { font-family: Consolas, "Courier New", monospace; }
 }
 .security-box h3 { color: var(--danger); margin-top: 0; }
 
+/* Debug Lab — a lesson block presenting real buggy code to find/fix */
+.debug-lab { background: #2a2214; border: 1px solid #f5a623; border-radius: 8px; padding: 16px 18px; margin: 16px 0; }
+.debug-lab h3 { color: #f5a623; margin-top: 0; }
+.debug-lab .bug-code { direction: ltr; text-align: left; }
+
+/* Database Lab — a lesson block tied to the SQL Playground / schema design */
+.db-lab { background: #14232a; border: 1px solid #4fc3f7; border-radius: 8px; padding: 16px 18px; margin: 16px 0; }
+.db-lab h3 { color: #4fc3f7; margin-top: 0; }
+
+/* API Lab — a lesson block for endpoint design / request-response exercises */
+.api-lab { background: #1e1a2a; border: 1px solid var(--accent); border-radius: 8px; padding: 16px 18px; margin: 16px 0; }
+.api-lab h3 { color: var(--accent); margin-top: 0; }
+
+/* SQL Playground — real SQLite execution against an isolated seed schema */
+.sql-playground { margin: 16px 0; }
+.sql-playground textarea {
+    width: 100%;
+    min-height: 100px;
+    background: var(--code-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.88rem;
+    direction: ltr;
+    text-align: left;
+    resize: vertical;
+}
+.sql-run-btn {
+    background: #4fc3f7;
+    color: #0f1117;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.88rem;
+    margin-top: 8px;
+}
+.sql-run-btn:hover { opacity: 0.9; }
+.sql-run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.sql-status { color: var(--muted); font-size: 0.82rem; margin-inline-start: 10px; }
+.sql-result-wrap { margin-top: 10px; overflow-x: auto; }
+.sql-result-table { width: 100%; border-collapse: collapse; direction: ltr; font-family: Consolas, "Courier New", monospace; font-size: 0.85rem; }
+.sql-result-table th, .sql-result-table td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+.sql-result-table th { background: var(--panel-2); color: var(--accent-2); }
+.sql-result-table tr:nth-child(even) { background: var(--panel-2); }
+.sql-meta { color: var(--muted); font-size: 0.82rem; margin-top: 6px; }
+.sql-schema-box { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; direction: ltr; text-align: left; font-family: Consolas, "Courier New", monospace; font-size: 0.85rem; white-space: pre; overflow-x: auto; }
+
+/* Dashboard: stage groups + skills-breakdown panel */
+.stage-group { margin-top: 28px; }
+.stage-group-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.stage-num-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #0f1117;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+.stage-group-title { font-weight: 700; color: var(--text); }
+.stage-group-title .ltr { color: var(--muted); font-weight: 400; font-size: 0.85em; margin-inline-start: 6px; }
+
+.skills-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+.skill-row { display: flex; flex-direction: column; gap: 5px; }
+.skill-row-top { display: flex; justify-content: space-between; font-size: 0.85rem; }
+.skill-row-name { font-weight: 600; }
+.skill-row-count { color: var(--muted); }
+.skill-bar-wrap { height: 6px; background: var(--panel-2); border-radius: 999px; overflow: hidden; }
+.skill-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
 .recap-box {
     background: var(--panel);
     border: 1px solid var(--border);
