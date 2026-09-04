@@ -442,4 +442,210 @@ return [
         'desc_en'  => 'Why an API usually needs a different auth approach than a regular site, and the JWT concept before you ever use it blindly.',
         'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
     ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 11 (OOP), granular lessons replacing/extending stage2.php
+    // ============================================================
+    'oop-classes-objects' => [
+        'title_ar' => 'Classes و Objects: البداية',
+        'title_en' => 'Classes & Objects: Getting Started',
+        'desc_ar'  => 'أول Class حقيقي، الفرق بين الـ Class والـ Object، الـ Properties والـ Methods والـ Constructor.',
+        'desc_en'  => 'Your first real class, the class-vs-object distinction, properties, methods, and the constructor.',
+        'stage' => 11, 'stage_title_ar' => 'البرمجة الكائنية', 'stage_title_en' => 'Object-Oriented PHP', 'skill' => 'oop',
+    ],
+    'oop-encapsulation' => [
+        'title_ar' => 'التغليف (Encapsulation) ومستويات الوصول',
+        'title_en' => 'Encapsulation & Visibility',
+        'desc_ar'  => 'public/private/protected، وليه إخفاء التفاصيل الداخلية بيحمي الكود من نفسه.',
+        'desc_en'  => 'public/private/protected, and why hiding internal details protects code from itself.',
+        'stage' => 11, 'stage_title_ar' => 'البرمجة الكائنية', 'stage_title_en' => 'Object-Oriented PHP', 'skill' => 'oop',
+    ],
+    'oop-inheritance-polymorphism' => [
+        'title_ar' => 'الوراثة وتعدد الأشكال',
+        'title_en' => 'Inheritance & Polymorphism',
+        'desc_ar'  => 'extends، override method، وإزاي كائنات مختلفة ترد على نفس النداء بشكل مختلف.',
+        'desc_en'  => 'extends, method overriding, and how different objects respond differently to the same call.',
+        'stage' => 11, 'stage_title_ar' => 'البرمجة الكائنية', 'stage_title_en' => 'Object-Oriented PHP', 'skill' => 'oop',
+    ],
+    'oop-interfaces-abstract-traits' => [
+        'title_ar' => 'Interfaces، Abstract Classes، و Traits',
+        'title_en' => 'Interfaces, Abstract Classes & Traits',
+        'desc_ar'  => 'الفرق بين الثلاثة، ومتى تختار كل واحد لمشروعك.',
+        'desc_en'  => 'The difference between the three, and when to pick each one for your project.',
+        'stage' => 11, 'stage_title_ar' => 'البرمجة الكائنية', 'stage_title_en' => 'Object-Oriented PHP', 'skill' => 'oop',
+    ],
+    'oop-dependency-injection-project' => [
+        'title_ar' => '🚀 مشروع: إعادة هيكلة بـ Dependency Injection',
+        'title_en' => '🚀 Project: Refactoring with Dependency Injection',
+        'desc_ar'  => 'من كلاس User واحد لـ User/UserRepository/UserService/AuthService — ولماذا التقسيم ده أفضل.',
+        'desc_en'  => 'From one User class to User/UserRepository/UserService/AuthService — and why that split is better.',
+        'stage' => 11, 'stage_title_ar' => 'البرمجة الكائنية', 'stage_title_en' => 'Object-Oriented PHP', 'skill' => 'oop',
+    ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 4 (Web & HTTP), granular lessons
+    // ============================================================
+    'http-request-response' => [
+        'title_ar' => 'طلب واستجابة HTTP',
+        'title_en' => 'HTTP Request & Response',
+        'desc_ar'  => 'إيه اللي بيحصل بالظبط من لحظة ما تكتب URL وتدوس Enter لحد ما الصفحة تظهر.',
+        'desc_en'  => 'What actually happens from the moment you type a URL and hit Enter until the page appears.',
+        'stage' => 4, 'stage_title_ar' => 'الويب و HTTP', 'stage_title_en' => 'Web & HTTP', 'skill' => 'php',
+    ],
+    'http-methods-status-codes' => [
+        'title_ar' => 'HTTP Methods و Status Codes',
+        'title_en' => 'HTTP Methods & Status Codes',
+        'desc_ar'  => 'GET/POST/PUT/PATCH/DELETE، وأشهر أكواد الحالة (200, 301, 404, 500) ومعناها الحقيقي.',
+        'desc_en'  => 'GET/POST/PUT/PATCH/DELETE, and the most common status codes (200, 301, 404, 500) and what they really mean.',
+        'stage' => 4, 'stage_title_ar' => 'الويب و HTTP', 'stage_title_en' => 'Web & HTTP', 'skill' => 'php',
+    ],
+    'headers-content-type' => [
+        'title_ar' => 'الـ Headers و Content-Type',
+        'title_en' => 'Headers & Content-Type',
+        'desc_ar'  => 'إزاي السيرفر والمتصفح "بيتفاهموا" على شكل البيانات قبل ما يبعتوها.',
+        'desc_en'  => 'How the server and browser "agree" on the shape of the data before sending it.',
+        'stage' => 4, 'stage_title_ar' => 'الويب و HTTP', 'stage_title_en' => 'Web & HTTP', 'skill' => 'php',
+    ],
+    'json-login-example' => [
+        'title_ar' => 'مثال متكامل: POST /login بـ JSON',
+        'title_en' => 'A Complete Example: POST /login with JSON',
+        'desc_ar'  => 'من الطلب لحد الاستجابة — كل جزء من مثال تسجيل الدخول الكامل بـ JSON مشروح.',
+        'desc_en'  => 'From request to response — every part of a complete JSON login example explained.',
+        'stage' => 4, 'stage_title_ar' => 'الويب و HTTP', 'stage_title_en' => 'Web & HTTP', 'skill' => 'php',
+    ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 7 (MySQL & SQL), granular lessons replacing/extending stage4.php
+    // ============================================================
+    'db-fundamentals' => [
+        'title_ar' => 'أساسيات قواعد البيانات: Table, Row, Column, Keys',
+        'title_en' => 'Database Fundamentals: Tables, Rows, Columns, Keys',
+        'desc_ar'  => 'المصطلحات الأساسية قبل أي سطر SQL: Primary Key, Foreign Key, Index, Constraint.',
+        'desc_en'  => 'The core vocabulary before a single line of SQL: primary key, foreign key, index, constraint.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'sql-select-where-orderby' => [
+        'title_ar' => 'SQL: SELECT, WHERE, ORDER BY',
+        'title_en' => 'SQL: SELECT, WHERE, ORDER BY',
+        'desc_ar'  => 'أول 3 أوامر SQL هتستخدمها في كل استعلام تقريبًا — حقيقي ضد الـ Sandbox.',
+        'desc_en'  => 'The first 3 SQL commands you\'ll use in almost every query — real, against the sandbox.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'sql-insert-update-delete' => [
+        'title_ar' => 'SQL: INSERT, UPDATE, DELETE',
+        'title_en' => 'SQL: INSERT, UPDATE, DELETE',
+        'desc_ar'  => 'تعديل البيانات فعليًا — وليه WHERE في UPDATE/DELETE أهم سطر هتكتبه في حياتك.',
+        'desc_en'  => 'Actually changing data — and why the WHERE in UPDATE/DELETE is the most important line you\'ll ever write.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'sql-groupby-having' => [
+        'title_ar' => 'SQL: GROUP BY و HAVING',
+        'title_en' => 'SQL: GROUP BY & HAVING',
+        'desc_ar'  => 'تجميع الصفوف لإحصائيات (عدد، مجموع، متوسط)، والفلترة بعد التجميع بـ HAVING.',
+        'desc_en'  => 'Grouping rows for statistics (count, sum, average), and filtering after grouping with HAVING.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'sql-joins-deep-dive' => [
+        'title_ar' => 'SQL: JOIN بعمق',
+        'title_en' => 'SQL: JOINs in Depth',
+        'desc_ar'  => 'INNER JOIN مقابل LEFT JOIN بالفرق الفعلي في النتائج، مش بس التعريف.',
+        'desc_en'  => 'INNER JOIN vs LEFT JOIN with the actual difference in results, not just the definition.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'pdo-prepared-statements' => [
+        'title_ar' => 'PDO و Prepared Statements',
+        'title_en' => 'PDO & Prepared Statements',
+        'desc_ar'  => 'إزاي PHP بتتكلم مع MySQL بأمان — نفس الأساس اللي بنى عليه معمل SQL Injection.',
+        'desc_en'  => 'How PHP talks to MySQL safely — the same foundation the SQL Injection lab was built on.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+    'sql-transactions' => [
+        'title_ar' => 'Transactions: BEGIN, COMMIT, ROLLBACK',
+        'title_en' => 'Transactions: BEGIN, COMMIT, ROLLBACK',
+        'desc_ar'  => 'تحويل فلوس أو إنشاء أوردر بعناصره — لما لازم كذا عملية تنجح كلها أو تفشل كلها.',
+        'desc_en'  => 'Transferring money or creating an order with its items — when several operations must all succeed or all fail together.',
+        'stage' => 7, 'stage_title_ar' => 'MySQL و SQL', 'stage_title_en' => 'MySQL & SQL', 'skill' => 'mysql',
+    ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 12 (Clean Architecture & MVC), granular lessons
+    // ============================================================
+    'mvc-explained' => [
+        'title_ar' => 'شرح MVC: Model, View, Controller',
+        'title_en' => 'MVC Explained: Model, View, Controller',
+        'desc_ar'  => 'ليه بنفصل البيانات عن العرض عن منطق التحكم — بمثال حقيقي قبل وبعد.',
+        'desc_en'  => 'Why we separate data from presentation from control logic — with a real before-and-after example.',
+        'stage' => 12, 'stage_title_ar' => 'بنية نظيفة و MVC', 'stage_title_en' => 'Clean Architecture & MVC', 'skill' => 'architecture',
+    ],
+    'building-a-router' => [
+        'title_ar' => 'بناء Router بسيط بـ PHP خام',
+        'title_en' => 'Building a Simple Router in Plain PHP',
+        'desc_ar'  => '$router->get(\'/users\', ...) — من الصفر، من غير أي framework.',
+        'desc_en'  => '$router->get(\'/users\', ...) — from scratch, with no framework.',
+        'stage' => 12, 'stage_title_ar' => 'بنية نظيفة و MVC', 'stage_title_en' => 'Clean Architecture & MVC', 'skill' => 'architecture',
+    ],
+    'clean-code-principles' => [
+        'title_ar' => 'مبادئ الكود النظيف: DRY, KISS, YAGNI',
+        'title_en' => 'Clean Code Principles: DRY, KISS, YAGNI',
+        'desc_ar'  => 'أسماء واضحة، دوال صغيرة، ومتلا3ش نفسك — الفرق بين Spaghetti Code وكود منظم.',
+        'desc_en'  => 'Clear names, small functions, don\'t repeat yourself — the difference between spaghetti code and a structured application.',
+        'stage' => 12, 'stage_title_ar' => 'بنية نظيفة و MVC', 'stage_title_en' => 'Clean Architecture & MVC', 'skill' => 'architecture',
+    ],
+    'mvc-refactor-project' => [
+        'title_ar' => '🚀 مشروع: إعادة هيكلة لـ MVC',
+        'title_en' => '🚀 Project: Refactoring into MVC',
+        'desc_ar'  => 'تاخد كود متلخبط وتقسّمه لـ Router/Controller/Model/View حقيقيين.',
+        'desc_en'  => 'Take tangled code and split it into a real Router/Controller/Model/View.',
+        'stage' => 12, 'stage_title_ar' => 'بنية نظيفة و MVC', 'stage_title_en' => 'Clean Architecture & MVC', 'skill' => 'architecture',
+    ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 16 (Deployment & DevOps Basics), granular lessons
+    // ============================================================
+    'git-github-basics' => [
+        'title_ar' => 'Git و GitHub: الأساسيات',
+        'title_en' => 'Git & GitHub Basics',
+        'desc_ar'  => 'init, add, commit, branch, push — إزاي تتحكم في نسخ مشروعك من غير ما تخاف تكسره.',
+        'desc_en'  => 'init, add, commit, branch, push — controlling your project\'s versions without fear of breaking it.',
+        'stage' => 16, 'stage_title_ar' => 'النشر و DevOps', 'stage_title_en' => 'Deployment & DevOps Basics', 'skill' => 'deployment',
+    ],
+    'linux-basics-backend' => [
+        'title_ar' => 'أساسيات Linux لمطوري الـ Backend',
+        'title_en' => 'Linux Basics for Backend Developers',
+        'desc_ar'  => 'pwd, ls, cd, chmod، والفرق بين Process وPort — أوامر هتحتاجها في أي سيرفر حقيقي.',
+        'desc_en'  => 'pwd, ls, cd, chmod, and the process-vs-port distinction — commands you\'ll need on any real server.',
+        'stage' => 16, 'stage_title_ar' => 'النشر و DevOps', 'stage_title_en' => 'Deployment & DevOps Basics', 'skill' => 'deployment',
+    ],
+    'deployment-flow' => [
+        'title_ar' => 'رحلة النشر: من الكود للسيرفر',
+        'title_en' => 'The Deployment Journey: From Code to Server',
+        'desc_ar'  => 'Domain → DNS → Server → Nginx/Apache → PHP → Application → Database، خطوة خطوة.',
+        'desc_en'  => 'Domain → DNS → Server → Nginx/Apache → PHP → Application → Database, step by step.',
+        'stage' => 16, 'stage_title_ar' => 'النشر و DevOps', 'stage_title_en' => 'Deployment & DevOps Basics', 'skill' => 'deployment',
+    ],
+    'docker-fundamentals' => [
+        'title_ar' => 'أساسيات Docker',
+        'title_en' => 'Docker Fundamentals',
+        'desc_ar'  => 'Container, Image, Dockerfile — ومشروع PHP + MySQL جوه Docker.',
+        'desc_en'  => 'Container, image, Dockerfile — and a PHP + MySQL project inside Docker.',
+        'stage' => 16, 'stage_title_ar' => 'النشر و DevOps', 'stage_title_en' => 'Deployment & DevOps Basics', 'skill' => 'deployment',
+    ],
+
+    // ============================================================
+    // ROUND 3 — NEW: Stage 18 (Projects) — Blog Backend and E-Commerce Backend
+    // ============================================================
+    'project5-blog-backend' => [
+        'title_ar' => '🚀 مشروع 5: Blog Backend',
+        'title_en' => '🚀 Project 5: Blog Backend',
+        'desc_ar'  => 'مقالات، تعليقات، وفئات — واجهة عامة للقراءة وواجهة إدارة للكتابة.',
+        'desc_en'  => 'Posts, comments, and categories — a public read view and an admin write view.',
+        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'mysql',
+    ],
+    'project7-ecommerce-backend' => [
+        'title_ar' => '🚀 مشروع 7: E-Commerce Backend',
+        'title_en' => '🚀 Project 7: E-Commerce Backend',
+        'desc_ar'  => 'منتجات، عربة تسوق، وأوردرات — بـ Transaction حقيقية تحافظ على تناسق المخزون.',
+        'desc_en'  => 'Products, a shopping cart, and orders — with a real transaction that keeps stock consistent.',
+        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'mysql',
+    ],
 ];
