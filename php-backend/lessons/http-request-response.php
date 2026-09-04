@@ -198,6 +198,11 @@ echo "Reconstructed URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_UR
     <div class="en">🇬🇧 Now you know the full journey and what the Method inside a request looks like — but not every method behaves the same way, and not every response comes back as 200 OK. The next lesson dives into the different methods (GET/POST/PUT/PATCH/DELETE) and the most common status codes a server sends back, and what each one really means.</div>
 </div>
 
+<div class="bi-block">
+    <div class="ar">🇪🇬 💡 <b>Request</b> = الطلب، <b>Response</b> = الاستجابة — أساسيات أي محادثة تقنية بالإنجليزي. حسّن إنجليزيتك التقنية أكتر في <a href="../../english/lessons/technical-english.php">الإنجليزية التقنية للمبرمجين</a>.</div>
+    <div class="en">🇬🇧 💡 <b>Request</b> = الطلب, <b>Response</b> = الاستجابة — the basics of any technical conversation in English. Sharpen your technical English further in <a href="../../english/lessons/technical-english.php">Technical English for Developers</a>.</div>
+</div>
+
 <div class="recap-box">
     <h3>✅ ملخص سريع / Recap</h3>
     <ul>

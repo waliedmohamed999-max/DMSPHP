@@ -354,6 +354,11 @@ echo $auth-&gt;login("ghost@example.com") . PHP_EOL;</textarea>
     <div class="en">🇬🇧 The split we made here (a Repository for persistence, a Service for business logic) is exactly the foundation of the <b>MVC</b> architecture you'll see in the upcoming "Clean Architecture & MVC" stage — there we'll add a <b>Controller</b> layer that receives HTTP requests and calls these same Services, knowing nothing about the database or even HTML.</div>
 </div>
 
+<div class="bi-block">
+    <div class="ar">🇪🇬 💡 <b>Dependency Injection</b> = حقن الاعتماديات — مصطلح متقدم هتحتاجه في أي نقاش تقني بالإنجليزي عن Architecture. راجع مصطلحات تقنية زيه في <a href="../../english/lessons/technical-english.php">الإنجليزية التقنية للمبرمجين</a>.</div>
+    <div class="en">🇬🇧 💡 <b>Dependency Injection</b> = حقن الاعتماديات — an advanced term you'll need in any English technical discussion about architecture. Review terms like it in <a href="../../english/lessons/technical-english.php">Technical English for Developers</a>.</div>
+</div>
+
 <div class="recap-box">
     <h3>✅ ملخص سريع / Recap</h3>
     <ul>

@@ -230,7 +230,7 @@ foreach ($operations as $i => $entry) {
 </div>
 
 <div class="nav-buttons">
-    <a href="debugging-lab.php">← معمل التصحيح / Debugging Lab</a>
+    <a href="code-review-challenge.php">← تحدي مراجعة الكود</a>
     <a href="project2-contact-form.php">المشروع 2 / Next: Contact Form →</a>
 </div>
 

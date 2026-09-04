@@ -198,6 +198,11 @@ if (isset($_SESSION['user_id'])) {
     <div class="en">🇬🇧 We now have a user who's "logged in" in a real sense — their identity is stored in the session and any following code can read it. But the next question isn't "are they logged in?" — it's "are they allowed to do this specific thing?". The next lesson draws a clear line between the two (Authentication vs Authorization) and builds a real permission check on the sandbox's users and posts data.</div>
 </div>
 
+<div class="bi-block">
+    <div class="ar">🇪🇬 💡 <b>Authentication</b> = المصادقة، <b>Authorization</b> = التفويض — مصطلحات هتقابلها في أي مقابلة شغل إنجليزي. لو عايز تحسّن إنجليزيتك التقنية بشكل عام، شوف <a href="../../english/lessons/technical-english.php">الإنجليزية التقنية للمبرمجين</a> في مسار اللغة الإنجليزية.</div>
+    <div class="en">🇬🇧 💡 <b>Authentication</b> = المصادقة, <b>Authorization</b> = التفويض — terms you'll meet in any English job interview. To sharpen your technical English generally, see <a href="../../english/lessons/technical-english.php">Technical English for Developers</a> in the English Language track.</div>
+</div>
+
 <div class="recap-box">
     <h3>✅ ملخص سريع / Recap</h3>
     <ul>

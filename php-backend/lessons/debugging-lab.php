@@ -396,7 +396,7 @@ echo double("5");</code></pre>
 
 <div class="nav-buttons">
     <a href="../index.php">← الرئيسية / Home</a>
-    <a href="project1-cli-calculator.php">المشروع 1 / Next: CLI Calculator →</a>
+    <a href="code-review-challenge.php">المرحلة الجاية / Next: تحدي مراجعة الكود →</a>
 </div>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

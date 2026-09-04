@@ -655,4 +655,36 @@ return [
         'desc_en'  => 'Not a regular quiz — 8 dimensions (PHP, SQL, Database, Security, Architecture, API, Debugging, Project) proving you\'re genuinely ready.',
         'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'architecture',
     ],
+
+    // ============================================================
+    // ROUND 4 — closing the remaining spec gaps
+    // ============================================================
+    'what-is-backend' => [
+        'title_ar' => 'إيه هو الـ Backend أصلًا؟',
+        'title_en' => 'What Is Backend, Really?',
+        'desc_ar'  => 'Frontend مقابل Backend، Client/Server، Browser، Web Server، Application Server، Database — قبل أي كود.',
+        'desc_en'  => 'Frontend vs Backend, Client/Server, Browser, Web Server, Application Server, Database — before any code.',
+        'stage' => 1, 'stage_title_ar' => 'أساسيات الـ Backend', 'stage_title_en' => 'Backend Foundations', 'skill' => 'php',
+    ],
+    'developer-skills' => [
+        'title_ar' => 'مهارات المطور الحقيقية',
+        'title_en' => 'Real Developer Skills',
+        'desc_ar'  => 'قراءة التوثيق، البحث عن الأخطاء، فهم كود غريب، تقسيم مشكلة كبيرة، وكتابة Commit مفيد.',
+        'desc_en'  => 'Reading documentation, searching for errors, understanding unfamiliar code, breaking down a big problem, and writing a useful commit.',
+        'stage' => 1, 'stage_title_ar' => 'أساسيات الـ Backend', 'stage_title_en' => 'Backend Foundations', 'skill' => 'php',
+    ],
+    'code-review-challenge' => [
+        'title_ar' => '🔍 تحدي مراجعة الكود',
+        'title_en' => '🔍 Code Review Challenge',
+        'desc_ar'  => 'تطبيق PHP حقيقي فيه مشاكل أمان، بنية، أداء، وجودة كود — دورك تلاقيها كلها.',
+        'desc_en'  => 'A real PHP application with security, architecture, performance, and code-quality problems — your job is to find them all.',
+        'stage' => 15, 'stage_title_ar' => 'اختبار، تصحيح، وأداء', 'stage_title_en' => 'Testing, Debugging & Performance', 'skill' => 'architecture',
+    ],
+    'project-ladder-overview' => [
+        'title_ar' => '🗺️ خريطة المشاريع الثمانية',
+        'title_en' => '🗺️ The 8-Project Ladder',
+        'desc_ar'  => 'كل المشاريع من الأسهل للأصعب في مكان واحد — عشان تشوف رحلتك كاملة.',
+        'desc_en'  => 'Every project from easiest to hardest in one place — so you can see your whole journey.',
+        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'architecture',
+    ],
 ];
