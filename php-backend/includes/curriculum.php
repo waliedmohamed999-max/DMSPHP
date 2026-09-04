@@ -228,4 +228,218 @@ return [
         'desc_en'  => 'Real Register/Login/Logout with password_hash and Sessions — the start of every Backend project with users.',
         'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'security',
     ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 3 (PHP Intermediate)
+    // ============================================================
+    'array-string-functions' => [
+        'title_ar' => 'دوال متقدمة على المصفوفات والنصوص',
+        'title_en' => 'Advanced Array & String Functions',
+        'desc_ar'  => 'array_reduce, usort, array_column, sprintf, وأشهر الدوال اللي بتوفّر عليك loops يدوية.',
+        'desc_en'  => 'array_reduce, usort, array_column, sprintf, and the functions that save you manual loops.',
+        'stage' => 3, 'stage_title_ar' => 'PHP متوسط', 'stage_title_en' => 'PHP Intermediate', 'skill' => 'php',
+    ],
+    'closures-callbacks' => [
+        'title_ar' => 'Closures و Callbacks',
+        'title_en' => 'Closures & Callbacks',
+        'desc_ar'  => 'إزاي دالة "تتذكر" متغيرات من بيئتها بـ use()، ومتى تستخدم Callback بدل تكرار كود.',
+        'desc_en'  => 'How a function "remembers" variables from its environment with use(), and when a callback beats duplicated code.',
+        'stage' => 3, 'stage_title_ar' => 'PHP متوسط', 'stage_title_en' => 'PHP Intermediate', 'skill' => 'php',
+    ],
+    'type-declarations' => [
+        'title_ar' => 'Type Declarations: Nullable و Union Types',
+        'title_en' => 'Type Declarations: Nullable & Union Types',
+        'desc_ar'  => '?string, int|string, وليه التصريح بالأنواع بيمنع فئة كاملة من الأخطاء بدري.',
+        'desc_en'  => '?string, int|string, and why type declarations catch a whole class of bugs early.',
+        'stage' => 3, 'stage_title_ar' => 'PHP متوسط', 'stage_title_en' => 'PHP Intermediate', 'skill' => 'php',
+    ],
+    'custom-exceptions' => [
+        'title_ar' => 'استثناءات مخصصة',
+        'title_en' => 'Custom Exceptions',
+        'desc_ar'  => 'تبني هيكل Exceptions خاص بمشروعك بدل الاعتماد على رسائل عامة.',
+        'desc_en'  => 'Building your own exception hierarchy instead of relying on generic messages.',
+        'stage' => 3, 'stage_title_ar' => 'PHP متوسط', 'stage_title_en' => 'PHP Intermediate', 'skill' => 'php',
+    ],
+    'namespaces-autoloading' => [
+        'title_ar' => 'Namespaces و Autoloading',
+        'title_en' => 'Namespaces & Autoloading',
+        'desc_ar'  => 'ليه محتاج Namespaces في مشروع فيه ملفات كتير، ومبدأ الـ Autoloading من غير Composer.',
+        'desc_en'  => 'Why you need namespaces once a project has many files, and the idea behind autoloading without Composer.',
+        'stage' => 3, 'stage_title_ar' => 'PHP متوسط', 'stage_title_en' => 'PHP Intermediate', 'skill' => 'php',
+    ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 5 (Forms, Sessions & Cookies)
+    // ============================================================
+    'forms-registration-login' => [
+        'title_ar' => 'بناء فورم تسجيل ودخول حقيقي',
+        'title_en' => 'Building a Real Registration & Login Form',
+        'desc_ar'  => 'من الـ HTML للـ $_POST لمنطق التحقق — فورم تسجيل كامل خطوة بخطوة.',
+        'desc_en'  => 'From HTML to $_POST to validation logic — a complete registration form, step by step.',
+        'stage' => 5, 'stage_title_ar' => 'الفورمات، الجلسات، والكوكيز', 'stage_title_en' => 'Forms, Sessions & Cookies', 'skill' => 'php',
+    ],
+    'sessions-basics' => [
+        'title_ar' => 'الجلسات (Sessions)',
+        'title_en' => 'Sessions',
+        'desc_ar'  => '$_SESSION, session_start(), وإزاي السيرفر "بيفتكر" مستخدم عبر أكتر من طلب.',
+        'desc_en'  => '$_SESSION, session_start(), and how the server "remembers" a user across multiple requests.',
+        'stage' => 5, 'stage_title_ar' => 'الفورمات، الجلسات، والكوكيز', 'stage_title_en' => 'Forms, Sessions & Cookies', 'skill' => 'php',
+    ],
+    'cookies-basics' => [
+        'title_ar' => 'الكوكيز (Cookies)',
+        'title_en' => 'Cookies',
+        'desc_ar'  => 'setcookie(), قراءة $_COOKIE، وحذف كوكي فعليًا.',
+        'desc_en'  => 'setcookie(), reading $_COOKIE, and actually deleting a cookie.',
+        'stage' => 5, 'stage_title_ar' => 'الفورمات، الجلسات، والكوكيز', 'stage_title_en' => 'Forms, Sessions & Cookies', 'skill' => 'php',
+    ],
+    'session-vs-cookie' => [
+        'title_ar' => 'Session مقابل Cookie: امتى تستخدم كل واحدة',
+        'title_en' => 'Session vs Cookie: When to Use Each',
+        'desc_ar'  => 'مقارنة عملية: فين تتخزن البيانات، الأمان، والاستخدام النموذجي لكل واحدة.',
+        'desc_en'  => 'A practical comparison: where data lives, security, and the typical use case for each.',
+        'stage' => 5, 'stage_title_ar' => 'الفورمات، الجلسات، والكوكيز', 'stage_title_en' => 'Forms, Sessions & Cookies', 'skill' => 'php',
+    ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 6 (Files, JSON & APIs)
+    // ============================================================
+    'file-handling-uploads' => [
+        'title_ar' => 'التعامل مع الملفات والرفع',
+        'title_en' => 'File Handling & Uploads',
+        'desc_ar'  => 'fopen/fwrite/fread، و$_FILES، وأساسيات رفع ملف بأمان.',
+        'desc_en'  => 'fopen/fwrite/fread, $_FILES, and the basics of a safe file upload.',
+        'stage' => 6, 'stage_title_ar' => 'الملفات، JSON، والـ APIs', 'stage_title_en' => 'Files, JSON & APIs', 'skill' => 'php',
+    ],
+    'json-encode-decode' => [
+        'title_ar' => 'JSON Encode و Decode',
+        'title_en' => 'JSON Encode & Decode',
+        'desc_ar'  => 'json_encode/json_decode، والفرق بين array وobject لما تفكّ JSON.',
+        'desc_en'  => 'json_encode/json_decode, and the array-vs-object difference when decoding JSON.',
+        'stage' => 6, 'stage_title_ar' => 'الملفات، JSON، والـ APIs', 'stage_title_en' => 'Files, JSON & APIs', 'skill' => 'apis',
+    ],
+    'consuming-external-apis' => [
+        'title_ar' => 'استهلاك APIs خارجية',
+        'title_en' => 'Consuming External APIs',
+        'desc_ar'  => 'file_get_contents وcURL لطلب بيانات من API خارجي، ومعالجة أخطاء الشبكة.',
+        'desc_en'  => 'file_get_contents and cURL to request data from an external API, and handling network errors.',
+        'stage' => 6, 'stage_title_ar' => 'الملفات، JSON، والـ APIs', 'stage_title_en' => 'Files, JSON & APIs', 'skill' => 'apis',
+    ],
+    'json-notes-api-project' => [
+        'title_ar' => '🚀 مشروع: JSON Notes API',
+        'title_en' => '🚀 Project: JSON Notes API',
+        'desc_ar'  => 'API صغير حقيقي لملاحظات مخزّنة في ملف JSON — CRUD كامل من غير قاعدة بيانات.',
+        'desc_en'  => 'A real small API for notes stored in a JSON file — full CRUD without a database.',
+        'stage' => 6, 'stage_title_ar' => 'الملفات، JSON، والـ APIs', 'stage_title_en' => 'Files, JSON & APIs', 'skill' => 'apis',
+    ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 9 (CRUD Application — Task Management System)
+    // ============================================================
+    'crud-planning-setup' => [
+        'title_ar' => 'تخطيط مشروع Task Management',
+        'title_en' => 'Planning the Task Management Project',
+        'desc_ar'  => 'المتطلبات، تصميم جداول Users/Tasks/Categories، وهيكل الملفات قبل أول سطر كود.',
+        'desc_en'  => 'Requirements, designing the Users/Tasks/Categories tables, and file structure before the first line of code.',
+        'stage' => 9, 'stage_title_ar' => 'تطبيق CRUD كامل', 'stage_title_en' => 'CRUD Application', 'skill' => 'mysql',
+    ],
+    'crud-create-read' => [
+        'title_ar' => 'CRUD: Create و Read',
+        'title_en' => 'CRUD: Create & Read',
+        'desc_ar'  => 'إضافة Task جديدة وعرض القايمة — حقيقي بـ PDO ضد الـ Sandbox.',
+        'desc_en'  => 'Adding a new task and listing them — real, with PDO against the sandbox.',
+        'stage' => 9, 'stage_title_ar' => 'تطبيق CRUD كامل', 'stage_title_en' => 'CRUD Application', 'skill' => 'mysql',
+    ],
+    'crud-update-delete' => [
+        'title_ar' => 'CRUD: Update و Delete',
+        'title_en' => 'CRUD: Update & Delete',
+        'desc_ar'  => 'تعديل حالة Task (خلصت/لسه) وحذفها — مع التأكد إن المستخدم بيعدّل مهامه هو بس.',
+        'desc_en'  => 'Updating a task\'s status (done/pending) and deleting it — while making sure a user only edits their own tasks.',
+        'stage' => 9, 'stage_title_ar' => 'تطبيق CRUD كامل', 'stage_title_en' => 'CRUD Application', 'skill' => 'mysql',
+    ],
+    'crud-search-filter-pagination' => [
+        'title_ar' => 'بحث، فلترة، وترقيم الصفحات',
+        'title_en' => 'Search, Filter & Pagination',
+        'desc_ar'  => 'LIKE للبحث، WHERE للفلترة حسب الفئة، وLIMIT/OFFSET لتقسيم النتائج على صفحات.',
+        'desc_en'  => 'LIKE for search, WHERE for filtering by category, and LIMIT/OFFSET to split results into pages.',
+        'stage' => 9, 'stage_title_ar' => 'تطبيق CRUD كامل', 'stage_title_en' => 'CRUD Application', 'skill' => 'mysql',
+    ],
+    'crud-validation' => [
+        'title_ar' => 'التحقق من صحة بيانات CRUD',
+        'title_en' => 'CRUD Validation',
+        'desc_ar'  => 'منع Task فاضية، تواريخ غلط، وفئات مش موجودة — قبل ما توصل لقاعدة البيانات أصلًا.',
+        'desc_en'  => 'Preventing empty tasks, invalid dates, and non-existent categories — before they ever reach the database.',
+        'stage' => 9, 'stage_title_ar' => 'تطبيق CRUD كامل', 'stage_title_en' => 'CRUD Application', 'skill' => 'mysql',
+    ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 10 (Authentication & Authorization)
+    // Builds on top of project3-auth-system.php's basic register/login.
+    // ============================================================
+    'auth-registration-deep-dive' => [
+        'title_ar' => 'تسجيل مستخدم جديد بأمان — تعمّق',
+        'title_en' => 'Secure Registration — a Deep Dive',
+        'desc_ar'  => 'فحص إيميل مكرر، قوة كلمة المرور، وتأكيد الباسورد — أبعد من التسجيل الأساسي.',
+        'desc_en'  => 'Duplicate-email checks, password strength, and password confirmation — beyond the basic register flow.',
+        'stage' => 10, 'stage_title_ar' => 'المصادقة والتفويض', 'stage_title_en' => 'Authentication & Authorization', 'skill' => 'security',
+    ],
+    'auth-login-sessions' => [
+        'title_ar' => 'تسجيل الدخول وربطه بالجلسة',
+        'title_en' => 'Login & Wiring It to a Session',
+        'desc_ar'  => 'بعد password_verify() الناجح، إزاي تحفظ هوية المستخدم في $_SESSION لباقي الطلبات.',
+        'desc_en'  => 'After a successful password_verify(), how to store the user\'s identity in $_SESSION for the rest of their requests.',
+        'stage' => 10, 'stage_title_ar' => 'المصادقة والتفويض', 'stage_title_en' => 'Authentication & Authorization', 'skill' => 'security',
+    ],
+    'auth-roles-permissions' => [
+        'title_ar' => 'الأدوار والصلاحيات (Roles & Permissions)',
+        'title_en' => 'Roles & Permissions',
+        'desc_ar'  => 'من "مسجّل دخول؟" لـ "مسموحله يعمل إيه؟" — Authentication مقابل Authorization.',
+        'desc_en'  => 'From "are you logged in?" to "what are you allowed to do?" — Authentication vs Authorization.',
+        'stage' => 10, 'stage_title_ar' => 'المصادقة والتفويض', 'stage_title_en' => 'Authentication & Authorization', 'skill' => 'security',
+    ],
+    'auth-admin-user-dashboards' => [
+        'title_ar' => '🚀 مشروع: لوحات تحكم Admin و User',
+        'title_en' => '🚀 Project: Admin & User Dashboards',
+        'desc_ar'  => 'صفحتين مختلفتين حسب الدور، وحماية صفحة الـ Admin من مستخدم عادي بيحاول يدخلها بالرابط المباشر.',
+        'desc_en'  => 'Two different pages based on role, and protecting the admin page from a regular user hitting its URL directly.',
+        'stage' => 10, 'stage_title_ar' => 'المصادقة والتفويض', 'stage_title_en' => 'Authentication & Authorization', 'skill' => 'security',
+    ],
+
+    // ============================================================
+    // ROUND 2 — NEW: Stage 13 (REST API Development)
+    // ============================================================
+    'rest-principles' => [
+        'title_ar' => 'مبادئ REST',
+        'title_en' => 'REST Principles',
+        'desc_ar'  => 'Resources، Endpoints، وHTTP Verbs — إزاي تصمم API يفهمه أي مطور من أول نظرة.',
+        'desc_en'  => 'Resources, endpoints, and HTTP verbs — designing an API any developer understands at a glance.',
+        'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
+    ],
+    'rest-products-api-project' => [
+        'title_ar' => '🚀 مشروع: REST API لمنتجات',
+        'title_en' => '🚀 Project: A Products REST API',
+        'desc_ar'  => 'GET/POST/PUT/DELETE حقيقيين على /api/products — الـ API الأول اللي تبنيه من الصفر.',
+        'desc_en'  => 'Real GET/POST/PUT/DELETE on /api/products — the first API you build from scratch.',
+        'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
+    ],
+    'rest-pagination-filtering-sorting' => [
+        'title_ar' => 'Pagination, Filtering, و Sorting في APIs',
+        'title_en' => 'Pagination, Filtering & Sorting in APIs',
+        'desc_ar'  => '?page=2&sort=price&category=books — إزاي تصمم Query Parameters نضيفة ومفيدة.',
+        'desc_en'  => '?page=2&sort=price&category=books — designing clean, useful query parameters.',
+        'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
+    ],
+    'rest-error-responses' => [
+        'title_ar' => 'استجابات الأخطاء في APIs',
+        'title_en' => 'API Error Responses',
+        'desc_ar'  => 'شكل موحّد لأي خطأ (404, 422, 500)، بدل رسائل مختلفة كل مرة.',
+        'desc_en'  => 'A consistent shape for every error (404, 422, 500), instead of a different message every time.',
+        'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
+    ],
+    'rest-api-authentication-concepts' => [
+        'title_ar' => 'مفاهيم مصادقة الـ API: Session, Token, JWT',
+        'title_en' => 'API Authentication Concepts: Session, Token, JWT',
+        'desc_ar'  => 'ليه API غالبًا بيحتاج طريقة مصادقة مختلفة عن موقع عادي، ومفهوم JWT من غير ما تستخدمه أعمى.',
+        'desc_en'  => 'Why an API usually needs a different auth approach than a regular site, and the JWT concept before you ever use it blindly.',
+        'stage' => 13, 'stage_title_ar' => 'بناء REST API', 'stage_title_en' => 'REST API Development', 'skill' => 'apis',
+    ],
 ];
