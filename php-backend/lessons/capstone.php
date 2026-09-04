@@ -202,6 +202,31 @@ POST /tasks {title: "Write the report"} -> 201 {"id":3,"title":"Write the report
     <div class="en">🇬🇧 Build the full project to the spec above, test it yourself from the browser or a tool like Postman, and walk back through the checklist above to confirm every item is done before considering yourself finished.</div>
 </div>
 
+<h2>📊 معايير التقييم / Grading Rubric</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 التقييم مش رقم عشوائي — كل معيار هنا بيتحقق منه بسؤال محدد. راجع مشروعك بنفسك على كل بند قبل ما تعتبره جاهز.</div>
+    <div class="en">🇬🇧 Grading isn't an arbitrary number — every criterion here maps to a specific, checkable question. Review your own project against each line before calling it done.</div>
+</div>
+<div class="sql-schema-box" style="white-space:normal">
+<table style="width:100%;border-collapse:collapse;direction:ltr;text-align:left">
+<tr style="border-bottom:1px solid var(--border)"><th style="padding:8px 6px">Criterion</th><th style="padding:8px 6px">Weight</th><th style="padding:8px 6px">What's checked</th></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Code Quality</td><td style="padding:8px 6px">15%</td><td style="padding:8px 6px">Clear names, small functions, no duplication (DRY)</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Database</td><td style="padding:8px 6px">15%</td><td style="padding:8px 6px">Schema is normalized, real foreign keys, sensible indexes</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Security</td><td style="padding:8px 6px">15%</td><td style="padding:8px 6px">No SQL injection, XSS escaped, passwords hashed, ownership checked</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Architecture</td><td style="padding:8px 6px">15%</td><td style="padding:8px 6px">Real MVC separation, not one tangled file</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">API Design</td><td style="padding:8px 6px">10%</td><td style="padding:8px 6px">Correct verbs/status codes, consistent JSON shape</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Validation</td><td style="padding:8px 6px">10%</td><td style="padding:8px 6px">Every endpoint rejects bad input with a clear 422, not a crash</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Error Handling</td><td style="padding:8px 6px">5%</td><td style="padding:8px 6px">No raw SQLSTATE/stack traces ever shown to the end user</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Testing</td><td style="padding:8px 6px">5%</td><td style="padding:8px 6px">Each acceptance scenario (like the empty-title one above) actually verified</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 6px">Performance</td><td style="padding:8px 6px">5%</td><td style="padding:8px 6px">No obvious N+1 queries, sensible pagination on list endpoints</td></tr>
+<tr><td style="padding:8px 6px">Documentation</td><td style="padding:8px 6px">5%</td><td style="padding:8px 6px">A README explaining setup and listing every endpoint</td></tr>
+</table>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو عايز تختبر جاهزيتك بشكل أوسع من مشروع واحد، في الدرس الجاي "التقييم النهائي" هتلاقي 8 محاور منفصلة (PHP, SQL, Database, Security, Architecture, API, Debugging, Project) بتغطي المسار كله مش بس المشروع ده.</div>
+    <div class="en">🇬🇧 If you want to test your readiness more broadly than one project, the next lesson — the Final Assessment — covers 8 separate dimensions (PHP, SQL, Database, Security, Architecture, API, Debugging, Project) spanning the whole track, not just this project.</div>
+</div>
+
 <h2 id="project">🚀 لما تخلّص / When You're Done</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 لما تخلّص، هيبقى عندك REST API حقيقي شغال، بتصميم MVC منظم، بقاعدة بيانات فعلية، بحماية من XSS/CSRF/SQL Injection، وبـ Authentication حقيقي — يعني مشروع تقدر تحطه في الـ Portfolio بتاعك وتوريه لأي حد بيقيّم شغلك كـ Backend Developer.</div>
@@ -221,7 +246,7 @@ POST /tasks {title: "Write the report"} -> 201 {"id":3,"title":"Write the report
 
 <div class="nav-buttons">
     <a href="stage6.php">← المرحلة السابقة</a>
-    <a href="stage7.php">المسار الاحترافي / Next: Design Patterns →</a>
+    <a href="final-assessment.php">التقييم النهائي / Next: Final Assessment →</a>
 </div>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

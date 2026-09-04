@@ -646,6 +646,13 @@ return [
         'title_en' => '🚀 Project 7: E-Commerce Backend',
         'desc_ar'  => 'منتجات، عربة تسوق، وأوردرات — بـ Transaction حقيقية تحافظ على تناسق المخزون.',
         'desc_en'  => 'Products, a shopping cart, and orders — with a real transaction that keeps stock consistent.',
-        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'mysql',
+        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'architecture',
+    ],
+    'final-assessment' => [
+        'title_ar' => '🏆 التقييم النهائي لمطور Backend',
+        'title_en' => '🏆 Final Backend Developer Assessment',
+        'desc_ar'  => 'مش Quiz عادي — 8 محاور (PHP, SQL, Database, Security, Architecture, API, Debugging, Project) تثبت إنك جاهز فعلًا.',
+        'desc_en'  => 'Not a regular quiz — 8 dimensions (PHP, SQL, Database, Security, Architecture, API, Debugging, Project) proving you\'re genuinely ready.',
+        'stage' => 18, 'stage_title_ar' => 'المشاريع', 'stage_title_en' => 'Projects', 'skill' => 'architecture',
     ],
 ];
