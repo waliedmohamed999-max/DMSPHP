@@ -621,3 +621,282 @@ select#snippet-select {
     padding: 9px 12px;
 }
 .pg-status { color: var(--muted); font-size: 0.85rem; }
+
+/* ============================================================
+   English track — new interactive tools: Conversation Simulator
+   and Vocabulary Flashcards. Track-specific, not shared platform-wide.
+   ============================================================ */
+
+/* Conversation / Dialogue Simulator */
+.dialogue-sim {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+}
+.dialogue-scenario {
+    background: var(--panel-2);
+    border-inline-start: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+.dialogue-log {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 4px;
+    margin-bottom: 14px;
+}
+.dialogue-line {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    animation: dialogueIn 0.25s ease;
+}
+@keyframes dialogueIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.dialogue-line-other {
+    align-self: flex-start;
+    background: var(--panel-2);
+    border-bottom-left-radius: 4px;
+}
+.dialogue-line-you {
+    align-self: flex-end;
+    background: var(--accent);
+    color: #0f1117;
+    border-bottom-right-radius: 4px;
+}
+.dialogue-line-you .dialogue-ar { color: rgba(15, 17, 23, 0.65); }
+.dialogue-en { font-family: Consolas, "Courier New", monospace; direction: ltr; text-align: left; font-size: 0.95rem; }
+.dialogue-ar { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+.dialogue-speaker-label { font-size: 0.72rem; font-weight: 700; color: var(--accent-2); margin-bottom: 6px; }
+.dialogue-line-you .dialogue-speaker-label { color: rgba(15, 17, 23, 0.7); }
+
+.dialogue-choices { display: flex; flex-direction: column; gap: 8px; }
+.dialogue-choice-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-align: start;
+    width: 100%;
+}
+.dialogue-choice-btn:hover:not(:disabled) { border-color: var(--accent); }
+.dialogue-choice-btn:disabled { cursor: default; }
+.dialogue-choice-btn .dialogue-en { font-size: 0.92rem; }
+.dialogue-choice-btn .dialogue-ar { font-size: 0.8rem; }
+.dialogue-choice-btn.choice-correct { border-color: var(--accent-2); background: rgba(53, 208, 186, 0.12); }
+.dialogue-choice-btn.choice-wrong { border-color: var(--danger); background: rgba(255, 107, 107, 0.1); opacity: 0.75; }
+.dialogue-feedback {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 2px;
+}
+.dialogue-feedback.correct { background: rgba(53, 208, 186, 0.12); color: var(--accent-2); }
+.dialogue-feedback.wrong { background: rgba(255, 107, 107, 0.1); color: var(--danger); }
+.dialogue-restart-btn {
+    background: var(--accent-2);
+    color: #0f1117;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* Vocabulary Flashcards */
+.vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+.vocab-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: border-color 0.15s;
+}
+.vocab-card:hover { border-color: var(--accent); }
+.vocab-card-hint { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 10px; }
+.vocab-card-back { display: none; }
+.vocab-card.flipped .vocab-card-front { display: none; }
+.vocab-card.flipped .vocab-card-back { display: block; }
+.vocab-card.flipped { border-color: var(--accent-2); }
+.vocab-word { font-family: Consolas, "Courier New", monospace; direction: ltr; text-align: center; font-size: 1.15rem; font-weight: 700; }
+.vocab-pron { font-family: Consolas, "Courier New", monospace; direction: ltr; text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+.vocab-ar { text-align: center; font-size: 1.05rem; font-weight: 700; color: var(--accent-2); }
+.vocab-example {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    text-align: center;
+}
+.vocab-example .en { direction: ltr; font-family: Consolas, "Courier New", monospace; }
+.vocab-example .ar { color: var(--muted); margin-top: 3px; }
+
+/* ============================================================
+   Audio / Pronunciation system: speak-btn, pronunciation-box,
+   and the speak-practice (record-yourself) widget.
+   ============================================================ */
+.speak-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    direction: ltr;
+}
+.speak-btn:hover { border-color: var(--accent); }
+.speak-btn.is-playing { border-color: var(--accent-2); color: var(--accent-2); background: rgba(53, 208, 186, 0.12); }
+.dialogue-speak-btn { padding: 2px 8px; font-size: 0.72rem; vertical-align: middle; margin-inline-start: 4px; background: rgba(255, 255, 255, 0.08); }
+.dialogue-line-you .dialogue-speak-btn { background: rgba(15, 17, 23, 0.12); color: #0f1117; border-color: rgba(15, 17, 23, 0.25); }
+.speak-unsupported { color: var(--muted); font-size: 0.78rem; margin-top: 6px; font-style: italic; }
+
+.pronunciation-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 16px 0;
+    text-align: center;
+}
+.pronunciation-word { font-family: Consolas, "Courier New", monospace; direction: ltr; font-size: 1.3rem; font-weight: 700; }
+.pronunciation-ipa { font-family: Consolas, "Courier New", monospace; direction: ltr; color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+.pronunciation-ar { color: var(--accent-2); font-weight: 700; font-size: 1.05rem; margin-top: 6px; }
+.pronunciation-controls { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.pronunciation-example {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.pronunciation-example .en { direction: ltr; font-family: Consolas, "Courier New", monospace; }
+.pronunciation-example .ar { color: var(--muted); font-size: 0.9rem; }
+
+.speak-practice {
+    background: var(--panel-2);
+    border: 1px dashed var(--accent);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 16px 0;
+}
+.speak-practice-target { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.speak-practice-target .en { direction: ltr; font-family: Consolas, "Courier New", monospace; font-size: 1rem; }
+.speak-practice-target .ar { color: var(--muted); font-size: 0.88rem; }
+.speak-record-btn {
+    background: var(--accent);
+    color: #0f1117;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.speak-record-btn.is-recording { background: var(--danger); animation: recordPulse 1.2s infinite; }
+@keyframes recordPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+.speak-recording-playback { margin-top: 10px; }
+.speak-recording-playback audio { width: 100%; }
+.speak-practice-status { color: var(--muted); font-size: 0.82rem; margin-top: 8px; min-height: 1.2em; }
+
+/* ============================================================
+   Listening Exercise component
+   ============================================================ */
+.listening-exercise {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 16px 0;
+}
+.listening-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+.listening-transcript-toggle {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 6px 14px; font-size: 0.82rem; cursor: pointer;
+}
+.listening-transcript-toggle:hover { border-color: var(--accent); }
+.listening-transcript {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+}
+.listening-transcript .en { direction: ltr; font-family: Consolas, "Courier New", monospace; line-height: 1.7; white-space: pre-line; }
+.listening-transcript .ar { color: var(--muted); margin-top: 10px; line-height: 1.9; white-space: pre-line; }
+.listening-questions { margin-top: 18px; }
+
+/* ============================================================
+   Dashboard: CEFR level groups + skills-breakdown panel
+   ============================================================ */
+.level-group { margin-top: 28px; }
+.level-group-header {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 10px;
+}
+.level-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #0f1117;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+}
+.level-group-title { font-weight: 700; color: var(--text); }
+.level-group-title .ltr { color: var(--muted); font-weight: 400; font-size: 0.85em; margin-inline-start: 6px; }
+
+.skills-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+.skill-row { display: flex; flex-direction: column; gap: 5px; }
+.skill-row-top { display: flex; justify-content: space-between; font-size: 0.85rem; }
+.skill-row-name { font-weight: 600; }
+.skill-row-count { color: var(--muted); }
+.skill-bar-wrap { height: 6px; background: var(--panel-2); border-radius: 999px; overflow: hidden; }
+.skill-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
+.path-tabs { display: flex; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+.path-tab {
+    background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 8px 18px; font-size: 0.88rem; text-decoration: none;
+    cursor: pointer;
+}
+.path-tab.active { border-color: var(--accent); color: var(--accent); background: rgba(124, 156, 255, 0.12); }

@@ -32,18 +32,34 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Native speakers rarely pronounce every word "complete and separate" the way we learn from books. Words link together, and some words get reduced — "going to" becomes "gonna," and "want to" becomes "wanna." This isn't "incorrect speech" — it's the natural pronunciation of ordinary conversation.</div>
 </div>
 <div class="output-box">Reductions شائعة / Common reductions:
-  going to  →  gonna       "I'm gonna finish this today."
-  want to   →  wanna       "Do you wanna join the call?"
-  got to    →  gotta       "I gotta go now."
-  kind of   →  kinda       "It's kinda difficult."
+  going to  →  gonna       "I'm gonna finish this today." → هخلص ده النهاردة.
+  <button type="button" class="speak-btn" data-text="I'm gonna finish this today." data-rate="1">🔊 Listen</button>
+  want to   →  wanna       "Do you wanna join the call?" → عايز تنضم للمكالمة؟
+  <button type="button" class="speak-btn" data-text="Do you wanna join the call?" data-rate="1">🔊 Listen</button>
+  got to    →  gotta       "I gotta go now." → لازم أمشي دلوقتي.
+  <button type="button" class="speak-btn" data-text="I gotta go now." data-rate="1">🔊 Listen</button>
+  kind of   →  kinda       "It's kinda difficult." → صعبة شوية.
+  have to   →  hafta       "I hafta finish this report tonight." → لازم أخلص التقرير ده الليلة.
+  let me    →  lemme       "Lemme check that for you." → سيبني أتأكد من ده ليك.
 
 Linking (ربط الكلمات) / Linking words together:
-  "an apple"     يتنطق كأنه   "a-napple"    (الحرف الساكن بيتلزق بالحركة اللي بعده)
-  "turn it off"  يتنطق كأنه   "tur-ni-toff"
-  "check it out" يتنطق كأنه   "che-ki-taut"</div>
+  "an apple"     يتنطق كأنه   "a-napple"    → تفاحة (الحرف الساكن بيتلزق بالحركة اللي بعده)
+  "turn it off"  يتنطق كأنه   "tur-ni-toff" → قفّله
+  "check it out" يتنطق كأنه   "che-ki-taut" → بص عليه / جربه
+  "not at all"   يتنطق كأنه   "no-ta-tall"  → أبدًا مفيش مشكلة</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 مهم توضيح: "gonna" و"wanna" مناسبة في الكلام العادي غير الرسمي، لكن في الكتابة الرسمية (إيميل شغل، تقرير) لازم تكتب "going to" و"want to" كاملة.</div>
     <div class="en">🇬🇧 Important clarification: "gonna" and "wanna" are fine in casual speech, but in formal writing (a work email, a report) you should always write "going to" and "want to" in full.</div>
+</div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">I'm gonna finish this today.</div>
+    <div class="pronunciation-ipa">/aɪm ˈɡɒnə ˈfɪnɪʃ ðɪs təˈdeɪ/</div>
+    <div class="pronunciation-ar">هخلص ده النهاردة.</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="I'm gonna finish this today." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="I'm gonna finish this today." data-rate="0.6">🐢 Slow</button>
+    </div>
 </div>
 
 <h2>تقنية الظل: Shadowing</h2>
@@ -142,7 +158,7 @@ Linking (ربط الكلمات) / Linking words together:
 
 <div class="nav-buttons">
     <a href="writing-skills.php">← المرحلة السابقة</a>
-    <a href="business-english.php">المرحلة الجاية / Next: إنجليزي بيئة العمل →</a>
+    <a href="conversation-intro.php">المرحلة الجاية / Next: محادثة تفاعلية →</a>
 </div>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

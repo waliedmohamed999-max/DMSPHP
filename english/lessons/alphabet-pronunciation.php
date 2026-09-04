@@ -31,11 +31,13 @@ include __DIR__ . '/../includes/header.php';
     <div class="ar">🇪🇬 الإنجليزية فيها 26 حرف، لكن عدد الأصوات (Phonemes) أكبر من كده بكتير — لإن نفس الحرف ممكن يتنطق بطرق مختلفة (زي حرف "a" في cat وcake وcar)، وأصوات تانية بتتكوّن من حرفين ملتصقين زي "th" و"sh" و"ch". الحركات الأساسية هي: a, e, i, o, u — وكل واحدة ليها نطق "قصير" ونطق "طويل".</div>
     <div class="en">🇬🇧 English has 26 letters, but far more sounds (phonemes) — the same letter can be pronounced differently (like "a" in cat, cake, and car), and some sounds come from letter pairs like "th", "sh", and "ch". The core vowels are a, e, i, o, u — each with a "short" and a "long" pronunciation.</div>
 </div>
-<div class="output-box">a → short: cat /kæt/ — long: cake /keɪk/
-e → short: bed /bɛd/ — long: he /hiː/
-i → short: sit /sɪt/ — long: time /taɪm/
-o → short: hot /hɒt/ — long: go /goʊ/
-u → short: cup /kʌp/ — long: use /juːz/</div>
+<div class="output-box">a → short: cat /kæt/ (قطة) — long: cake /keɪk/ (كيكة)
+e → short: bed /bɛd/ (سرير) — long: he /hiː/ (هو)
+i → short: sit /sɪt/ (يجلس) — long: time /taɪm/ (وقت)
+o → short: hot /hɒt/ (حار) — long: go /goʊ/ (يذهب)
+u → short: cup /kʌp/ (كوب) — long: use /juːz/ (يستخدم)
+a → short: man /mæn/ (رجل) — long: name /neɪm/ (اسم)
+i → short: fish /fɪʃ/ (سمكة) — long: five /faɪv/ (خمسة)</div>
 
 <h2>غلطة 1: الفرق بين /p/ و/b/</h2>
 <div class="bi-block">
@@ -43,13 +45,15 @@ u → short: cup /kʌp/ — long: use /juːz/</div>
     <div class="en">🇬🇧 Arabic has no /p/ sound at all — a "p" often gets pronounced as "b" by mistake. The real difference: /p/ is a "puff" sound with a burst of air and no vocal cord vibration, while /b/ vibrates your vocal cords from the first instant. Try holding a piece of paper in front of your mouth and saying "pen" — it should flutter from the air burst. If you say "ben" instead, the paper won't move.</div>
 </div>
 <h3>❌ لخبطة شائعة / Common confusion</h3>
-<div class="output-box">❌ "I have a big broblem." (problem بتتنطق problem مش broblem)
-❌ "Please open the ban." (pen وليس ban)
-❌ "I baid the bill." (paid وليس baid)</div>
+<div class="output-box">❌ "I have a big broblem." → المقصود: "عندي مشكلة كبيرة." (النطق الصح problem مش broblem)
+❌ "Please open the ben." → المقصود: "افتح القلم من فضلك." (pen القلم، مش اسم Ben)
+❌ "I baid the bill." → المقصود: "دفعت الفاتورة." (paid وليس baid)</div>
 <h3>✅ النطق الصح / Correct pronunciation</h3>
-<div class="output-box">✅ pen /pɛn/  ≠  ben (لو كانت اسم)
-✅ pack /pæk/  ≠  back /bæk/
-✅ cap /kæp/  ≠  cab /kæb/</div>
+<div class="output-box">✅ pen /pɛn/ (قلم)  ≠  Ben /bɛn/ (اسم علم)
+✅ pack /pæk/ (يحزم / عبوة)  ≠  back /bæk/ (ضهر / يرجع)
+✅ cap /kæp/ (قبعة)  ≠  cab /kæb/ (تاكسي)
+✅ pit /pɪt/ (حفرة)  ≠  bit /bɪt/ (جزء صغير)
+✅ pin /pɪn/ (دبوس)  ≠  bin /bɪn/ (سلة مهملات)</div>
 
 <h2>غلطة 2: الفرق بين /v/ و/f/</h2>
 <div class="bi-block">
@@ -57,13 +61,15 @@ u → short: cup /kʌp/ — long: use /juːz/</div>
     <div class="en">🇬🇧 Arabic also has no /v/ sound — many learners pronounce every "v" as "f". The difference: /v/ is voiced (your vocal cords vibrate — put your hand on your throat and feel it), while /f/ is voiceless (no vibration). Try "van" and "fan" — they should sound completely different.</div>
 </div>
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "I lofe programming." (love وليس lofe)
-❌ "Ferry good." (Very good — مش Ferry)
-❌ "I have fife files." (five وليس fife)</div>
+<div class="output-box">❌ "I lofe programming." → المقصود: "بحب البرمجة." (love وليس lofe)
+❌ "Ferry good." → المقصود: "كويس جدًا." (Very good — مش Ferry/عبّارة)
+❌ "I have fife files." → المقصود: "معايا خمس ملفات." (five وليس fife)</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ love /lʌv/  ≠  laugh /læf/
-✅ very /ˈvɛri/  ≠  ferry /ˈfɛri/
-✅ five /faɪv/  ≠  fife</div>
+<div class="output-box">✅ love /lʌv/ (يحب)  ≠  laugh /læf/ (يضحك)
+✅ very /ˈvɛri/ (جدًا)  ≠  ferry /ˈfɛri/ (عبّارة)
+✅ five /faɪv/ (خمسة)  ≠  fife /faɪf/ (آلة نفخ موسيقية)
+✅ vote /voʊt/ (يصوّت)  ≠  fought /fɔːt/ (تشاجر — ماضي fight)
+✅ van /væn/ (فان/عربية نقل)  ≠  fan /fæn/ (مروحة / مُعجَب)</div>
 
 <h2>غلطة 3: صوت "th" (θ / ð)</h2>
 <div class="bi-block">
@@ -71,13 +77,15 @@ u → short: cup /kʌp/ — long: use /juːz/</div>
     <div class="en">🇬🇧 The "th" sound is unusual across most languages, and often gets replaced with "s", "z", "t", or "d". There are two types: voiceless "th" as in think (tongue between teeth, air with no vibration), and voiced "th" as in this (same tongue position, but with vocal cord vibration).</div>
 </div>
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "I sink so." (think وليس sink)
-❌ "Ze book is on ze table." (The وليس Ze)
-❌ "Free things." (Three وليس Free)</div>
+<div class="output-box">❌ "I sink so." → المقصود: "أعتقد كده." (think وليس sink/يغرق)
+❌ "Ze book is on ze table." → المقصود: "الكتاب على الطاولة." (The وليس Ze)
+❌ "Free things." → المقصود: "تلات حاجات." (Three وليس Free/مجاني)</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ think /θɪŋk/ (مهموسة، مش sink)
-✅ the, this, that /ð/ (مجهورة، مش ze)
-✅ three /θriː/ (مش free)</div>
+<div class="output-box">✅ think /θɪŋk/ (يعتقد) — مهموسة، مش sink /sɪŋk/ (يغرق / حوض)
+✅ the, this, that /ð/ (أدوات تعريف/إشارة) — مجهورة، مش ze
+✅ three /θriː/ (ثلاثة) — مش free /friː/ (مجاني/حر)
+✅ thanks /θæŋks/ (شكرًا) — مش tanks /tæŋks/ (دبابات)
+✅ bath /bæθ/ (حمام/بانيو) — مش bat /bæt/ (خفاش/مضرب)</div>
 
 <h2>غلطة 4: إضافة حركة زيادة قبل الكلمة</h2>
 <div class="bi-block">
@@ -85,13 +93,89 @@ u → short: cup /kʌp/ — long: use /juːz/</div>
     <div class="en">🇬🇧 Arabic phonology resists starting a word with two consonants in a row, so the Arabic-trained ear tends to automatically add a short vowel before the word. That's why "student" sometimes becomes "istudent", and "school" becomes "eschool". English is perfectly fine starting a word with consonant clusters like st, sp, sc, sm — with no extra vowel before them.</div>
 </div>
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "Istudent" needs a "ischolarship."
-❌ "Espeak slowly, please."
-❌ "Estop the car!"</div>
+<div class="output-box">❌ "Istudent" needs a "ischolarship." → المقصود: "الطالب محتاج منحة دراسية."
+❌ "Espeak slowly, please." → المقصود: "اتكلم ببطء من فضلك."
+❌ "Estop the car!" → المقصود: "وقّف العربية!"</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ Student needs a scholarship.
-✅ Speak slowly, please.
-✅ Stop the car!</div>
+<div class="output-box">✅ Student needs a scholarship. → الطالب محتاج منحة دراسية.
+✅ Speak slowly, please. → اتكلم ببطء من فضلك.
+✅ Stop the car! → وقّف العربية!
+✅ Stay calm and small steps forward. → خليك هادي وامشي خطوات صغيرة.
+✅ Smile and stay confident. → ابتسم وخليك واثق من نفسك.</div>
+
+<h2>بطاقات مراجعة الأصوات / Sound Review Flashcards</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 دوس على أي بطاقة عشان تراجع الكلمة ونطقها ومعناها ومثال عليها.</div>
+    <div class="en">🇬🇧 Tap any card to review the word, its pronunciation, meaning, and an example.</div>
+</div>
+<div class="vocab-grid">
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Pen</div>
+            <div class="vocab-pron">/pɛn/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">قلم</div>
+            <div class="vocab-example"><div class="en">Can I borrow your pen for a second?</div><div class="ar">ممكن أستلف قلمك ثانية واحدة؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Very</div>
+            <div class="vocab-pron">/ˈvɛri/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">جدًا</div>
+            <div class="vocab-example"><div class="en">This lesson is very useful.</div><div class="ar">الدرس ده مفيد جدًا.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Think</div>
+            <div class="vocab-pron">/θɪŋk/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">يعتقد / يفكر</div>
+            <div class="vocab-example"><div class="en">I think this code has a bug.</div><div class="ar">أعتقد إن الكود ده فيه باگ.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Three</div>
+            <div class="vocab-pron">/θriː/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ثلاثة</div>
+            <div class="vocab-example"><div class="en">I have three tasks left today.</div><div class="ar">فاضللي ثلاث مهام النهاردة.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Student</div>
+            <div class="vocab-pron">/ˈstuː.dənt/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">طالب</div>
+            <div class="vocab-example"><div class="en">She is a student at a coding bootcamp.</div><div class="ar">هي طالبة في معسكر تدريب برمجي.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Speak</div>
+            <div class="vocab-pron">/spiːk/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">يتكلم</div>
+            <div class="vocab-example"><div class="en">Could you speak more slowly, please?</div><div class="ar">ممكن تتكلم أبطأ شوية من فضلك؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="p">
@@ -145,8 +229,8 @@ u → short: cup /kʌp/ — long: use /juːz/</div>
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ قايم النطق: 10 أزواج كلمات / Minimal Pairs Practice</h3>
-    <div class="ar">🇪🇬 اكتب الأزواج دي على ورقة، وانطقهم بصوت عالي واحد واحد مع وقفة بينهم: pen/ben, van/fan, think/sink, pack/back, very/ferry, cap/cab, three/free, cup/cub, van/ban, safe/save. لو معاك حد، اطلب منه يسمعك ويقولك هو سمع أنهي كلمة في كل زوج.</div>
-    <div class="en">🇬🇧 Write these pairs down and say them out loud one by one with a pause between: pen/ben, van/fan, think/sink, pack/back, very/ferry, cap/cab, three/free, cup/cub, van/ban, safe/save. If someone's with you, ask them to tell you which word in each pair they heard.</div>
+    <div class="ar">🇪🇬 اكتب الأزواج دي على ورقة، وانطقهم بصوت عالي واحد واحد مع وقفة بينهم: pen/قلم ↔ ben/اسم علم، van/فان ↔ fan/مروحة، think/يعتقد ↔ sink/حوض، pack/يحزم ↔ back/ضهر، very/جدًا ↔ ferry/عبّارة، cap/قبعة ↔ cab/تاكسي، three/ثلاثة ↔ free/مجاني، cup/كوب ↔ cub/شبل، safe/آمن ↔ save/يحفظ. لو معاك حد، اطلب منه يسمعك ويقولك هو سمع أنهي كلمة في كل زوج.</div>
+    <div class="en">🇬🇧 Write these pairs down and say them out loud one by one with a pause between: pen/ben, van/fan, think/sink, pack/back, very/ferry, cap/cab, three/free, cup/cub, safe/save. If someone's with you, ask them to tell you which word in each pair they heard.</div>
 </div>
 
 <h2 id="project">🚀 المشروع / Project</h2>

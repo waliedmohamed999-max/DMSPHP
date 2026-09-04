@@ -45,16 +45,46 @@ Scanning مثال / Example use:
     <div class="en">🇬🇧 Not every new word needs a dictionary. Often the surrounding sentence gives enough clues to guess its meaning. The method: read the whole sentence, see what the words around it are describing, and try substituting a logical meaning to see if the sentence still makes sense.</div>
 </div>
 <div class="output-box">فقرة مثال / Example paragraph:
+<button type="button" class="speak-btn" data-text="The new intern was quite meticulous with her code reviews. She caught three bugs that everyone else had missed, checking every single line twice before approving a pull request." data-rate="1">🔊 Listen to this paragraph</button>
 
 "The new intern was quite meticulous with her code reviews — she caught
 three bugs that everyone else had missed, checking every single line
 twice before approving a pull request."
+→ الترجمة: "المتدربة الجديدة كانت دقيقة جدًا في مراجعات الكود بتاعتها — لقت
+تلات أخطاء فات على الكل، وكانت بتراجع كل سطر مرتين قبل ما توافق على طلب الدمج."
 
 كلمة "meticulous" جديدة؟ خد التلميحات:
   - "caught three bugs that everyone else had missed" → دقيقة جدًا
   - "checking every single line twice" → بتراجع كل حاجة مرتين
   → الاستنتاج: meticulous = دقيق جدًا / حريص على التفاصيل (careful, detail-oriented)
   (المعنى الحقيقي: extremely careful and precise — بالظبط زي ما استنتجنا!)</div>
+
+<h3>تدريب إضافي: استنتج كلمة تانية / Extra Practice: Infer Another Word</h3>
+<div class="output-box">فقرة تانية / Another paragraph:
+
+"After migrating to the new framework, the application became far more
+robust — it kept running smoothly even when the server received ten
+times its normal traffic, and it recovered automatically whenever a
+single request failed."
+→ الترجمة: "بعد الانتقال للـ framework الجديد، التطبيق بقى أكتر متانةً بكتير —
+فضل شغّال بسلاسة حتى لما السيرفر استقبل 10 أضعاف حركة المرور العادية، وكان
+بيتعافى تلقائيًا كل ما طلب واحد يفشل."
+
+كلمة "robust" جديدة؟ خد التلميحات:
+  - "kept running smoothly... ten times its normal traffic" → قادر يتحمل ضغط عالي
+  - "recovered automatically whenever a single request failed" → بيتعافى من الأخطاء لوحده
+  → الاستنتاج: robust = قوي ومتين / يتحمل الضغط والأخطاء (strong and resilient)
+  (المعنى الحقيقي: able to withstand difficult conditions — بالظبط زي ما استنتجنا!)</div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">robust</div>
+    <div class="pronunciation-ipa">/rəʊˈbʌst/</div>
+    <div class="pronunciation-ar">قوي ومتين / يتحمل الضغط والأخطاء</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="robust" data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="robust" data-rate="0.6">🐢 Slow</button>
+    </div>
+</div>
 <h3>❌ عادة ضعيفة / Weak habit</h3>
 <div class="output-box">❌ تقف عند كل كلمة جديدة وتفتح القاموس فورًا، فتخسر تركيزك وسرعتك في القراءة.</div>
 <h3>✅ عادة قوية / Strong habit</h3>
@@ -69,6 +99,8 @@ twice before approving a pull request."
 
 "The `timeout` parameter (optional, default: 30) specifies the maximum
 number of seconds to wait for a response before the request fails."
+→ الترجمة: "الـ parameter بتاع timeout (اختياري، القيمة الافتراضية: 30)
+بيحدد أقصى عدد ثواني للانتظار قبل ما الطلب يفشل."
 
 استراتيجية القراءة:
   1. العنوان/الكلمة المفتاحية: timeout parameter

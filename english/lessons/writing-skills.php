@@ -37,7 +37,10 @@ include __DIR__ . '/../includes/header.php';
 <div class="output-box">"I learn programming. It is hard sometimes. I use PHP and I like it.
 Yesterday I fix a bug it take me two hours. Programming good for future job
 I think also English important for read documentation. My friend help me
-sometimes with code."</div>
+sometimes with code."
+→ الترجمة: "بتعلم برمجة. صعبة أحيانًا. بستخدم PHP وبحبها. امبارح أصلحت
+باگ واخد مني ساعتين. البرمجة كويسة للمستقبل المهني، وأعتقد كمان إن
+الإنجليزية مهمة لقراءة التوثيق. صاحبي بيساعدني أحيانًا في الكود."</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 المشكلة هنا: مفيش جملة رئيسية واضحة، الأفكار مبعثرة (تعلم البرمجة، الباج، الشغل، الإنجليزية، الصاحب) من غير ترابط، وفيه أخطاء قواعد كتير (fix بدل fixed، it take بدل it took، programming good بدل programming is good).</div>
     <div class="en">🇬🇧 The problem here: no clear topic sentence, scattered ideas (learning programming, the bug, the job, English, the friend) with no connection, and many grammar mistakes (fix instead of fixed, it take instead of it took, programming good instead of programming is good).</div>
@@ -48,7 +51,42 @@ use PHP, and I genuinely enjoy working with it. For example, yesterday I
 spent two hours fixing a tricky bug, and solving it gave me a real sense of
 achievement. I believe programming skills, combined with strong English for
 reading documentation, will open many career opportunities for me in the
-future."</div>
+future."
+→ الترجمة: "تعلم البرمجة كان تحديًا لكنه ممتع بالنسبالي. بستخدم PHP غالبًا،
+وبستمتع فعلًا بالشغل بيها. مثلًا، امبارح قضيت ساعتين بصلح باگ معقد، وحل
+الباگ ده دّاني إحساس حقيقي بالإنجاز. أعتقد إن مهارات البرمجة، مع إنجليزية
+قوية لقراءة التوثيق، هتفتحلي فرص مهنية كتير في المستقبل."</div>
+
+<h3>مثال تاني: قبل وبعد / Another Example: Before &amp; After</h3>
+<div class="bi-block">
+    <div class="ar">🇪🇬 نفس المبدأ بينطبق على أي نوع كتابة، حتى تحديث حالة بسيط لمديرك.</div>
+    <div class="en">🇬🇧 The same principle applies to any type of writing, even a simple status update to your manager.</div>
+</div>
+<h4>❌ قبل / Before</h4>
+<div class="output-box">"The project going good. I did some work today. Bug still there I don't
+no why. I will try fix tomorow maybe. thanks"
+→ الترجمة: "المشروع ماشي كويس. عملت شغل شوية النهاردة. الباگ لسه موجود
+مش عارف ليه. هحاول أصلحه بكرة يمكن. شكرًا"
+(فقرة مربكة: جمل قصيرة مقطوعة، أخطاء إملائية ونحوية، ونبرة غير واثقة "maybe")</div>
+<h4>✅ بعد / After</h4>
+<div class="output-box">"The project is progressing well. Today I completed the payment
+integration and started testing it. There's still one bug I haven't
+identified the cause of yet, but I plan to investigate it tomorrow
+morning. I'll update you as soon as I have more information."
+<button type="button" class="speak-btn" data-text="The project is progressing well. Today I completed the payment integration and started testing it. There's still one bug I haven't identified the cause of yet, but I plan to investigate it tomorrow morning. I'll update you as soon as I have more information." data-rate="1">🔊 Listen to this paragraph</button>
+→ الترجمة: "المشروع بيسير بشكل كويس. النهاردة خلصت دمج نظام الدفع
+وبدأت أختبره. لسه فيه باگ واحد ماحددتش سببه، بس أنا مخطط أراجعه بكرة
+الصبح. هحدّثك أول ما يبقى عندي معلومات أكتر."
+(هنا: جملة رئيسية واضحة، تفاصيل محددة بدل "some work"، وخطة واضحة بدل "maybe")</div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">The project is progressing well.</div>
+    <div class="pronunciation-ar">المشروع بيسير بشكل كويس.</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="The project is progressing well." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="The project is progressing well." data-rate="0.6">🐢 Slow</button>
+    </div>
+</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 لاحظ التحسينات: جملة رئيسية واضحة في الأول ("Learning programming has been challenging but rewarding")، كل جملة بعدها بتدعم الفكرة دي بمثال، والخاتمة بتربط بالمستقبل. الأفعال كمان اتصلحت (spent, fixing, solving, will open).</div>
     <div class="en">🇬🇧 Notice the improvements: a clear topic sentence at the start, every following sentence supports it with an example, and the conclusion links to the future. The verbs were also fixed (spent, fixing, solving, will open).</div>
@@ -60,19 +98,23 @@ future."</div>
     <div class="en">🇬🇧 <b>1. Run-on Sentences:</b> chaining too many complete sentences together with "and" or no punctuation at all, instead of splitting them or using a period/semicolon.</div>
 </div>
 <div class="output-box">❌ "I finished the project and I tested it and I sent it to my manager and he was happy."
-✅ "I finished the project and tested it. Then I sent it to my manager, and he was happy."</div>
+✅ "I finished the project and tested it. Then I sent it to my manager, and he was happy."
+<button type="button" class="speak-btn" data-text="I finished the project and tested it. Then I sent it to my manager, and he was happy." data-rate="1">🔊 Listen</button>
+→ الترجمة: خلصت المشروع واختبرته. بعدين بعتّه لمديري، وكان مبسوط.</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 <b>2. حذف أدوات النكرة/المعرفة (a/an/the):</b> العربية مفيهاش أداة نكرة زي "a/an"، فبيتم حذفها بالغلط في الإنجليزي.</div>
     <div class="en">🇬🇧 <b>2. Missing articles (a/an/the):</b> Arabic has no indefinite article like "a/an," so it often gets dropped by mistake in English.</div>
 </div>
 <div class="output-box">❌ "I am developer. I built website for client."
-✅ "I am a developer. I built a website for a client."</div>
+✅ "I am a developer. I built a website for a client."
+→ الترجمة: أنا مطور. بنيت موقع لعميل.</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 <b>3. حروف الجر الخاطئة (Wrong Prepositions):</b> بعض الأفعال والصفات بتيجي مع حرف جر ثابت مش بالضرورة نفسه في العربي، فبيحصل خلط.</div>
     <div class="en">🇬🇧 <b>3. Wrong Prepositions:</b> some verbs and adjectives take a fixed preposition that doesn't necessarily match Arabic, causing mix-ups.</div>
 </div>
 <div class="output-box">❌ "I am interested about programming." / "Married with a developer." / "Good in English."
-✅ "I am interested in programming." / "Married to a developer." / "Good at English."</div>
+✅ "I am interested in programming." / "Married to a developer." / "Good at English."
+→ الترجمة: مهتم بالبرمجة. / متجوز/ة من مطور/ة. / كويس في الإنجليزي.</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="topic">

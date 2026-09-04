@@ -55,6 +55,9 @@ TOEFL iBT:
 "We are a fully remote team spread across 12 countries. Fluent English
 (written and spoken) is required, as all documentation, code reviews,
 and daily stand-ups are conducted in English."
+→ الترجمة: "إحنا فريق شغال عن بُعد بالكامل منتشر في 12 دولة. مطلوب
+إنجليزية طليقة (كتابةً وتحدثًا)، لأن كل التوثيق ومراجعات الكود
+والاجتماعات اليومية بتتم بالإنجليزي."
 
 معنى "Fluent English required" هنا عمليًا:
   1. تقدر تكتب Pull Request description واضح بالإنجليزي.
@@ -64,6 +67,35 @@ and daily stand-ups are conducted in English."
 <div class="bi-block">
     <div class="ar">🇪🇬 الخبر الكويس: مش لازم تكون "Native-level" أو حتى C2 — أغلب الشركات فعليًا بتقصد مستوى B2 قوي (زي اللي بنيته في المسار ده): تقدر توصل فكرتك بوضوح، تفهم وتُفهم، حتى لو فيه أخطاء بسيطة أحيانًا.</div>
     <div class="en">🇬🇧 The good news: you don't need to be "native-level" or even C2 — most companies actually mean a solid B2 level (like the one you've built in this track): you can express your ideas clearly, understand and be understood, even with occasional small mistakes.</div>
+</div>
+<div class="output-box">أمثلة إضافية: أنماط جمل IELTS/TOEFL وعبارات إعلانات وظائف
+Extra examples: IELTS/TOEFL sentence patterns &amp; job-posting phrases
+
+1. "In recent years, remote work has become increasingly common across
+    the tech industry." (نمط شائع في IELTS Writing Task 2)
+    → في السنين الأخيرة، بقى الشغل عن بُعد شائع بشكل متزايد في صناعة التقنية.
+    <button type="button" class="speak-btn" data-text="In recent years, remote work has become increasingly common across the tech industry." data-rate="1">🔊 Listen</button>
+
+2. "I've always been passionate about solving problems through code."
+    (نمط شائع في IELTS/TOEFL Speaking عن الاهتمامات الشخصية)
+    → دايمًا كنت شغوف بحل المشاكل من خلال الكود.
+    <button type="button" class="speak-btn" data-text="I've always been passionate about solving problems through code." data-rate="1">🔊 Listen</button>
+
+3. "Strong communication skills in English, both written and verbal,
+    are essential for this role." (عبارة شائعة في إعلانات الوظائف)
+    → مهارات تواصل قوية بالإنجليزي، كتابةً وتحدثًا، أساسية للوظيفة دي.
+
+4. "Comfortable working across different time zones with an
+    international team." (عبارة شائعة في إعلانات الشغل عن بُعد)
+    → مرتاح للشغل عبر مناطق زمنية مختلفة مع فريق عالمي.</div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">Strong communication skills in English, both written and verbal, are essential for this role.</div>
+    <div class="pronunciation-ar">مهارات تواصل قوية بالإنجليزي، كتابةً وتحدثًا، أساسية للوظيفة دي.</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="Strong communication skills in English, both written and verbal, are essential for this role." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="Strong communication skills in English, both written and verbal, are essential for this role." data-rate="0.6">🐢 Slow</button>
+    </div>
 </div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>

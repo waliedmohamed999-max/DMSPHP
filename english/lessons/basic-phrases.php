@@ -32,64 +32,161 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 English clearly distinguishes a formal situation (work, a client, a first-time meeting) from an informal one (friends, close colleagues). Using an informal phrase in a formal setting can come across as impolite without you meaning it.</div>
 </div>
 <div class="output-box">رسمي / Formal:
-  "Good morning. How are you today?"
-  "It's a pleasure to meet you."
-  "Good afternoon, Mr. Smith."
+  "Good morning. How are you today?" → صباح الخير. إزيك النهاردة؟
+  "It's a pleasure to meet you." → تشرفت بمعرفتك.
+  "Good afternoon, Mr. Smith." → مساء الخير يا مستر سميث.
 
 غير رسمي / Informal:
-  "Hey! What's up?"
-  "Hi, how's it going?"
-  "Hey man, good to see you!"</div>
+  "Hey! What's up?" → هاي! أخبارك إيه؟
+  "Hi, how's it going?" → هاي، عامل إيه؟
+  "Hey man, good to see you!" → يا صاحبي، عظيم إني شفتك!</div>
 <h3>❌ خطأ شائع في السياق / Common context mistake</h3>
-<div class="output-box">❌ "Hey what's up" لعميل جديد في أول إيميل رسمي.
-❌ "Good afternoon, how do you do, Sir" لصاحبك في الشات.</div>
+<div class="output-box">❌ "Hey what's up" لعميل جديد في أول إيميل رسمي. → (غير مناسب: ده أسلوب صحابي مش عمل)
+❌ "Good afternoon, how do you do, Sir" لصاحبك في الشات. → (غير مناسب: رسمي جدًا لموقف عادي مع صاحبك)</div>
 <h3>✅ الصح حسب الموقف / Correct for the situation</h3>
-<div class="output-box">✅ عميل/رسمي: "Good morning, I hope you're doing well."
-✅ صاحب/غير رسمي: "Hey! How's it going?"</div>
+<div class="output-box">✅ عميل/رسمي: "Good morning, I hope you're doing well." → صباح الخير، أتمنى تكون بخير.
+✅ صاحب/غير رسمي: "Hey! How's it going?" → هاي! عامل إيه؟</div>
 
 <h2>التعارف / Introductions</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 أشهر جملة تعارف هي "What's your name?" والرد عليها "My name is..." أو ببساطة "I'm...". وبعد ما تعرف حد جديد، بنقول "Nice to meet you" (تشرفنا) — ورد المجاملة عليها بيكون "Nice to meet you too."</div>
     <div class="en">🇬🇧 The most common introduction question is "What's your name?" with the reply "My name is..." or simply "I'm...". After meeting someone new, we say "Nice to meet you" — and the polite reply is "Nice to meet you too."</div>
 </div>
-<div class="output-box">A: Hi, I'm Ahmed. What's your name?
-B: Hi Ahmed, I'm Sara. Nice to meet you!
-A: Nice to meet you too, Sara. Where are you from?
-B: I'm from Cairo. What do you do?
-A: I'm a web developer.</div>
+<div class="output-box">A: Hi, I'm Ahmed. What's your name?     → هاي، أنا أحمد. إيه اسمك؟
+B: Hi Ahmed, I'm Sara. Nice to meet you!  → هاي أحمد، أنا سارة. تشرفنا!
+A: Nice to meet you too, Sara. Where are you from?  → تشرفنا برضو يا سارة. انتي منين؟
+B: I'm from Cairo. What do you do?        → أنا من القاهرة. بتشتغلي إيه؟
+A: I'm a web developer.                    → أنا مطور مواقع.</div>
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "What is your name?" ثم الرد "My name Ahmed." (ناقص فعل to be)
-❌ "I from Cairo." (ناقص am)</div>
+<div class="output-box">❌ "What is your name?" ثم الرد "My name Ahmed." → المفروض: "My name is Ahmed." (ناقص فعل to be)
+❌ "I from Cairo." → المفروض: "I am from Cairo." (ناقص am)</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ "My name is Ahmed." أو "I'm Ahmed."
-✅ "I am from Cairo." أو "I'm from Cairo."</div>
+<div class="output-box">✅ "My name is Ahmed." أو "I'm Ahmed." → اسمي أحمد.
+✅ "I am from Cairo." أو "I'm from Cairo." → أنا من القاهرة.</div>
 
 <h2>عبارات أساسية يومية / Essential Daily Phrases</h2>
 <div class="bi-block">
-    <div class="ar">🇪🇬 دي مجموعة صغيرة هتستخدمها كل يوم تقريبًا: طلب المساعدة، الشكر، الاعتذار، والأسئلة الأساسية (فين، إمتى، إزاي).</div>
-    <div class="en">🇬🇧 This is a small set you'll use almost every day: asking for help, saying thanks, apologizing, and the basic question words (where, when, how).</div>
+    <div class="ar">🇪🇬 دي مجموعة صغيرة هتستخدمها كل يوم تقريبًا: طلب المساعدة، الشكر، الاعتذار، والأسئلة الأساسية (فين، إمتى، إزاي)، بالإضافة لعبارات السؤال عن الاتجاهات وطلب الأكل. دوس على أي بطاقة عشان تشوف الترجمة والمثال.</div>
+    <div class="en">🇬🇧 This is a small set you'll use almost every day: asking for help, saying thanks, apologizing, the basic question words, plus asking for directions and ordering food. Tap any card to see the translation and example.</div>
 </div>
-<div class="output-box">طلب المساعدة / Asking for help:
-  "Can you help me, please?"
-  "Could you explain that again?"
-  "I'm sorry, I didn't understand. Can you repeat that?"
-
-الشكر / Thanks:
-  "Thank you so much!"
-  "Thanks a lot, I appreciate it."
-  "You're welcome." (الرد على الشكر)
-
-أسئلة أساسية / Basic questions:
-  "Where is the bathroom?"
-  "What time is it?"
-  "How does this work?"
-  "How much does it cost?"</div>
+<div class="vocab-grid">
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Can you help me, please?</div>
+            <div class="vocab-pron">/kæn juː hɛlp miː pliːz/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ممكن تساعدني من فضلك؟</div>
+            <div class="vocab-example"><div class="en">Can you help me, please? This form isn't submitting.</div><div class="ar">ممكن تساعدني من فضلك؟ الفورم مش بيتبعت.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Could you explain that again?</div>
+            <div class="vocab-pron">/kʊd juː ɪkˈspleɪn ðæt əˈɡɛn/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ممكن توضح ده تاني؟</div>
+            <div class="vocab-example"><div class="en">Sorry, could you explain that again more slowly?</div><div class="ar">آسف، ممكن توضح ده تاني بس أبطأ شوية؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Thank you so much!</div>
+            <div class="vocab-pron">/θæŋk juː soʊ mʌtʃ/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">شكرًا جزيلًا!</div>
+            <div class="vocab-example"><div class="en">Thank you so much for your help today.</div><div class="ar">شكرًا جزيلًا على مساعدتك النهاردة.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">You're welcome.</div>
+            <div class="vocab-pron">/jɔːr ˈwɛlkəm/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">العفو (رد على الشكر)</div>
+            <div class="vocab-example"><div class="en">"Thanks a lot!" — "You're welcome."</div><div class="ar">"شكرًا جدًا!" — "العفو."</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Where is the bathroom?</div>
+            <div class="vocab-pron">/wɛr ɪz ðə ˈbæθruːm/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">فين الحمام؟</div>
+            <div class="vocab-example"><div class="en">Excuse me, where is the bathroom?</div><div class="ar">لو سمحت، فين الحمام؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">How much does it cost?</div>
+            <div class="vocab-pron">/haʊ mʌtʃ dʌz ɪt kɒst/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">بكام ده؟ / تكلفته كام؟</div>
+            <div class="vocab-example"><div class="en">How much does it cost to renew the domain?</div><div class="ar">تجديد الدومين بكام؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Excuse me, how do I get to...?</div>
+            <div class="vocab-pron">/ɪkˈskjuːz miː haʊ duː aɪ ɡɛt tuː/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">لو سمحت، أروح إزاي لـ...؟ (طلب اتجاهات)</div>
+            <div class="vocab-example"><div class="en">Excuse me, how do I get to the train station?</div><div class="ar">لو سمحت، أروح إزاي لمحطة القطر؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Go straight, then turn left.</div>
+            <div class="vocab-pron">/ɡoʊ streɪt ðɛn tɜːrn lɛft/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">امشي على طول، وبعدين لف شمال. (رد على سؤال اتجاهات)</div>
+            <div class="vocab-example"><div class="en">Go straight, then turn left at the pharmacy.</div><div class="ar">امشي على طول، وبعدين لف شمال عند الصيدلية.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Could I have the menu, please?</div>
+            <div class="vocab-pron">/kʊd aɪ hæv ðə ˈmɛnjuː pliːz/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ممكن آخد المنيو من فضلك؟ (طلب أكل)</div>
+            <div class="vocab-example"><div class="en">Could I have the menu, please? We're ready to order.</div><div class="ar">ممكن آخد المنيو من فضلك؟ إحنا جاهزين نطلب.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">I'd like to order a coffee, please.</div>
+            <div class="vocab-pron">/aɪd laɪk tuː ˈɔːrdər ə ˈkɒfi pliːz/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">عايز أطلب قهوة من فضلك. (طلب أكل/شرب)</div>
+            <div class="vocab-example"><div class="en">I'd like to order a coffee and a sandwich, please.</div><div class="ar">عايز أطلب قهوة وساندوتش من فضلك.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+</div>
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "Where the bathroom?" (ناقص فعل to be: is)
-❌ "How much this cost?" (ترتيب غلط، محتاج does)</div>
+<div class="output-box">❌ "Where the bathroom?" → المفروض: "Where is the bathroom?" (ناقص فعل to be: is)
+❌ "How much this cost?" → المفروض: "How much does this cost?" (ترتيب غلط، محتاج does)</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ "Where is the bathroom?"
-✅ "How much does this cost?"</div>
+<div class="output-box">✅ "Where is the bathroom?" → فين الحمام؟
+✅ "How much does this cost?" → ده بكام؟</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="whats-up">

@@ -45,12 +45,35 @@ include __DIR__ . '/../includes/header.php';
     <div class="ar">🇪🇬 المسار ده هياخدك تدريجيًا من أساسيات A1/A2 لحد إنجليزية تقنية ومهنية تقارب B2/C1 — كافية جدًا لأي وظيفة تقنية أو عمل حر عن بُعد.</div>
     <div class="en">🇬🇧 This track takes you gradually from A1/A2 basics to technical and professional English around B2/C1 — plenty for any tech job or remote freelance work.</div>
 </div>
+<div class="output-box">A1: "My name is Ahmed. I am from Egypt."
+     → اسمي أحمد. أنا من مصر.
+     <button type="button" class="speak-btn" data-text="My name is Ahmed. I am from Egypt." data-rate="1">🔊 Listen</button>
+
+B1: "I usually work from home, but sometimes I go to the office to meet clients."
+     → بشتغل من البيت غالبًا، بس أحيانًا بروح المكتب عشان أقابل عملاء.
+
+C1: "Although the documentation was fairly technical, I managed to implement the feature without much difficulty."
+     → مع إن التوثيق كان تقني نوعًا ما، إلا إني قدرت أنفّذ الميزة من غير صعوبة تُذكر.
+     <button type="button" class="speak-btn" data-text="Although the documentation was fairly technical, I managed to implement the feature without much difficulty." data-rate="1">🔊 Listen</button></div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">I usually work from home, but sometimes I go to the office to meet clients.</div>
+    <div class="pronunciation-ar">بشتغل من البيت غالبًا، بس أحيانًا بروح المكتب عشان أقابل عملاء.</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="I usually work from home, but sometimes I go to the office to meet clients." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="I usually work from home, but sometimes I go to the office to meet clients." data-rate="0.6">🐢 Slow</button>
+    </div>
+</div>
 
 <h2>خطة واقعية / A Realistic Plan</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 أكبر غلطة بيقع فيها المتعلمين إنهم يحاولوا "يتقنوا" اللغة قبل ما يستخدموها. الأصح: ابدأ تستخدم اللي اتعلمته من أول درس — لو اتعلمت 10 كلمات جديدة، جرب تكتب بيهم جملة حقيقية. لو خلصت درس عن الأزمنة، جرب تقرا commit message أو error message حقيقي وشوف قد إيه فهمته.</div>
     <div class="en">🇬🇧 The biggest mistake learners make is trying to "master" the language before using it. The right approach: start using what you learn from lesson one — if you learned 10 new words, try writing a real sentence with them. If you finished a lesson on tenses, try reading a real commit message or error message and see how much you understand.</div>
 </div>
+<div class="output-box">مثال عملي / Practical example:
+"Fixed a bug that caused the login page to crash on mobile devices."
+→ اصلحت باگ كان بيخلي صفحة تسجيل الدخول تقفل فجأة على أجهزة الموبايل.
+(جملة زي دي هتلاقيها في أي commit message — لو فهمتها من غير ترجمة، انت فعلًا بتستخدم اللغة مش بس بتحفظها.)</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="documentation">

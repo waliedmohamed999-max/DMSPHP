@@ -31,20 +31,27 @@ include __DIR__ . '/../includes/header.php';
     <div class="ar">🇪🇬 بنستخدم المضارع البسيط لحاجتين بس: عادة متكررة (بتحصل غالبًا، مش دلوقتي بالظبط)، أو حقيقة ثابتة. الفعل بياخد "s" مع he/she/it: "I work" لكن "She works".</div>
     <div class="en">🇬🇧 We use Present Simple for two things only: a repeated habit (happens generally, not this exact moment), or a fixed fact. The verb takes an "s" with he/she/it: "I work" but "She works".</div>
 </div>
-<div class="output-box">✅ I work at a software company. (حقيقة/وظيفتي بشكل عام)
-✅ She works every day from 9 to 5. (عادة متكررة)
-✅ Water boils at 100°C. (حقيقة علمية ثابتة)
-✅ He drinks coffee every morning. (عادة)</div>
+<div class="output-box">✅ I work at a software company. → بشتغل في شركة برمجيات. (حقيقة/وظيفتي بشكل عام)
+<button type="button" class="speak-btn" data-text="I work at a software company." data-rate="1">🔊 Listen</button>
+✅ She works every day from 9 to 5. → هي بتشتغل كل يوم من 9 لـ5. (عادة متكررة)
+✅ Water boils at 100°C. → المياه بتغلي عند 100 درجة مئوية. (حقيقة علمية ثابتة)
+✅ He drinks coffee every morning. → هو بيشرب قهوة كل صباح. (عادة)
+✅ We usually deploy new updates on Sundays. → إحنا عادةً بنرفع تحديثات جديدة يوم الأحد. (عادة متكررة في الشغل)
+✅ My brother doesn't like fast food. → أخويا مش بيحب الأكل السريع. (حقيقة/تفضيل ثابت)
+✅ The sun rises in the east. → الشمس بتشرق من الشرق. (حقيقة ثابتة)</div>
 
 <h2>المضارع المستمر: حاجة بتحصل دلوقتي / Present Continuous: Happening Now</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 بنستخدم المضارع المستمر (am/is/are + verb-ing) لحاجة بتحصل في اللحظة دي بالظبط، أو حاجة مؤقتة بتحصل حوالين الفترة دي (مش بالضرورة في هالثانية بالظبط).</div>
     <div class="en">🇬🇧 We use Present Continuous (am/is/are + verb-ing) for something happening at this exact moment, or something temporary happening around this period (not necessarily this exact second).</div>
 </div>
-<div class="output-box">✅ I am working right now, can I call you later?
-✅ She is studying English this month.
-✅ Look! It is raining outside.
-✅ They are building a new feature this week.</div>
+<div class="output-box">✅ I am working right now, can I call you later? → بشتغل دلوقتي بالظبط، أقدر أكلمك بعدين؟
+<button type="button" class="speak-btn" data-text="I am working right now, can I call you later?" data-rate="1">🔊 Listen</button>
+✅ She is studying English this month. → هي بتذاكر إنجليزي الشهر ده. (مؤقت، مش عادة دايمة)
+✅ Look! It is raining outside. → بص! بتمطر برة دلوقتي.
+✅ They are building a new feature this week. → هما بيبنوا ميزة جديدة الأسبوع ده.
+✅ I am reviewing your pull request now. → براجع طلب الدمج بتاعك دلوقتي.
+✅ We are still waiting for the client's reply. → لسه بننتظر رد العميل. (حالة مستمرة حاليًا)</div>
 
 <h2>الغلطة الكلاسيكية: البسيط بدل المستمر</h2>
 <div class="bi-block">
@@ -52,21 +59,30 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Arabic doesn't clearly distinguish "I work" (habit) from "I'm working" (currently) — the same verb form covers both. That's why the classic Arabic-speaker mistake is using Present Simple for something actually happening right now, instead of Continuous.</div>
 </div>
 <h3>❌ خطأ شائع (Present Simple غلط) / Common mistake</h3>
-<div class="output-box">❌ "I work on this bug right now, wait a minute."
-❌ "She writes an email at the moment, she'll join soon."
-❌ "Look, he codes something on his laptop."</div>
+<div class="output-box">❌ "I work on this bug right now, wait a minute." → المفروض: I am working... (باشتغل على الباگ ده دلوقتي، استنى دقيقة)
+❌ "She writes an email at the moment, she'll join soon." → المفروض: She is writing... (بتكتب إيميل حاليًا، هتنضم قريب)
+❌ "Look, he codes something on his laptop." → المفروض: he is coding... (بص، هو بيكتب كود على اللابتوب دلوقتي)</div>
 <h3>✅ الصح (Present Continuous) / Correct</h3>
-<div class="output-box">✅ I am working on this bug right now, wait a minute.
-✅ She is writing an email at the moment, she'll join soon.
-✅ Look, he is coding something on his laptop.</div>
+<div class="output-box">✅ I am working on this bug right now, wait a minute. → باشتغل على الباگ ده دلوقتي، استنى دقيقة.
+✅ She is writing an email at the moment, she'll join soon. → بتكتب إيميل حاليًا، هتنضم قريب.
+✅ Look, he is coding something on his laptop. → بص، هو بيكتب كود على اللابتوب دلوقتي.</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 لاحظ كلمات زي "right now", "at the moment", "look!" — دي إشارات قوية إن اللي بيتقال بيحصل دلوقتي بالظبط، يعني المفروض تستخدم معاها المستمر مش البسيط.</div>
     <div class="en">🇬🇧 Notice words like "right now", "at the moment", "look!" — these are strong signals that something is happening this exact moment, meaning you should use Continuous, not Simple.</div>
 </div>
 
+<div class="pronunciation-box">
+    <div class="pronunciation-word">I work at a software company. / I am working right now.</div>
+    <div class="pronunciation-ar">بشتغل في شركة برمجيات. (عادة) / بشتغل دلوقتي بالظبط. (مستمر)</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="I work at a software company. I am working right now." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="I work at a software company. I am working right now." data-rate="0.6">🐢 Slow</button>
+    </div>
+</div>
+
 <h2>كلمات مساعدة تدلّك على الزمن الصح / Signal Words</h2>
-<div class="output-box">Present Simple:  always, usually, often, sometimes, never, every day/week
-Present Continuous:  now, right now, at the moment, currently, look!, listen!</div>
+<div class="output-box">Present Simple:  always (دايمًا), usually (عادةً), often (غالبًا), sometimes (أحيانًا), never (أبدًا), every day/week (كل يوم/أسبوع)
+Present Continuous:  now (دلوقتي), right now (دلوقتي بالظبط), at the moment (حاليًا), currently (في الوقت الحالي), look! (بص!), listen! (اسمع!)</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="is-working">

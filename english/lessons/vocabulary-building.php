@@ -38,9 +38,11 @@ include __DIR__ . '/../includes/header.php';
   Day 7: راجعها رابع مرة
   Day 21: مراجعة أخيرة — دلوقتي هي في ذاكرتك طويلة المدى</div>
 <h3>❌ إستراتيجية ضعيفة / Weak strategy</h3>
-<div class="output-box">❌ حفظ 100 كلمة في ليلة واحدة قبل الامتحان، من غير أي مراجعة بعدها.</div>
+<div class="output-box">❌ حفظ 100 كلمة في ليلة واحدة قبل الامتحان، من غير أي مراجعة بعدها.
+   → "I crammed 100 words the night before the exam." — بعد أسبوع، هتكون نسيت أغلبهم.</div>
 <h3>✅ إستراتيجية قوية / Strong strategy</h3>
-<div class="output-box">✅ تعلم 10 كلمات جديدة يوميًا + راجع كلمات الأيام اللي فاتت (1، 3، 7، 21 يوم) — كمية أقل، لكن بتترسخ فعلًا.</div>
+<div class="output-box">✅ تعلم 10 كلمات جديدة يوميًا + راجع كلمات الأيام اللي فاتت (1، 3، 7، 21 يوم) — كمية أقل، لكن بتترسخ فعلًا.
+   → "I review yesterday's words for two minutes before learning new ones." — براجع كلمات امبارح دقيقتين قبل ما أتعلم كلمات جديدة.</div>
 
 <h2>عائلات الكلمات / Word Families</h2>
 <div class="bi-block">
@@ -62,19 +64,151 @@ succeed (فعل) → نجح         →  success (اسم) → نجاح          
 
 <h2>مثال عملي: بناء مجموعة كلمات لموضوع واحد / Worked Example: A Themed Word Set</h2>
 <div class="bi-block">
-    <div class="ar">🇪🇬 بدل ما تتعلم كلمات عشوائية، ابني مجموعات حوالين موضوع محدد هتحتاجه فعلًا. مثال: موضوع "مقابلة شغل" (Job Interview).</div>
-    <div class="en">🇬🇧 Instead of learning random words, build sets around a specific theme you'll actually need. Example: the theme "Job Interview."</div>
+    <div class="ar">🇪🇬 بدل ما تتعلم كلمات عشوائية، ابني مجموعات حوالين موضوع محدد هتحتاجه فعلًا. مثال أول: موضوع "مقابلة شغل" (Job Interview). دوس على أي بطاقة عشان تشوف الترجمة والمثال.</div>
+    <div class="en">🇬🇧 Instead of learning random words, build sets around a specific theme you'll actually need. First example: the theme "Job Interview." Tap any card to see the translation and example.</div>
 </div>
-<div class="output-box">مجموعة "مقابلة شغل" / "Job Interview" set:
-  candidate       (n.)  المرشح للوظيفة
-  strength        (n.)  نقطة قوة
-  weakness        (n.)  نقطة ضعف
-  experience      (n.)  خبرة
-  qualification   (n.)  مؤهل
-  salary          (n.)  راتب
-  responsibility  (n.)  مسؤولية
-  I'm confident that I'm a strong candidate for this role.
-  My main strength is problem-solving; a weakness I'm working on is public speaking.</div>
+<div class="vocab-grid">
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Candidate</div>
+            <div class="vocab-pron">/ˈkæn.dɪ.dət/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">المرشح للوظيفة</div>
+            <div class="vocab-example"><div class="en">I'm confident that I'm a strong candidate for this role.</div><div class="ar">أنا واثق إني مرشح قوي للوظيفة دي.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Strength</div>
+            <div class="vocab-pron">/strɛŋθ/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">نقطة قوة</div>
+            <div class="vocab-example"><div class="en">My main strength is problem-solving.</div><div class="ar">أهم نقطة قوة عندي هي حل المشاكل.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Weakness</div>
+            <div class="vocab-pron">/ˈwiːk.nəs/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">نقطة ضعف</div>
+            <div class="vocab-example"><div class="en">A weakness I'm working on is public speaking.</div><div class="ar">نقطة الضعف اللي بشتغل عليها هي التحدث أمام الناس.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Experience</div>
+            <div class="vocab-pron">/ɪkˈspɪəriəns/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">خبرة</div>
+            <div class="vocab-example"><div class="en">I have three years of experience in Back-End development.</div><div class="ar">عندي 3 سنين خبرة في تطوير الـ Back-End.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Qualification</div>
+            <div class="vocab-pron">/ˌkwɒl.ɪ.fɪˈkeɪ.ʃən/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">مؤهل</div>
+            <div class="vocab-example"><div class="en">A degree isn't the only qualification that matters here.</div><div class="ar">الشهادة مش المؤهل الوحيد المهم هنا.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Salary</div>
+            <div class="vocab-pron">/ˈsæl.ər.i/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">راتب</div>
+            <div class="vocab-example"><div class="en">What's the expected salary range for this position?</div><div class="ar">إيه نطاق الراتب المتوقع للوظيفة دي؟</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Responsibility</div>
+            <div class="vocab-pron">/rɪˌspɒn.sɪˈbɪl.ɪ.ti/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">مسؤولية</div>
+            <div class="vocab-example"><div class="en">My main responsibility is maintaining the company's website.</div><div class="ar">مسؤوليتي الأساسية هي صيانة موقع الشركة.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+</div>
+
+<h2>مجموعة موضوعية تانية: تطوير الويب / Another Theme: Web Development</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 مثال تاني قريب من شغلك اليومي في سيلا — كلمات هتقابلها كل يوم وانت بتشتغل على أي مشروع برمجي.</div>
+    <div class="en">🇬🇧 A second example close to your daily work in Sila — words you'll meet every day while working on any coding project.</div>
+</div>
+<div class="vocab-grid">
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Deploy</div>
+            <div class="vocab-pron">/dɪˈplɔɪ/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ينشر / يرفع على السيرفر</div>
+            <div class="vocab-example"><div class="en">We deploy new updates every Sunday night.</div><div class="ar">بنرفع تحديثات جديدة كل ليلة أحد.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Debug</div>
+            <div class="vocab-pron">/diːˈbʌɡ/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">يصلّح الأخطاء البرمجية</div>
+            <div class="vocab-example"><div class="en">I spent all morning debugging the login form.</div><div class="ar">قضيت الصبح كله بصلّح أخطاء فورم تسجيل الدخول.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Repository</div>
+            <div class="vocab-pron">/rɪˈpɒz.ɪ.tər.i/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">مستودع الكود</div>
+            <div class="vocab-example"><div class="en">Clone the repository before making any changes.</div><div class="ar">اعمل clone للمستودع قبل ما تعمل أي تعديل.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Feature</div>
+            <div class="vocab-pron">/ˈfiː.tʃər/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">ميزة / خاصية جديدة</div>
+            <div class="vocab-example"><div class="en">This feature lets users reset their password by email.</div><div class="ar">الميزة دي بتخلي المستخدمين يعيدوا ضبط كلمة السر بالإيميل.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+    <div class="vocab-card">
+        <div class="vocab-card-front">
+            <div class="vocab-word">Deadline</div>
+            <div class="vocab-pron">/ˈdɛd.laɪn/</div>
+        </div>
+        <div class="vocab-card-back">
+            <div class="vocab-ar">الموعد النهائي للتسليم</div>
+            <div class="vocab-example"><div class="en">Our deadline for this feature is next Thursday.</div><div class="ar">الموعد النهائي للميزة دي الخميس الجاي.</div></div>
+        </div>
+        <div class="vocab-card-hint">👆 دوس / Tap</div>
+    </div>
+</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="spaced">

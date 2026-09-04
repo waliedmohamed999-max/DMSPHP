@@ -39,13 +39,17 @@ include __DIR__ . '/../includes/header.php';
 </div>
 
 <h3>❌ ترتيب خاطئ (تفكير بالعربي) / Wrong order (Arabic-influenced)</h3>
-<div class="output-box">❌ "Book Ahmed reads."
-❌ "Fast runs he."
-❌ "The apple ate Sara."</div>
+<div class="output-box">❌ "Book Ahmed reads." → المفروض: أحمد بيقرا كتاب.
+❌ "Fast runs he." → المفروض: هو بيجري بسرعة.
+❌ "The apple ate Sara." → المفروض: سارة أكلت التفاحة.</div>
 <h3>✅ الترتيب الصحيح (Subject → Verb → Object) / Correct order</h3>
-<div class="output-box">✅ Ahmed reads a book.       (Subject: Ahmed, Verb: reads, Object: a book)
-✅ He runs fast.              (Subject: He, Verb: runs, Adverb: fast)
-✅ Sara ate the apple.        (Subject: Sara, Verb: ate, Object: the apple)</div>
+<div class="output-box">✅ Ahmed reads a book. → أحمد بيقرا كتاب. (Subject: Ahmed, Verb: reads, Object: a book)
+<button type="button" class="speak-btn" data-text="Ahmed reads a book." data-rate="1">🔊 Listen</button>
+✅ He runs fast. → هو بيجري بسرعة. (Subject: He, Verb: runs, Adverb: fast)
+✅ Sara ate the apple. → سارة أكلت التفاحة. (Subject: Sara, Verb: ate, Object: the apple)
+✅ My team fixed the bug quickly. → فريقي حل الباگ بسرعة. (Subject: My team, Verb: fixed, Object: the bug)
+<button type="button" class="speak-btn" data-text="My team fixed the bug quickly." data-rate="1">🔊 Listen</button>
+✅ The manager reviewed our proposal yesterday. → المدير راجع العرض بتاعنا امبارح. (Subject: The manager, Verb: reviewed, Object: our proposal)</div>
 <div class="bi-block">
     <div class="ar">🇪🇬 لاحظ في "He runs fast" إن الـ Adverb (fast) جه بعد الفعل مش قبله — دي نقطة تانية مهمة: الظروف غالبًا بتيجي في الآخر أو قبل الفعل مباشرة، مش في أول الجملة زي ما ممكن نميل نعمل بالعربي.</div>
     <div class="en">🇬🇧 Notice in "He runs fast" the adverb (fast) comes after the verb, not before — another important point: adverbs usually come at the end or right before the verb, not at the start of the sentence as we might be tempted to do influenced by Arabic.</div>
@@ -58,13 +62,24 @@ include __DIR__ . '/../includes/header.php';
 </div>
 
 <h3>❌ خطأ شائع / Common mistake</h3>
-<div class="output-box">❌ "Ahmed programmer."
-❌ "The weather cold today."
-❌ "I happy."</div>
+<div class="output-box">❌ "Ahmed programmer." → المفروض: أحمد مبرمج.
+❌ "The weather cold today." → المفروض: الجو بارد النهاردة.
+❌ "I happy." → المفروض: أنا مبسوط.</div>
 <h3>✅ الصح / Correct</h3>
-<div class="output-box">✅ Ahmed is a programmer.
-✅ The weather is cold today.
-✅ I am happy.</div>
+<div class="output-box">✅ Ahmed is a programmer. → أحمد مبرمج.
+✅ The weather is cold today. → الجو بارد النهاردة.
+✅ I am happy. → أنا مبسوط.
+✅ They are new here. → هما جداد هنا.
+✅ This project is very important. → المشروع ده مهم جدًا.</div>
+
+<div class="pronunciation-box">
+    <div class="pronunciation-word">Ahmed is a programmer.</div>
+    <div class="pronunciation-ar">أحمد مبرمج.</div>
+    <div class="pronunciation-controls">
+        <button type="button" class="speak-btn" data-text="Ahmed is a programmer." data-rate="1">🔊 Listen</button>
+        <button type="button" class="speak-btn" data-text="Ahmed is a programmer." data-rate="0.6">🐢 Slow</button>
+    </div>
+</div>
 
 <h2 id="quiz">🧠 اختبر فهمك / Test Your Understanding</h2>
 <div class="quiz-box" data-correct="sara-ate">
