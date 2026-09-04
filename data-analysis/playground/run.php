@@ -20,6 +20,16 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 
+// Many cheap shared-hosting plans disable proc_open() at the php.ini level as
+// a blanket security policy. Detect that up front and say so plainly, rather
+// than silently returning "(no output)" and leaving the learner confused.
+if (!function_exists('proc_open')) {
+    echo json_encode([
+        'error' => 'Live code execution is disabled on this server (proc_open is unavailable — likely blocked by your hosting provider). Ask your host to enable proc_open, or run this project on a VPS instead of shared hosting. See the README\'s Deployment section for details.',
+    ]);
+    exit;
+}
+
 $code = $_POST['code'] ?? '';
 if (!is_string($code) || trim($code) === '') {
     echo json_encode(['error' => 'Empty code']);

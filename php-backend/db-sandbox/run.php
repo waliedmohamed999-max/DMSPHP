@@ -20,6 +20,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 
+if (!extension_loaded('pdo_sqlite')) {
+    echo json_encode([
+        'error' => 'The Database Playground needs the pdo_sqlite PHP extension, which is not enabled on this server. Ask your host to enable it (it ships with PHP by default on almost every host, but some restrict it manually).',
+    ]);
+    exit;
+}
+
 $sql = $_POST['sql'] ?? '';
 if (!is_string($sql) || trim($sql) === '') {
     echo json_encode(['error' => 'Empty query']);

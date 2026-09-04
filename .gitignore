@@ -7,3 +7,4 @@
 # Sandbox execution scratch directories (recreated automatically at runtime)
 **/sandbox/*
 !**/sandbox/.gitkeep
+!**/sandbox/.htaccess

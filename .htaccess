@@ -1,0 +1,15 @@
+# Baseline hardening for shared hosting (Apache, e.g. Hostinger).
+
+# Don't let visitors browse folder contents when there's no index file.
+Options -Indexes
+
+# Never serve dotfiles (.env, .git, .htaccess itself, etc.) if one ever ends up here.
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
