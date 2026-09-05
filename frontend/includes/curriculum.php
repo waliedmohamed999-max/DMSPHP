@@ -85,4 +85,28 @@ return [
         'desc_ar'  => 'واحد من أسهل وأقوى أطر عمل JavaScript لبناء تطبيقات ويب تفاعلية.',
         'desc_en'  => 'One of the easiest and most powerful JavaScript frameworks for building interactive web apps.',
     ],
+    'fetch-async-js' => [
+        'title_ar' => 'Fetch API و Async/Await',
+        'title_en' => 'The Fetch API & Async/Await',
+        'desc_ar'  => 'إزاي صفحتك تجيب بيانات حقيقية من الإنترنت من غير ما تعمل Refresh.',
+        'desc_en'  => 'How your page fetches real data from the internet without a page refresh.',
+    ],
+    'accessibility-basics' => [
+        'title_ar' => 'أساسيات إمكانية الوصول (Accessibility)',
+        'title_en' => 'Accessibility (a11y) Basics',
+        'desc_ar'  => 'HTML الدلالي، ARIA، والتنقل بلوحة المفاتيح — موقعك لازم يشتغل لكل الناس.',
+        'desc_en'  => 'Semantic HTML, ARIA, and keyboard navigation — your site must work for everyone.',
+    ],
+    'devtools-debugging' => [
+        'title_ar' => 'أدوات المطوّر في المتصفح',
+        'title_en' => 'Browser DevTools & Debugging',
+        'desc_ar'  => 'الـ Console، الـ Network Tab، وBreakpoints — إزاي تلاقي باگ حقيقي وتفهمه.',
+        'desc_en'  => 'The Console, Network tab, and breakpoints — finding and understanding a real bug.',
+    ],
+    'deploying-frontend' => [
+        'title_ar' => 'نشر موقعك للعامة',
+        'title_en' => 'Deploying Your Site Publicly',
+        'desc_ar'  => 'رفع موقع Front-End حقيقي مجانًا على Vercel أو Netlify — خطوة بخطوة.',
+        'desc_en'  => 'Publishing a real Front-End site for free on Vercel or Netlify — step by step.',
+    ],
 ];

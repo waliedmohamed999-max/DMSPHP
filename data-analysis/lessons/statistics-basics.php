@@ -244,7 +244,7 @@ print("Median without outlier:", st.median(salaries_no_outlier))</textarea>
 
 <div class="nav-buttons">
     <a href="sql-for-analysis.php">← المرحلة السابقة</a>
-    <a href="capstone-analysis.php">المرحلة الجاية / Next: مشروع تحليل بيانات كامل →</a>
+    <a href="messy-real-world-data.php">المرحلة الجاية / Next: التعامل مع بيانات فوضوية حقيقية →</a>
 </div>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

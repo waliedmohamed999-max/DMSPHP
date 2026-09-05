@@ -43,6 +43,18 @@ return [
         'desc_ar'  => 'المتوسط والوسيط والانحراف المعياري — وليه بيفرقوا في تفسير البيانات.',
         'desc_en'  => 'Mean, median, and standard deviation — and why they matter for interpreting data.',
     ],
+    'messy-real-world-data' => [
+        'title_ar' => 'التعامل مع بيانات فوضوية حقيقية',
+        'title_en' => 'Working with Real-World Messy Data',
+        'desc_ar'  => 'قيم ناقصة، تكرار، وأعمدة مختلطة الأنواع — تحدي أصعب وأقرب لواقع الشغل.',
+        'desc_en'  => 'Missing values, duplicates, and mixed-type columns — a harder challenge closer to real work.',
+    ],
+    'time-series-basics' => [
+        'title_ar' => 'أساسيات السلاسل الزمنية',
+        'title_en' => 'Time Series Basics',
+        'desc_ar'  => 'بيانات مرتبطة بالوقت — اتجاهات، موسمية، ومتوسطات متحركة بـ Pandas.',
+        'desc_en'  => 'Time-indexed data — trends, seasonality, and rolling averages with Pandas.',
+    ],
     'capstone-analysis' => [
         'title_ar' => 'مشروع تحليل بيانات كامل',
         'title_en' => 'Capstone Data Analysis Project',

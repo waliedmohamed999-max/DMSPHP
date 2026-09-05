@@ -228,7 +228,7 @@ createApp({
 
 <div class="nav-buttons">
     <a href="testing.php">← المرحلة السابقة</a>
-    <a href="../index.php">لوحة الدروس / Dashboard</a>
+    <a href="fetch-async-js.php">المرحلة الجاية / Next: Fetch API &amp; Async/Await →</a>
 </div>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>
