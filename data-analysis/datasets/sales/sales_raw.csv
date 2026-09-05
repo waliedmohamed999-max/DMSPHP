@@ -1,0 +1,191 @@
+order_id,order_date,customer_id,product,category,quantity,price,discount,region
+10261,28/10/2024,65,Sneakers,Clothing,1.0,36.38,0.0,Cairo
+10132,"Oct 03, 2024",107,Laptop,Electronics,1.0,265.43,0.0,Cairo
+10575,2024-01-25,93,Toaster,Home & Kitchen,4.0,66.0,0.0,giza  
+10454,2024-02-20,42,Headphones,Electronics,2.0,$239.6,0.0,Cairo
+10337,17/03/2024,186,Laptop,Electronics,1.0,329.92,0.0,Cairo
+10580,"Jul 05, 2024",96,Headphones,Electronics,1.0,323.66,0.1,Giza
+10316,2024-10-24,133,Headphones,Electronics,,389.97,0.1,Alexandria
+10439,2024-11-01,22,Water Bottle,Sports,4.0,40.8,0.0,ASWAN
+10053,23/12/2024,61,Bicycle Helmet,Sports,1.0,42.46,0.2,ALEXANDRIA
+10397,"Feb 09, 2024",100,Laptop,Electronics,1.0,254.88,0.1,ALEXANDRIA
+10060,2024-10-09,146,Sunscreen,Beauty,1.0,$32.12,0.0,Cairo
+10585,2024-06-14,192,Running Shoes,Sports,1.0,,0.1,mansoura  
+10496,28/10/2024,20,Cap,Clothing,2.0,29.15,0.0,
+10272,"Jun 02, 2024",171,Laptop,Electronics,1.0,,0.1,Giza
+10278,2024-09-22,193,Headphones,Electronics,1.0,221.46,0.0,alexandria  
+10277,2024-06-24,147,Laptop,Electronics,1.0,188.12,0.0,Giza
+10404,19/04/2024,195,Monitor,Electronics,1.0,344.29,0.0,Giza
+10354,"Nov 02, 2024",74,Jeans,Clothing,1.0,26.21,0.0, Giza
+10369,2024-10-06,141,Frying Pan,Home & Kitchen,1.0,$49.12,0.0,Mansoura
+10306,2024-09-07,45,Bicycle Helmet,Sports,2.0,52.1,0.1,GIZA
+10243,19/11/2024,24,Novel,Books,2.0,11.52,0.0,Mansoura
+10538,"Sep 18, 2024",125,Headphones,Electronics,1.0,$223.5,0.0,Alexandria
+10388,2024-10-02,176,Cutlery Set,Home & Kitchen,2.0,65.61,0.0,giza  
+10544,2024-11-17,154,Perfume,Beauty,2.0,18.6,0.0,ASWAN
+10097,27/10/2024,110,Lipstick,Beauty,2.0,16.48,0.0,Cairo
+10552,"Jun 02, 2024",47,Yoga Mat,Sports,1.0,46.23,0.0,Mansoura
+10470,2024-09-27,5,Jeans,Clothing,1.0,$55.17,0.05,ALEXANDRIA
+10422,2024-02-13,200,Wireless Mouse,Electronics,1.0,192.79,0.05,mansoura  
+10344,21/11/2024,184,Wireless Mouse,Electronics,1.0,$281.68,0.15,mansoura  
+10551,"Aug 26, 2024",181,USB-C Hub,Electronics,1.0,$277.26,0.05,Alexandria
+10545,2024-06-08,96,Toaster,Home & Kitchen,1.0,$71.27,0.0,Alexandria
+10070,2024-09-10,200,Comic,Books,,23.98,0.0,Alexandria
+10539,26/12/2024,124,Toaster,Home & Kitchen,2.0,97.39,0.05,Alexandria
+10308,"Jul 21, 2024",58,Cap,Clothing,1.0,31.78,0.0,alexandria  
+10187,2024-09-20,158,Comic,Books,2.0,12.88,0.05, Giza
+10598,2024-02-16,168,Toaster,Home & Kitchen,1.0,50.05,0.05,Cairo
+10493,24/05/2024,174,Cap,Clothing,1.0,36.47,0.1,mansoura  
+10291,"Mar 21, 2024",1,Dumbbells,Sports,1.0,46.15,0.0,MANSOURA
+10430,2024-09-21,76,Jeans,Clothing,1.0,40.12,0.0,Giza
+10193,2024-08-19,10,Cookbook,Books,1.0,17.97,0.0,aswan  
+10284,16/06/2024,13,Lipstick,Beauty,1.0,8.76,0.0,Mansoura
+10499,"Mar 25, 2024",85,Textbook,Books,1.0,18.04,0.0,giza  
+10305,2024-06-28,157,Blender,Home & Kitchen,,65.54,0.0,ASWAN
+10281,2024-12-10,143,Toaster,Home & Kitchen,-1.0,55.68,0.0,Cairo
+10540,30/05/2024,79,Shampoo,Beauty,2.0,20.89,0.0,ALEXANDRIA
+10204,"May 20, 2024",141,Monitor,Electronics,1.0,209.94,0.0,ASWAN
+10327,2024-10-13,39,Headphones,Electronics,1.0,221.55,0.0,Mansoura
+10013,2024-08-29,36,Dumbbells,Sports,1.0,56.25,0.0,Cairo
+10514,23/11/2024,144,Jeans,Clothing,1.0,20.6,0.0,Cairo
+10003,"Apr 14, 2024",104,Frying Pan,Home & Kitchen,1.0,77.78,0.05,MANSOURA
+10099,2024-07-03,77,Headphones,Electronics,1.0,100.74,0.0,Cairo
+10500,2024-05-22,170,Cap,Clothing,,41.49,0.0,Mansoura
+10235,09/07/2024,114,Frying Pan,Home & Kitchen,2.0,87.28,0.0,Alexandria
+10541,"Nov 11, 2024",107,Blender,Home & Kitchen,1.0,$84.35,0.0,Alexandria
+10558,2024-04-22,105,Novel,Books,1.0,$17.4,0.0, Giza
+10358,2024-02-24,125,USB-C Hub,Electronics,1.0,137.76,0.05,ALEXANDRIA
+10222,28/09/2024,128,Cutlery Set,Home & Kitchen,1.0,$39.01,0.0, Cairo
+10052,"Dec 19, 2024",165,Jeans,Clothing,2.0,48.57,0.0, Alexandria
+10209,2024-04-02,93,Bicycle Helmet,Sports,1.0,30.34,0.0, Cairo
+10441,2024-06-03,40,Lipstick,Beauty,1.0,$17.52,0.0,alexandria  
+10172,26/08/2024,184,Cutlery Set,Home & Kitchen,1.0,84.75,0.05,Giza
+10259,"Jul 13, 2024",171,Lipstick,Beauty,1.0,22.37,0.05,cairo  
+10050,2024-11-29,171,Sunscreen,Beauty,1.0,17.39,0.2,CAIRO
+10571,2024-06-18,143,Monitor,Electronics,,123.3,0.05,Giza
+10202,26/09/2024,27,Blender,Home & Kitchen,4.0,62.6,0.0,giza  
+10322,"Jun 30, 2024",199,Biography,Books,1.0,11.43,0.2,alexandria  
+10417,2024-09-30,66,Cookbook,Books,2.0,12.15,0.0,Alexandria
+10469,2024-02-14,166,Headphones,Electronics,-1.0,365.59,0.05,MANSOURA
+10030,24/11/2024,176,Blender,Home & Kitchen,-1.0,$62.14,0.0,alexandria  
+10353,"Apr 10, 2024",134,Running Shoes,Sports,,40.46,0.0,Cairo
+10564,2024-08-30,25,Cap,Clothing,1.0,$34.03,0.05,Giza
+10351,2024-07-17,38,Laptop,Electronics,1.0,156.74,0.0,Cairo
+10236,21/08/2024,82,Blender,Home & Kitchen,1.0,56.45,0.0,alexandria  
+10115,"Nov 05, 2024",7,Comic,Books,1.0,9.01,0.0,MANSOURA
+10408,2024-09-21,32,Monitor,Electronics,2.0,227.71,0.0, Aswan
+10051,2024-05-31,15,Laptop,Electronics,1.0,249.74,0.1,CAIRO
+10101,28/05/2024,136,Laptop,Electronics,1.0,285.95,0.0,ALEXANDRIA
+10568,"Apr 25, 2024",154,Toaster,Home & Kitchen,1.0,56.26,0.0,Cairo
+10170,2024-08-14,139,Wireless Mouse,Electronics,1.0,$173.06,0.0,Cairo
+10179,2024-06-27,175,Yoga Mat,Sports,2.0,51.47,0.05,Mansoura
+10367,21/11/2024,119,Monitor,Electronics,1.0,$405.15,0.1,Cairo
+10431,"May 16, 2024",11,Biography,Books,1.0,$12.2,0.1,Alexandria
+10146,2024-07-08,25,Novel,Books,1.0,26.3,0.0,alexandria  
+10283,2024-07-03,46,Running Shoes,Sports,1.0,49.22,0.0,Mansoura
+10384,01/07/2024,84,Headphones,Electronics,2.0,410.56,0.0,giza  
+10479,"Apr 25, 2024",127,Monitor,Electronics,3.0,$323.97,0.0,GIZA
+10141,2024-09-21,88,Wireless Mouse,Electronics,1.0,187.43,0.1,Aswan
+10433,2024-03-06,112,Yoga Mat,Sports,1.0,23.96,0.0,Cairo
+10482,17/12/2024,55,Jacket,Clothing,1.0,23.09,0.2,Alexandria
+10140,"Nov 16, 2024",170,T-Shirt,Clothing,1.0,36.02,0.0,
+10055,2024-04-13,152,Running Shoes,Sports,2.0,42.8,0.0, Cairo
+10109,2024-06-21,41,T-Shirt,Clothing,1.0,29.37,0.0,Cairo
+10336,06/01/2024,26,Monitor,Electronics,1.0,212.25,0.0,
+10329,"Jul 19, 2024",56,Headphones,Electronics,1.0,$332.16,0.0, Alexandria
+10220,2024-01-15,35,Monitor,Electronics,1.0,$188.66,0.0,Aswan
+10217,2024-04-22,123,Sunscreen,Beauty,2.0,18.08,0.2,Cairo
+10565,03/06/2024,19,USB-C Hub,Electronics,1.0,295.22,0.0,cairo  
+10435,"Dec 08, 2024",72,Monitor,Electronics,1.0,,0.15,ASWAN
+10346,2024-04-26,69,Bicycle Helmet,Sports,3.0,56.04,0.1,mansoura  
+10154,2024-08-19,44,Wireless Mouse,Electronics,1.0,363.55,0.0,Giza
+10414,30/05/2024,104,Water Bottle,Sports,2.0,37.27,0.0,CAIRO
+10046,"Oct 03, 2024",24,Bicycle Helmet,Sports,1.0,77.48,0.0, Cairo
+10394,2024-12-03,82,Water Bottle,Sports,1.0,27.37,0.0,Cairo
+10506,2024-10-06,46,Headphones,Electronics,1.0,$175.23,0.0,giza  
+10490,04/08/2024,182,Yoga Mat,Sports,1.0,67.57,0.2,Aswan
+10578,"Nov 30, 2024",6,Monitor,Electronics,2.0,,0.15,Alexandria
+10248,2024-04-14,176,Cap,Clothing,1.0,,0.0,Giza
+10082,2024-03-13,99,Blender,Home & Kitchen,1.0,61.95,0.1,CAIRO
+10355,17/04/2024,131,Laptop,Electronics,4.0,223.29,0.0,CAIRO
+10023,"Mar 13, 2024",54,Frying Pan,Home & Kitchen,2.0,$60.07,0.1,Giza
+10304,2024-06-22,81,Jacket,Clothing,4.0,45.94,0.0,Alexandria
+10271,2024-05-02,37,Face Cream,Beauty,2.0,23.87,0.0,
+10159,26/05/2024,69,Coffee Maker,Home & Kitchen,1.0,69.89,0.0,cairo  
+10038,"Dec 07, 2024",65,Toaster,Home & Kitchen,1.0,63.14,0.0,Cairo
+10285,2024-08-09,36,Yoga Mat,Sports,1.0,$39.73,0.0,CAIRO
+10292,2024-01-10,77,Monitor,Electronics,1.0,171.83,0.0,cairo  
+10379,11/12/2024,46,Bicycle Helmet,Sports,,49.81,0.0,ALEXANDRIA
+10010,"Oct 01, 2024",3,T-Shirt,Clothing,,41.74,0.0,Alexandria
+10242,2024-10-20,148,Cookbook,Books,1.0,19.45,0.0,CAIRO
+10473,2024-09-28,136,USB-C Hub,Electronics,2.0,323.66,0.1,Cairo
+10447,25/05/2024,199,Jacket,Clothing,2.0,35.85,0.0,cairo  
+10032,"Apr 10, 2024",151,USB-C Hub,Electronics,1.0,$311.3,0.2,Alexandria
+10022,2024-10-18,156,USB-C Hub,Electronics,1.0,$247.42,0.0,Mansoura
+10508,2024-08-01,23,Yoga Mat,Sports,1.0,$51.94,0.0,Cairo
+10427,04/03/2024,184,Wireless Mouse,Electronics,1.0,$215.19,0.0,Giza
+10025,"Apr 08, 2024",116,Wireless Mouse,Electronics,1.0,313.52,0.0,Aswan
+10419,2024-07-23,28,Water Bottle,Sports,2.0,$41.36,0.05,Cairo
+10166,2024-06-25,31,Monitor,Electronics,1.0,164.62,0.05,alexandria  
+10530,24/07/2024,5,Headphones,Electronics,1.0,354.06,0.0,cairo  
+10249,"Mar 07, 2024",48,Face Cream,Beauty,1.0,20.9,0.1,
+10453,2024-11-17,199,Dumbbells,Sports,4.0,36.35,0.05,Giza
+10142,2024-08-04,122,Running Shoes,Sports,2.0,54.41,0.0,Giza
+10270,21/11/2024,84,USB-C Hub,Electronics,1.0,129.26,0.2,Cairo
+10089,"Nov 11, 2024",153,Laptop,Electronics,1.0,360.04,0.1,CAIRO
+10065,2024-06-20,48,Jacket,Clothing,1.0,45.04,0.1,Cairo
+10445,2024-09-16,93,Cookbook,Books,1.0,17.5,0.0,ASWAN
+10449,15/10/2024,75,Toaster,Home & Kitchen,1.0,43.0,0.0,ASWAN
+10155,"Nov 03, 2024",131,Monitor,Electronics,3.0,385.45,0.0,cairo  
+10382,2024-06-03,72,Toaster,Home & Kitchen,1.0,46.54,0.0,Mansoura
+10451,2024-01-30,190,Blender,Home & Kitchen,1.0,$93.07,0.0,Alexandria
+10229,06/11/2024,30,Cap,Clothing,2.0,$35.46,0.0,Giza
+10592,"Jun 16, 2024",114,Dumbbells,Sports,1.0,$60.35,0.2,GIZA
+10357,2024-07-23,158,Wireless Mouse,Electronics,1.0,239.15,0.1,cairo  
+10040,2024-12-15,108,Cap,Clothing,2.0,$39.06,0.2,Giza
+10416,04/05/2024,138,Textbook,Books,2.0,$7.03,0.1,CAIRO
+10192,"Jul 22, 2024",134,Coffee Maker,Home & Kitchen,1.0,,0.0,giza  
+10245,2024-04-25,51,Yoga Mat,Sports,1.0,61.9,0.15,Mansoura
+10258,2024-03-21,152,Running Shoes,Sports,2.0,16.73,0.0,Cairo
+10583,07/11/2024,92,Water Bottle,Sports,1.0,39.25,0.05,Cairo
+10429,"Jul 20, 2024",154,T-Shirt,Clothing,3.0,39.99,0.05,alexandria  
+10056,2024-12-27,151,USB-C Hub,Electronics,2.0,155.43,0.0,MANSOURA
+10232,2024-11-22,35,Jacket,Clothing,2.0,27.95,0.0,ASWAN
+10071,26/09/2024,13,Yoga Mat,Sports,1.0,,0.0,cairo  
+10386,"Nov 11, 2024",66,Monitor,Electronics,2.0,305.27,0.0,Alexandria
+10239,2024-09-27,179,Headphones,Electronics,1.0,203.97,0.0, Alexandria
+10090,2024-11-06,69,Frying Pan,Home & Kitchen,1.0,$61.96,0.1,
+10289,04/06/2024,189,Running Shoes,Sports,1.0,$55.69,0.0, Giza
+10054,"Apr 04, 2024",145,Monitor,Electronics,1.0,155.0,0.0,GIZA
+10328,2024-12-16,77,Jeans,Clothing,1.0,44.05,0.0,Cairo
+10280,2024-10-11,192,Running Shoes,Sports,1.0,52.27,0.15,CAIRO
+10200,20/08/2024,27,Wireless Mouse,Electronics,1.0,273.6,0.0,Alexandria
+10066,"Oct 25, 2024",39,Sunscreen,Beauty,2.0,14.45,0.0,Aswan
+10471,2024-09-01,96,Cutlery Set,Home & Kitchen,1.0,60.18,0.0,Mansoura
+10188,2024-10-04,76,T-Shirt,Clothing,1.0,$33.1,0.05, Cairo
+10440,21/03/2024,41,Frying Pan,Home & Kitchen,2.0,82.47,0.0,alexandria  
+10221,"Feb 27, 2024",26,Lipstick,Beauty,2.0,15.46,0.0,
+10120,2024-10-06,85,Running Shoes,Sports,2.0,,0.0,MANSOURA
+10319,2024-09-12,196,Monitor,Electronics,1.0,331.2,0.1,GIZA
+10549,30/09/2024,77,Monitor,Electronics,-1.0,149.04,0.2,Giza
+10318,"May 16, 2024",106,Perfume,Beauty,1.0,13.57,0.05,Alexandria
+10455,2024-11-27,46,Laptop,Electronics,1.0,$332.59,0.15,Aswan
+10497,2024-03-09,26,Yoga Mat,Sports,1.0,34.47,0.0,Mansoura
+10518,14/11/2024,175,Cutlery Set,Home & Kitchen,2.0,63.06,0.0,aswan  
+10407,"Apr 18, 2024",23,Lipstick,Beauty,1.0,16.48,0.0,
+10118,2024-08-28,57,Running Shoes,Sports,1.0,42.19,0.2,Mansoura
+10119,2024-09-17,51,Running Shoes,Sports,1.0,45.02,0.0,Cairo
+10303,12/03/2024,192,Running Shoes,Sports,1.0,27.83,0.0,alexandria  
+10517,"Apr 21, 2024",127,Frying Pan,Home & Kitchen,2.0,68.72,0.05,Cairo
+10300,2024-03-14,184,Wireless Mouse,Electronics,2.0,66.39,0.0,Cairo
+10138,2024-06-28,7,Laptop,Electronics,2.0,211.73,0.05, Mansoura
+10552,02/06/2024,47,Yoga Mat,Sports,1.0,46.23,0.0,Mansoura
+10454,"Feb 20, 2024",42,Headphones,Electronics,2.0,239.6,0.0,cairo  
+10146,2024-07-08,25,Novel,Books,1.0,26.3,0.0,Alexandria
+10517,2024-04-21,127,Frying Pan,Home & Kitchen,2.0,68.72,0.05,cairo  
+10289,04/06/2024,189,Running Shoes,Sports,1.0,55.69,0.0,Giza
+10270,"Nov 21, 2024",84,USB-C Hub,Electronics,1.0,$129.26,0.2,Cairo
+10316,2024-10-24,133,Headphones,Electronics,,389.97,0.1,Alexandria
+10141,2024-09-21,88,Wireless Mouse,Electronics,1.0,187.43,0.1,Aswan
+10564,30/08/2024,25,Cap,Clothing,1.0,$34.03,0.05,GIZA
+10209,"Apr 02, 2024",93,Bicycle Helmet,Sports,1.0,30.34,0.0,Cairo

@@ -1,0 +1,57 @@
+{
+  "dataset_name": "Marketing Campaigns Dataset",
+  "file": "dataset.csv",
+  "rows": 30,
+  "columns": 8,
+  "column_names": [
+    "campaign_id",
+    "campaign",
+    "channel",
+    "spend",
+    "impressions",
+    "clicks",
+    "conversions",
+    "revenue"
+  ],
+  "dtypes": {
+    "campaign_id": "int64",
+    "campaign": "str",
+    "channel": "str",
+    "spend": "float64",
+    "impressions": "int64",
+    "clicks": "int64",
+    "conversions": "int64",
+    "revenue": "float64"
+  },
+  "missing_values_per_column": {
+    "campaign_id": 0,
+    "campaign": 0,
+    "channel": 0,
+    "spend": 0,
+    "impressions": 0,
+    "clicks": 0,
+    "conversions": 0,
+    "revenue": 0
+  },
+  "numeric_columns": [
+    "campaign_id",
+    "spend",
+    "impressions",
+    "clicks",
+    "conversions",
+    "revenue"
+  ],
+  "categorical_columns": [
+    "campaign",
+    "channel"
+  ],
+  "source": "Synthetically generated for Sila's Data Analysis track (reproducible via numpy.random.seed) — not scraped/real-world PII, but internally consistent and realistic for teaching purposes.",
+  "business_context_en": "Performance of 6 marketing campaigns across 5 ad channels: spend, impressions, clicks, and conversions.",
+  "business_context_ar": "أداء 6 حملات تسويقية عبر 5 قنوات إعلانية مختلفة: الإنفاق، الظهور، النقرات، والتحويلات.",
+  "sample_business_questions": [
+    "Which campaign performs best?",
+    "Which campaign has the highest ROI?",
+    "Does higher spend generate more revenue?",
+    "Which channel has the highest conversion rate?"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "dataset_name": "Employees (HR) Dataset",
+  "file": "dataset.csv",
+  "rows": 250,
+  "columns": 7,
+  "column_names": [
+    "employee_id",
+    "department",
+    "age",
+    "experience_years",
+    "salary",
+    "performance_score",
+    "attrition"
+  ],
+  "dtypes": {
+    "employee_id": "int64",
+    "department": "str",
+    "age": "int64",
+    "experience_years": "int64",
+    "salary": "float64",
+    "performance_score": "float64",
+    "attrition": "str"
+  },
+  "missing_values_per_column": {
+    "employee_id": 0,
+    "department": 0,
+    "age": 0,
+    "experience_years": 0,
+    "salary": 0,
+    "performance_score": 0,
+    "attrition": 0
+  },
+  "numeric_columns": [
+    "employee_id",
+    "age",
+    "experience_years",
+    "salary",
+    "performance_score"
+  ],
+  "categorical_columns": [
+    "department",
+    "attrition"
+  ],
+  "source": "Synthetically generated for Sila's Data Analysis track (reproducible via numpy.random.seed) — not scraped/real-world PII, but internally consistent and realistic for teaching purposes.",
+  "business_context_en": "Data for 250 employees across 6 departments: salary, experience, performance score, and attrition.",
+  "business_context_ar": "بيانات 250 موظف عبر 6 أقسام: الراتب، الخبرة، تقييم الأداء، ومعدل ترك الخدمة.",
+  "sample_business_questions": [
+    "How does salary vary by department?",
+    "Is there a relationship between performance and attrition?",
+    "What is the average experience per department?"
+  ]
+}

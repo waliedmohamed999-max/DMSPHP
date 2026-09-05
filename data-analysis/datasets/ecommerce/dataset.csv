@@ -1,0 +1,1501 @@
+order_id,customer_id,order_date,product,category,quantity,price,discount,country,revenue
+500000,370,2024-01-12,Toys Item 16,Toys,1,44.34,0.0,UAE,44.34
+500001,343,2024-04-15,Grocery Item 9,Grocery,5,64.8,0.1,Saudi Arabia,291.6
+500002,190,2024-07-07,Grocery Item 39,Grocery,5,88.32,0.05,Lebanon,419.52
+500003,28,2024-07-13,Home Item 12,Home,1,115.16,0.05,Egypt,109.4
+500004,34,2024-06-02,Home Item 1,Home,2,128.94,0.15,Lebanon,219.2
+500005,204,2024-02-16,Toys Item 14,Toys,2,104.39,0.0,Egypt,208.78
+500006,13,2024-05-30,Sports Item 21,Sports,2,24.48,0.0,Egypt,48.96
+500007,423,2024-09-10,Electronics Item 35,Electronics,3,119.45,0.2,Egypt,286.68
+500008,554,2024-12-29,Home Item 35,Home,2,20.91,0.0,Egypt,41.82
+500009,584,2024-10-28,Sports Item 3,Sports,1,134.45,0.25,Egypt,100.84
+500010,31,2024-03-12,Toys Item 10,Toys,4,159.02,0.05,Lebanon,604.28
+500011,231,2024-03-02,Home Item 36,Home,3,121.88,0.0,Egypt,365.64
+500012,317,2024-07-17,Fashion Item 9,Fashion,1,111.77,0.05,UAE,106.18
+500013,67,2024-12-12,Sports Item 18,Sports,3,147.39,0.0,UAE,442.17
+500014,576,2024-08-30,Toys Item 32,Toys,4,84.48,0.1,Morocco,304.13
+500015,309,2024-03-14,Sports Item 28,Sports,5,44.75,0.2,Egypt,179.0
+500016,85,2024-12-30,Fashion Item 33,Fashion,4,120.21,0.0,Morocco,480.84
+500017,203,2024-03-28,Home Item 35,Home,5,52.02,0.2,Saudi Arabia,208.08
+500018,488,2024-06-10,Sports Item 27,Sports,4,124.77,0.0,Saudi Arabia,499.08
+500019,61,2024-12-22,Electronics Item 5,Electronics,2,127.35,0.0,Jordan,254.7
+500020,348,2024-07-30,Toys Item 23,Toys,5,266.85,0.1,Egypt,1200.82
+500021,113,2024-07-04,Grocery Item 29,Grocery,3,30.81,0.1,Egypt,83.19
+500022,92,2024-03-05,Sports Item 6,Sports,5,42.42,0.0,Egypt,212.1
+500023,252,2024-11-13,Fashion Item 23,Fashion,3,94.92,0.0,Egypt,284.76
+500024,297,2024-08-01,Sports Item 26,Sports,3,39.56,0.25,Egypt,89.01
+500025,314,2024-11-02,Sports Item 36,Sports,4,45.56,0.0,Egypt,182.24
+500026,333,2024-12-18,Grocery Item 23,Grocery,3,31.47,0.1,UAE,84.97
+500027,374,2024-12-20,Sports Item 35,Sports,3,25.45,0.2,Egypt,61.08
+500028,306,2024-07-26,Home Item 28,Home,2,76.04,0.0,Egypt,152.08
+500029,500,2024-12-25,Grocery Item 4,Grocery,3,530.98,0.0,Egypt,1592.94
+500030,265,2024-10-21,Electronics Item 31,Electronics,4,109.96,0.0,UAE,439.84
+500031,123,2024-09-18,Home Item 4,Home,5,45.47,0.25,Saudi Arabia,170.51
+500032,206,2024-03-02,Toys Item 1,Toys,5,20.46,0.2,UAE,81.84
+500033,552,2024-06-15,Toys Item 11,Toys,4,29.11,0.1,Jordan,104.8
+500034,291,2024-02-11,Electronics Item 25,Electronics,2,63.94,0.1,UAE,115.09
+500035,66,2024-08-17,Home Item 11,Home,1,131.5,0.0,UAE,131.5
+500036,511,2024-07-21,Toys Item 20,Toys,1,92.72,0.15,Morocco,78.81
+500037,27,2024-02-06,Toys Item 17,Toys,2,63.87,0.1,Saudi Arabia,114.97
+500038,571,2024-04-18,Electronics Item 6,Electronics,3,68.08,0.2,Morocco,163.39
+500039,81,2024-03-13,Toys Item 3,Toys,3,28.75,0.15,Egypt,73.31
+500040,392,2024-05-26,Home Item 33,Home,4,137.67,0.15,Egypt,468.08
+500041,206,2024-03-17,Sports Item 11,Sports,1,74.58,0.25,Egypt,55.94
+500042,484,2024-05-16,Toys Item 23,Toys,1,120.69,0.1,Jordan,108.62
+500043,262,2024-08-30,Electronics Item 10,Electronics,1,29.87,0.1,Jordan,26.88
+500044,506,2024-05-13,Sports Item 31,Sports,4,194.65,0.25,Egypt,583.95
+500045,362,2024-03-08,Fashion Item 22,Fashion,1,79.04,0.2,Lebanon,63.23
+500046,90,2024-05-18,Grocery Item 19,Grocery,4,63.97,0.2,Egypt,204.7
+500047,122,2024-11-17,Fashion Item 37,Fashion,5,26.78,0.0,Egypt,133.9
+500048,99,2024-06-28,Electronics Item 13,Electronics,2,81.05,0.15,UAE,137.78
+500049,238,2024-12-19,Home Item 33,Home,1,56.59,0.0,Morocco,56.59
+500050,451,2024-01-05,Grocery Item 16,Grocery,2,50.26,0.25,Jordan,75.39
+500051,353,2024-05-22,Home Item 17,Home,4,19.83,0.05,Saudi Arabia,75.35
+500052,353,2024-02-09,Electronics Item 30,Electronics,2,76.46,0.0,Saudi Arabia,152.92
+500053,87,2024-04-14,Sports Item 35,Sports,1,38.88,0.0,Egypt,38.88
+500054,519,2024-08-12,Home Item 6,Home,2,110.67,0.1,Morocco,199.21
+500055,5,2024-01-10,Electronics Item 16,Electronics,3,75.22,0.1,UAE,203.09
+500056,220,2024-11-29,Electronics Item 6,Electronics,4,111.42,0.15,Jordan,378.83
+500057,367,2024-03-14,Home Item 30,Home,4,94.58,0.0,UAE,378.32
+500058,523,2024-05-11,Grocery Item 14,Grocery,5,123.02,0.15,Lebanon,522.84
+500059,397,2024-03-26,Sports Item 2,Sports,5,48.4,0.0,Jordan,242.0
+500060,550,2024-08-16,Sports Item 18,Sports,1,103.63,0.05,UAE,98.45
+500061,2,2024-05-19,Sports Item 10,Sports,2,59.98,0.0,Egypt,119.96
+500062,520,2024-12-19,Electronics Item 35,Electronics,3,30.15,0.15,UAE,76.88
+500063,384,2024-07-18,Electronics Item 38,Electronics,4,11.4,0.0,Lebanon,45.6
+500064,188,2024-07-18,Electronics Item 39,Electronics,4,111.7,0.0,Jordan,446.8
+500065,456,2024-09-10,Sports Item 8,Sports,3,61.65,0.05,Egypt,175.7
+500066,416,2024-09-06,Sports Item 32,Sports,5,9.43,0.1,Egypt,42.44
+500067,171,2024-01-19,Fashion Item 17,Fashion,2,119.2,0.0,Egypt,238.4
+500068,591,2024-06-25,Toys Item 8,Toys,4,66.45,0.0,Egypt,265.8
+500069,462,2024-01-11,Electronics Item 18,Electronics,3,155.66,0.0,Egypt,466.98
+500070,59,2024-08-25,Grocery Item 22,Grocery,5,37.43,0.0,Morocco,187.15
+500071,194,2024-07-16,Fashion Item 3,Fashion,1,26.04,0.2,Jordan,20.83
+500072,40,2024-08-24,Fashion Item 6,Fashion,2,19.72,0.25,Morocco,29.58
+500073,67,2024-08-05,Sports Item 19,Sports,3,12.16,0.0,Saudi Arabia,36.48
+500074,387,2024-03-12,Home Item 21,Home,2,36.8,0.05,Egypt,69.92
+500075,557,2024-12-25,Sports Item 24,Sports,2,284.06,0.0,UAE,568.12
+500076,588,2024-01-15,Toys Item 3,Toys,5,96.39,0.1,Morocco,433.76
+500077,271,2024-01-21,Sports Item 19,Sports,1,142.23,0.15,Saudi Arabia,120.9
+500078,331,2024-05-20,Sports Item 8,Sports,4,12.52,0.1,Egypt,45.07
+500079,553,2024-11-06,Toys Item 32,Toys,2,80.72,0.25,UAE,121.08
+500080,293,2024-03-28,Sports Item 27,Sports,5,55.94,0.0,Egypt,279.7
+500081,503,2024-09-23,Toys Item 23,Toys,2,162.61,0.05,UAE,308.96
+500082,194,2024-01-21,Fashion Item 14,Fashion,2,54.19,0.05,Egypt,102.96
+500083,257,2024-10-15,Fashion Item 3,Fashion,5,133.64,0.05,Lebanon,634.79
+500084,72,2024-01-23,Grocery Item 14,Grocery,3,99.57,0.0,UAE,298.71
+500085,376,2024-06-02,Toys Item 26,Toys,1,95.76,0.0,UAE,95.76
+500086,172,2024-07-09,Home Item 12,Home,4,29.73,0.0,Egypt,118.92
+500087,598,2024-08-08,Sports Item 26,Sports,3,176.5,0.0,UAE,529.5
+500088,371,2024-08-30,Sports Item 34,Sports,1,121.0,0.15,Egypt,102.85
+500089,91,2024-02-18,Toys Item 8,Toys,5,98.88,0.0,Morocco,494.4
+500090,65,2024-03-12,Electronics Item 18,Electronics,5,63.32,0.2,Jordan,253.28
+500091,394,2024-11-23,Sports Item 39,Sports,5,40.37,0.05,Jordan,191.76
+500092,47,2024-06-18,Fashion Item 35,Fashion,1,173.43,0.0,UAE,173.43
+500093,135,2024-03-02,Sports Item 20,Sports,2,58.62,0.15,Jordan,99.65
+500094,228,2024-10-06,Sports Item 14,Sports,3,117.71,0.0,Egypt,353.13
+500095,176,2024-08-08,Home Item 4,Home,3,23.71,0.15,UAE,60.46
+500096,36,2024-12-17,Sports Item 17,Sports,5,54.92,0.0,Egypt,274.6
+500097,430,2024-08-17,Electronics Item 19,Electronics,4,90.74,0.1,UAE,326.66
+500098,180,2024-09-07,Toys Item 3,Toys,3,31.41,0.2,Egypt,75.38
+500099,162,2024-08-28,Sports Item 25,Sports,1,27.14,0.0,Egypt,27.14
+500100,346,2024-12-09,Fashion Item 29,Fashion,2,51.18,0.1,Egypt,92.12
+500101,240,2024-10-26,Grocery Item 20,Grocery,4,34.49,0.1,Egypt,124.16
+500102,502,2024-06-21,Home Item 39,Home,1,116.41,0.1,UAE,104.77
+500103,304,2024-04-12,Sports Item 36,Sports,1,50.64,0.0,Morocco,50.64
+500104,35,2024-06-09,Electronics Item 9,Electronics,3,66.72,0.15,Egypt,170.14
+500105,280,2024-11-10,Home Item 26,Home,1,108.14,0.15,UAE,91.92
+500106,178,2024-07-01,Fashion Item 33,Fashion,4,114.44,0.15,Jordan,389.1
+500107,398,2024-02-17,Fashion Item 6,Fashion,3,19.66,0.0,Saudi Arabia,58.98
+500108,6,2024-02-21,Grocery Item 12,Grocery,1,32.39,0.05,Saudi Arabia,30.77
+500109,82,2024-07-18,Home Item 38,Home,5,94.06,0.25,Lebanon,352.72
+500110,570,2024-11-13,Toys Item 27,Toys,2,64.15,0.25,Egypt,96.22
+500111,149,2024-02-28,Fashion Item 38,Fashion,2,34.25,0.0,Saudi Arabia,68.5
+500112,340,2024-08-16,Sports Item 30,Sports,5,6.61,0.0,Egypt,33.05
+500113,70,2024-01-18,Home Item 7,Home,1,235.08,0.0,UAE,235.08
+500114,196,2024-11-01,Electronics Item 37,Electronics,3,62.05,0.05,Egypt,176.84
+500115,250,2024-06-12,Home Item 15,Home,2,14.1,0.0,UAE,28.2
+500116,491,2024-05-06,Grocery Item 4,Grocery,3,189.61,0.15,UAE,483.51
+500117,593,2024-01-29,Grocery Item 36,Grocery,3,60.9,0.1,Egypt,164.43
+500118,54,2024-07-09,Electronics Item 26,Electronics,4,28.23,0.0,Jordan,112.92
+500119,245,2024-12-14,Toys Item 30,Toys,1,58.24,0.2,Saudi Arabia,46.59
+500120,580,2024-12-11,Home Item 18,Home,2,36.56,0.25,Lebanon,54.84
+500121,164,2024-04-17,Toys Item 14,Toys,4,52.88,0.0,Morocco,211.52
+500122,477,2024-07-29,Electronics Item 9,Electronics,1,15.72,0.1,Egypt,14.15
+500123,545,2024-05-25,Electronics Item 6,Electronics,1,35.94,0.15,UAE,30.55
+500124,376,2024-05-07,Fashion Item 35,Fashion,2,67.21,0.05,Egypt,127.7
+500125,589,2024-12-11,Toys Item 33,Toys,1,212.71,0.0,UAE,212.71
+500126,510,2024-07-12,Toys Item 27,Toys,3,167.7,0.1,Saudi Arabia,452.79
+500127,234,2024-03-26,Grocery Item 6,Grocery,2,75.64,0.05,Egypt,143.72
+500128,46,2024-10-15,Home Item 22,Home,5,158.7,0.0,Egypt,793.5
+500129,320,2024-03-06,Sports Item 16,Sports,5,42.26,0.05,Egypt,200.74
+500130,476,2024-06-24,Fashion Item 18,Fashion,3,10.87,0.1,Egypt,29.35
+500131,236,2024-12-24,Sports Item 10,Sports,5,251.09,0.25,Egypt,941.59
+500132,375,2024-04-20,Home Item 39,Home,5,53.1,0.05,Egypt,252.22
+500133,277,2024-05-06,Toys Item 1,Toys,1,224.51,0.2,Egypt,179.61
+500134,198,2024-09-10,Electronics Item 18,Electronics,2,22.13,0.0,Jordan,44.26
+500135,448,2024-09-07,Fashion Item 23,Fashion,1,57.16,0.05,UAE,54.3
+500136,213,2024-12-10,Grocery Item 38,Grocery,5,174.71,0.25,Egypt,655.16
+500137,442,2024-11-18,Fashion Item 19,Fashion,3,101.22,0.05,Saudi Arabia,288.48
+500138,240,2024-09-01,Home Item 32,Home,2,173.37,0.0,Lebanon,346.74
+500139,558,2024-04-27,Grocery Item 8,Grocery,3,68.82,0.15,Egypt,175.49
+500140,246,2024-08-01,Home Item 16,Home,5,23.72,0.0,UAE,118.6
+500141,346,2024-07-27,Sports Item 5,Sports,5,19.55,0.05,Egypt,92.86
+500142,33,2024-10-17,Electronics Item 28,Electronics,2,30.37,0.05,UAE,57.7
+500143,170,2024-03-17,Fashion Item 30,Fashion,1,72.38,0.1,Egypt,65.14
+500144,371,2024-12-13,Electronics Item 26,Electronics,3,28.49,0.05,Egypt,81.2
+500145,589,2024-02-20,Sports Item 23,Sports,1,63.33,0.0,Jordan,63.33
+500146,298,2024-06-05,Sports Item 16,Sports,3,20.66,0.15,Saudi Arabia,52.68
+500147,137,2024-01-18,Fashion Item 27,Fashion,1,30.35,0.05,Saudi Arabia,28.83
+500148,537,2024-09-20,Electronics Item 13,Electronics,1,41.47,0.2,Saudi Arabia,33.18
+500149,504,2024-08-11,Toys Item 27,Toys,5,46.44,0.0,Egypt,232.2
+500150,82,2024-02-06,Toys Item 4,Toys,4,25.27,0.1,UAE,90.97
+500151,448,2024-02-03,Toys Item 34,Toys,2,54.02,0.1,Saudi Arabia,97.24
+500152,330,2024-11-09,Toys Item 2,Toys,1,21.95,0.0,UAE,21.95
+500153,30,2024-04-11,Home Item 2,Home,2,203.71,0.15,UAE,346.31
+500154,512,2024-04-08,Grocery Item 27,Grocery,3,9.51,0.05,UAE,27.1
+500155,546,2024-10-05,Toys Item 18,Toys,1,83.52,0.0,Saudi Arabia,83.52
+500156,395,2024-11-25,Electronics Item 10,Electronics,3,62.78,0.0,Egypt,188.34
+500157,332,2024-04-08,Grocery Item 33,Grocery,1,29.49,0.05,Egypt,28.02
+500158,578,2024-02-05,Grocery Item 31,Grocery,3,194.95,0.05,Morocco,555.61
+500159,306,2024-01-22,Electronics Item 33,Electronics,4,14.4,0.0,UAE,57.6
+500160,572,2024-06-24,Home Item 14,Home,5,126.59,0.0,UAE,632.95
+500161,259,2024-02-14,Sports Item 6,Sports,5,31.42,0.15,Jordan,133.54
+500162,472,2024-05-18,Home Item 13,Home,3,79.65,0.25,Egypt,179.21
+500163,166,2024-11-21,Sports Item 30,Sports,4,57.22,0.1,UAE,205.99
+500164,18,2024-11-16,Fashion Item 13,Fashion,5,59.67,0.1,UAE,268.52
+500165,495,2024-07-17,Home Item 36,Home,1,160.05,0.0,Lebanon,160.05
+500166,374,2024-07-24,Home Item 22,Home,2,249.13,0.0,Egypt,498.26
+500167,401,2024-08-21,Sports Item 26,Sports,2,43.69,0.0,Egypt,87.38
+500168,32,2024-06-12,Electronics Item 29,Electronics,5,47.51,0.1,Saudi Arabia,213.8
+500169,444,2024-09-03,Sports Item 34,Sports,1,63.15,0.0,UAE,63.15
+500170,446,2024-12-04,Toys Item 25,Toys,3,161.58,0.0,UAE,484.74
+500171,396,2024-11-09,Electronics Item 20,Electronics,2,36.72,0.0,Saudi Arabia,73.44
+500172,107,2024-08-23,Electronics Item 36,Electronics,4,138.86,0.05,UAE,527.67
+500173,408,2024-12-28,Toys Item 4,Toys,1,27.57,0.25,Jordan,20.68
+500174,224,2024-09-18,Toys Item 37,Toys,2,50.46,0.05,UAE,95.87
+500175,334,2024-07-30,Toys Item 7,Toys,5,82.49,0.0,UAE,412.45
+500176,305,2024-02-14,Electronics Item 5,Electronics,5,83.85,0.0,Morocco,419.25
+500177,429,2024-02-19,Grocery Item 4,Grocery,4,47.8,0.0,Morocco,191.2
+500178,487,2024-10-11,Electronics Item 39,Electronics,1,55.55,0.25,UAE,41.66
+500179,373,2024-11-04,Electronics Item 13,Electronics,3,40.48,0.1,Egypt,109.3
+500180,178,2024-01-23,Fashion Item 4,Fashion,2,55.98,0.2,Egypt,89.57
+500181,171,2024-09-01,Sports Item 25,Sports,2,35.76,0.0,Egypt,71.52
+500182,597,2024-11-25,Toys Item 24,Toys,2,235.05,0.0,Jordan,470.1
+500183,548,2024-01-01,Fashion Item 15,Fashion,4,64.07,0.0,Morocco,256.28
+500184,245,2024-07-23,Electronics Item 11,Electronics,1,118.63,0.0,Morocco,118.63
+500185,57,2024-12-28,Home Item 4,Home,2,11.65,0.25,UAE,17.48
+500186,549,2024-06-02,Electronics Item 17,Electronics,2,15.46,0.25,UAE,23.19
+500187,178,2024-10-15,Fashion Item 30,Fashion,2,184.62,0.15,UAE,313.85
+500188,33,2024-04-07,Fashion Item 18,Fashion,4,110.98,0.0,Egypt,443.92
+500189,385,2024-08-12,Grocery Item 23,Grocery,1,146.62,0.0,Morocco,146.62
+500190,42,2024-06-22,Home Item 27,Home,4,63.14,0.05,Egypt,239.93
+500191,551,2024-05-24,Home Item 25,Home,4,239.97,0.0,Jordan,959.88
+500192,535,2024-08-10,Electronics Item 35,Electronics,4,98.45,0.25,Saudi Arabia,295.35
+500193,180,2024-04-10,Home Item 21,Home,2,215.82,0.0,Egypt,431.64
+500194,364,2024-03-23,Grocery Item 6,Grocery,5,55.13,0.1,Egypt,248.09
+500195,159,2024-04-28,Grocery Item 9,Grocery,1,71.11,0.0,UAE,71.11
+500196,120,2024-02-24,Sports Item 30,Sports,5,14.34,0.25,Lebanon,53.78
+500197,77,2024-03-28,Home Item 31,Home,1,31.47,0.05,Egypt,29.9
+500198,96,2024-03-08,Grocery Item 34,Grocery,2,25.75,0.0,UAE,51.5
+500199,49,2024-11-08,Home Item 28,Home,4,223.16,0.0,Egypt,892.64
+500200,564,2024-01-01,Grocery Item 39,Grocery,1,21.96,0.15,Morocco,18.67
+500201,477,2024-03-24,Home Item 27,Home,2,24.34,0.2,Saudi Arabia,38.94
+500202,464,2024-11-22,Sports Item 30,Sports,4,125.33,0.2,Egypt,401.06
+500203,347,2024-09-18,Sports Item 10,Sports,2,86.9,0.1,UAE,156.42
+500204,243,2024-04-25,Sports Item 29,Sports,4,23.51,0.0,Morocco,94.04
+500205,102,2024-05-13,Electronics Item 24,Electronics,1,60.71,0.05,Morocco,57.67
+500206,205,2024-04-04,Sports Item 14,Sports,1,68.04,0.0,Saudi Arabia,68.04
+500207,186,2024-06-26,Grocery Item 16,Grocery,2,77.88,0.05,Saudi Arabia,147.97
+500208,324,2024-01-06,Home Item 5,Home,2,26.42,0.05,Egypt,50.2
+500209,396,2024-09-13,Home Item 33,Home,3,103.69,0.15,Egypt,264.41
+500210,283,2024-02-02,Grocery Item 25,Grocery,3,27.11,0.2,Saudi Arabia,65.06
+500211,598,2024-01-10,Fashion Item 31,Fashion,5,12.13,0.0,Egypt,60.65
+500212,243,2024-02-14,Fashion Item 2,Fashion,1,84.47,0.25,Jordan,63.35
+500213,264,2024-03-28,Home Item 36,Home,3,60.16,0.2,Morocco,144.38
+500214,528,2024-08-08,Grocery Item 23,Grocery,3,15.68,0.25,Egypt,35.28
+500215,192,2024-08-07,Fashion Item 6,Fashion,3,156.61,0.1,Morocco,422.85
+500216,405,2024-09-19,Sports Item 21,Sports,4,6.43,0.1,UAE,23.15
+500217,97,2024-01-25,Home Item 29,Home,1,27.86,0.0,UAE,27.86
+500218,389,2024-09-12,Toys Item 27,Toys,4,23.98,0.0,Lebanon,95.92
+500219,244,2024-04-10,Sports Item 15,Sports,2,14.51,0.0,Morocco,29.02
+500220,345,2024-12-09,Home Item 7,Home,1,62.68,0.05,Jordan,59.55
+500221,214,2024-11-20,Grocery Item 35,Grocery,2,21.28,0.1,Egypt,38.3
+500222,246,2024-05-31,Home Item 25,Home,2,49.35,0.0,UAE,98.7
+500223,386,2024-09-22,Electronics Item 29,Electronics,5,76.2,0.15,Egypt,323.85
+500224,38,2024-01-29,Toys Item 3,Toys,1,53.7,0.1,Saudi Arabia,48.33
+500225,564,2024-01-28,Fashion Item 5,Fashion,3,76.8,0.0,Egypt,230.4
+500226,534,2024-05-29,Grocery Item 12,Grocery,3,132.29,0.1,UAE,357.18
+500227,401,2024-03-22,Toys Item 20,Toys,1,144.15,0.1,Egypt,129.74
+500228,46,2024-11-26,Home Item 34,Home,4,54.96,0.0,UAE,219.84
+500229,21,2024-12-05,Home Item 35,Home,4,21.04,0.2,Saudi Arabia,67.33
+500230,77,2024-10-25,Grocery Item 8,Grocery,5,11.96,0.0,Morocco,59.8
+500231,551,2024-03-12,Fashion Item 19,Fashion,5,51.78,0.0,Lebanon,258.9
+500232,51,2024-06-17,Home Item 24,Home,4,197.0,0.0,Egypt,788.0
+500233,205,2024-06-29,Home Item 5,Home,5,12.54,0.05,Jordan,59.56
+500234,87,2024-11-17,Electronics Item 26,Electronics,1,59.85,0.1,Jordan,53.86
+500235,457,2024-12-17,Sports Item 29,Sports,2,70.39,0.05,Jordan,133.74
+500236,6,2024-02-22,Fashion Item 34,Fashion,3,18.89,0.0,Saudi Arabia,56.67
+500237,503,2024-04-05,Fashion Item 18,Fashion,4,90.74,0.0,Egypt,362.96
+500238,529,2024-08-22,Sports Item 1,Sports,2,161.52,0.05,Saudi Arabia,306.89
+500239,359,2024-01-28,Electronics Item 12,Electronics,2,31.45,0.0,UAE,62.9
+500240,54,2024-08-24,Fashion Item 19,Fashion,5,88.11,0.1,Morocco,396.5
+500241,210,2024-05-03,Sports Item 23,Sports,3,7.31,0.1,UAE,19.74
+500242,267,2024-12-30,Sports Item 21,Sports,5,53.86,0.15,Egypt,228.9
+500243,550,2024-10-06,Toys Item 35,Toys,5,22.33,0.1,Morocco,100.48
+500244,460,2024-07-17,Home Item 6,Home,2,24.04,0.0,UAE,48.08
+500245,68,2024-12-21,Grocery Item 24,Grocery,5,65.78,0.0,UAE,328.9
+500246,11,2024-07-04,Electronics Item 9,Electronics,5,198.05,0.25,Egypt,742.69
+500247,338,2024-02-10,Toys Item 17,Toys,5,44.16,0.1,Egypt,198.72
+500248,585,2024-07-10,Electronics Item 11,Electronics,1,32.82,0.0,Saudi Arabia,32.82
+500249,89,2024-09-02,Electronics Item 29,Electronics,5,55.7,0.15,Saudi Arabia,236.72
+500250,232,2024-11-05,Home Item 33,Home,2,46.2,0.1,Saudi Arabia,83.16
+500251,311,2024-02-11,Grocery Item 13,Grocery,2,60.79,0.2,Egypt,97.26
+500252,164,2024-01-30,Fashion Item 21,Fashion,3,82.57,0.0,UAE,247.71
+500253,560,2024-07-11,Electronics Item 21,Electronics,3,40.96,0.0,Saudi Arabia,122.88
+500254,41,2024-10-13,Fashion Item 6,Fashion,1,80.89,0.25,UAE,60.67
+500255,305,2024-02-04,Sports Item 18,Sports,1,16.62,0.05,UAE,15.79
+500256,10,2024-10-22,Home Item 24,Home,3,49.68,0.15,Morocco,126.68
+500257,548,2024-11-03,Fashion Item 2,Fashion,1,145.8,0.25,Egypt,109.35
+500258,71,2024-09-13,Toys Item 15,Toys,4,83.45,0.15,Saudi Arabia,283.73
+500259,248,2024-01-12,Fashion Item 6,Fashion,5,84.35,0.25,Saudi Arabia,316.31
+500260,18,2024-07-21,Home Item 9,Home,1,94.69,0.0,Morocco,94.69
+500261,473,2024-09-29,Home Item 29,Home,5,89.47,0.0,Egypt,447.35
+500262,98,2024-03-20,Toys Item 30,Toys,3,13.79,0.0,Egypt,41.37
+500263,483,2024-08-17,Electronics Item 7,Electronics,4,67.48,0.25,Morocco,202.44
+500264,93,2024-06-03,Grocery Item 11,Grocery,1,75.36,0.1,UAE,67.82
+500265,590,2024-09-11,Grocery Item 23,Grocery,5,71.5,0.0,Lebanon,357.5
+500266,186,2024-07-07,Grocery Item 12,Grocery,2,27.37,0.0,Egypt,54.74
+500267,190,2024-01-19,Electronics Item 11,Electronics,3,24.33,0.2,Egypt,58.39
+500268,510,2024-08-26,Home Item 5,Home,2,32.02,0.15,Egypt,54.43
+500269,118,2024-10-19,Sports Item 6,Sports,4,56.08,0.05,Egypt,213.1
+500270,544,2024-11-19,Toys Item 24,Toys,4,7.74,0.05,Saudi Arabia,29.41
+500271,467,2024-05-27,Fashion Item 14,Fashion,5,62.76,0.0,Egypt,313.8
+500272,360,2024-03-14,Toys Item 14,Toys,2,48.33,0.25,Jordan,72.5
+500273,279,2024-09-09,Home Item 37,Home,5,17.19,0.25,Egypt,64.46
+500274,276,2024-04-15,Toys Item 28,Toys,4,37.84,0.0,Egypt,151.36
+500275,501,2024-04-27,Electronics Item 5,Electronics,5,143.1,0.05,Saudi Arabia,679.72
+500276,77,2024-04-05,Electronics Item 22,Electronics,4,24.04,0.1,Egypt,86.54
+500277,386,2024-08-11,Grocery Item 35,Grocery,2,109.69,0.1,UAE,197.44
+500278,346,2024-11-15,Electronics Item 14,Electronics,2,3.9,0.1,Egypt,7.02
+500279,210,2024-02-05,Fashion Item 30,Fashion,3,128.48,0.0,Egypt,385.44
+500280,459,2024-02-25,Fashion Item 34,Fashion,2,14.83,0.25,UAE,22.24
+500281,549,2024-05-31,Fashion Item 6,Fashion,5,91.36,0.2,Morocco,365.44
+500282,133,2024-03-13,Electronics Item 10,Electronics,5,124.49,0.1,Lebanon,560.2
+500283,548,2024-07-07,Sports Item 11,Sports,1,23.6,0.0,Egypt,23.6
+500284,152,2024-01-27,Home Item 16,Home,5,56.42,0.15,Egypt,239.79
+500285,410,2024-11-29,Toys Item 24,Toys,5,161.83,0.25,Saudi Arabia,606.86
+500286,573,2024-07-09,Toys Item 7,Toys,4,48.28,0.1,Egypt,173.81
+500287,565,2024-07-13,Sports Item 22,Sports,3,13.33,0.0,Jordan,39.99
+500288,477,2024-01-25,Fashion Item 18,Fashion,1,21.57,0.0,Egypt,21.57
+500289,51,2024-01-01,Electronics Item 6,Electronics,2,145.09,0.0,UAE,290.18
+500290,272,2024-08-30,Home Item 3,Home,5,77.99,0.2,Jordan,311.96
+500291,590,2024-02-04,Fashion Item 26,Fashion,3,12.26,0.05,Egypt,34.94
+500292,109,2024-05-24,Sports Item 7,Sports,1,72.37,0.0,UAE,72.37
+500293,543,2024-07-01,Toys Item 20,Toys,1,61.69,0.0,Saudi Arabia,61.69
+500294,471,2024-01-27,Sports Item 2,Sports,3,30.04,0.0,Jordan,90.12
+500295,427,2024-08-02,Sports Item 20,Sports,3,40.24,0.05,UAE,114.68
+500296,132,2024-12-04,Grocery Item 39,Grocery,3,74.53,0.0,Lebanon,223.59
+500297,452,2024-02-02,Home Item 27,Home,1,101.62,0.0,Egypt,101.62
+500298,127,2024-12-02,Grocery Item 20,Grocery,5,134.57,0.0,UAE,672.85
+500299,370,2024-11-12,Fashion Item 37,Fashion,2,66.33,0.25,Egypt,99.5
+500300,582,2024-11-21,Sports Item 10,Sports,5,103.29,0.0,UAE,516.45
+500301,301,2024-05-25,Toys Item 21,Toys,1,74.05,0.2,Egypt,59.24
+500302,324,2024-02-04,Fashion Item 25,Fashion,5,76.67,0.0,UAE,383.35
+500303,506,2024-03-25,Grocery Item 35,Grocery,2,125.51,0.0,Egypt,251.02
+500304,129,2024-02-26,Electronics Item 22,Electronics,4,39.1,0.0,Jordan,156.4
+500305,284,2024-05-26,Sports Item 28,Sports,3,53.29,0.0,Jordan,159.87
+500306,600,2024-11-18,Electronics Item 31,Electronics,1,112.32,0.05,Jordan,106.7
+500307,233,2024-06-24,Home Item 16,Home,4,109.38,0.25,Saudi Arabia,328.14
+500308,328,2024-05-13,Electronics Item 23,Electronics,4,58.95,0.1,Egypt,212.22
+500309,563,2024-08-18,Electronics Item 6,Electronics,5,7.73,0.05,Saudi Arabia,36.72
+500310,258,2024-12-06,Sports Item 3,Sports,4,108.29,0.25,UAE,324.87
+500311,360,2024-11-14,Toys Item 30,Toys,3,143.09,0.0,Saudi Arabia,429.27
+500312,40,2024-02-15,Toys Item 3,Toys,3,81.99,0.0,Lebanon,245.97
+500313,369,2024-01-06,Grocery Item 8,Grocery,3,53.34,0.05,Jordan,152.02
+500314,195,2024-09-04,Electronics Item 14,Electronics,2,52.57,0.05,Egypt,99.88
+500315,298,2024-08-12,Home Item 35,Home,5,191.27,0.05,Morocco,908.53
+500316,167,2024-02-27,Home Item 33,Home,4,106.04,0.05,Egypt,402.95
+500317,469,2024-03-06,Home Item 20,Home,2,16.81,0.2,Egypt,26.9
+500318,182,2024-05-13,Electronics Item 2,Electronics,2,27.95,0.0,Saudi Arabia,55.9
+500319,178,2024-06-19,Fashion Item 7,Fashion,4,25.49,0.0,Egypt,101.96
+500320,534,2024-06-07,Toys Item 3,Toys,2,169.42,0.0,Morocco,338.84
+500321,214,2024-09-02,Grocery Item 17,Grocery,4,271.32,0.0,Saudi Arabia,1085.28
+500322,121,2024-01-14,Toys Item 30,Toys,2,6.16,0.1,Morocco,11.09
+500323,184,2024-09-26,Grocery Item 16,Grocery,4,54.74,0.25,Egypt,164.22
+500324,235,2024-03-30,Toys Item 7,Toys,1,87.65,0.0,Saudi Arabia,87.65
+500325,483,2024-03-29,Toys Item 15,Toys,2,174.23,0.0,Saudi Arabia,348.46
+500326,315,2024-03-13,Home Item 21,Home,5,38.18,0.0,Egypt,190.9
+500327,395,2024-03-18,Electronics Item 8,Electronics,1,73.19,0.0,Saudi Arabia,73.19
+500328,523,2024-03-20,Fashion Item 37,Fashion,1,231.95,0.2,Jordan,185.56
+500329,195,2024-07-01,Sports Item 3,Sports,3,5.45,0.05,Egypt,15.53
+500330,203,2024-07-19,Electronics Item 31,Electronics,3,84.19,0.0,Saudi Arabia,252.57
+500331,390,2024-11-03,Grocery Item 19,Grocery,3,64.79,0.0,Egypt,194.37
+500332,529,2024-06-24,Fashion Item 31,Fashion,1,43.15,0.1,Jordan,38.84
+500333,121,2024-10-03,Electronics Item 30,Electronics,5,94.29,0.0,Jordan,471.45
+500334,40,2024-04-09,Grocery Item 22,Grocery,4,31.55,0.0,Morocco,126.2
+500335,475,2024-10-19,Toys Item 17,Toys,5,127.39,0.1,UAE,573.26
+500336,534,2024-10-29,Sports Item 33,Sports,2,3.55,0.0,Saudi Arabia,7.1
+500337,421,2024-02-21,Fashion Item 27,Fashion,2,39.39,0.1,UAE,70.9
+500338,421,2024-11-13,Toys Item 12,Toys,1,189.13,0.25,Egypt,141.85
+500339,181,2024-02-25,Fashion Item 36,Fashion,1,82.41,0.0,Egypt,82.41
+500340,566,2024-11-09,Fashion Item 7,Fashion,3,77.15,0.0,Jordan,231.45
+500341,507,2024-01-06,Sports Item 21,Sports,5,33.84,0.0,UAE,169.2
+500342,276,2024-08-04,Sports Item 35,Sports,4,40.04,0.0,Lebanon,160.16
+500343,173,2024-12-29,Grocery Item 23,Grocery,1,43.1,0.0,Egypt,43.1
+500344,166,2024-01-20,Electronics Item 23,Electronics,1,24.01,0.0,UAE,24.01
+500345,204,2024-11-26,Toys Item 13,Toys,1,11.0,0.05,UAE,10.45
+500346,69,2024-03-11,Home Item 19,Home,2,13.11,0.1,Morocco,23.6
+500347,421,2024-12-11,Electronics Item 17,Electronics,5,60.07,0.15,Egypt,255.3
+500348,58,2024-04-21,Electronics Item 3,Electronics,3,116.84,0.1,UAE,315.47
+500349,251,2024-09-01,Electronics Item 2,Electronics,4,222.92,0.15,Egypt,757.93
+500350,513,2024-10-07,Sports Item 11,Sports,3,65.11,0.15,UAE,166.03
+500351,13,2024-11-21,Toys Item 8,Toys,2,32.82,0.0,Saudi Arabia,65.64
+500352,507,2024-01-27,Fashion Item 6,Fashion,1,43.85,0.0,Jordan,43.85
+500353,478,2024-03-22,Electronics Item 2,Electronics,3,51.23,0.0,Lebanon,153.69
+500354,584,2024-01-22,Fashion Item 14,Fashion,3,59.77,0.0,Jordan,179.31
+500355,250,2024-08-31,Fashion Item 13,Fashion,5,179.4,0.0,Morocco,897.0
+500356,396,2024-07-16,Sports Item 6,Sports,5,34.45,0.15,Morocco,146.41
+500357,58,2024-10-15,Fashion Item 16,Fashion,5,72.07,0.0,Morocco,360.35
+500358,203,2024-10-28,Toys Item 4,Toys,5,60.15,0.15,Morocco,255.64
+500359,491,2024-11-20,Electronics Item 38,Electronics,3,213.27,0.05,Egypt,607.82
+500360,11,2024-06-17,Grocery Item 24,Grocery,3,187.55,0.1,Egypt,506.39
+500361,466,2024-12-30,Grocery Item 35,Grocery,2,59.31,0.0,Morocco,118.62
+500362,16,2024-10-20,Grocery Item 11,Grocery,3,95.51,0.15,Jordan,243.55
+500363,533,2024-10-28,Grocery Item 8,Grocery,3,124.28,0.15,Saudi Arabia,316.91
+500364,283,2024-08-30,Fashion Item 14,Fashion,5,52.74,0.2,Morocco,210.96
+500365,554,2024-03-28,Toys Item 33,Toys,3,3.81,0.15,Saudi Arabia,9.72
+500366,106,2024-11-26,Fashion Item 15,Fashion,1,111.49,0.0,UAE,111.49
+500367,29,2024-02-25,Toys Item 27,Toys,2,324.77,0.2,UAE,519.63
+500368,381,2024-08-13,Grocery Item 25,Grocery,3,46.85,0.1,UAE,126.5
+500369,538,2024-02-07,Fashion Item 26,Fashion,4,105.21,0.25,Saudi Arabia,315.63
+500370,321,2024-07-19,Sports Item 35,Sports,1,10.83,0.0,Egypt,10.83
+500371,513,2024-04-28,Fashion Item 12,Fashion,5,124.09,0.05,Egypt,589.43
+500372,435,2024-07-05,Electronics Item 18,Electronics,4,125.79,0.1,Egypt,452.84
+500373,451,2024-10-28,Toys Item 34,Toys,3,94.16,0.05,Jordan,268.36
+500374,440,2024-02-24,Home Item 32,Home,5,36.67,0.1,Lebanon,165.02
+500375,485,2024-07-26,Grocery Item 12,Grocery,5,77.18,0.1,Egypt,347.31
+500376,500,2024-02-13,Electronics Item 1,Electronics,5,76.25,0.15,Morocco,324.06
+500377,539,2024-01-07,Grocery Item 11,Grocery,3,126.41,0.0,Saudi Arabia,379.23
+500378,39,2024-05-02,Grocery Item 19,Grocery,3,30.25,0.0,Egypt,90.75
+500379,193,2024-12-21,Electronics Item 11,Electronics,1,24.7,0.0,UAE,24.7
+500380,346,2024-07-22,Fashion Item 11,Fashion,5,48.89,0.05,Jordan,232.23
+500381,79,2024-07-23,Toys Item 24,Toys,5,62.02,0.15,Lebanon,263.59
+500382,589,2024-08-21,Fashion Item 19,Fashion,3,89.02,0.15,Egypt,227.0
+500383,576,2024-12-07,Toys Item 18,Toys,4,98.02,0.0,Saudi Arabia,392.08
+500384,277,2024-01-08,Grocery Item 25,Grocery,3,104.36,0.25,Jordan,234.81
+500385,357,2024-07-06,Sports Item 29,Sports,2,134.18,0.0,Egypt,268.36
+500386,373,2024-07-04,Fashion Item 8,Fashion,3,71.41,0.2,Egypt,171.38
+500387,148,2024-09-29,Home Item 14,Home,3,31.3,0.0,Jordan,93.9
+500388,257,2024-03-30,Grocery Item 17,Grocery,2,56.43,0.15,Jordan,95.93
+500389,519,2024-05-13,Electronics Item 10,Electronics,3,141.76,0.25,Saudi Arabia,318.96
+500390,145,2024-12-10,Sports Item 14,Sports,5,104.61,0.2,Egypt,418.44
+500391,120,2024-05-03,Grocery Item 11,Grocery,5,94.07,0.0,Egypt,470.35
+500392,415,2024-04-16,Toys Item 7,Toys,5,14.05,0.0,Morocco,70.25
+500393,424,2024-11-04,Home Item 29,Home,3,49.07,0.0,Morocco,147.21
+500394,269,2024-08-09,Grocery Item 38,Grocery,1,17.52,0.0,Egypt,17.52
+500395,424,2024-05-06,Fashion Item 30,Fashion,5,102.24,0.1,Jordan,460.08
+500396,573,2024-03-11,Sports Item 6,Sports,1,81.64,0.0,Egypt,81.64
+500397,72,2024-02-06,Toys Item 13,Toys,5,99.11,0.0,Morocco,495.55
+500398,531,2024-01-01,Toys Item 16,Toys,1,23.48,0.0,Egypt,23.48
+500399,581,2024-08-03,Home Item 6,Home,3,23.53,0.0,UAE,70.59
+500400,561,2024-12-03,Grocery Item 17,Grocery,4,60.06,0.15,UAE,204.2
+500401,448,2024-01-26,Fashion Item 23,Fashion,1,95.18,0.0,UAE,95.18
+500402,248,2024-11-24,Fashion Item 7,Fashion,4,63.36,0.0,Morocco,253.44
+500403,116,2024-02-14,Grocery Item 27,Grocery,3,22.24,0.0,Jordan,66.72
+500404,332,2024-04-06,Electronics Item 7,Electronics,2,45.88,0.0,Jordan,91.76
+500405,578,2024-01-19,Home Item 17,Home,3,21.86,0.15,Lebanon,55.74
+500406,236,2024-08-15,Electronics Item 9,Electronics,1,11.36,0.05,Morocco,10.79
+500407,324,2024-04-10,Toys Item 17,Toys,4,26.18,0.0,Egypt,104.72
+500408,276,2024-04-18,Grocery Item 12,Grocery,1,11.69,0.2,Morocco,9.35
+500409,171,2024-01-25,Grocery Item 20,Grocery,1,46.34,0.1,Egypt,41.71
+500410,570,2024-11-03,Sports Item 9,Sports,4,70.54,0.0,UAE,282.16
+500411,408,2024-03-14,Grocery Item 28,Grocery,3,73.81,0.0,Egypt,221.43
+500412,284,2024-01-26,Electronics Item 25,Electronics,1,98.71,0.2,UAE,78.97
+500413,485,2024-07-07,Sports Item 1,Sports,5,15.32,0.0,Lebanon,76.6
+500414,565,2024-05-22,Grocery Item 23,Grocery,1,15.9,0.05,Saudi Arabia,15.1
+500415,316,2024-12-06,Grocery Item 27,Grocery,5,73.6,0.15,Saudi Arabia,312.8
+500416,520,2024-05-08,Electronics Item 15,Electronics,3,113.24,0.05,Egypt,322.73
+500417,239,2024-11-01,Home Item 33,Home,2,25.94,0.0,Lebanon,51.88
+500418,196,2024-03-18,Fashion Item 32,Fashion,5,63.66,0.1,Egypt,286.47
+500419,439,2024-07-11,Toys Item 19,Toys,2,123.86,0.0,Lebanon,247.72
+500420,237,2024-07-05,Electronics Item 30,Electronics,5,70.21,0.0,Lebanon,351.05
+500421,187,2024-12-04,Home Item 28,Home,3,104.57,0.1,UAE,282.34
+500422,355,2024-05-05,Toys Item 6,Toys,2,110.04,0.15,Egypt,187.07
+500423,281,2024-09-15,Sports Item 6,Sports,5,42.34,0.0,Egypt,211.7
+500424,160,2024-06-27,Fashion Item 38,Fashion,2,139.22,0.0,Morocco,278.44
+500425,172,2024-05-31,Toys Item 18,Toys,3,199.54,0.1,Morocco,538.76
+500426,93,2024-10-03,Grocery Item 6,Grocery,5,16.71,0.05,Egypt,79.37
+500427,169,2024-07-13,Home Item 39,Home,1,53.03,0.05,Egypt,50.38
+500428,534,2024-01-13,Electronics Item 10,Electronics,1,42.83,0.0,UAE,42.83
+500429,468,2024-04-22,Grocery Item 21,Grocery,1,11.5,0.2,Egypt,9.2
+500430,403,2024-12-18,Fashion Item 21,Fashion,1,200.74,0.1,Egypt,180.67
+500431,302,2024-11-04,Toys Item 19,Toys,1,82.87,0.1,Saudi Arabia,74.58
+500432,42,2024-01-18,Toys Item 24,Toys,3,26.28,0.05,UAE,74.9
+500433,25,2024-10-24,Sports Item 16,Sports,2,63.23,0.0,Egypt,126.46
+500434,57,2024-09-08,Sports Item 12,Sports,5,58.97,0.05,UAE,280.11
+500435,557,2024-05-12,Sports Item 7,Sports,5,56.4,0.0,Egypt,282.0
+500436,276,2024-07-15,Electronics Item 4,Electronics,3,55.92,0.1,UAE,150.98
+500437,273,2024-12-28,Grocery Item 34,Grocery,2,19.54,0.0,Egypt,39.08
+500438,125,2024-01-11,Electronics Item 18,Electronics,1,26.68,0.0,Egypt,26.68
+500439,285,2024-02-05,Home Item 28,Home,1,12.69,0.25,Egypt,9.52
+500440,101,2024-09-30,Fashion Item 4,Fashion,5,44.1,0.05,Egypt,209.48
+500441,254,2024-09-26,Grocery Item 24,Grocery,2,167.27,0.1,UAE,301.09
+500442,12,2024-11-05,Fashion Item 35,Fashion,2,27.82,0.1,Saudi Arabia,50.08
+500443,310,2024-08-27,Sports Item 20,Sports,1,30.06,0.0,Egypt,30.06
+500444,547,2024-06-11,Sports Item 8,Sports,2,28.1,0.05,UAE,53.39
+500445,134,2024-07-10,Sports Item 1,Sports,3,8.1,0.15,Egypt,20.65
+500446,62,2024-02-02,Electronics Item 38,Electronics,2,59.17,0.0,Egypt,118.34
+500447,123,2024-07-24,Fashion Item 12,Fashion,1,105.09,0.0,Egypt,105.09
+500448,476,2024-09-29,Home Item 1,Home,2,61.14,0.05,Lebanon,116.17
+500449,102,2024-01-06,Sports Item 6,Sports,3,128.7,0.0,Morocco,386.1
+500450,246,2024-03-09,Fashion Item 38,Fashion,4,35.19,0.0,Egypt,140.76
+500451,472,2024-11-21,Fashion Item 7,Fashion,3,61.51,0.25,Egypt,138.4
+500452,168,2024-09-25,Home Item 13,Home,5,36.67,0.2,Morocco,146.68
+500453,137,2024-03-07,Sports Item 27,Sports,3,41.17,0.05,Egypt,117.33
+500454,73,2024-03-19,Fashion Item 16,Fashion,4,25.2,0.15,UAE,85.68
+500455,543,2024-12-29,Toys Item 39,Toys,4,166.33,0.05,Jordan,632.05
+500456,515,2024-11-23,Electronics Item 38,Electronics,2,45.16,0.0,Lebanon,90.32
+500457,125,2024-08-06,Sports Item 36,Sports,2,43.81,0.05,Lebanon,83.24
+500458,179,2024-12-19,Home Item 39,Home,4,13.32,0.1,Egypt,47.95
+500459,545,2024-12-25,Sports Item 36,Sports,2,101.75,0.0,Egypt,203.5
+500460,19,2024-05-16,Fashion Item 21,Fashion,2,16.47,0.25,Lebanon,24.7
+500461,315,2024-07-15,Grocery Item 21,Grocery,5,52.39,0.0,Egypt,261.95
+500462,153,2024-05-29,Electronics Item 17,Electronics,3,171.7,0.05,Egypt,489.34
+500463,205,2024-07-30,Home Item 22,Home,1,149.6,0.0,Saudi Arabia,149.6
+500464,339,2024-08-19,Fashion Item 26,Fashion,5,66.79,0.0,UAE,333.95
+500465,31,2024-02-07,Sports Item 29,Sports,4,87.47,0.0,UAE,349.88
+500466,19,2024-07-05,Fashion Item 25,Fashion,3,71.1,0.25,Egypt,159.98
+500467,426,2024-11-30,Home Item 30,Home,1,85.22,0.15,Jordan,72.44
+500468,364,2024-07-20,Electronics Item 30,Electronics,1,88.02,0.15,UAE,74.82
+500469,274,2024-09-27,Fashion Item 36,Fashion,1,154.41,0.25,Egypt,115.81
+500470,583,2024-09-25,Sports Item 4,Sports,1,53.15,0.25,Saudi Arabia,39.86
+500471,301,2024-09-23,Grocery Item 11,Grocery,1,79.26,0.15,Morocco,67.37
+500472,466,2024-03-06,Electronics Item 6,Electronics,3,24.19,0.15,UAE,61.68
+500473,579,2024-05-12,Toys Item 16,Toys,2,62.09,0.2,UAE,99.34
+500474,476,2024-08-07,Grocery Item 3,Grocery,1,102.07,0.05,Saudi Arabia,96.97
+500475,291,2024-07-27,Toys Item 14,Toys,2,102.34,0.0,UAE,204.68
+500476,469,2024-03-27,Electronics Item 11,Electronics,1,96.69,0.0,Jordan,96.69
+500477,1,2024-11-23,Electronics Item 22,Electronics,4,165.77,0.0,Saudi Arabia,663.08
+500478,495,2024-12-03,Sports Item 34,Sports,3,58.58,0.0,Jordan,175.74
+500479,166,2024-11-03,Home Item 6,Home,3,171.67,0.0,Morocco,515.01
+500480,208,2024-01-30,Grocery Item 34,Grocery,1,85.64,0.0,UAE,85.64
+500481,208,2024-08-06,Grocery Item 39,Grocery,4,50.01,0.25,Morocco,150.03
+500482,182,2024-01-10,Toys Item 21,Toys,4,94.14,0.25,Jordan,282.42
+500483,91,2024-07-26,Electronics Item 23,Electronics,3,57.48,0.0,Egypt,172.44
+500484,360,2024-09-14,Sports Item 18,Sports,3,146.99,0.1,Saudi Arabia,396.87
+500485,260,2024-06-12,Home Item 26,Home,4,160.91,0.0,Saudi Arabia,643.64
+500486,35,2024-01-05,Grocery Item 36,Grocery,2,58.32,0.0,Jordan,116.64
+500487,206,2024-11-15,Electronics Item 13,Electronics,5,327.78,0.0,Morocco,1638.9
+500488,52,2024-11-07,Home Item 31,Home,5,87.38,0.15,Egypt,371.36
+500489,134,2024-02-08,Toys Item 1,Toys,3,116.32,0.2,Egypt,279.17
+500490,55,2024-02-15,Toys Item 12,Toys,4,216.29,0.0,UAE,865.16
+500491,249,2024-03-09,Home Item 21,Home,1,138.74,0.0,Egypt,138.74
+500492,274,2024-03-20,Fashion Item 35,Fashion,4,37.18,0.0,Jordan,148.72
+500493,75,2024-10-05,Grocery Item 36,Grocery,4,186.08,0.2,Egypt,595.46
+500494,304,2024-12-30,Electronics Item 15,Electronics,5,102.64,0.0,Egypt,513.2
+500495,51,2024-07-26,Grocery Item 38,Grocery,3,18.23,0.0,Saudi Arabia,54.69
+500496,426,2024-05-22,Sports Item 26,Sports,2,96.12,0.15,UAE,163.4
+500497,138,2024-03-05,Sports Item 21,Sports,3,69.21,0.1,Saudi Arabia,186.87
+500498,223,2024-11-05,Home Item 21,Home,1,26.34,0.15,Jordan,22.39
+500499,103,2024-08-09,Sports Item 22,Sports,4,34.67,0.0,Saudi Arabia,138.68
+500500,112,2024-04-20,Electronics Item 13,Electronics,4,3.92,0.1,Egypt,14.11
+500501,577,2024-05-16,Home Item 39,Home,3,37.84,0.25,UAE,85.14
+500502,527,2024-01-10,Electronics Item 24,Electronics,2,109.16,0.15,Lebanon,185.57
+500503,145,2024-08-12,Home Item 22,Home,1,119.57,0.05,Jordan,113.59
+500504,458,2024-10-15,Toys Item 15,Toys,3,46.32,0.15,Jordan,118.12
+500505,108,2024-08-27,Grocery Item 22,Grocery,3,104.98,0.1,Lebanon,283.45
+500506,128,2024-12-09,Fashion Item 12,Fashion,5,46.97,0.05,Saudi Arabia,223.11
+500507,245,2024-12-07,Home Item 6,Home,2,73.33,0.0,Morocco,146.66
+500508,439,2024-10-25,Grocery Item 24,Grocery,1,29.03,0.0,UAE,29.03
+500509,1,2024-12-02,Toys Item 31,Toys,3,29.22,0.15,Saudi Arabia,74.51
+500510,192,2024-11-08,Fashion Item 8,Fashion,1,18.73,0.0,UAE,18.73
+500511,168,2024-05-12,Fashion Item 33,Fashion,5,30.12,0.15,Jordan,128.01
+500512,36,2024-06-17,Toys Item 1,Toys,4,63.25,0.2,Egypt,202.4
+500513,331,2024-10-29,Grocery Item 7,Grocery,3,86.04,0.25,Egypt,193.59
+500514,292,2024-08-02,Toys Item 22,Toys,1,295.62,0.0,Saudi Arabia,295.62
+500515,384,2024-05-27,Home Item 8,Home,3,118.01,0.15,Saudi Arabia,300.93
+500516,353,2024-07-29,Sports Item 16,Sports,4,108.24,0.0,UAE,432.96
+500517,127,2024-09-13,Electronics Item 22,Electronics,4,49.71,0.0,Egypt,198.84
+500518,578,2024-10-01,Electronics Item 14,Electronics,3,102.17,0.05,Egypt,291.18
+500519,52,2024-08-05,Home Item 32,Home,4,38.32,0.0,UAE,153.28
+500520,101,2024-09-07,Fashion Item 12,Fashion,4,93.17,0.0,Morocco,372.68
+500521,304,2024-03-23,Grocery Item 26,Grocery,5,88.13,0.15,Egypt,374.55
+500522,283,2024-11-19,Sports Item 28,Sports,4,163.32,0.0,UAE,653.28
+500523,230,2024-10-29,Fashion Item 6,Fashion,1,84.79,0.0,Saudi Arabia,84.79
+500524,321,2024-10-19,Grocery Item 38,Grocery,3,261.89,0.0,UAE,785.67
+500525,107,2024-07-23,Toys Item 35,Toys,2,141.75,0.0,Egypt,283.5
+500526,371,2024-09-13,Sports Item 19,Sports,1,47.06,0.25,Egypt,35.3
+500527,510,2024-01-24,Grocery Item 20,Grocery,3,26.25,0.05,Saudi Arabia,74.81
+500528,177,2024-04-13,Grocery Item 8,Grocery,2,62.44,0.15,Egypt,106.15
+500529,112,2024-01-11,Fashion Item 14,Fashion,2,34.21,0.1,Saudi Arabia,61.58
+500530,434,2024-01-13,Sports Item 31,Sports,5,35.37,0.25,Egypt,132.64
+500531,384,2024-10-17,Home Item 9,Home,3,41.35,0.0,Egypt,124.05
+500532,547,2024-07-20,Home Item 1,Home,2,34.42,0.1,UAE,61.96
+500533,336,2024-01-24,Toys Item 17,Toys,3,10.33,0.0,Jordan,30.99
+500534,234,2024-07-16,Sports Item 7,Sports,4,91.73,0.05,UAE,348.57
+500535,325,2024-10-06,Fashion Item 26,Fashion,2,64.28,0.0,UAE,128.56
+500536,454,2024-11-04,Grocery Item 27,Grocery,4,25.41,0.0,Morocco,101.64
+500537,282,2024-12-01,Grocery Item 25,Grocery,3,40.8,0.0,UAE,122.4
+500538,307,2024-03-13,Electronics Item 19,Electronics,4,18.71,0.0,Jordan,74.84
+500539,89,2024-07-01,Electronics Item 39,Electronics,5,70.32,0.0,UAE,351.6
+500540,518,2024-09-13,Sports Item 1,Sports,2,14.66,0.0,Morocco,29.32
+500541,233,2024-12-05,Sports Item 6,Sports,1,65.94,0.0,Egypt,65.94
+500542,549,2024-08-10,Home Item 32,Home,5,45.78,0.0,UAE,228.9
+500543,159,2024-07-23,Electronics Item 27,Electronics,1,54.24,0.0,Egypt,54.24
+500544,193,2024-11-18,Home Item 23,Home,3,61.96,0.0,Egypt,185.88
+500545,171,2024-07-01,Sports Item 24,Sports,3,121.61,0.0,Jordan,364.83
+500546,280,2024-12-05,Home Item 34,Home,1,52.45,0.1,Jordan,47.21
+500547,576,2024-03-06,Grocery Item 17,Grocery,3,45.38,0.0,Saudi Arabia,136.14
+500548,389,2024-02-12,Home Item 14,Home,1,97.77,0.2,Egypt,78.22
+500549,538,2024-03-07,Fashion Item 36,Fashion,1,128.21,0.0,Egypt,128.21
+500550,26,2024-05-01,Grocery Item 23,Grocery,4,66.27,0.15,Jordan,225.32
+500551,505,2024-01-19,Home Item 36,Home,4,57.68,0.05,UAE,219.18
+500552,229,2024-03-05,Sports Item 15,Sports,2,121.7,0.0,Egypt,243.4
+500553,540,2024-02-01,Toys Item 37,Toys,5,58.75,0.15,Egypt,249.69
+500554,39,2024-08-25,Grocery Item 14,Grocery,5,127.17,0.0,Egypt,635.85
+500555,559,2024-05-09,Grocery Item 10,Grocery,5,11.66,0.25,UAE,43.72
+500556,131,2024-09-15,Grocery Item 4,Grocery,3,76.01,0.05,Jordan,216.63
+500557,256,2024-05-26,Electronics Item 1,Electronics,3,76.93,0.0,Egypt,230.79
+500558,156,2024-07-27,Grocery Item 38,Grocery,2,98.99,0.05,Egypt,188.08
+500559,556,2024-08-11,Electronics Item 12,Electronics,2,57.04,0.0,Morocco,114.08
+500560,461,2024-12-19,Toys Item 22,Toys,2,69.86,0.1,Egypt,125.75
+500561,298,2024-10-14,Electronics Item 27,Electronics,4,29.48,0.05,Egypt,112.02
+500562,594,2024-09-19,Home Item 18,Home,3,55.13,0.0,UAE,165.39
+500563,206,2024-10-09,Electronics Item 6,Electronics,3,40.85,0.0,UAE,122.55
+500564,322,2024-12-11,Fashion Item 16,Fashion,4,166.36,0.05,Egypt,632.17
+500565,579,2024-03-15,Sports Item 8,Sports,2,89.73,0.0,Egypt,179.46
+500566,493,2024-01-07,Home Item 14,Home,4,166.07,0.0,Egypt,664.28
+500567,451,2024-05-16,Grocery Item 19,Grocery,4,114.9,0.0,Egypt,459.6
+500568,201,2024-09-24,Sports Item 27,Sports,3,20.22,0.0,UAE,60.66
+500569,131,2024-12-12,Electronics Item 8,Electronics,2,102.23,0.25,UAE,153.34
+500570,123,2024-11-24,Fashion Item 21,Fashion,4,79.07,0.0,Egypt,316.28
+500571,303,2024-06-03,Grocery Item 34,Grocery,2,41.72,0.05,UAE,79.27
+500572,560,2024-01-17,Electronics Item 25,Electronics,5,83.38,0.25,Saudi Arabia,312.67
+500573,322,2024-07-17,Electronics Item 10,Electronics,1,23.55,0.0,Egypt,23.55
+500574,2,2024-10-27,Sports Item 32,Sports,1,75.45,0.1,Morocco,67.9
+500575,69,2024-02-26,Fashion Item 7,Fashion,1,97.91,0.0,Morocco,97.91
+500576,506,2024-03-27,Fashion Item 31,Fashion,2,110.78,0.0,Saudi Arabia,221.56
+500577,68,2024-07-05,Toys Item 22,Toys,1,47.56,0.25,Saudi Arabia,35.67
+500578,56,2024-08-22,Grocery Item 2,Grocery,5,56.57,0.1,Jordan,254.57
+500579,99,2024-11-10,Sports Item 27,Sports,4,86.52,0.0,UAE,346.08
+500580,470,2024-01-27,Sports Item 2,Sports,5,47.68,0.25,Morocco,178.8
+500581,335,2024-01-26,Sports Item 7,Sports,3,25.75,0.15,Egypt,65.66
+500582,286,2024-04-09,Grocery Item 37,Grocery,5,79.15,0.25,Egypt,296.81
+500583,123,2024-05-12,Sports Item 18,Sports,4,39.6,0.1,Jordan,142.56
+500584,39,2024-02-04,Home Item 22,Home,4,11.76,0.0,Saudi Arabia,47.04
+500585,311,2024-10-13,Home Item 14,Home,3,146.05,0.1,UAE,394.34
+500586,180,2024-07-14,Grocery Item 7,Grocery,1,68.53,0.0,Jordan,68.53
+500587,47,2024-12-15,Toys Item 23,Toys,2,64.17,0.2,Egypt,102.67
+500588,59,2024-04-25,Grocery Item 36,Grocery,1,105.83,0.25,Morocco,79.37
+500589,504,2024-08-28,Toys Item 35,Toys,5,54.41,0.0,Egypt,272.05
+500590,466,2024-12-12,Toys Item 27,Toys,4,10.24,0.0,Morocco,40.96
+500591,369,2024-08-30,Fashion Item 9,Fashion,5,51.28,0.2,UAE,205.12
+500592,268,2024-08-13,Fashion Item 9,Fashion,1,35.18,0.25,Egypt,26.38
+500593,151,2024-01-08,Fashion Item 33,Fashion,5,235.95,0.1,Egypt,1061.78
+500594,483,2024-07-15,Fashion Item 38,Fashion,4,21.51,0.0,Jordan,86.04
+500595,583,2024-08-13,Fashion Item 36,Fashion,3,45.64,0.0,Saudi Arabia,136.92
+500596,477,2024-12-25,Home Item 16,Home,4,8.93,0.25,Egypt,26.79
+500597,192,2024-05-31,Sports Item 7,Sports,5,90.84,0.2,UAE,363.36
+500598,452,2024-12-15,Fashion Item 12,Fashion,3,57.53,0.0,UAE,172.59
+500599,322,2024-11-02,Home Item 8,Home,2,97.99,0.15,Egypt,166.58
+500600,170,2024-01-07,Fashion Item 1,Fashion,5,65.75,0.05,Jordan,312.31
+500601,171,2024-08-21,Toys Item 18,Toys,2,405.06,0.0,Egypt,810.12
+500602,444,2024-11-25,Home Item 6,Home,2,64.89,0.25,Jordan,97.34
+500603,587,2024-11-26,Fashion Item 33,Fashion,1,35.46,0.15,UAE,30.14
+500604,49,2024-10-29,Toys Item 39,Toys,1,106.29,0.0,Jordan,106.29
+500605,73,2024-06-18,Sports Item 25,Sports,3,144.96,0.0,UAE,434.88
+500606,138,2024-06-19,Grocery Item 1,Grocery,3,46.15,0.15,Saudi Arabia,117.68
+500607,366,2024-01-30,Toys Item 36,Toys,1,127.75,0.15,UAE,108.59
+500608,259,2024-02-05,Toys Item 21,Toys,5,45.11,0.2,Egypt,180.44
+500609,300,2024-01-02,Grocery Item 7,Grocery,4,65.91,0.15,Egypt,224.09
+500610,78,2024-03-12,Grocery Item 38,Grocery,1,55.92,0.2,UAE,44.74
+500611,401,2024-08-08,Fashion Item 34,Fashion,2,37.84,0.0,Jordan,75.68
+500612,566,2024-07-01,Fashion Item 20,Fashion,1,52.01,0.1,Egypt,46.81
+500613,529,2024-10-28,Fashion Item 8,Fashion,2,54.47,0.0,Morocco,108.94
+500614,142,2024-03-14,Grocery Item 30,Grocery,1,33.3,0.1,Egypt,29.97
+500615,261,2024-03-24,Toys Item 38,Toys,5,11.61,0.25,Lebanon,43.54
+500616,247,2024-01-21,Sports Item 4,Sports,5,30.02,0.05,Egypt,142.6
+500617,40,2024-12-05,Grocery Item 36,Grocery,5,19.62,0.0,Egypt,98.1
+500618,145,2024-08-10,Grocery Item 18,Grocery,3,14.77,0.0,Egypt,44.31
+500619,497,2024-11-13,Home Item 28,Home,2,141.78,0.0,Jordan,283.56
+500620,505,2024-11-18,Grocery Item 18,Grocery,3,25.57,0.0,Egypt,76.71
+500621,11,2024-11-23,Sports Item 4,Sports,3,19.44,0.25,Jordan,43.74
+500622,177,2024-04-18,Grocery Item 14,Grocery,2,129.94,0.0,Jordan,259.88
+500623,523,2024-03-28,Home Item 10,Home,3,28.92,0.05,Saudi Arabia,82.42
+500624,406,2024-09-28,Toys Item 21,Toys,5,97.77,0.2,Lebanon,391.08
+500625,574,2024-08-26,Fashion Item 5,Fashion,5,42.92,0.25,Egypt,160.95
+500626,579,2024-03-12,Electronics Item 24,Electronics,5,59.7,0.15,UAE,253.72
+500627,385,2024-01-09,Fashion Item 12,Fashion,4,15.84,0.15,Jordan,53.86
+500628,129,2024-12-11,Grocery Item 39,Grocery,2,41.36,0.2,Egypt,66.18
+500629,142,2024-12-27,Electronics Item 20,Electronics,1,25.79,0.1,Jordan,23.21
+500630,142,2024-10-21,Fashion Item 8,Fashion,2,122.34,0.0,Egypt,244.68
+500631,578,2024-02-21,Sports Item 5,Sports,1,72.58,0.0,Egypt,72.58
+500632,16,2024-01-20,Grocery Item 17,Grocery,2,250.31,0.2,Morocco,400.5
+500633,497,2024-02-17,Grocery Item 11,Grocery,4,87.58,0.1,Saudi Arabia,315.29
+500634,223,2024-08-20,Sports Item 25,Sports,4,76.8,0.0,Jordan,307.2
+500635,448,2024-12-05,Sports Item 12,Sports,4,21.68,0.2,Lebanon,69.38
+500636,388,2024-06-16,Fashion Item 2,Fashion,3,158.67,0.2,Egypt,380.81
+500637,65,2024-11-21,Grocery Item 28,Grocery,5,59.02,0.0,UAE,295.1
+500638,565,2024-11-08,Electronics Item 37,Electronics,5,28.19,0.25,Egypt,105.71
+500639,566,2024-09-04,Electronics Item 27,Electronics,3,12.06,0.0,Jordan,36.18
+500640,530,2024-10-24,Home Item 35,Home,4,106.82,0.0,Egypt,427.28
+500641,570,2024-02-06,Toys Item 28,Toys,3,146.05,0.1,Morocco,394.34
+500642,595,2024-04-17,Grocery Item 9,Grocery,3,80.85,0.1,Egypt,218.3
+500643,84,2024-06-05,Grocery Item 7,Grocery,4,85.34,0.05,Jordan,324.29
+500644,200,2024-01-28,Home Item 28,Home,1,46.93,0.0,Egypt,46.93
+500645,566,2024-01-07,Grocery Item 24,Grocery,3,55.88,0.15,Egypt,142.49
+500646,539,2024-12-14,Home Item 36,Home,2,73.93,0.0,Morocco,147.86
+500647,162,2024-10-24,Toys Item 10,Toys,2,62.06,0.15,Egypt,105.5
+500648,515,2024-11-26,Sports Item 2,Sports,5,56.05,0.2,Jordan,224.2
+500649,316,2024-11-18,Electronics Item 30,Electronics,2,46.46,0.0,UAE,92.92
+500650,180,2024-04-16,Electronics Item 12,Electronics,3,131.87,0.0,Egypt,395.61
+500651,52,2024-05-30,Toys Item 18,Toys,4,16.62,0.1,Egypt,59.83
+500652,44,2024-09-28,Electronics Item 19,Electronics,4,174.52,0.0,UAE,698.08
+500653,107,2024-02-14,Sports Item 4,Sports,4,126.79,0.1,UAE,456.44
+500654,400,2024-02-23,Fashion Item 13,Fashion,5,99.76,0.15,Lebanon,423.98
+500655,332,2024-10-04,Sports Item 9,Sports,3,120.67,0.0,Egypt,362.01
+500656,63,2024-06-15,Toys Item 31,Toys,2,71.48,0.0,Egypt,142.96
+500657,415,2024-01-29,Fashion Item 15,Fashion,2,18.49,0.05,Morocco,35.13
+500658,95,2024-11-24,Sports Item 17,Sports,1,103.26,0.05,Egypt,98.1
+500659,147,2024-09-29,Fashion Item 39,Fashion,2,25.74,0.25,Morocco,38.61
+500660,351,2024-11-15,Fashion Item 12,Fashion,2,266.78,0.0,UAE,533.56
+500661,109,2024-11-29,Toys Item 5,Toys,3,135.18,0.15,Saudi Arabia,344.71
+500662,592,2024-10-21,Home Item 24,Home,4,28.09,0.0,Saudi Arabia,112.36
+500663,387,2024-02-25,Fashion Item 27,Fashion,3,93.69,0.05,Saudi Arabia,267.02
+500664,422,2024-01-02,Fashion Item 11,Fashion,1,109.26,0.1,Jordan,98.33
+500665,39,2024-04-14,Home Item 1,Home,4,35.98,0.1,UAE,129.53
+500666,468,2024-12-07,Electronics Item 18,Electronics,4,12.35,0.1,Morocco,44.46
+500667,94,2024-04-20,Sports Item 28,Sports,3,168.19,0.15,Egypt,428.88
+500668,76,2024-10-25,Electronics Item 4,Electronics,5,78.07,0.1,Egypt,351.32
+500669,385,2024-03-28,Grocery Item 14,Grocery,1,150.27,0.15,Morocco,127.73
+500670,516,2024-04-23,Fashion Item 6,Fashion,2,19.21,0.0,UAE,38.42
+500671,479,2024-03-21,Electronics Item 37,Electronics,1,82.36,0.25,UAE,61.77
+500672,301,2024-06-10,Home Item 15,Home,2,55.8,0.05,UAE,106.02
+500673,207,2024-09-15,Toys Item 13,Toys,1,40.04,0.0,Egypt,40.04
+500674,286,2024-08-22,Sports Item 5,Sports,1,101.26,0.25,Saudi Arabia,75.95
+500675,551,2024-08-04,Home Item 10,Home,4,63.86,0.2,Egypt,204.35
+500676,307,2024-06-10,Electronics Item 4,Electronics,1,27.63,0.0,Saudi Arabia,27.63
+500677,547,2024-07-20,Toys Item 31,Toys,3,185.8,0.15,Saudi Arabia,473.79
+500678,272,2024-04-17,Toys Item 13,Toys,1,47.53,0.1,Egypt,42.78
+500679,523,2024-04-10,Sports Item 22,Sports,4,79.02,0.05,Egypt,300.28
+500680,490,2024-07-09,Electronics Item 6,Electronics,1,87.15,0.05,Jordan,82.79
+500681,33,2024-02-02,Toys Item 32,Toys,2,72.58,0.05,Egypt,137.9
+500682,551,2024-03-17,Electronics Item 1,Electronics,3,117.63,0.0,Egypt,352.89
+500683,61,2024-12-16,Grocery Item 13,Grocery,4,121.99,0.2,UAE,390.37
+500684,527,2024-10-17,Grocery Item 7,Grocery,4,87.41,0.1,Egypt,314.68
+500685,332,2024-06-08,Electronics Item 11,Electronics,5,28.33,0.05,Egypt,134.57
+500686,128,2024-05-31,Grocery Item 32,Grocery,1,146.6,0.2,Egypt,117.28
+500687,341,2024-04-18,Toys Item 19,Toys,4,19.22,0.25,Egypt,57.66
+500688,307,2024-09-27,Toys Item 13,Toys,4,162.19,0.2,Morocco,519.01
+500689,366,2024-08-14,Fashion Item 36,Fashion,2,82.75,0.2,Egypt,132.4
+500690,179,2024-04-27,Fashion Item 10,Fashion,5,49.62,0.0,Egypt,248.1
+500691,418,2024-09-14,Sports Item 9,Sports,2,162.03,0.2,Jordan,259.25
+500692,427,2024-09-27,Sports Item 6,Sports,5,47.03,0.0,Saudi Arabia,235.15
+500693,75,2024-08-23,Fashion Item 19,Fashion,4,81.95,0.2,Lebanon,262.24
+500694,403,2024-02-05,Fashion Item 38,Fashion,5,177.12,0.05,Egypt,841.32
+500695,367,2024-08-08,Grocery Item 17,Grocery,2,122.71,0.0,Saudi Arabia,245.42
+500696,306,2024-04-19,Fashion Item 31,Fashion,1,59.49,0.0,Jordan,59.49
+500697,371,2024-04-30,Grocery Item 36,Grocery,4,201.57,0.05,Saudi Arabia,765.97
+500698,323,2024-10-06,Grocery Item 8,Grocery,1,7.94,0.25,Egypt,5.96
+500699,518,2024-04-27,Fashion Item 14,Fashion,4,16.28,0.0,Egypt,65.12
+500700,120,2024-01-14,Fashion Item 16,Fashion,4,32.71,0.0,Lebanon,130.84
+500701,510,2024-10-26,Home Item 19,Home,2,91.95,0.05,UAE,174.7
+500702,227,2024-07-25,Toys Item 17,Toys,3,59.0,0.2,Egypt,141.6
+500703,78,2024-10-12,Home Item 18,Home,5,29.41,0.0,Jordan,147.05
+500704,66,2024-10-14,Grocery Item 7,Grocery,3,67.32,0.1,UAE,181.76
+500705,200,2024-04-03,Fashion Item 36,Fashion,2,84.07,0.05,Egypt,159.73
+500706,546,2024-05-19,Electronics Item 31,Electronics,1,23.69,0.0,Saudi Arabia,23.69
+500707,231,2024-07-19,Toys Item 11,Toys,5,90.66,0.0,Morocco,453.3
+500708,101,2024-01-22,Home Item 25,Home,5,26.03,0.05,Saudi Arabia,123.64
+500709,244,2024-08-14,Home Item 3,Home,5,58.32,0.25,UAE,218.7
+500710,287,2024-02-09,Grocery Item 23,Grocery,1,42.58,0.0,UAE,42.58
+500711,514,2024-04-26,Sports Item 38,Sports,3,182.46,0.0,Egypt,547.38
+500712,597,2024-06-11,Grocery Item 12,Grocery,5,46.75,0.0,Lebanon,233.75
+500713,262,2024-01-22,Fashion Item 16,Fashion,1,100.2,0.0,Morocco,100.2
+500714,423,2024-09-25,Electronics Item 14,Electronics,3,23.89,0.25,Egypt,53.75
+500715,281,2024-12-20,Toys Item 3,Toys,1,76.87,0.0,Saudi Arabia,76.87
+500716,400,2024-04-28,Home Item 7,Home,4,81.51,0.25,Jordan,244.53
+500717,1,2024-07-18,Fashion Item 23,Fashion,1,142.81,0.0,Egypt,142.81
+500718,408,2024-10-05,Toys Item 2,Toys,2,31.16,0.0,UAE,62.32
+500719,414,2024-05-21,Sports Item 11,Sports,4,116.12,0.0,Egypt,464.48
+500720,579,2024-05-29,Electronics Item 17,Electronics,3,26.26,0.0,Saudi Arabia,78.78
+500721,260,2024-03-18,Electronics Item 13,Electronics,4,140.52,0.0,Egypt,562.08
+500722,21,2024-05-19,Electronics Item 27,Electronics,5,167.48,0.05,UAE,795.53
+500723,250,2024-03-13,Grocery Item 27,Grocery,1,124.43,0.0,Saudi Arabia,124.43
+500724,308,2024-09-11,Sports Item 37,Sports,2,183.15,0.05,Egypt,347.98
+500725,55,2024-05-23,Home Item 19,Home,2,26.11,0.2,Jordan,41.78
+500726,190,2024-08-27,Sports Item 19,Sports,4,58.88,0.0,Jordan,235.52
+500727,393,2024-11-01,Home Item 30,Home,2,45.17,0.0,Egypt,90.34
+500728,83,2024-09-13,Electronics Item 16,Electronics,2,191.63,0.0,Egypt,383.26
+500729,56,2024-07-23,Sports Item 20,Sports,3,75.53,0.2,UAE,181.27
+500730,339,2024-11-11,Sports Item 29,Sports,5,141.06,0.1,Egypt,634.77
+500731,412,2024-01-25,Grocery Item 25,Grocery,1,100.65,0.25,Egypt,75.49
+500732,409,2024-04-22,Home Item 8,Home,3,29.59,0.05,Saudi Arabia,84.33
+500733,209,2024-07-30,Fashion Item 22,Fashion,3,127.93,0.0,Egypt,383.79
+500734,557,2024-09-21,Electronics Item 36,Electronics,5,16.11,0.1,UAE,72.5
+500735,138,2024-08-28,Grocery Item 17,Grocery,1,106.77,0.0,Jordan,106.77
+500736,40,2024-09-17,Fashion Item 30,Fashion,4,114.16,0.25,Jordan,342.48
+500737,324,2024-10-16,Grocery Item 20,Grocery,4,82.67,0.0,Lebanon,330.68
+500738,23,2024-04-02,Grocery Item 34,Grocery,4,32.69,0.05,Egypt,124.22
+500739,19,2024-06-26,Sports Item 21,Sports,1,54.56,0.25,Egypt,40.92
+500740,343,2024-09-12,Electronics Item 12,Electronics,4,36.13,0.1,UAE,130.07
+500741,246,2024-10-19,Electronics Item 39,Electronics,4,130.5,0.0,Egypt,522.0
+500742,62,2024-01-19,Electronics Item 2,Electronics,4,69.81,0.25,Saudi Arabia,209.43
+500743,404,2024-04-28,Toys Item 24,Toys,4,103.9,0.0,Egypt,415.6
+500744,593,2024-07-03,Fashion Item 11,Fashion,3,188.03,0.2,Egypt,451.27
+500745,193,2024-08-03,Home Item 16,Home,5,20.75,0.2,Saudi Arabia,83.0
+500746,228,2024-03-16,Toys Item 18,Toys,4,15.91,0.05,Egypt,60.46
+500747,319,2024-06-12,Grocery Item 22,Grocery,1,193.64,0.0,Morocco,193.64
+500748,356,2024-11-16,Sports Item 12,Sports,3,135.77,0.15,Saudi Arabia,346.21
+500749,123,2024-07-03,Toys Item 33,Toys,2,65.52,0.0,UAE,131.04
+500750,387,2024-07-25,Grocery Item 11,Grocery,4,110.88,0.2,Egypt,354.82
+500751,391,2024-11-01,Fashion Item 5,Fashion,3,206.39,0.25,UAE,464.38
+500752,95,2024-09-19,Toys Item 35,Toys,1,119.76,0.1,Egypt,107.78
+500753,300,2024-09-19,Electronics Item 19,Electronics,1,26.95,0.25,Saudi Arabia,20.21
+500754,242,2024-09-13,Home Item 17,Home,5,73.13,0.1,Egypt,329.08
+500755,323,2024-02-01,Grocery Item 1,Grocery,1,50.91,0.25,Egypt,38.18
+500756,560,2024-04-04,Electronics Item 6,Electronics,4,80.22,0.1,Jordan,288.79
+500757,232,2024-10-10,Electronics Item 37,Electronics,4,210.09,0.15,Egypt,714.31
+500758,47,2024-10-18,Sports Item 29,Sports,5,82.9,0.05,UAE,393.78
+500759,108,2024-09-15,Fashion Item 33,Fashion,4,29.12,0.25,Egypt,87.36
+500760,173,2024-02-29,Fashion Item 19,Fashion,1,160.06,0.0,Egypt,160.06
+500761,164,2024-12-24,Fashion Item 37,Fashion,4,101.25,0.25,Egypt,303.75
+500762,117,2024-06-22,Fashion Item 16,Fashion,3,37.03,0.0,UAE,111.09
+500763,363,2024-10-14,Sports Item 35,Sports,2,60.12,0.15,UAE,102.2
+500764,458,2024-10-12,Electronics Item 30,Electronics,2,34.39,0.0,Jordan,68.78
+500765,359,2024-01-17,Sports Item 15,Sports,4,78.53,0.15,Saudi Arabia,267.0
+500766,76,2024-05-27,Fashion Item 33,Fashion,2,53.72,0.2,Jordan,85.95
+500767,460,2024-09-03,Toys Item 39,Toys,2,16.57,0.0,UAE,33.14
+500768,455,2024-01-27,Electronics Item 12,Electronics,3,25.05,0.2,Saudi Arabia,60.12
+500769,564,2024-09-02,Electronics Item 4,Electronics,4,60.56,0.1,Egypt,218.02
+500770,416,2024-03-03,Grocery Item 28,Grocery,2,3.0,0.0,Egypt,6.0
+500771,130,2024-10-29,Sports Item 9,Sports,3,145.01,0.25,Egypt,326.27
+500772,119,2024-03-27,Sports Item 26,Sports,3,26.35,0.0,Egypt,79.05
+500773,452,2024-07-23,Toys Item 32,Toys,4,86.11,0.0,Jordan,344.44
+500774,492,2024-02-07,Toys Item 39,Toys,4,62.13,0.0,Saudi Arabia,248.52
+500775,407,2024-07-02,Grocery Item 12,Grocery,1,52.31,0.2,Egypt,41.85
+500776,48,2024-10-14,Toys Item 30,Toys,4,95.01,0.0,Lebanon,380.04
+500777,447,2024-01-13,Home Item 8,Home,5,104.74,0.0,Saudi Arabia,523.7
+500778,474,2024-02-06,Sports Item 29,Sports,2,66.36,0.1,UAE,119.45
+500779,387,2024-08-13,Fashion Item 6,Fashion,5,133.34,0.0,Egypt,666.7
+500780,23,2024-11-09,Sports Item 11,Sports,2,95.21,0.0,Egypt,190.42
+500781,129,2024-03-04,Fashion Item 37,Fashion,2,115.15,0.15,UAE,195.76
+500782,113,2024-03-24,Toys Item 39,Toys,3,90.65,0.0,Morocco,271.95
+500783,474,2024-01-24,Toys Item 24,Toys,5,20.31,0.0,UAE,101.55
+500784,31,2024-01-08,Sports Item 38,Sports,1,109.63,0.0,Lebanon,109.63
+500785,569,2024-12-10,Grocery Item 7,Grocery,1,139.89,0.15,UAE,118.91
+500786,350,2024-02-15,Grocery Item 31,Grocery,5,36.69,0.15,Egypt,155.93
+500787,28,2024-08-24,Home Item 5,Home,1,66.09,0.0,Egypt,66.09
+500788,228,2024-04-01,Fashion Item 7,Fashion,2,43.43,0.05,Egypt,82.52
+500789,332,2024-09-23,Fashion Item 10,Fashion,4,83.37,0.0,Egypt,333.48
+500790,154,2024-05-28,Electronics Item 12,Electronics,1,106.2,0.0,Egypt,106.2
+500791,560,2024-04-21,Sports Item 25,Sports,4,48.65,0.15,Jordan,165.41
+500792,375,2024-06-14,Electronics Item 21,Electronics,4,58.58,0.0,Saudi Arabia,234.32
+500793,288,2024-11-13,Fashion Item 25,Fashion,2,87.86,0.0,UAE,175.72
+500794,146,2024-02-28,Fashion Item 25,Fashion,1,62.96,0.15,Egypt,53.52
+500795,330,2024-10-17,Toys Item 14,Toys,4,63.82,0.0,UAE,255.28
+500796,177,2024-10-27,Toys Item 35,Toys,1,146.51,0.0,Saudi Arabia,146.51
+500797,573,2024-06-09,Toys Item 10,Toys,3,129.47,0.0,Egypt,388.41
+500798,575,2024-11-18,Sports Item 31,Sports,2,105.07,0.25,Morocco,157.6
+500799,388,2024-02-19,Fashion Item 7,Fashion,5,91.51,0.2,Saudi Arabia,366.04
+500800,347,2024-09-26,Electronics Item 23,Electronics,5,114.57,0.0,Egypt,572.85
+500801,245,2024-12-22,Grocery Item 11,Grocery,4,113.04,0.0,Morocco,452.16
+500802,559,2024-05-09,Fashion Item 35,Fashion,1,61.58,0.05,Saudi Arabia,58.5
+500803,237,2024-02-11,Toys Item 23,Toys,2,58.81,0.1,Saudi Arabia,105.86
+500804,465,2024-08-09,Fashion Item 7,Fashion,3,39.24,0.25,Morocco,88.29
+500805,13,2024-01-01,Home Item 9,Home,4,79.16,0.15,Egypt,269.14
+500806,127,2024-12-08,Electronics Item 35,Electronics,1,29.09,0.2,Egypt,23.27
+500807,112,2024-05-06,Toys Item 13,Toys,4,64.45,0.05,Egypt,244.91
+500808,585,2024-06-14,Home Item 21,Home,1,133.3,0.15,Jordan,113.3
+500809,432,2024-08-04,Toys Item 21,Toys,4,26.57,0.25,UAE,79.71
+500810,163,2024-04-17,Toys Item 1,Toys,5,61.23,0.05,UAE,290.84
+500811,335,2024-06-26,Fashion Item 39,Fashion,3,75.21,0.0,Egypt,225.63
+500812,333,2024-09-09,Fashion Item 38,Fashion,3,78.89,0.0,UAE,236.67
+500813,482,2024-05-28,Home Item 11,Home,1,118.97,0.15,Jordan,101.12
+500814,473,2024-05-18,Grocery Item 10,Grocery,4,111.74,0.05,UAE,424.61
+500815,378,2024-06-18,Grocery Item 38,Grocery,3,160.55,0.05,Egypt,457.57
+500816,402,2024-02-29,Fashion Item 29,Fashion,2,39.01,0.0,Saudi Arabia,78.02
+500817,374,2024-06-04,Toys Item 11,Toys,1,120.51,0.1,Saudi Arabia,108.46
+500818,590,2024-09-11,Toys Item 5,Toys,3,71.38,0.0,Egypt,214.14
+500819,243,2024-08-05,Toys Item 33,Toys,2,49.12,0.1,Saudi Arabia,88.42
+500820,145,2024-04-29,Toys Item 9,Toys,1,138.35,0.2,UAE,110.68
+500821,394,2024-08-07,Fashion Item 6,Fashion,2,56.23,0.2,Egypt,89.97
+500822,397,2024-04-11,Home Item 2,Home,1,14.82,0.05,Egypt,14.08
+500823,279,2024-12-29,Electronics Item 27,Electronics,1,38.02,0.25,Jordan,28.52
+500824,261,2024-11-23,Home Item 7,Home,1,105.97,0.1,Egypt,95.37
+500825,157,2024-11-07,Fashion Item 18,Fashion,2,199.93,0.0,UAE,399.86
+500826,596,2024-12-14,Electronics Item 29,Electronics,1,217.47,0.15,Lebanon,184.85
+500827,78,2024-05-29,Grocery Item 8,Grocery,2,238.83,0.25,Egypt,358.24
+500828,68,2024-01-25,Home Item 8,Home,1,86.52,0.0,UAE,86.52
+500829,488,2024-11-24,Toys Item 9,Toys,5,22.18,0.05,Saudi Arabia,105.36
+500830,378,2024-05-04,Electronics Item 24,Electronics,3,82.22,0.0,Jordan,246.66
+500831,330,2024-11-20,Sports Item 23,Sports,4,159.06,0.05,UAE,604.43
+500832,435,2024-06-10,Toys Item 2,Toys,2,98.36,0.0,UAE,196.72
+500833,522,2024-02-14,Sports Item 37,Sports,5,51.84,0.05,Saudi Arabia,246.24
+500834,192,2024-06-17,Fashion Item 39,Fashion,3,308.82,0.2,UAE,741.17
+500835,35,2024-09-09,Fashion Item 33,Fashion,4,111.91,0.0,Egypt,447.64
+500836,358,2024-03-02,Grocery Item 16,Grocery,2,121.59,0.0,Egypt,243.18
+500837,26,2024-06-30,Sports Item 19,Sports,3,197.89,0.05,Egypt,563.99
+500838,490,2024-06-04,Sports Item 39,Sports,4,217.43,0.0,Morocco,869.72
+500839,555,2024-03-19,Grocery Item 5,Grocery,3,161.63,0.1,UAE,436.4
+500840,318,2024-01-04,Toys Item 12,Toys,1,118.75,0.0,UAE,118.75
+500841,176,2024-02-19,Grocery Item 21,Grocery,5,125.47,0.0,UAE,627.35
+500842,142,2024-04-13,Grocery Item 10,Grocery,1,132.44,0.0,Egypt,132.44
+500843,336,2024-05-14,Electronics Item 37,Electronics,3,94.26,0.1,Jordan,254.5
+500844,48,2024-03-06,Fashion Item 26,Fashion,1,92.03,0.2,Egypt,73.62
+500845,451,2024-12-27,Grocery Item 33,Grocery,3,83.24,0.25,Saudi Arabia,187.29
+500846,54,2024-04-09,Grocery Item 34,Grocery,3,84.24,0.2,Saudi Arabia,202.18
+500847,45,2024-09-10,Grocery Item 2,Grocery,1,40.18,0.0,Saudi Arabia,40.18
+500848,514,2024-10-01,Toys Item 6,Toys,3,27.01,0.25,Morocco,60.77
+500849,443,2024-01-05,Home Item 15,Home,3,20.71,0.0,Jordan,62.13
+500850,270,2024-08-23,Home Item 21,Home,1,101.68,0.25,Jordan,76.26
+500851,265,2024-08-20,Sports Item 25,Sports,4,92.31,0.1,Egypt,332.32
+500852,121,2024-05-13,Home Item 10,Home,5,51.48,0.15,Egypt,218.79
+500853,208,2024-11-17,Sports Item 34,Sports,5,114.04,0.1,UAE,513.18
+500854,527,2024-02-20,Grocery Item 14,Grocery,3,71.37,0.25,Egypt,160.58
+500855,191,2024-05-18,Home Item 15,Home,3,90.37,0.05,Egypt,257.55
+500856,369,2024-04-28,Sports Item 17,Sports,1,77.07,0.1,Egypt,69.36
+500857,200,2024-04-11,Toys Item 38,Toys,2,73.23,0.1,Egypt,131.81
+500858,222,2024-08-18,Fashion Item 29,Fashion,3,33.33,0.1,Egypt,89.99
+500859,175,2024-09-18,Electronics Item 4,Electronics,1,8.75,0.0,Egypt,8.75
+500860,528,2024-02-03,Electronics Item 17,Electronics,1,178.02,0.0,Egypt,178.02
+500861,421,2024-04-21,Sports Item 1,Sports,2,36.6,0.0,Saudi Arabia,73.2
+500862,79,2024-07-23,Sports Item 5,Sports,5,17.06,0.05,Egypt,81.04
+500863,50,2024-03-01,Fashion Item 24,Fashion,1,71.93,0.25,Lebanon,53.95
+500864,39,2024-07-09,Home Item 29,Home,4,51.26,0.1,UAE,184.54
+500865,435,2024-10-18,Sports Item 13,Sports,5,47.01,0.15,Jordan,199.79
+500866,192,2024-06-24,Home Item 6,Home,4,50.39,0.05,UAE,191.48
+500867,286,2024-12-25,Toys Item 36,Toys,1,48.14,0.0,Egypt,48.14
+500868,147,2024-08-06,Toys Item 31,Toys,1,131.57,0.0,UAE,131.57
+500869,463,2024-01-25,Toys Item 35,Toys,4,91.96,0.1,Egypt,331.06
+500870,429,2024-09-08,Electronics Item 38,Electronics,5,85.89,0.1,Jordan,386.5
+500871,474,2024-05-10,Electronics Item 21,Electronics,4,69.08,0.0,UAE,276.32
+500872,592,2024-08-22,Home Item 1,Home,1,25.25,0.05,Egypt,23.99
+500873,474,2024-08-21,Home Item 22,Home,3,107.31,0.0,Lebanon,321.93
+500874,591,2024-07-25,Electronics Item 24,Electronics,5,164.79,0.15,Lebanon,700.36
+500875,456,2024-02-15,Sports Item 36,Sports,4,44.21,0.0,Egypt,176.84
+500876,126,2024-04-02,Toys Item 28,Toys,5,56.39,0.0,Egypt,281.95
+500877,112,2024-08-16,Sports Item 33,Sports,3,45.56,0.0,UAE,136.68
+500878,185,2024-11-10,Grocery Item 17,Grocery,4,36.46,0.15,Lebanon,123.96
+500879,450,2024-09-16,Toys Item 16,Toys,3,89.87,0.0,Egypt,269.61
+500880,158,2024-06-16,Home Item 28,Home,2,72.66,0.0,Morocco,145.32
+500881,69,2024-02-29,Home Item 28,Home,1,38.92,0.25,Saudi Arabia,29.19
+500882,480,2024-12-16,Home Item 25,Home,2,113.11,0.0,Egypt,226.22
+500883,78,2024-01-15,Toys Item 28,Toys,4,56.79,0.0,Saudi Arabia,227.16
+500884,545,2024-08-27,Fashion Item 10,Fashion,5,107.97,0.05,Jordan,512.86
+500885,355,2024-09-28,Home Item 18,Home,2,43.66,0.25,Saudi Arabia,65.49
+500886,213,2024-11-03,Sports Item 1,Sports,4,45.84,0.0,Egypt,183.36
+500887,400,2024-11-05,Sports Item 8,Sports,4,12.8,0.0,Saudi Arabia,51.2
+500888,466,2024-01-07,Fashion Item 38,Fashion,1,42.18,0.25,Saudi Arabia,31.64
+500889,9,2024-05-06,Grocery Item 2,Grocery,3,61.59,0.25,Lebanon,138.58
+500890,221,2024-11-07,Home Item 3,Home,2,106.69,0.15,Egypt,181.37
+500891,331,2024-11-04,Electronics Item 33,Electronics,1,113.71,0.1,Egypt,102.34
+500892,162,2024-09-05,Sports Item 26,Sports,3,92.24,0.05,UAE,262.88
+500893,71,2024-12-15,Grocery Item 35,Grocery,2,96.03,0.0,Egypt,192.06
+500894,597,2024-03-26,Home Item 18,Home,2,135.04,0.05,Saudi Arabia,256.58
+500895,570,2024-08-05,Home Item 8,Home,2,79.27,0.0,Saudi Arabia,158.54
+500896,54,2024-04-13,Grocery Item 35,Grocery,2,205.68,0.0,Egypt,411.36
+500897,58,2024-12-20,Electronics Item 31,Electronics,5,181.5,0.0,Jordan,907.5
+500898,40,2024-12-06,Home Item 26,Home,1,3.0,0.25,Egypt,2.25
+500899,218,2024-04-30,Electronics Item 15,Electronics,1,34.46,0.15,UAE,29.29
+500900,405,2024-08-31,Electronics Item 14,Electronics,3,93.1,0.2,Egypt,223.44
+500901,377,2024-08-13,Grocery Item 9,Grocery,5,36.62,0.0,Egypt,183.1
+500902,214,2024-03-29,Sports Item 22,Sports,4,154.45,0.15,Lebanon,525.13
+500903,71,2024-08-11,Sports Item 25,Sports,3,163.97,0.05,UAE,467.31
+500904,16,2024-05-14,Home Item 14,Home,2,175.34,0.0,Jordan,350.68
+500905,518,2024-12-21,Electronics Item 13,Electronics,1,14.48,0.05,UAE,13.76
+500906,358,2024-09-28,Toys Item 31,Toys,1,94.27,0.05,Lebanon,89.56
+500907,411,2024-05-17,Electronics Item 24,Electronics,5,16.63,0.1,Morocco,74.83
+500908,295,2024-02-02,Electronics Item 18,Electronics,3,33.66,0.1,Jordan,90.88
+500909,143,2024-07-29,Sports Item 32,Sports,1,103.54,0.2,UAE,82.83
+500910,444,2024-06-11,Fashion Item 21,Fashion,1,83.34,0.1,Egypt,75.01
+500911,142,2024-11-06,Electronics Item 30,Electronics,4,95.41,0.0,Egypt,381.64
+500912,464,2024-09-17,Fashion Item 36,Fashion,1,21.54,0.1,Saudi Arabia,19.39
+500913,275,2024-03-13,Home Item 27,Home,1,36.14,0.05,Jordan,34.33
+500914,439,2024-11-07,Electronics Item 8,Electronics,3,112.74,0.2,Egypt,270.58
+500915,245,2024-11-17,Toys Item 11,Toys,4,32.36,0.0,UAE,129.44
+500916,573,2024-01-06,Electronics Item 28,Electronics,3,114.79,0.25,Egypt,258.28
+500917,8,2024-06-18,Home Item 19,Home,4,76.52,0.15,UAE,260.17
+500918,325,2024-11-18,Home Item 18,Home,1,270.17,0.05,Egypt,256.66
+500919,296,2024-05-31,Home Item 35,Home,5,44.22,0.0,Egypt,221.1
+500920,289,2024-01-20,Fashion Item 10,Fashion,4,81.83,0.0,UAE,327.32
+500921,490,2024-01-14,Toys Item 34,Toys,1,77.22,0.25,Morocco,57.92
+500922,285,2024-05-13,Home Item 17,Home,3,141.11,0.05,UAE,402.16
+500923,350,2024-12-25,Home Item 24,Home,3,10.86,0.0,Saudi Arabia,32.58
+500924,413,2024-03-31,Home Item 12,Home,3,28.4,0.25,Jordan,63.9
+500925,479,2024-03-01,Fashion Item 35,Fashion,3,137.7,0.05,UAE,392.44
+500926,64,2024-07-31,Home Item 3,Home,5,24.27,0.1,UAE,109.22
+500927,512,2024-04-28,Electronics Item 23,Electronics,2,16.36,0.0,Egypt,32.72
+500928,179,2024-08-12,Sports Item 11,Sports,3,17.1,0.1,UAE,46.17
+500929,2,2024-01-30,Fashion Item 2,Fashion,2,42.17,0.0,UAE,84.34
+500930,225,2024-06-05,Electronics Item 2,Electronics,4,95.63,0.1,UAE,344.27
+500931,292,2024-04-11,Grocery Item 17,Grocery,3,13.63,0.05,Morocco,38.85
+500932,180,2024-10-30,Grocery Item 14,Grocery,2,164.75,0.0,Egypt,329.5
+500933,279,2024-03-08,Grocery Item 33,Grocery,5,107.54,0.2,Jordan,430.16
+500934,20,2024-04-08,Sports Item 25,Sports,1,37.41,0.0,Egypt,37.41
+500935,398,2024-06-16,Sports Item 30,Sports,1,68.34,0.15,Egypt,58.09
+500936,340,2024-10-03,Sports Item 31,Sports,1,41.13,0.0,Egypt,41.13
+500937,452,2024-02-03,Fashion Item 33,Fashion,5,99.32,0.0,Morocco,496.6
+500938,501,2024-11-18,Electronics Item 3,Electronics,2,133.26,0.0,Egypt,266.52
+500939,37,2024-03-08,Home Item 36,Home,5,10.43,0.0,Egypt,52.15
+500940,487,2024-02-22,Grocery Item 30,Grocery,3,196.99,0.2,Jordan,472.78
+500941,124,2024-05-04,Sports Item 16,Sports,4,224.76,0.05,Saudi Arabia,854.09
+500942,510,2024-08-12,Toys Item 20,Toys,1,102.2,0.25,UAE,76.65
+500943,283,2024-06-20,Home Item 33,Home,5,143.75,0.05,Egypt,682.81
+500944,155,2024-10-25,Sports Item 17,Sports,1,137.26,0.2,Saudi Arabia,109.81
+500945,109,2024-12-30,Fashion Item 4,Fashion,2,10.5,0.0,Jordan,21.0
+500946,286,2024-02-16,Home Item 24,Home,1,60.53,0.0,Morocco,60.53
+500947,574,2024-06-22,Toys Item 6,Toys,1,20.77,0.15,Egypt,17.65
+500948,323,2024-12-29,Toys Item 21,Toys,2,216.47,0.25,Morocco,324.7
+500949,544,2024-04-27,Toys Item 29,Toys,3,7.22,0.05,Saudi Arabia,20.58
+500950,6,2024-09-25,Fashion Item 26,Fashion,2,21.01,0.15,Lebanon,35.72
+500951,573,2024-03-01,Fashion Item 24,Fashion,3,79.92,0.0,Saudi Arabia,239.76
+500952,171,2024-01-24,Electronics Item 11,Electronics,3,58.69,0.05,Saudi Arabia,167.27
+500953,467,2024-01-17,Home Item 29,Home,2,48.54,0.0,UAE,97.08
+500954,21,2024-09-04,Home Item 38,Home,1,34.58,0.15,Saudi Arabia,29.39
+500955,497,2024-07-17,Grocery Item 27,Grocery,4,150.33,0.05,Saudi Arabia,571.25
+500956,103,2024-08-26,Grocery Item 9,Grocery,4,270.09,0.05,Egypt,1026.34
+500957,586,2024-01-09,Fashion Item 32,Fashion,3,24.48,0.0,Morocco,73.44
+500958,291,2024-08-05,Sports Item 22,Sports,4,134.49,0.25,Egypt,403.47
+500959,597,2024-07-28,Sports Item 18,Sports,5,211.94,0.05,Egypt,1006.72
+500960,574,2024-04-08,Home Item 22,Home,1,57.63,0.25,UAE,43.22
+500961,57,2024-03-08,Home Item 2,Home,3,63.86,0.1,Lebanon,172.42
+500962,438,2024-12-10,Home Item 8,Home,5,85.68,0.0,Saudi Arabia,428.4
+500963,260,2024-01-20,Electronics Item 4,Electronics,5,68.89,0.25,Saudi Arabia,258.34
+500964,191,2024-01-03,Fashion Item 29,Fashion,4,55.08,0.0,Morocco,220.32
+500965,327,2024-07-31,Fashion Item 37,Fashion,1,15.91,0.2,Jordan,12.73
+500966,335,2024-08-26,Fashion Item 34,Fashion,4,109.3,0.1,Lebanon,393.48
+500967,487,2024-12-09,Fashion Item 39,Fashion,1,56.68,0.0,UAE,56.68
+500968,278,2024-11-12,Electronics Item 36,Electronics,4,91.78,0.1,Egypt,330.41
+500969,337,2024-05-29,Home Item 19,Home,3,40.32,0.0,UAE,120.96
+500970,558,2024-09-10,Fashion Item 9,Fashion,5,171.75,0.05,Lebanon,815.81
+500971,155,2024-01-30,Grocery Item 8,Grocery,3,35.97,0.2,Morocco,86.33
+500972,129,2024-03-13,Grocery Item 15,Grocery,4,93.21,0.0,Lebanon,372.84
+500973,390,2024-05-02,Grocery Item 8,Grocery,5,56.1,0.0,Egypt,280.5
+500974,370,2024-11-12,Toys Item 24,Toys,1,150.75,0.0,Egypt,150.75
+500975,237,2024-12-16,Fashion Item 11,Fashion,4,136.1,0.05,Egypt,517.18
+500976,562,2024-07-31,Home Item 7,Home,4,53.71,0.0,Saudi Arabia,214.84
+500977,243,2024-01-19,Toys Item 28,Toys,3,63.05,0.0,Jordan,189.15
+500978,284,2024-09-03,Home Item 31,Home,5,76.9,0.25,Egypt,288.38
+500979,310,2024-04-14,Sports Item 20,Sports,4,67.77,0.0,Egypt,271.08
+500980,399,2024-02-03,Home Item 33,Home,4,187.56,0.0,Saudi Arabia,750.24
+500981,592,2024-05-08,Sports Item 22,Sports,4,137.4,0.25,Jordan,412.2
+500982,103,2024-05-24,Sports Item 35,Sports,5,40.84,0.0,UAE,204.2
+500983,252,2024-01-17,Home Item 30,Home,5,59.11,0.1,Egypt,266.0
+500984,50,2024-11-28,Sports Item 31,Sports,5,108.81,0.0,UAE,544.05
+500985,245,2024-02-10,Sports Item 33,Sports,3,242.75,0.0,Saudi Arabia,728.25
+500986,499,2024-09-26,Home Item 24,Home,3,135.68,0.15,UAE,345.98
+500987,242,2024-11-04,Sports Item 5,Sports,2,185.45,0.1,Lebanon,333.81
+500988,452,2024-06-17,Sports Item 13,Sports,1,19.11,0.1,Jordan,17.2
+500989,556,2024-02-12,Electronics Item 38,Electronics,3,30.15,0.25,Saudi Arabia,67.84
+500990,184,2024-01-31,Electronics Item 34,Electronics,4,91.03,0.05,UAE,345.91
+500991,565,2024-08-03,Grocery Item 16,Grocery,3,31.74,0.15,Saudi Arabia,80.94
+500992,122,2024-12-08,Toys Item 23,Toys,3,78.15,0.0,Egypt,234.45
+500993,303,2024-07-30,Fashion Item 9,Fashion,5,29.41,0.2,Lebanon,117.64
+500994,51,2024-01-31,Fashion Item 12,Fashion,4,38.25,0.25,Egypt,114.75
+500995,527,2024-07-17,Electronics Item 32,Electronics,2,39.68,0.0,UAE,79.36
+500996,474,2024-03-22,Toys Item 5,Toys,2,103.05,0.0,Jordan,206.1
+500997,190,2024-04-27,Electronics Item 23,Electronics,5,204.08,0.0,UAE,1020.4
+500998,400,2024-05-21,Home Item 33,Home,1,243.36,0.2,Egypt,194.69
+500999,537,2024-06-25,Toys Item 20,Toys,5,57.52,0.05,Egypt,273.22
+501000,376,2024-07-30,Home Item 36,Home,3,26.57,0.05,Jordan,75.72
+501001,421,2024-12-02,Electronics Item 27,Electronics,3,13.53,0.0,Jordan,40.59
+501002,481,2024-01-21,Fashion Item 18,Fashion,3,51.77,0.15,Jordan,132.01
+501003,378,2024-09-28,Home Item 25,Home,3,73.34,0.15,UAE,187.02
+501004,6,2024-02-04,Toys Item 9,Toys,4,61.18,0.25,Saudi Arabia,183.54
+501005,499,2024-03-12,Electronics Item 30,Electronics,1,127.19,0.0,Egypt,127.19
+501006,573,2024-12-16,Electronics Item 30,Electronics,1,70.59,0.15,Egypt,60.0
+501007,239,2024-10-05,Toys Item 36,Toys,1,57.21,0.0,Egypt,57.21
+501008,251,2024-11-05,Toys Item 28,Toys,2,165.62,0.1,Jordan,298.12
+501009,482,2024-08-06,Toys Item 2,Toys,2,49.7,0.1,UAE,89.46
+501010,507,2024-05-24,Electronics Item 20,Electronics,1,13.31,0.2,UAE,10.65
+501011,461,2024-04-06,Electronics Item 4,Electronics,4,112.78,0.0,Egypt,451.12
+501012,501,2024-03-29,Home Item 7,Home,4,133.37,0.0,Egypt,533.48
+501013,600,2024-12-05,Home Item 11,Home,5,86.45,0.0,Egypt,432.25
+501014,81,2024-01-28,Electronics Item 27,Electronics,3,31.02,0.25,UAE,69.8
+501015,187,2024-04-23,Home Item 11,Home,3,62.57,0.05,Egypt,178.32
+501016,230,2024-09-16,Toys Item 13,Toys,2,59.04,0.1,Jordan,106.27
+501017,545,2024-07-23,Toys Item 17,Toys,2,31.62,0.25,Jordan,47.43
+501018,581,2024-09-30,Electronics Item 37,Electronics,4,38.11,0.25,Jordan,114.33
+501019,335,2024-04-03,Home Item 2,Home,1,84.33,0.2,Egypt,67.46
+501020,544,2024-09-25,Fashion Item 20,Fashion,5,71.18,0.0,Egypt,355.9
+501021,44,2024-01-15,Sports Item 26,Sports,3,73.14,0.0,Morocco,219.42
+501022,466,2024-12-14,Sports Item 18,Sports,2,18.32,0.25,Morocco,27.48
+501023,363,2024-07-31,Sports Item 6,Sports,4,29.9,0.0,Morocco,119.6
+501024,448,2024-01-30,Fashion Item 38,Fashion,4,224.62,0.0,UAE,898.48
+501025,413,2024-11-25,Grocery Item 28,Grocery,3,118.35,0.0,Egypt,355.05
+501026,48,2024-09-14,Grocery Item 29,Grocery,2,85.35,0.0,Lebanon,170.7
+501027,183,2024-04-24,Fashion Item 34,Fashion,2,75.34,0.15,Egypt,128.08
+501028,105,2024-10-29,Toys Item 6,Toys,5,134.0,0.25,Egypt,502.5
+501029,469,2024-11-22,Toys Item 11,Toys,5,59.97,0.1,Egypt,269.86
+501030,597,2024-12-14,Grocery Item 11,Grocery,3,68.58,0.0,Egypt,205.74
+501031,22,2024-09-17,Electronics Item 24,Electronics,1,226.38,0.15,Egypt,192.42
+501032,236,2024-01-06,Electronics Item 30,Electronics,4,67.76,0.05,Jordan,257.49
+501033,74,2024-04-20,Sports Item 16,Sports,4,81.08,0.0,Egypt,324.32
+501034,336,2024-03-20,Grocery Item 12,Grocery,1,169.03,0.2,Egypt,135.22
+501035,580,2024-08-31,Grocery Item 39,Grocery,2,175.93,0.1,Egypt,316.67
+501036,465,2024-04-02,Sports Item 9,Sports,1,73.38,0.25,UAE,55.04
+501037,479,2024-01-14,Grocery Item 32,Grocery,5,37.71,0.2,UAE,150.84
+501038,22,2024-10-05,Sports Item 32,Sports,4,86.29,0.05,UAE,327.9
+501039,185,2024-05-17,Electronics Item 15,Electronics,5,138.95,0.2,Egypt,555.8
+501040,332,2024-12-27,Home Item 16,Home,4,39.13,0.2,Egypt,125.22
+501041,589,2024-12-23,Home Item 27,Home,4,336.36,0.05,Egypt,1278.17
+501042,190,2024-07-25,Fashion Item 12,Fashion,5,224.56,0.05,Egypt,1066.66
+501043,188,2024-01-10,Home Item 18,Home,2,124.76,0.05,Egypt,237.04
+501044,211,2024-02-07,Fashion Item 32,Fashion,4,143.72,0.25,UAE,431.16
+501045,236,2024-12-14,Sports Item 9,Sports,2,71.38,0.1,Morocco,128.48
+501046,180,2024-08-26,Grocery Item 36,Grocery,1,77.14,0.05,UAE,73.28
+501047,184,2024-10-19,Sports Item 8,Sports,4,40.7,0.25,Saudi Arabia,122.1
+501048,340,2024-09-02,Grocery Item 11,Grocery,3,86.16,0.2,Jordan,206.78
+501049,590,2024-01-13,Fashion Item 16,Fashion,2,60.32,0.0,Lebanon,120.64
+501050,346,2024-10-07,Fashion Item 18,Fashion,2,31.06,0.0,Egypt,62.12
+501051,581,2024-03-21,Electronics Item 33,Electronics,3,12.26,0.0,Egypt,36.78
+501052,59,2024-11-04,Toys Item 25,Toys,1,32.71,0.1,Morocco,29.44
+501053,474,2024-05-26,Grocery Item 28,Grocery,4,90.79,0.1,Morocco,326.84
+501054,479,2024-07-24,Grocery Item 28,Grocery,5,43.35,0.0,Saudi Arabia,216.75
+501055,490,2024-07-29,Sports Item 29,Sports,2,134.47,0.0,Lebanon,268.94
+501056,331,2024-04-24,Home Item 29,Home,4,73.2,0.05,UAE,278.16
+501057,70,2024-11-12,Electronics Item 36,Electronics,1,52.66,0.05,Morocco,50.03
+501058,574,2024-06-15,Home Item 32,Home,4,175.9,0.25,Saudi Arabia,527.7
+501059,241,2024-04-08,Toys Item 29,Toys,5,112.38,0.0,Jordan,561.9
+501060,270,2024-12-01,Sports Item 20,Sports,3,81.31,0.0,UAE,243.93
+501061,49,2024-04-07,Toys Item 4,Toys,3,78.24,0.0,Egypt,234.72
+501062,396,2024-01-14,Fashion Item 27,Fashion,3,98.85,0.2,Jordan,237.24
+501063,520,2024-01-12,Grocery Item 16,Grocery,2,148.42,0.0,Egypt,296.84
+501064,261,2024-08-05,Sports Item 8,Sports,1,26.45,0.2,Egypt,21.16
+501065,597,2024-02-10,Fashion Item 37,Fashion,4,46.76,0.0,Egypt,187.04
+501066,28,2024-08-12,Electronics Item 13,Electronics,5,144.29,0.25,UAE,541.09
+501067,401,2024-10-02,Electronics Item 28,Electronics,2,72.01,0.0,Morocco,144.02
+501068,241,2024-11-27,Fashion Item 35,Fashion,4,127.09,0.2,Egypt,406.69
+501069,137,2024-07-27,Grocery Item 2,Grocery,2,69.53,0.0,Lebanon,139.06
+501070,588,2024-03-06,Sports Item 4,Sports,2,13.11,0.0,Egypt,26.22
+501071,501,2024-05-14,Grocery Item 32,Grocery,3,83.34,0.05,Saudi Arabia,237.52
+501072,58,2024-10-23,Toys Item 34,Toys,2,43.54,0.15,Jordan,74.02
+501073,329,2024-05-15,Home Item 7,Home,1,50.89,0.1,Saudi Arabia,45.8
+501074,315,2024-05-08,Toys Item 14,Toys,3,35.21,0.15,Saudi Arabia,89.79
+501075,494,2024-03-28,Sports Item 24,Sports,5,52.86,0.0,Egypt,264.3
+501076,567,2024-06-24,Electronics Item 25,Electronics,5,53.93,0.2,UAE,215.72
+501077,501,2024-07-17,Home Item 11,Home,2,109.87,0.15,Egypt,186.78
+501078,135,2024-07-18,Toys Item 5,Toys,3,94.91,0.0,Lebanon,284.73
+501079,118,2024-01-03,Electronics Item 30,Electronics,1,95.49,0.0,Saudi Arabia,95.49
+501080,207,2024-01-16,Home Item 25,Home,5,32.88,0.05,Egypt,156.18
+501081,114,2024-04-08,Toys Item 33,Toys,3,57.75,0.1,UAE,155.93
+501082,402,2024-07-13,Fashion Item 15,Fashion,3,73.95,0.2,Jordan,177.48
+501083,381,2024-03-26,Toys Item 25,Toys,5,52.79,0.0,Morocco,263.95
+501084,454,2024-02-09,Toys Item 31,Toys,1,23.27,0.25,Jordan,17.45
+501085,196,2024-03-15,Electronics Item 31,Electronics,1,57.09,0.05,Egypt,54.24
+501086,386,2024-11-17,Grocery Item 12,Grocery,4,17.13,0.0,Egypt,68.52
+501087,434,2024-02-13,Home Item 39,Home,4,15.05,0.0,Saudi Arabia,60.2
+501088,431,2024-12-10,Sports Item 15,Sports,2,169.51,0.2,Lebanon,271.22
+501089,234,2024-02-23,Electronics Item 35,Electronics,4,18.8,0.0,Saudi Arabia,75.2
+501090,427,2024-11-07,Sports Item 28,Sports,5,29.74,0.0,Egypt,148.7
+501091,48,2024-07-06,Toys Item 12,Toys,1,92.25,0.1,Saudi Arabia,83.02
+501092,248,2024-05-07,Toys Item 14,Toys,1,60.81,0.2,Jordan,48.65
+501093,397,2024-06-23,Grocery Item 4,Grocery,4,202.86,0.2,Egypt,649.15
+501094,171,2024-07-25,Electronics Item 36,Electronics,1,64.0,0.2,Jordan,51.2
+501095,78,2024-01-11,Toys Item 1,Toys,4,19.37,0.05,UAE,73.61
+501096,253,2024-07-19,Electronics Item 16,Electronics,3,20.31,0.0,Egypt,60.93
+501097,200,2024-10-28,Home Item 22,Home,2,149.36,0.0,Egypt,298.72
+501098,251,2024-04-21,Home Item 7,Home,2,94.51,0.0,Morocco,189.02
+501099,148,2024-06-09,Grocery Item 7,Grocery,2,58.19,0.2,Egypt,93.1
+501100,532,2024-10-25,Electronics Item 13,Electronics,2,103.85,0.0,Egypt,207.7
+501101,88,2024-02-14,Fashion Item 31,Fashion,4,19.35,0.0,Saudi Arabia,77.4
+501102,148,2024-10-06,Sports Item 26,Sports,5,190.29,0.15,Morocco,808.73
+501103,565,2024-08-29,Fashion Item 14,Fashion,4,78.86,0.1,Jordan,283.9
+501104,340,2024-12-18,Grocery Item 20,Grocery,3,74.04,0.0,Egypt,222.12
+501105,248,2024-06-07,Toys Item 27,Toys,3,80.14,0.2,Egypt,192.34
+501106,328,2024-08-07,Fashion Item 31,Fashion,4,78.24,0.25,Jordan,234.72
+501107,387,2024-10-13,Toys Item 11,Toys,1,13.85,0.1,Saudi Arabia,12.46
+501108,17,2024-09-20,Fashion Item 14,Fashion,2,32.67,0.0,Egypt,65.34
+501109,404,2024-03-18,Fashion Item 19,Fashion,5,77.14,0.1,Egypt,347.13
+501110,397,2024-02-25,Home Item 22,Home,3,128.35,0.15,Egypt,327.29
+501111,20,2024-05-02,Toys Item 38,Toys,5,35.99,0.0,Egypt,179.95
+501112,385,2024-05-17,Home Item 28,Home,2,65.75,0.25,Egypt,98.62
+501113,104,2024-08-13,Grocery Item 19,Grocery,5,107.58,0.0,UAE,537.9
+501114,383,2024-02-27,Grocery Item 39,Grocery,1,84.55,0.1,Egypt,76.1
+501115,482,2024-02-22,Home Item 3,Home,4,70.18,0.2,UAE,224.58
+501116,90,2024-09-16,Home Item 25,Home,5,135.2,0.2,Lebanon,540.8
+501117,174,2024-10-26,Sports Item 4,Sports,4,41.17,0.2,UAE,131.74
+501118,70,2024-09-16,Home Item 13,Home,1,40.44,0.0,Saudi Arabia,40.44
+501119,464,2024-05-21,Fashion Item 39,Fashion,4,70.75,0.0,Saudi Arabia,283.0
+501120,329,2024-05-28,Electronics Item 7,Electronics,5,35.43,0.0,Saudi Arabia,177.15
+501121,13,2024-09-12,Home Item 21,Home,2,90.6,0.0,Jordan,181.2
+501122,238,2024-06-15,Fashion Item 12,Fashion,5,106.96,0.0,Egypt,534.8
+501123,171,2024-07-20,Fashion Item 8,Fashion,1,247.29,0.1,Egypt,222.56
+501124,278,2024-05-01,Sports Item 9,Sports,2,92.1,0.05,Jordan,174.99
+501125,190,2024-07-15,Electronics Item 12,Electronics,4,164.53,0.05,Egypt,625.21
+501126,341,2024-03-11,Electronics Item 38,Electronics,5,50.96,0.0,UAE,254.8
+501127,242,2024-03-03,Grocery Item 33,Grocery,5,91.02,0.0,Morocco,455.1
+501128,543,2024-05-22,Sports Item 1,Sports,3,105.95,0.05,Saudi Arabia,301.96
+501129,571,2024-06-21,Grocery Item 3,Grocery,1,19.96,0.05,Egypt,18.96
+501130,303,2024-09-06,Electronics Item 38,Electronics,4,16.31,0.0,Egypt,65.24
+501131,585,2024-05-07,Sports Item 3,Sports,2,153.7,0.25,UAE,230.55
+501132,18,2024-11-04,Grocery Item 35,Grocery,1,64.79,0.25,Egypt,48.59
+501133,157,2024-12-30,Electronics Item 38,Electronics,2,28.51,0.1,Egypt,51.32
+501134,297,2024-07-07,Toys Item 25,Toys,1,41.04,0.15,Egypt,34.88
+501135,555,2024-04-22,Electronics Item 5,Electronics,3,49.12,0.0,Lebanon,147.36
+501136,499,2024-08-20,Electronics Item 9,Electronics,4,53.11,0.05,UAE,201.82
+501137,27,2024-01-21,Sports Item 19,Sports,2,74.28,0.25,Saudi Arabia,111.42
+501138,437,2024-05-10,Toys Item 9,Toys,1,94.49,0.0,Egypt,94.49
+501139,1,2024-04-17,Fashion Item 21,Fashion,4,64.72,0.0,Egypt,258.88
+501140,527,2024-02-11,Home Item 19,Home,4,85.28,0.0,Egypt,341.12
+501141,114,2024-12-12,Home Item 15,Home,1,66.34,0.25,Egypt,49.76
+501142,150,2024-04-30,Fashion Item 21,Fashion,5,313.65,0.0,Egypt,1568.25
+501143,33,2024-03-21,Electronics Item 7,Electronics,3,33.87,0.1,UAE,91.45
+501144,383,2024-07-27,Grocery Item 23,Grocery,2,24.84,0.2,UAE,39.74
+501145,597,2024-09-06,Grocery Item 35,Grocery,5,32.79,0.2,Egypt,131.16
+501146,50,2024-01-02,Home Item 4,Home,1,200.63,0.0,Saudi Arabia,200.63
+501147,437,2024-07-06,Home Item 20,Home,3,105.93,0.0,Morocco,317.79
+501148,330,2024-06-06,Toys Item 32,Toys,5,135.12,0.25,UAE,506.7
+501149,336,2024-12-20,Home Item 14,Home,4,75.15,0.25,Lebanon,225.45
+501150,89,2024-10-27,Home Item 23,Home,5,37.21,0.25,Egypt,139.54
+501151,283,2024-01-01,Home Item 24,Home,5,37.71,0.25,Egypt,141.41
+501152,424,2024-09-16,Home Item 12,Home,3,67.09,0.15,UAE,171.08
+501153,158,2024-10-23,Fashion Item 6,Fashion,1,88.34,0.0,Saudi Arabia,88.34
+501154,344,2024-08-23,Sports Item 10,Sports,2,97.49,0.0,UAE,194.98
+501155,218,2024-12-19,Grocery Item 1,Grocery,2,42.12,0.0,Morocco,84.24
+501156,316,2024-01-13,Fashion Item 6,Fashion,5,94.29,0.1,Saudi Arabia,424.31
+501157,173,2024-08-25,Home Item 28,Home,5,55.0,0.05,Morocco,261.25
+501158,120,2024-07-01,Toys Item 1,Toys,1,163.41,0.0,Egypt,163.41
+501159,543,2024-02-22,Sports Item 30,Sports,3,306.3,0.0,UAE,918.9
+501160,444,2024-02-23,Grocery Item 4,Grocery,2,162.14,0.1,Morocco,291.85
+501161,404,2024-08-04,Electronics Item 37,Electronics,2,71.92,0.0,UAE,143.84
+501162,297,2024-10-07,Home Item 13,Home,3,120.22,0.0,Morocco,360.66
+501163,35,2024-01-05,Toys Item 13,Toys,2,3.0,0.2,Egypt,4.8
+501164,364,2024-06-04,Sports Item 31,Sports,4,23.04,0.1,Jordan,82.94
+501165,539,2024-09-12,Sports Item 16,Sports,1,34.7,0.0,Egypt,34.7
+501166,213,2024-06-10,Sports Item 24,Sports,4,36.59,0.1,Jordan,131.72
+501167,65,2024-07-23,Grocery Item 37,Grocery,4,33.63,0.0,Saudi Arabia,134.52
+501168,286,2024-10-10,Home Item 27,Home,2,29.76,0.0,Morocco,59.52
+501169,13,2024-01-25,Home Item 12,Home,3,158.5,0.0,Egypt,475.5
+501170,494,2024-08-20,Sports Item 1,Sports,1,214.36,0.2,Egypt,171.49
+501171,501,2024-03-24,Grocery Item 28,Grocery,2,69.85,0.15,Egypt,118.74
+501172,99,2024-09-05,Fashion Item 32,Fashion,1,114.65,0.0,Morocco,114.65
+501173,184,2024-01-28,Sports Item 35,Sports,1,109.29,0.0,UAE,109.29
+501174,12,2024-08-29,Fashion Item 35,Fashion,4,36.35,0.0,Morocco,145.4
+501175,89,2024-08-26,Electronics Item 11,Electronics,5,64.49,0.05,Saudi Arabia,306.33
+501176,52,2024-11-19,Fashion Item 27,Fashion,2,45.11,0.15,Egypt,76.69
+501177,455,2024-03-13,Electronics Item 37,Electronics,4,30.91,0.0,Jordan,123.64
+501178,82,2024-07-07,Fashion Item 7,Fashion,3,31.0,0.15,Jordan,79.05
+501179,269,2024-05-11,Electronics Item 10,Electronics,4,53.91,0.05,Saudi Arabia,204.86
+501180,7,2024-01-16,Home Item 10,Home,4,86.78,0.1,Egypt,312.41
+501181,598,2024-06-02,Fashion Item 25,Fashion,1,28.73,0.15,Morocco,24.42
+501182,208,2024-01-14,Toys Item 33,Toys,3,62.79,0.0,Jordan,188.37
+501183,228,2024-01-05,Electronics Item 7,Electronics,2,95.23,0.25,Saudi Arabia,142.84
+501184,143,2024-10-03,Home Item 29,Home,5,41.14,0.05,Saudi Arabia,195.42
+501185,560,2024-12-10,Electronics Item 37,Electronics,3,43.2,0.0,UAE,129.6
+501186,382,2024-01-23,Grocery Item 28,Grocery,1,39.27,0.15,Jordan,33.38
+501187,146,2024-05-08,Grocery Item 32,Grocery,2,24.36,0.05,UAE,46.28
+501188,145,2024-10-23,Fashion Item 24,Fashion,5,3.0,0.0,Saudi Arabia,15.0
+501189,481,2024-02-16,Sports Item 16,Sports,2,59.53,0.0,Jordan,119.06
+501190,260,2024-11-03,Sports Item 14,Sports,2,36.31,0.1,Lebanon,65.36
+501191,36,2024-11-15,Fashion Item 2,Fashion,5,34.81,0.0,Morocco,174.05
+501192,193,2024-09-12,Grocery Item 7,Grocery,2,78.79,0.0,Saudi Arabia,157.58
+501193,209,2024-04-06,Grocery Item 31,Grocery,2,114.09,0.1,UAE,205.36
+501194,22,2024-09-23,Electronics Item 37,Electronics,2,57.15,0.05,UAE,108.58
+501195,364,2024-06-04,Electronics Item 39,Electronics,1,58.63,0.1,Morocco,52.77
+501196,370,2024-10-08,Toys Item 2,Toys,2,104.46,0.15,UAE,177.58
+501197,224,2024-06-18,Home Item 37,Home,1,132.07,0.0,Egypt,132.07
+501198,535,2024-07-10,Toys Item 17,Toys,5,17.25,0.2,Egypt,69.0
+501199,208,2024-05-04,Home Item 11,Home,2,88.51,0.2,Jordan,141.62
+501200,164,2024-03-08,Sports Item 15,Sports,4,79.88,0.0,UAE,319.52
+501201,423,2024-12-15,Grocery Item 16,Grocery,5,17.87,0.2,Jordan,71.48
+501202,374,2024-07-24,Fashion Item 15,Fashion,1,35.13,0.0,Egypt,35.13
+501203,593,2024-07-09,Electronics Item 23,Electronics,5,77.52,0.0,Jordan,387.6
+501204,450,2024-08-07,Electronics Item 28,Electronics,5,23.16,0.25,Egypt,86.85
+501205,288,2024-09-17,Toys Item 36,Toys,2,33.0,0.0,Jordan,66.0
+501206,446,2024-01-07,Sports Item 30,Sports,5,5.03,0.0,Egypt,25.15
+501207,443,2024-04-07,Home Item 33,Home,3,35.33,0.15,UAE,90.09
+501208,400,2024-01-22,Sports Item 31,Sports,1,57.02,0.0,Morocco,57.02
+501209,190,2024-12-02,Electronics Item 6,Electronics,2,91.31,0.0,UAE,182.62
+501210,337,2024-02-29,Fashion Item 19,Fashion,3,103.2,0.0,Saudi Arabia,309.6
+501211,396,2024-09-25,Home Item 30,Home,1,29.59,0.05,Egypt,28.11
+501212,462,2024-09-18,Home Item 6,Home,5,26.62,0.05,Jordan,126.44
+501213,437,2024-12-14,Sports Item 4,Sports,3,114.39,0.15,Saudi Arabia,291.69
+501214,328,2024-01-12,Fashion Item 13,Fashion,1,72.1,0.15,UAE,61.28
+501215,449,2024-11-13,Sports Item 19,Sports,5,45.14,0.2,Saudi Arabia,180.56
+501216,289,2024-02-07,Toys Item 27,Toys,2,104.06,0.0,Saudi Arabia,208.12
+501217,293,2024-10-04,Grocery Item 29,Grocery,4,80.15,0.0,Jordan,320.6
+501218,591,2024-10-28,Home Item 6,Home,5,66.37,0.0,UAE,331.85
+501219,364,2024-05-27,Fashion Item 16,Fashion,4,65.64,0.1,Egypt,236.3
+501220,594,2024-09-08,Grocery Item 36,Grocery,2,77.65,0.25,Saudi Arabia,116.48
+501221,474,2024-12-02,Fashion Item 17,Fashion,1,51.0,0.05,Morocco,48.45
+501222,129,2024-07-13,Toys Item 23,Toys,1,13.83,0.0,Jordan,13.83
+501223,439,2024-11-16,Fashion Item 22,Fashion,4,61.38,0.0,Morocco,245.52
+501224,337,2024-09-07,Electronics Item 32,Electronics,3,42.31,0.0,Egypt,126.93
+501225,85,2024-03-24,Grocery Item 33,Grocery,3,61.91,0.05,Saudi Arabia,176.44
+501226,214,2024-06-21,Grocery Item 5,Grocery,5,17.05,0.0,Saudi Arabia,85.25
+501227,597,2024-03-12,Toys Item 19,Toys,4,70.08,0.2,Jordan,224.26
+501228,581,2024-03-30,Electronics Item 15,Electronics,3,51.68,0.05,Lebanon,147.29
+501229,181,2024-10-26,Sports Item 36,Sports,2,57.45,0.1,UAE,103.41
+501230,163,2024-09-14,Home Item 24,Home,2,52.1,0.0,UAE,104.2
+501231,32,2024-07-03,Sports Item 21,Sports,1,78.37,0.0,Saudi Arabia,78.37
+501232,236,2024-06-25,Grocery Item 33,Grocery,3,186.13,0.2,Egypt,446.71
+501233,371,2024-08-16,Sports Item 10,Sports,1,157.26,0.15,UAE,133.67
+501234,367,2024-10-21,Grocery Item 32,Grocery,2,127.17,0.2,Jordan,203.47
+501235,68,2024-11-18,Electronics Item 8,Electronics,5,34.11,0.05,Egypt,162.02
+501236,422,2024-08-19,Grocery Item 38,Grocery,2,35.06,0.15,Egypt,59.6
+501237,599,2024-08-28,Electronics Item 24,Electronics,1,63.65,0.05,Jordan,60.47
+501238,128,2024-10-14,Toys Item 1,Toys,5,61.1,0.2,Saudi Arabia,244.4
+501239,75,2024-10-05,Sports Item 33,Sports,3,70.32,0.1,Egypt,189.86
+501240,263,2024-02-06,Electronics Item 2,Electronics,5,249.46,0.1,UAE,1122.57
+501241,323,2024-09-23,Sports Item 31,Sports,3,39.65,0.0,Egypt,118.95
+501242,58,2024-03-09,Fashion Item 35,Fashion,2,127.11,0.25,UAE,190.66
+501243,186,2024-03-08,Electronics Item 11,Electronics,3,48.2,0.2,Saudi Arabia,115.68
+501244,242,2024-03-30,Toys Item 3,Toys,2,104.39,0.0,Jordan,208.78
+501245,74,2024-06-26,Fashion Item 38,Fashion,2,147.85,0.15,Egypt,251.34
+501246,385,2024-01-23,Toys Item 29,Toys,4,183.01,0.25,Morocco,549.03
+501247,520,2024-02-13,Electronics Item 21,Electronics,1,111.49,0.05,Egypt,105.92
+501248,67,2024-09-05,Grocery Item 18,Grocery,4,23.95,0.0,Jordan,95.8
+501249,415,2024-01-27,Home Item 20,Home,1,37.51,0.15,Egypt,31.88
+501250,456,2024-02-11,Fashion Item 6,Fashion,3,121.7,0.2,Jordan,292.08
+501251,577,2024-12-04,Grocery Item 3,Grocery,1,81.17,0.0,Morocco,81.17
+501252,267,2024-08-10,Grocery Item 4,Grocery,1,113.34,0.0,Egypt,113.34
+501253,174,2024-07-14,Sports Item 15,Sports,5,102.79,0.0,Saudi Arabia,513.95
+501254,269,2024-01-01,Sports Item 12,Sports,1,118.39,0.2,Saudi Arabia,94.71
+501255,98,2024-07-14,Toys Item 35,Toys,2,125.54,0.0,Morocco,251.08
+501256,460,2024-12-26,Sports Item 38,Sports,4,50.58,0.05,Jordan,192.2
+501257,263,2024-10-18,Sports Item 2,Sports,5,10.03,0.1,Egypt,45.14
+501258,259,2024-08-11,Sports Item 17,Sports,1,93.52,0.15,Egypt,79.49
+501259,553,2024-02-07,Fashion Item 31,Fashion,5,61.84,0.0,Jordan,309.2
+501260,34,2024-07-28,Grocery Item 17,Grocery,2,145.06,0.0,Egypt,290.12
+501261,538,2024-09-29,Fashion Item 22,Fashion,1,67.39,0.05,Morocco,64.02
+501262,222,2024-12-24,Grocery Item 39,Grocery,1,138.4,0.15,Egypt,117.64
+501263,434,2024-08-31,Sports Item 6,Sports,4,100.6,0.0,Morocco,402.4
+501264,10,2024-11-06,Sports Item 33,Sports,4,105.2,0.1,Morocco,378.72
+501265,159,2024-04-23,Grocery Item 17,Grocery,3,167.6,0.0,Morocco,502.8
+501266,44,2024-10-27,Sports Item 8,Sports,4,50.87,0.05,Egypt,193.31
+501267,420,2024-08-13,Home Item 39,Home,3,138.6,0.0,Egypt,415.8
+501268,262,2024-08-20,Toys Item 20,Toys,2,76.77,0.05,Egypt,145.86
+501269,574,2024-03-11,Home Item 18,Home,3,58.02,0.25,Saudi Arabia,130.55
+501270,478,2024-02-07,Sports Item 28,Sports,3,4.55,0.0,Saudi Arabia,13.65
+501271,367,2024-07-06,Fashion Item 32,Fashion,4,125.17,0.05,Egypt,475.65
+501272,523,2024-04-26,Toys Item 29,Toys,5,60.08,0.25,UAE,225.3
+501273,70,2024-03-14,Toys Item 35,Toys,2,55.94,0.1,Jordan,100.69
+501274,103,2024-08-26,Sports Item 26,Sports,1,180.77,0.25,Saudi Arabia,135.58
+501275,25,2024-07-29,Grocery Item 7,Grocery,4,237.99,0.05,Saudi Arabia,904.36
+501276,291,2024-03-27,Sports Item 38,Sports,2,86.33,0.2,UAE,138.13
+501277,44,2024-04-27,Fashion Item 24,Fashion,2,72.67,0.2,Lebanon,116.27
+501278,372,2024-02-24,Home Item 35,Home,1,39.86,0.0,UAE,39.86
+501279,156,2024-10-24,Sports Item 1,Sports,1,28.33,0.05,Egypt,26.91
+501280,446,2024-12-18,Electronics Item 10,Electronics,3,51.65,0.1,Egypt,139.45
+501281,103,2024-03-02,Sports Item 23,Sports,3,80.07,0.25,Saudi Arabia,180.16
+501282,213,2024-12-02,Sports Item 29,Sports,2,48.21,0.0,Jordan,96.42
+501283,108,2024-02-05,Electronics Item 30,Electronics,2,19.69,0.0,Jordan,39.38
+501284,154,2024-07-20,Fashion Item 13,Fashion,2,21.09,0.25,Jordan,31.64
+501285,251,2024-05-02,Home Item 6,Home,2,7.08,0.15,Jordan,12.04
+501286,79,2024-08-07,Toys Item 34,Toys,1,62.99,0.1,Jordan,56.69
+501287,163,2024-09-05,Fashion Item 25,Fashion,1,73.45,0.1,Egypt,66.1
+501288,586,2024-07-13,Home Item 5,Home,3,98.32,0.2,Egypt,235.97
+501289,229,2024-03-20,Grocery Item 25,Grocery,5,66.83,0.25,Egypt,250.61
+501290,357,2024-04-05,Grocery Item 28,Grocery,3,116.45,0.0,Egypt,349.35
+501291,520,2024-06-04,Sports Item 17,Sports,4,70.05,0.0,Morocco,280.2
+501292,509,2024-06-13,Fashion Item 4,Fashion,5,32.69,0.0,Egypt,163.45
+501293,563,2024-07-07,Grocery Item 13,Grocery,2,67.46,0.25,Egypt,101.19
+501294,267,2024-02-15,Sports Item 3,Sports,2,138.36,0.1,Saudi Arabia,249.05
+501295,17,2024-11-10,Sports Item 36,Sports,2,147.64,0.15,Saudi Arabia,250.99
+501296,482,2024-01-12,Sports Item 24,Sports,1,43.66,0.2,UAE,34.93
+501297,347,2024-10-12,Fashion Item 36,Fashion,5,51.07,0.15,UAE,217.05
+501298,434,2024-04-28,Toys Item 36,Toys,1,60.75,0.2,UAE,48.6
+501299,312,2024-12-26,Fashion Item 16,Fashion,1,38.0,0.05,Egypt,36.1
+501300,357,2024-09-12,Sports Item 14,Sports,1,48.12,0.1,UAE,43.31
+501301,273,2024-05-30,Sports Item 38,Sports,5,70.47,0.15,UAE,299.5
+501302,264,2024-03-05,Electronics Item 26,Electronics,1,32.98,0.0,Egypt,32.98
+501303,217,2024-04-28,Electronics Item 27,Electronics,2,96.14,0.0,Jordan,192.28
+501304,402,2024-08-24,Sports Item 18,Sports,2,166.63,0.0,Lebanon,333.26
+501305,274,2024-02-03,Sports Item 31,Sports,2,56.77,0.0,Saudi Arabia,113.54
+501306,31,2024-11-19,Home Item 5,Home,1,121.33,0.05,UAE,115.26
+501307,178,2024-11-19,Electronics Item 16,Electronics,5,10.36,0.0,Egypt,51.8
+501308,27,2024-10-24,Electronics Item 19,Electronics,1,127.13,0.1,Jordan,114.42
+501309,146,2024-03-13,Toys Item 8,Toys,2,146.07,0.2,Jordan,233.71
+501310,532,2024-05-02,Grocery Item 20,Grocery,3,53.44,0.1,UAE,144.29
+501311,535,2024-08-15,Fashion Item 11,Fashion,1,55.13,0.0,Morocco,55.13
+501312,386,2024-10-24,Toys Item 23,Toys,1,62.58,0.0,Egypt,62.58
+501313,466,2024-02-05,Toys Item 16,Toys,1,18.09,0.2,Egypt,14.47
+501314,555,2024-09-03,Sports Item 36,Sports,1,38.75,0.0,Egypt,38.75
+501315,26,2024-02-15,Electronics Item 19,Electronics,2,31.08,0.05,Morocco,59.05
+501316,98,2024-04-05,Sports Item 7,Sports,3,149.28,0.0,Egypt,447.84
+501317,267,2024-04-22,Toys Item 33,Toys,5,119.01,0.0,UAE,595.05
+501318,480,2024-02-10,Grocery Item 29,Grocery,1,106.48,0.2,Saudi Arabia,85.18
+501319,272,2024-09-02,Fashion Item 35,Fashion,3,146.61,0.2,Jordan,351.86
+501320,279,2024-11-01,Fashion Item 34,Fashion,1,98.19,0.0,Saudi Arabia,98.19
+501321,262,2024-06-27,Home Item 25,Home,1,53.95,0.15,Morocco,45.86
+501322,128,2024-03-21,Grocery Item 36,Grocery,5,111.9,0.0,Egypt,559.5
+501323,54,2024-12-26,Electronics Item 23,Electronics,3,46.51,0.15,Egypt,118.6
+501324,55,2024-08-12,Sports Item 26,Sports,1,73.41,0.25,Morocco,55.06
+501325,394,2024-05-02,Home Item 24,Home,1,91.03,0.25,UAE,68.27
+501326,545,2024-06-01,Grocery Item 29,Grocery,3,55.26,0.15,Saudi Arabia,140.91
+501327,398,2024-02-07,Fashion Item 25,Fashion,3,41.91,0.0,Jordan,125.73
+501328,422,2024-02-17,Electronics Item 36,Electronics,3,75.39,0.2,Egypt,180.94
+501329,203,2024-12-20,Grocery Item 11,Grocery,5,38.39,0.05,Egypt,182.35
+501330,143,2024-07-05,Toys Item 27,Toys,4,231.8,0.1,Egypt,834.48
+501331,525,2024-03-28,Grocery Item 13,Grocery,2,43.7,0.0,Egypt,87.4
+501332,542,2024-08-06,Grocery Item 16,Grocery,2,49.68,0.2,Egypt,79.49
+501333,525,2024-10-07,Electronics Item 3,Electronics,4,73.67,0.0,UAE,294.68
+501334,519,2024-06-03,Toys Item 25,Toys,1,28.56,0.0,Jordan,28.56
+501335,492,2024-06-23,Fashion Item 27,Fashion,1,147.92,0.1,Lebanon,133.13
+501336,153,2024-08-30,Toys Item 4,Toys,5,26.16,0.0,Egypt,130.8
+501337,229,2024-04-24,Toys Item 3,Toys,2,55.1,0.0,Morocco,110.2
+501338,530,2024-03-03,Sports Item 10,Sports,1,74.71,0.05,Saudi Arabia,70.97
+501339,365,2024-03-04,Toys Item 39,Toys,2,39.29,0.15,Saudi Arabia,66.79
+501340,88,2024-10-29,Sports Item 15,Sports,4,78.39,0.05,Morocco,297.88
+501341,132,2024-07-07,Home Item 28,Home,4,235.67,0.0,Saudi Arabia,942.68
+501342,22,2024-06-06,Sports Item 6,Sports,4,36.98,0.2,Jordan,118.34
+501343,297,2024-04-06,Grocery Item 4,Grocery,4,49.16,0.25,Egypt,147.48
+501344,286,2024-10-28,Sports Item 36,Sports,5,27.86,0.0,UAE,139.3
+501345,509,2024-11-02,Grocery Item 36,Grocery,5,105.11,0.0,Egypt,525.55
+501346,145,2024-08-03,Toys Item 27,Toys,3,36.99,0.05,Egypt,105.42
+501347,16,2024-05-30,Sports Item 35,Sports,2,44.8,0.1,Egypt,80.64
+501348,111,2024-07-11,Fashion Item 37,Fashion,5,149.06,0.25,UAE,558.97
+501349,228,2024-02-05,Home Item 15,Home,5,56.01,0.2,UAE,224.04
+501350,56,2024-09-28,Sports Item 30,Sports,5,104.42,0.0,UAE,522.1
+501351,475,2024-01-03,Sports Item 6,Sports,1,41.76,0.1,Saudi Arabia,37.58
+501352,559,2024-05-04,Electronics Item 15,Electronics,2,107.61,0.0,Jordan,215.22
+501353,388,2024-02-28,Toys Item 28,Toys,1,39.44,0.05,UAE,37.47
+501354,440,2024-04-11,Grocery Item 16,Grocery,1,81.97,0.0,Egypt,81.97
+501355,590,2024-06-03,Sports Item 23,Sports,4,32.33,0.15,Egypt,109.92
+501356,11,2024-07-06,Home Item 5,Home,5,130.04,0.05,Saudi Arabia,617.69
+501357,166,2024-07-09,Fashion Item 10,Fashion,4,20.32,0.25,Egypt,60.96
+501358,204,2024-04-06,Fashion Item 22,Fashion,1,47.61,0.2,UAE,38.09
+501359,109,2024-02-01,Toys Item 22,Toys,5,170.81,0.0,Jordan,854.05
+501360,39,2024-06-20,Home Item 31,Home,1,76.49,0.25,Egypt,57.37
+501361,229,2024-03-26,Sports Item 14,Sports,4,19.22,0.0,Morocco,76.88
+501362,494,2024-10-25,Sports Item 34,Sports,3,109.27,0.25,Morocco,245.86
+501363,365,2024-06-13,Sports Item 20,Sports,1,128.92,0.2,Egypt,103.14
+501364,71,2024-07-17,Grocery Item 32,Grocery,5,68.23,0.2,Egypt,272.92
+501365,269,2024-03-12,Toys Item 18,Toys,3,40.43,0.15,Morocco,103.1
+501366,391,2024-08-03,Electronics Item 21,Electronics,4,99.76,0.0,Saudi Arabia,399.04
+501367,567,2024-04-27,Home Item 23,Home,2,51.24,0.0,Egypt,102.48
+501368,377,2024-09-21,Electronics Item 24,Electronics,3,262.7,0.25,Egypt,591.07
+501369,419,2024-06-26,Sports Item 21,Sports,5,324.58,0.0,Jordan,1622.9
+501370,392,2024-02-22,Grocery Item 19,Grocery,5,160.97,0.0,Lebanon,804.85
+501371,588,2024-09-17,Home Item 16,Home,4,100.53,0.0,Egypt,402.12
+501372,481,2024-09-09,Electronics Item 26,Electronics,4,19.23,0.2,Jordan,61.54
+501373,161,2024-03-29,Toys Item 32,Toys,2,114.5,0.0,Morocco,229.0
+501374,95,2024-05-09,Grocery Item 36,Grocery,4,60.76,0.15,UAE,206.58
+501375,481,2024-06-08,Fashion Item 34,Fashion,1,56.96,0.15,Jordan,48.42
+501376,318,2024-06-01,Home Item 24,Home,2,129.9,0.0,Egypt,259.8
+501377,96,2024-10-12,Home Item 29,Home,5,45.26,0.0,Saudi Arabia,226.3
+501378,398,2024-07-10,Home Item 7,Home,1,36.4,0.2,UAE,29.12
+501379,569,2024-11-07,Sports Item 20,Sports,1,104.17,0.15,UAE,88.54
+501380,440,2024-12-09,Home Item 24,Home,4,96.61,0.0,Egypt,386.44
+501381,91,2024-08-12,Home Item 37,Home,3,41.47,0.0,Saudi Arabia,124.41
+501382,584,2024-05-03,Grocery Item 6,Grocery,3,44.21,0.0,Egypt,132.63
+501383,198,2024-03-27,Home Item 29,Home,5,268.2,0.2,Saudi Arabia,1072.8
+501384,50,2024-03-08,Toys Item 21,Toys,2,13.05,0.2,Egypt,20.88
+501385,462,2024-03-10,Electronics Item 23,Electronics,5,26.38,0.0,Saudi Arabia,131.9
+501386,146,2024-01-31,Toys Item 23,Toys,2,132.1,0.25,Saudi Arabia,198.15
+501387,168,2024-08-27,Toys Item 26,Toys,5,18.5,0.1,Egypt,83.25
+501388,190,2024-10-05,Toys Item 4,Toys,4,88.54,0.1,Egypt,318.74
+501389,315,2024-08-03,Fashion Item 37,Fashion,4,34.58,0.1,UAE,124.49
+501390,92,2024-06-23,Sports Item 32,Sports,3,24.19,0.0,UAE,72.57
+501391,511,2024-01-12,Grocery Item 4,Grocery,1,129.73,0.0,Morocco,129.73
+501392,167,2024-02-20,Home Item 20,Home,1,47.54,0.05,Jordan,45.16
+501393,453,2024-10-28,Sports Item 16,Sports,5,52.12,0.15,Egypt,221.51
+501394,483,2024-08-01,Grocery Item 9,Grocery,3,7.85,0.05,Jordan,22.37
+501395,529,2024-07-03,Fashion Item 5,Fashion,3,50.35,0.1,UAE,135.95
+501396,29,2024-01-29,Grocery Item 23,Grocery,3,102.42,0.0,Saudi Arabia,307.26
+501397,129,2024-02-28,Fashion Item 5,Fashion,4,116.47,0.05,Saudi Arabia,442.59
+501398,230,2024-04-21,Grocery Item 8,Grocery,2,222.96,0.1,UAE,401.33
+501399,388,2024-02-24,Grocery Item 35,Grocery,2,45.18,0.0,Egypt,90.36
+501400,23,2024-11-02,Electronics Item 3,Electronics,2,70.82,0.15,Egypt,120.39
+501401,399,2024-06-05,Sports Item 36,Sports,3,49.52,0.0,Saudi Arabia,148.56
+501402,111,2024-08-17,Electronics Item 25,Electronics,1,55.02,0.0,Egypt,55.02
+501403,262,2024-10-30,Sports Item 8,Sports,3,32.03,0.0,Saudi Arabia,96.09
+501404,504,2024-06-23,Grocery Item 13,Grocery,4,129.54,0.05,UAE,492.25
+501405,283,2024-06-06,Home Item 21,Home,2,76.65,0.25,Saudi Arabia,114.98
+501406,119,2024-01-22,Home Item 35,Home,4,50.5,0.0,Egypt,202.0
+501407,359,2024-10-30,Sports Item 4,Sports,3,105.93,0.15,Saudi Arabia,270.12
+501408,368,2024-09-22,Home Item 36,Home,5,33.05,0.0,UAE,165.25
+501409,574,2024-07-10,Fashion Item 29,Fashion,4,64.43,0.0,Saudi Arabia,257.72
+501410,360,2024-05-01,Grocery Item 28,Grocery,3,68.63,0.0,Egypt,205.89
+501411,572,2024-02-24,Grocery Item 28,Grocery,3,150.93,0.0,Egypt,452.79
+501412,418,2024-03-07,Grocery Item 9,Grocery,1,29.48,0.15,Morocco,25.06
+501413,2,2024-06-30,Electronics Item 9,Electronics,5,94.85,0.1,Jordan,426.82
+501414,529,2024-07-29,Sports Item 15,Sports,5,222.19,0.0,Egypt,1110.95
+501415,26,2024-04-21,Sports Item 13,Sports,3,100.47,0.0,Jordan,301.41
+501416,471,2024-02-02,Grocery Item 29,Grocery,2,154.81,0.0,Egypt,309.62
+501417,509,2024-05-20,Grocery Item 15,Grocery,4,3.0,0.0,UAE,12.0
+501418,592,2024-05-18,Toys Item 38,Toys,2,167.21,0.0,Egypt,334.42
+501419,316,2024-04-30,Home Item 13,Home,1,209.12,0.0,Egypt,209.12
+501420,69,2024-02-29,Sports Item 35,Sports,5,106.29,0.2,Egypt,425.16
+501421,223,2024-12-08,Sports Item 18,Sports,5,61.79,0.15,Morocco,262.61
+501422,197,2024-09-28,Electronics Item 5,Electronics,2,182.07,0.0,Jordan,364.14
+501423,252,2024-05-15,Grocery Item 34,Grocery,2,236.3,0.0,Saudi Arabia,472.6
+501424,53,2024-12-13,Sports Item 32,Sports,2,181.54,0.05,Egypt,344.93
+501425,80,2024-02-26,Grocery Item 21,Grocery,4,131.8,0.0,Egypt,527.2
+501426,213,2024-02-13,Sports Item 38,Sports,2,39.62,0.25,Saudi Arabia,59.43
+501427,562,2024-11-09,Grocery Item 19,Grocery,1,47.44,0.2,Egypt,37.95
+501428,165,2024-12-28,Fashion Item 34,Fashion,5,108.51,0.0,Egypt,542.55
+501429,261,2024-10-13,Grocery Item 18,Grocery,2,34.26,0.25,Saudi Arabia,51.39
+501430,21,2024-05-28,Electronics Item 27,Electronics,4,151.68,0.2,Morocco,485.38
+501431,261,2024-08-18,Sports Item 36,Sports,1,60.33,0.2,UAE,48.26
+501432,513,2024-04-06,Toys Item 6,Toys,1,124.86,0.2,Egypt,99.89
+501433,156,2024-11-22,Home Item 13,Home,1,113.14,0.0,UAE,113.14
+501434,362,2024-03-31,Home Item 18,Home,1,60.56,0.0,UAE,60.56
+501435,397,2024-08-31,Toys Item 12,Toys,5,121.59,0.15,UAE,516.76
+501436,580,2024-10-11,Toys Item 21,Toys,1,176.02,0.05,Egypt,167.22
+501437,257,2024-10-29,Home Item 38,Home,4,191.06,0.05,Jordan,726.03
+501438,333,2024-06-29,Grocery Item 35,Grocery,2,82.28,0.0,UAE,164.56
+501439,302,2024-10-19,Toys Item 12,Toys,4,51.08,0.0,Egypt,204.32
+501440,520,2024-06-14,Sports Item 9,Sports,5,110.22,0.0,Jordan,551.1
+501441,23,2024-10-15,Electronics Item 30,Electronics,2,110.4,0.0,Jordan,220.8
+501442,37,2024-02-23,Toys Item 11,Toys,1,40.13,0.1,Egypt,36.12
+501443,193,2024-10-07,Home Item 4,Home,4,87.73,0.0,Jordan,350.92
+501444,445,2024-10-30,Electronics Item 33,Electronics,3,121.52,0.05,Jordan,346.33
+501445,50,2024-12-01,Grocery Item 13,Grocery,2,96.3,0.0,Lebanon,192.6
+501446,148,2024-11-21,Grocery Item 5,Grocery,4,144.28,0.0,Egypt,577.12
+501447,357,2024-12-14,Grocery Item 26,Grocery,2,16.9,0.2,Egypt,27.04
+501448,94,2024-02-21,Grocery Item 18,Grocery,1,104.04,0.0,Lebanon,104.04
+501449,164,2024-08-06,Fashion Item 23,Fashion,5,47.27,0.0,Saudi Arabia,236.35
+501450,147,2024-03-16,Fashion Item 24,Fashion,2,50.26,0.05,Egypt,95.49
+501451,201,2024-04-08,Electronics Item 11,Electronics,3,22.82,0.0,Egypt,68.46
+501452,251,2024-12-19,Fashion Item 2,Fashion,5,16.57,0.0,Jordan,82.85
+501453,57,2024-01-20,Home Item 31,Home,5,220.03,0.0,Egypt,1100.15
+501454,428,2024-08-20,Fashion Item 25,Fashion,4,29.21,0.0,Saudi Arabia,116.84
+501455,354,2024-07-22,Home Item 21,Home,3,80.87,0.0,Egypt,242.61
+501456,591,2024-04-06,Home Item 2,Home,2,4.25,0.0,Morocco,8.5
+501457,67,2024-01-08,Grocery Item 9,Grocery,5,78.6,0.1,Morocco,353.7
+501458,459,2024-10-03,Home Item 14,Home,5,18.39,0.0,Egypt,91.95
+501459,579,2024-05-12,Fashion Item 15,Fashion,2,48.58,0.0,Lebanon,97.16
+501460,220,2024-09-03,Fashion Item 37,Fashion,5,137.75,0.0,UAE,688.75
+501461,583,2024-05-07,Electronics Item 29,Electronics,1,89.62,0.0,UAE,89.62
+501462,490,2024-08-14,Grocery Item 6,Grocery,3,81.54,0.0,UAE,244.62
+501463,453,2024-12-19,Sports Item 29,Sports,2,156.57,0.1,Egypt,281.83
+501464,517,2024-11-14,Sports Item 36,Sports,3,19.08,0.0,Egypt,57.24
+501465,600,2024-02-09,Electronics Item 22,Electronics,5,111.81,0.2,UAE,447.24
+501466,501,2024-07-08,Fashion Item 24,Fashion,5,27.31,0.2,Morocco,109.24
+501467,468,2024-10-29,Toys Item 18,Toys,1,12.79,0.1,Jordan,11.51
+501468,437,2024-04-19,Sports Item 34,Sports,4,48.89,0.0,Egypt,195.56
+501469,55,2024-11-12,Home Item 16,Home,5,18.54,0.2,Saudi Arabia,74.16
+501470,551,2024-11-08,Fashion Item 36,Fashion,4,139.12,0.1,UAE,500.83
+501471,9,2024-11-04,Fashion Item 39,Fashion,5,98.55,0.0,Egypt,492.75
+501472,200,2024-11-29,Toys Item 15,Toys,5,81.29,0.1,Egypt,365.81
+501473,496,2024-06-23,Fashion Item 17,Fashion,5,22.67,0.25,Saudi Arabia,85.01
+501474,244,2024-06-29,Grocery Item 32,Grocery,5,203.94,0.2,Egypt,815.76
+501475,41,2024-11-14,Grocery Item 22,Grocery,3,32.71,0.05,Saudi Arabia,93.22
+501476,105,2024-11-04,Fashion Item 27,Fashion,1,93.62,0.0,Egypt,93.62
+501477,296,2024-02-10,Grocery Item 37,Grocery,5,37.44,0.05,Jordan,177.84
+501478,428,2024-09-08,Grocery Item 10,Grocery,3,16.55,0.1,Saudi Arabia,44.69
+501479,272,2024-08-24,Sports Item 17,Sports,5,75.95,0.1,Egypt,341.78
+501480,516,2024-10-25,Grocery Item 4,Grocery,1,56.3,0.2,Morocco,45.04
+501481,84,2024-12-06,Fashion Item 37,Fashion,5,141.78,0.25,Morocco,531.67
+501482,215,2024-08-05,Fashion Item 14,Fashion,2,125.07,0.15,Lebanon,212.62
+501483,63,2024-12-13,Grocery Item 13,Grocery,2,28.34,0.0,Egypt,56.68
+501484,216,2024-01-01,Toys Item 2,Toys,5,164.99,0.0,Jordan,824.95
+501485,44,2024-08-26,Home Item 18,Home,2,83.94,0.0,UAE,167.88
+501486,458,2024-01-31,Toys Item 38,Toys,3,52.75,0.25,UAE,118.69
+501487,113,2024-04-23,Home Item 33,Home,1,115.03,0.0,Lebanon,115.03
+501488,4,2024-04-14,Grocery Item 29,Grocery,1,33.0,0.0,Jordan,33.0
+501489,170,2024-09-21,Grocery Item 25,Grocery,2,90.15,0.0,Jordan,180.3
+501490,408,2024-04-20,Electronics Item 11,Electronics,1,173.09,0.2,Morocco,138.47
+501491,161,2024-06-28,Toys Item 12,Toys,5,85.83,0.05,Jordan,407.69
+501492,224,2024-08-19,Fashion Item 15,Fashion,1,59.0,0.1,Egypt,53.1
+501493,428,2024-08-06,Fashion Item 39,Fashion,3,29.02,0.25,Saudi Arabia,65.3
+501494,501,2024-04-24,Toys Item 18,Toys,3,83.85,0.0,Egypt,251.55
+501495,282,2024-10-26,Toys Item 21,Toys,1,263.97,0.05,Egypt,250.77
+501496,438,2024-02-22,Sports Item 10,Sports,2,105.61,0.1,Egypt,190.1
+501497,16,2024-08-27,Electronics Item 21,Electronics,4,26.12,0.0,Egypt,104.48
+501498,224,2024-06-06,Grocery Item 24,Grocery,1,7.99,0.05,Egypt,7.59
+501499,27,2024-11-24,Sports Item 26,Sports,3,86.44,0.15,Saudi Arabia,220.42

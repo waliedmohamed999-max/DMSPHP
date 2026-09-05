@@ -1,0 +1,48 @@
+{
+  "dataset_name": "Housing Prices Dataset",
+  "file": "dataset.csv",
+  "rows": 400,
+  "columns": 6,
+  "column_names": [
+    "house_id",
+    "area_m2",
+    "rooms",
+    "location",
+    "year_built",
+    "price"
+  ],
+  "dtypes": {
+    "house_id": "int64",
+    "area_m2": "float64",
+    "rooms": "int64",
+    "location": "str",
+    "year_built": "int64",
+    "price": "float64"
+  },
+  "missing_values_per_column": {
+    "house_id": 0,
+    "area_m2": 0,
+    "rooms": 0,
+    "location": 0,
+    "year_built": 0,
+    "price": 0
+  },
+  "numeric_columns": [
+    "house_id",
+    "area_m2",
+    "rooms",
+    "year_built",
+    "price"
+  ],
+  "categorical_columns": [
+    "location"
+  ],
+  "source": "Synthetically generated for Sila's Data Analysis track (reproducible via numpy.random.seed) — not scraped/real-world PII, but internally consistent and realistic for teaching purposes.",
+  "business_context_en": "Prices for 400 properties across 5 locations, with their area, room count, and year built.",
+  "business_context_ar": "أسعار 400 عقار عبر 5 مناطق مختلفة، بمساحاتها وعدد غرفها وسنة بنائها.",
+  "sample_business_questions": [
+    "How does price vary by location?",
+    "Is there a correlation between area and price?",
+    "Which properties are price outliers?"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "dataset_name": "Subscriptions Dataset (Final Capstone — Surprise Dataset)",
+  "file": "dataset.csv",
+  "rows": 450,
+  "columns": 9,
+  "column_names": [
+    "subscription_id",
+    "user_id",
+    "plan",
+    "monthly_fee",
+    "signup_date",
+    "cancel_date",
+    "country",
+    "referral_source",
+    "autopay"
+  ],
+  "dtypes": {
+    "subscription_id": "int64",
+    "user_id": "int64",
+    "plan": "str",
+    "monthly_fee": "float64",
+    "signup_date": "str",
+    "cancel_date": "str",
+    "country": "str",
+    "referral_source": "str",
+    "autopay": "bool"
+  },
+  "missing_values_per_column": {
+    "subscription_id": 0,
+    "user_id": 0,
+    "plan": 0,
+    "monthly_fee": 0,
+    "signup_date": 0,
+    "cancel_date": 340,
+    "country": 0,
+    "referral_source": 0,
+    "autopay": 0
+  },
+  "source": "Synthetically generated for Sila's Data Analysis Final Capstone/Assessment — reproducible, internally consistent, not scraped real-world data.",
+  "note": "This dataset is intentionally NOT referenced in any regular lesson — it is reserved for the Final Capstone Project and Final Assessment so students genuinely analyze data they have not seen before."
+}
