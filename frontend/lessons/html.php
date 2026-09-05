@@ -130,6 +130,52 @@ include __DIR__ . '/../includes/header.php';
     <div class="en">🇬🇧 Notice in the preview: the article takes the larger space since it's the primary content, and the aside sits beside it with a different background to signal it's supplementary, not part of the article itself.</div>
 </div>
 
+<h2>7) الجداول / Tables</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 الجدول (<code>&lt;table&gt;</code>) بيستخدم لعرض بيانات فعليًا جدولية — أسعار، جداول مقارنة، نتائج. <code>&lt;tr&gt;</code> صف، <code>&lt;th&gt;</code> خلية عنوان (Bold وفي النص افتراضيًا)، و<code>&lt;td&gt;</code> خلية بيانات عادية. قاعدة مهمة: الجدول للبيانات الجدولية فعلًا (زي جدول أسعار) — مش لتنسيق تخطيط صفحة كامل، ده شغل CSS (Flexbox/Grid) اللي هتشوفه في المرحلة الجاية.</div>
+    <div class="en">🇬🇧 A <code>&lt;table&gt;</code> is for displaying genuinely tabular data — prices, comparison charts, results. <code>&lt;tr&gt;</code> is a row, <code>&lt;th&gt;</code> a header cell (bold and centered by default), and <code>&lt;td&gt;</code> a regular data cell. Important rule: tables are for actually tabular data (like a pricing table) — not for laying out an entire page, which is CSS's job (Flexbox/Grid), coming up in the next stage.</div>
+</div>
+<pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;الخطة&lt;/th&gt;
+        &lt;th&gt;السعر&lt;/th&gt;
+        &lt;th&gt;المساحة&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;أساسية&lt;/td&gt;
+        &lt;td&gt;مجانية&lt;/td&gt;
+        &lt;td&gt;1 جيجا&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;احترافية&lt;/td&gt;
+        &lt;td&gt;$9/شهر&lt;/td&gt;
+        &lt;td&gt;50 جيجا&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+<h3>المعاينة الفعلية / Actual Rendered Output</h3>
+<iframe class="render-box" style="height:150px" sandbox srcdoc='<html><body style="font-family:sans-serif;direction:rtl;margin:12px"><table style="border-collapse:collapse;width:100%"><tr><th style="border:1px solid #ccc;padding:8px;background:#f2f2f2">الخطة</th><th style="border:1px solid #ccc;padding:8px;background:#f2f2f2">السعر</th><th style="border:1px solid #ccc;padding:8px;background:#f2f2f2">المساحة</th></tr><tr><td style="border:1px solid #ccc;padding:8px">أساسية</td><td style="border:1px solid #ccc;padding:8px">مجانية</td><td style="border:1px solid #ccc;padding:8px">1 جيجا</td></tr><tr><td style="border:1px solid #ccc;padding:8px">احترافية</td><td style="border:1px solid #ccc;padding:8px">$9/شهر</td><td style="border:1px solid #ccc;padding:8px">50 جيجا</td></tr></table></body></html>'></iframe>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ إن الجدول من غير CSS مافيهوش حدود واضحة بين الخلايا افتراضيًا — الـ <code>border</code> اللي شفته في المعاينة ده Inline Style مؤقت بس عشان توضح الشكل، في مرحلة CSS هتتعلم تنسّق الجداول بشكل صحيح ومنفصل عن الـ HTML.</div>
+    <div class="en">🇬🇧 Notice a table has no visible borders between cells by default — the <code>border</code> you see in the preview is a temporary inline style just to make the shape clear; in the CSS stage you'll learn to style tables properly, separate from the HTML.</div>
+</div>
+<div class="mini-fe-editor">
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;اليوم&lt;/th&gt;
+        &lt;th&gt;المهمة&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;السبت&lt;/td&gt;
+        &lt;td&gt;تعلّم HTML&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:150px" sandbox></iframe>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 عدّل الجدول فوق بنفسك: زوّد صف جديد بيوم ومهمة تانية، أو زوّد عمود ثالث بعنوان "خلص؟".</div>
+    <div class="en">🇬🇧 Edit the table above yourself: add a new row with another day and task, or add a third column titled "Done?".</div>
+</div>
+
 <h2 id="practice">💻 جرّب بنفسك / Practice</h2>
 <div class="bi-block">
     <div class="ar">🇪🇬 المحرر تحت فيه هيكل HTML بسيط جاهز — عدّل عليه مباشرة (زوّد عنصر <code>&lt;li&gt;</code> جديد، غيّر النصوص، حط <code>&lt;span&gt;</code> جوه فقرة) وشوف النتيجة بتتحدث فورًا من غير أي زرار Run.</div>
@@ -213,6 +259,18 @@ include __DIR__ . '/../includes/header.php';
     <div class="quiz-feedback"></div>
 </div>
 
+<div class="quiz-box" data-correct="th">
+    <h3>سؤال 5 / Question 5</h3>
+    <p class="quiz-question">عايز خلية عنوان في أول صف جدول تبقى Bold ومتمركزة افتراضيًا من غير أي CSS. تستخدم إيه؟<br><span class="ltr" style="color:var(--muted);font-size:0.85em">You want a header cell in a table's first row to be bold and centered by default, with no CSS. What do you use?</span></p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q5" value="td"> &lt;td&gt;</label>
+        <label><input type="radio" name="q5" value="th"> &lt;th&gt;</label>
+        <label><input type="radio" name="q5" value="tr"> &lt;tr&gt;</label>
+    </div>
+    <button class="quiz-check-btn">تحقق من الإجابة / Check Answer</button>
+    <div class="quiz-feedback"></div>
+</div>
+
 <h2 id="challenge">🛠️ Challenge</h2>
 <div class="challenge-box">
     <h3>🛠️ ابني هيكل صفحة "عني" كامل / Build a Complete "About Me" Skeleton</h3>
@@ -240,6 +298,7 @@ include __DIR__ . '/../includes/header.php';
         <li><code>div</code>/<code>span</code> + <code>class</code>/<code>id</code> = أساس أي تنسيق CSS جاي.</li>
         <li>الفورمات (<code>form</code>, <code>input</code>, <code>label</code>) لاستقبال بيانات المستخدم.</li>
         <li>العناصر الدلالية (<code>header/nav/main/section/footer</code>) = كود احترافي، أفضل لـ SEO وAccessibility.</li>
+        <li>الجداول (<code>table/tr/th/td</code>) للبيانات الجدولية فعلًا — مش لتخطيط صفحة كاملة.</li>
     </ul>
 </div>
 
