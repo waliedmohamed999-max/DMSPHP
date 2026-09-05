@@ -15,6 +15,7 @@ include __DIR__ . '/../includes/header.php';
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
     <a href="#understand">🧠 Understand</a>
+    <a href="#practice">💻 Practice</a>
     <a href="#quiz">🧠 Quiz</a>
     <a href="#challenge">🛠️ Challenge</a>
     <a href="#project">🚀 Project</a>
@@ -92,6 +93,48 @@ calcBtn.addEventListener("click", function () {
 <div class="bi-block">
     <div class="ar">🇪🇬 لو دوست على الطلب ده، هتلاقي تابات فرعية مفيدة جدًا: <b>Headers</b> (الطلب اتبعت لـ URL إيه، بأنهي method زي GET، وأنهي Status Code رجع زي 200 لو نجح أو 404 لو الرابط غلط)، و<b>Response</b> (نص الرد الخام اللي رجع من السيرفر — نفس الـ JSON اللي بتاخده بعد <code>response.json()</code>)، و<b>Timing</b> (قد إيه الطلب استغرق وقت). ده بالظبط مكانك لما تشك إن مشكلة الـ fetch مش في الكود بتاعك، لكن في الرد نفسه.</div>
     <div class="en">🇬🇧 Clicking that request reveals very useful sub-tabs: <b>Headers</b> (what URL it hit, which method like GET, and what Status Code came back — 200 for success, 404 for a wrong URL), <b>Response</b> (the raw text the server sent back — the same JSON you get after <code>response.json()</code>), and <b>Timing</b> (how long the request took). This is exactly where you look when you suspect a fetch problem isn't in your code but in the response itself.</div>
+</div>
+
+<h2 id="practice">💻 دورك: صلّح الباگين بنفسك / Your Turn: Fix Both Bugs Yourself</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 قراءة رسالة الخطأ حاجة، وتصليحها بإيدك حاجة تانية. الكود تحت هو نفس الدالتين المعطوبتين اللي شفتهم فوق — لكن هنا تقدر تعدّل عليهم فعليًا. صلّح الاسم الغلط في الدالة الأولى (<code>pricee</code> → <code>price</code>)، وصلّح شرط الحلقة في الدالة التانية (<code>&lt;=</code> → <code>&lt;</code>)، ودوس "شغّل" — لو صلّحت صح، هتشوف <code>114.00</code> و<code>60</code> بدل الخطأ والـ NaN.</div>
+    <div class="en">🇬🇧 Reading an error message is one thing; fixing it with your own hands is another. The code below is the same two broken functions from above — but here you can actually edit them. Fix the typo'd name in the first function (<code>pricee</code> → <code>price</code>), and fix the loop condition in the second (<code>&lt;=</code> → <code>&lt;</code>), then click "Run" — if you fixed both correctly, you'll see <code>114.00</code> and <code>60</code> instead of the error and <code>NaN</code>.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="js">JS</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;button id="fixBtn"&gt;شغّل / Run&lt;/button&gt;
+&lt;div id="out1" style="margin-top:10px;font-family:Consolas,monospace"&gt;calculateTotal(100) -&gt; ...&lt;/div&gt;
+&lt;div id="out2" style="margin-top:6px;font-family:Consolas,monospace"&gt;sumArray([10,20,30]) -&gt; ...&lt;/div&gt;</textarea>
+    <textarea class="fe-code" data-tab="js" style="display:none" spellcheck="false">// باگ 1: صلّح اسم الـ Parameter عشان يتطابق مع اللي بيتستخدم جوه الدالة
+function calculateTotal(pricee) {
+    return price * 1.14;
+}
+
+// باگ 2: صلّح شرط الحلقة عشان مايتخطاش حدود المصفوفة
+function sumArray(arr) {
+    let total = 0;
+    for (let i = 0; i <= arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+
+document.getElementById("fixBtn").addEventListener("click", function () {
+    try {
+        document.getElementById("out1").textContent = "calculateTotal(100) -> " + calculateTotal(100).toFixed(2);
+    } catch (e) {
+        document.getElementById("out1").textContent = "calculateTotal(100) -> Error: " + e.message;
+    }
+    document.getElementById("out2").textContent = "sumArray([10,20,30]) -> " + sumArray([10, 20, 30]);
+});</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:150px" sandbox></iframe>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لو لسه شايف Error أو NaN، افتح DevTools على الصفحة دي بالذات (F12) وشوف تاب الـ Console — هيوريك بالظبط نفس نوع الرسائل اللي اتعلمت تقراها فوق، على الكود بتاعك انت.</div>
+    <div class="en">🇬🇧 If you still see an Error or NaN, open DevTools on this very page (F12) and check the Console tab — it'll show you exactly the kind of messages you learned to read above, on your own code this time.</div>
 </div>
 
 <div class="exercise-box">

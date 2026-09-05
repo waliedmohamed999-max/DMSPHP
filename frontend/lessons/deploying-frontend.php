@@ -15,6 +15,7 @@ include __DIR__ . '/../includes/header.php';
 <div class="step-tracker">
     <a href="#read">📖 Read</a>
     <a href="#understand">🧠 Understand</a>
+    <a href="#practice">💻 Practice</a>
     <a href="#quiz">🧠 Quiz</a>
     <a href="#challenge">🛠️ Challenge</a>
     <a href="#project">🚀 Project</a>
@@ -34,6 +35,29 @@ include __DIR__ . '/../includes/header.php';
 <div class="bi-block">
     <div class="ar">🇪🇬 وده بالظبط سبب إن Vercel وNetlify اختيار صحيح ومناسب هنا (على عكس مسارات PHP في المنصة دي، اللي محتاجة سيرفر بيفهم PHP فعليًا): مفيش أي كود سيرفر محتاج يشتغل، فمنصات زي دي بترفع ملفاتك كما هي على شبكة توزيع محتوى (CDN) عالمية وتوصّلها للزائر مباشرة — سريع، ومجاني للمشاريع الشخصية، ومن غير أي إعداد سيرفر.</div>
     <div class="en">🇬🇧 This is exactly why Vercel and Netlify are the right, appropriate choice here (unlike the PHP tracks on this platform, which genuinely need a server that runs PHP): there's no server code that needs to execute, so platforms like these upload your files as-is to a global content delivery network (CDN) and serve them directly to visitors — fast, free for personal projects, and with zero server setup.</div>
+</div>
+
+<h2 id="practice">💻 اكتب صفحتك الجاهزة للنشر / Build Your Deployment-Ready Page</h2>
+<div class="bi-block">
+    <div class="ar">🇪🇬 "موقع ثابت جاهز للنشر" معناه ببساطة: ملف <code>index.html</code> واحد شغال لوحده، من غير ما يحتاج أي سيرفر يفهمه أو يحوّله. عدّل على الصفحة تحت — غيّر الاسم، النص، واللون — ودوس "شغّل" لتشوفها. الصفحة دي بالظبط اللي هتاخدها في التمرين والتحدي تحت وتنشرها فعليًا على الإنترنت.</div>
+    <div class="en">🇬🇧 "A static, deployment-ready site" simply means: one <code>index.html</code> file that works entirely on its own, with no server needed to understand or transform it. Edit the page below — change the name, the text, the color — and click "Run" to see it. This exact page is what you'll take into the exercise and challenge below and actually deploy on the internet.</div>
+</div>
+<div class="mini-fe-editor">
+    <div class="fe-tabs">
+        <button class="fe-tab active" data-tab="html">HTML</button>
+        <button class="fe-tab" data-tab="css">CSS</button>
+    </div>
+    <textarea class="fe-code" data-tab="html" spellcheck="false">&lt;h1&gt;اسمك هنا&lt;/h1&gt;
+&lt;p&gt;مطوّر Front-End — بابني مواقع بـ HTML وCSS وJavaScript.&lt;/p&gt;
+&lt;a href="#" class="btn"&gt;تواصل معايا&lt;/a&gt;</textarea>
+    <textarea class="fe-code" data-tab="css" style="display:none" spellcheck="false">body { font-family: sans-serif; padding: 30px; text-align: center; background: #0f1117; color: #e6e8ef; }
+h1 { color: #6c8bff; }
+.btn { display: inline-block; margin-top: 14px; padding: 10px 24px; background: #35d0ba; color: #0f1117; border-radius: 8px; text-decoration: none; font-weight: bold; }</textarea>
+    <iframe class="render-box mini-fe-preview" style="height:180px" sandbox></iframe>
+</div>
+<div class="bi-block">
+    <div class="ar">🇪🇬 لاحظ: مفيش أي <code>&lt;?php&gt;</code> ولا استدعاء سيرفر ولا خطوة بناء — بس HTML وCSS خام. ده بالظبط اللي بيخلي Vercel وNetlify يقدروا يرفعوه على الإنترنت كما هو من غير أي إعداد إضافي.</div>
+    <div class="en">🇬🇧 Notice: no <code>&lt;?php&gt;</code>, no server call, no build step — just plain HTML and CSS. This is exactly what lets Vercel and Netlify upload it to the internet as-is, with no extra setup.</div>
 </div>
 
 <h2>2) طريقتان للنشر: ربط GitHub أو السحب والإفلات</h2>
